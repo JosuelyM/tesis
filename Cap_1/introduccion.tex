@@ -1,0 +1,226 @@
+
+% this file is called up by thesis.tex
+% content in this file will be fed into the main document
+%----------------------- introduction file header -----------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Capítulo 1: Introducción- DEFINIR OBJETIVOS DE LA TESIS              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Introducción}
+
+
+\section{La base de datos y su interpretación} % section headings are 
+
+Para la elaboración del trabajo,  se dispuso de la base de datos de los los n-grams de Google Books. Esta base de datos tiene hasta el momento alrededor del 4$\%$ de todas las publicaciones en diferentes idiomas,  y se caracteriza por en listar  por cada año y por cada idioma de publicación los “n-gramas” más utilizados.   Los n-gramas son las palabras o conjunto de palabras que forman el texto de un libro, donde el número n indicará la cantidad de palabras que forman el grama.  Es decir, los  1-grama son palabras individuales (una sola palabra o un signo), los 2-grama son frases compuestas por dos 1-grama, los 3-grama el conjunto de tres 1-grama y así sucesivamente.   Con la herramienta del \textit{n-gram viewer} \cite{ngramv}, los usuarios pueden acceder a una forma visual el comportamiento a lo largo del tiempo de un n-grama en los diferentes idiomas en que se publicó.  
+
+A partir de esta base, se extrajeron los datos de los 1-grama en cinco diferentes idiomas, inglés, francés, alemán, italiano y español, correspondientes a las publicaciones de 269 años (1740-2009).  De acuerdo a \cite{iplosone},  el kernel de un idioma lo componen entre 1500 a 3000 palabras más comunes del mismo,  cantidad que basta para conocer al idioma.  Para el estudio del trabajo se tomaron por cada año y por cada idioma,  las cinco mil palabras más usadas (cantidad que abarca palabras dentro y fuera del kernel), teniendo conjuntos homogéneos en tamaño.
+
+Cada palabra está asociada a una frecuencia, que es la cantidad de veces que apareció una palabra en las publicaciones de un año y un idioma, y asu vez cada frecuencia se vincula a un rango, que es la posición que ocupa la palabra en un ordenamiento.  Cada listado, está ordenado en forma descendente a partir de la frecuencia de cada palabra,  ocupando la posición uno y rango uno la palabra más frecuente, la posición dos y rango dos la segunda más frecuente y así sucesivamente, entonces las palabras más usadas tienen una frecuencia mayor y un rango menor. 
+
+Para aclarar y familiarizar los términos, se utilizara la palabra popularidad para auxiliar la relación entre la frecuencia y el rango, de esta manera las palabras más populares son las más frecuentes.
+
+
+
+\section{Forma de búsqueda}
+
+Se identifican palabras que sean iguales en escritura, carácter por carácter y que estén presentes en dos o más idiomas.  Si se define como  \textbf{Migración}, al movimiento de palabras de un idioma a otro, entonces las palabras \textbf{Palabras Migrantes}  son aquellas que están presentes en al menos dos idiomas.  Conviene en este punto realizar dos definiciones que serán útiles.
+
+\hfill \break
+
+Se define como  \textbf{idioma origen}, al idioma en el cual la palabra apareció por primera vez dentro de la lista de las cinco mil palabras más usadas.  
+
+\hfill \break 
+
+Se define como i\textbf{idioma receptor}, a  aquel donde la palabra está presente, siendo un conjunto diferente al idioma origen.  
+
+\hfill \break
+
+Para que existan las palabras migrantes, se necesita un origen y al menos un receptor. Si una palabra está presente en más de dos idiomas, alguno es el origen y los demás son los receptores. 
+
+Una vez que se tiene certeza de cuáles palabras son migrantes, y en cuáles idiomas está presente se procede a determinar el idioma origen y los idiomas receptores.   Si se suponen dos idiomas A y B donde la palabra se encuentra, y se sabe con seguridad el año de aparición en cada idioma y el rango que ocupó para ese año,  el criterio para determinar el origen es el siguiente: 
+
+
+\begin{enumerate}
+	
+	\item  Si la palabra apareció en años anteriores en el idioma A (dentro de las 5 mil más usadas) que en el idioma B, se establece al idioma A como el idioma origen y B como el receptor.
+	
+	\item Si la palabra apareció en el mismo año en ambos idiomas, se establece el idioma origen a aquel donde la palabra tuvo un menor rango, es decir, si el rango en la lista de las más usadas en el idioma A es menor que el rango en la lista del idioma B, entonces A es el idioma origen, en caso contrario, el origen es B.
+\end{enumerate}
+
+Los dos argumentos anteriores, se pueden ampliar si la palabra está presente en tres o más idiomas. Un análisis detallado de las palabras que cumplen esta condición se cubrirá en las secciones posteriores.
+
+La manera de clasificar el idioma origen de las palabras puede carecer de otras pautas para ser más preciso, sin embargo, a lo largo de toda la investigación se optó por utilizar lo más posible los datos de los n-gramas y  con ellos crear reglas para obtener resultados.  Una forma más precisa sería tomando otro tipo de base de datos, con información etimológica de las palabras y las diferentes escrituras que tomó la palabra hasta que prevaleció con una estructura escrita.  
+
+Conocidos los idiomas origen y receptor de las palabras migrantes, se llamarán \textbf{Préstamos} a las palabras con un mismo origen y que están  presentes en un receptor.  Se llamaran como los préstamos de A en B, a las palabras con origen A y receptor B. 
+
+
+\subsubsection*{Ventajas}
+
+
+\begin{itemize}
+	
+	\item [$-$] Determina el idioma donde la palabra fue más popular al comienzo de la base de datos (1740), y hacia donde se esparció el vocablo, dando un carácter histórico de los idiomas mas populares en diferentes épocas. 
+	
+	\item [$-$] Localiza las palabras que conservaron su escritura al pasar de un idioma a otro. 
+	
+	\item [$-$] Toma como influencia a las palabras que son importantes en un idioma y que son transmitidas a los demás, en ocasiones el origen deja de ser influyente, y el idioma que lleva las palabras a otros receptores, es también un receptor.  Este punto y el anterior se trataran a detalle en las secciones siguientes. 
+	
+\end{itemize}
+
+
+\subsubsection*{Desventajas}
+
+
+\begin{itemize}
+	
+	\item [$-$] Al encontrar palabras con igual escritura, se obtienen casos donde el significado en cada idioma es diferente.  Por ejemplo, la palabra  \textit{MAYOR}, que está presente en el inglés y en el español,  significa alcalde en inglés, mientras que en español es más grande que.
+	
+	\item [$-$] No se localizan palabras que han sufrido transformaciones en la escritura al pasar de un idioma a otro, consecuente de que la palabra se adapta a la gramática de los diferentes idiomas receptores.  Por ejemplo, las palabras imagine e imaginar, son similares en los primeros caracteres, teniendo el mismo significado en el inglés y en el español, no obstante la terminación de  sus últimas letras se modificó al estar en  la lengua inglesa y la española. 
+	
+	\item [$-$] Define un origen distinto al verdadero.  Muchos de estos casos se presentan al no tener una base de datos con más idiomas, y el verdadero origen puede estar en estas exclusiones. Por ejemplo la palabra natural, que proviene del latín y se encuentra en inglés y español,  el programa la identifica como  de origen inglés, más su verdadera procedencia es el latín. 
+	
+\end{itemize}
+
+
+\newpage
+
+\section{Primeros objetivos del análisis}
+
+Una premisa que puede explicar el por qué las palabras se alteran o no al pasar de un idioma a otro, se puede vincular a la adaptabilidad de la palabra por parte de los hablantes de la lengua.  Por ejemplo, la palabra \textit{internet} con un claro origen en el inglés, y año de “invención” alrededor de 1990,  migró y cobró relevancia en otros idiomas por la facilidad y la rapidez con la que las sociedades  aprovecharon el fenómeno de internet, beneficiándose de la revolución que trajo en aspectos como el desarrollo de las telecomunicaciones,  el avance tecnológico,  la sofisticación de aparatos, el cambio positivo en el modo de vivir de las personas, entre otros beneficios.  Tal adaptación por parte de la sociedad hizo cotidiano el concepto, y en consecuencia la palabra.  
+
+Otro palabra que sirve como ejemplo para este razonamiento es \textit{wi-fi}, donde la mayoría de las personas entiende el significado y el concepto que describe la palabra. Probablemente  exista una traducción para describir al fenómeno en cada idioma, sin embargo la cotidianidad que existe entre la escritura original y la comunidad que lo emplea, hace inviable una modificación que resulte en la pérdida de la familiaridad.
+
+
+Un caso donde un concepto y fenómeno ha logrado un cambio en la forma de vida de las comunidades,  y la palabra que se asocia a él ha sido transformada por los receptores es el del \textit{teléfono}; su escritura original \textit{teletrofono} es proveniente del italiano,  pero su apogeo se dio en el inglés, modificando la escritura a \textit{telephone}; los diferentes idiomas también hicieron una modificación, siendo \textit{téléphone} en francés, \textit{telefon} en alemán, \textit{teléfono} en español, e incluso el italiano adopta la escritura del español   (el n-gram viewer es útil para comprobar esto), a pesar de ser el idioma origen. Pocos cuestionan el cambio que originó el teléfono en la sociedad desde su aparición hasta  tiempos recientes, pero contrario al internet su escritura no prevaleció.  
+
+El tiempo que le toma a las palabras el pasar de un idioma a otro, es un factor que influye en la prevalencia de las palabras. El ejemplo del internet en los años recientes,  donde  la globalización ha permitido que la información pase de un medio a otro con mayor fluidez y el fenómeno que conlleva la palabra sea asimilado por las diferentes comunidades en un tiempo relativamente corto entre el origen de la palabra y su uso en los demás idiomas. 
+
+El encontrar factores o sucesos  que expliquen el por qué las palabras fluyen de un lado a otro, será uno de los objetivos del trabajo. Más objetivos se irán planteando conforme se avance en el texto, para llegar al propósito del análisis, permitiendo establecer una forma de cuantificar la influencia entre los idiomas. Antes de llegar a este punto, habrá que hacer más clasificaciones para un mejor manejo de los datos. 
+
+\newpage
+
+\section{Clasificaciones de las palabras}
+
+La primera clasificación  hecha fue el identificar  el  idioma origen y los diferentes idiomas receptores para las palabras migrantes, para establecer los préstamos de un idioma en otro, tras esta organización de datos, y como primer paso para llegar a la influencia de una lengua sobre otra,  es útil conocer qué tan importantes han sido los préstamos de un mismo origen en los demás idiomas, y también en qué año o años un idioma receptor ha adoptado recibido más préstamos de diferentes orígenes. 
+
+Si se supone un idioma receptor B, un año cualquiera que esté dentro de los datos y  la lista  de las 5 mil palabras más usadas de B para tal año, entonces dentro del registro habrá préstamos con idioma  origen A en alguna posición de rango.  Estos préstamos se han clasificado como:
+
+
+\begin{description}
+
+	\item [Préstamos Nuevos:] Son palabras que aparecen por primera vez en las más usadas del idioma B.
+	
+	\item [Préstamos Repetidos:] Palabras que ya habían aparecido en alguna lista del idioma B, y para ese año lo volvieron a hacer.
+	
+	\item [Préstamos Acumulados:] Conjunto de préstamos nuevos y repetidos.
+	
+	
+\end{description}
+
+
+Por lo tanto para un determinado año dentro de la lista de las más usadas, existirán palabras que aparecieron en la lista por primera vez y palabras que ya habían estado en la lista en al menos un año anterior.  Asimismo  habrá años en los que no existieron préstamos nuevos,  por lo que todos los préstamos por año serán repetidos.
+
+Ya que la base de datos de los N-grams de Google es amplia, muchas palabras pueden estar mal clasificadas o mal contadas, al existir errores en la tipografía o en las clasificaciones de los libros.  Para consolidar que las palabras que migran son relevantes en el idioma receptor, se han eliminado palabras que se presentan como nuevas en un año y que nunca más volvieron a aparecer en las listas de los años posteriores,  con el propósito de deslindarse de errores tipográficos, en consecuencia todas  las palabras que se clasificaron al principio como préstamos nuevos, pasaron a ser en algún momento préstamos repetidos. 
+
+Las palabras de acuerdo a  \cite{contenidopal}, se clasifican en palabras funcionales que auxilian a las demás a estructurar un mensaje de acuerdo a la gramática del idioma, y en palabras de contenido que llevan la información y significado del mensaje. Para obtener la esencia de las palabras que fluyen entre los idiomas, se han eliminado de las listas a los artículos, preposiciones y conjunciones, correspondientes a las palabras funcionales, quedando solo palabras de contenido.  Al tratarse de cinco diferentes idiomas, las posibles palabras funcionales se obtuvieron de diferentes diccionarios y páginas \cite{englishdic, frenchdic, germandic, italiandic, spanishdic}.
+
+En secciones posteriores, se realizará un estudio sobre el cómo afecta a los resultados la eliminación de palabras a partir de reglas arbitrarias.  Por el momento todo el trabajo se apoya en la eliminación de las palabras funcionales.
+
+
+\section{Migración directa y por puente}
+
+Se había tratado anteriormente como determinar el origen y los receptores de las palabras migrantes, una vez clasificados como préstamos, se propone el siguiente caso: 
+Un idioma origen A, tiene préstamos en los idiomas B y C,  es decir hay al menos una palabra proveniente de A y que está tanto en B como en C; las preguntas que surgen son las siguientes: ¿cómo se trasladaron los préstamos a los diferentes receptores? y ¿los préstamos han sido más importantes en los receptores que en el propio idioma origen. 
+
+Para responder estas interrogantes, se piensa en un préstamo con origen A  que apareció en C y antes que en B. De las listas de las palabras más usadas correspondientes a los 5 años previos a la aparición en B,  se toman  los promedios de las posiciones de rango que ocupó  la palabra  en los listados de A y de C, con ellos hay dos posibles formas de migración:
+
+
+\begin{description}
+	
+	\item[Migración Directa:] El promedio de los rangos en A es mayor que en C. La palabra migró de A a C y de A a B de forma independiente. 
+	
+	\item[Migración por puente:] El promedio en C es mayor que en A. La palabra necesito a C para poder llegar a B
+	
+\end{description}
+
+
+Se tomaron los 5 años anteriores, ya que al ser palabras publicadas en libros, la información transmiten tarda en ser asimilada por una población, no es tan rápida como lo puede ser la información transmitida por los periódicos. Por lo que debe existir un preámbulo de tiempo en lo que un libro es leído y un autor publica sobre el.
+
+Si entre los años de aparición en B y en C hay menos de 5 años, entonces se toma el promedio en los rangos en la cantidad de años de esa diferencia.
+
+Uno de los resultados esperados con las migraciones a través de los puentes es observar en qué idiomas receptores la popularidad de los préstamos fue mayor que en el idioma origen. Aumenta la complejidad, al tener un préstamo en más de dos idiomas receptores, en cada caso se repitió el algoritmo en cada idioma intermedio. 
+
+El encontrar y asegurar las posibles formas en las que una palabra se trasladó a todos los idiomas en los que está presente,  requiere de las relaciones con otro tipo de datos de diferentes categorías, como la política, la economía, la cultura, etc. Por el momento, al solo tener la base de datos de los N-grams, se tratará de utilizarla lo máximo posible.  En el capítulo 4, se discutirá la importancia de las palabras que utilizan un puente. 
+
+\newpage
+\section{Interpretación de la influencia}
+
+El medir la influencia que un evento tiene sobre otro, no es un proceso que esté mecanizado, como lo puede ser el determinar la distancia entre dos puntos o evaluar el tamaño de un objeto.  No existe un conjunto de reglas que afirmen o refuten si un acontecimiento es influyente en otro. En cada evento existe una cantidad diferente de variantes que intervienen entre ellas para  conducir a una respuesta sobre la influencia. 
+
+En el caso de los idiomas, las variables que se conocen son el tiempo (manifestado en los años de las listas), la frecuencia y el rango de las palabras.  Un dato importante es que la cantidad de libros que fueron digitalizados es mayor en los últimos años que en los primeros,  la frecuencia de la palabra con rango uno en las lista de 1740 puede ser la diezmilésima parte de la del mismo rango en la lista de 2009, inclusive tratándose de la misma palabra,  entonces se tendrán que normalizar los datos para que tengan la misma proporción. 
+
+De nuevo, se piensa en los préstamos de A, y los de C que están presentes en B.  Una manera preliminar de conocer la influencia, es contar cuántos préstamos de cada idioma están en las listas de cada año en B,  y el idioma más influyente será el que tenga más elementos. La idea es buena, pero no suficiente, para demostrarlo, se piensa en la lista de un año en B,  y al contar los préstamos, se obtiene una cantidad X para los que tienen origen A y  una cantidad Y para los de origen C,  con X $>$ Y. 
+
+Al utilizar el criterio anterior,  el idioma A es en principio más influyente que el C por tener más cantidad de elementos en B, pero si los préstamos de C ocupan rangos más pequeños que los de A, como el tener un rango pequeño es similar a tener una frecuencia mayor,  si se suma cada frecuencia  de los préstamos de A y C,  la suma para las de C puede ser mayor que la suma para las de A, en consecuencia las palabras de C son más importantes dentro de B que las palabras de A, ya que son más frecuentadas o son utilizadas más veces.   
+
+El utilizar la frecuencia es otra herramienta con la que se logra sustentar la respuesta a la influencia, puede ser alternativa o complementaria a la basada en la cantidad, en el trabajo se empleara cada una para describir un caso particular, aún falta añadir la normalización,  de manera formal se describen los dos métodos y se recuerda que las listas son de las cinco mil palabras más usadas. 
+
+\begin{description}
+	
+	\item[Influencia por cantidad:] Se toma como influencia a la cantidad de préstamos de A en la lista de un año en B.
+	
+	\item[Influencia por frecuencia:] La influencia estará determinada por relacion porcentual entre las frecuencias de los préstamos de A en la lista de B y la frecuencia de todas las palabras de la lista de B. 
+	
+\end{description}
+
+
+Para entender mejor  la influencia por frecuencia, se describira a detalle el algoritmo empleado:
+
+\begin{enumerate}
+	
+	\item En un año determinado del idioma B, se sumarán las frecuencias $f_{t}$ de cada una de las cinco mil palabras más usadas.  Esta cantidad se llamará \textbf{frecuencia  total por año.}
+	
+	\begin{equation}
+	\label{ec.ftot}
+	f_{t} = \sum_{i=1}^{5000} f_{i} \,\,\,\,\,\,\,\,\, i = posici\'{o}n \,\,\, de \,\,\,cada \,\,\,palabra
+	\end{equation}
+	
+	\item Como se conocen las posiciones $j$,  que ocupan los préstamos A en la lista de B, se procede a sumar sólo las frecuencias asociadas a estas palabras. Esta cantidad será la \textbf{frecuencia de préstamo} $f_{p}$,  esta cantidad es siempre menor que la frecuencia total por año.
+	
+	\begin{equation}
+	\label{ec.fpres}
+	f_{p} = \sum_{j} f_{j} \,\,\,\,\,\,\,\,\, j = posici\'{o}n \,\,\, de \,\,\,cada \,\,\,prestamo
+	\end{equation}
+	
+	
+	\item  Se divide la frecuencia de préstamo entre la frecuencia total por año, esta cantidad es la indicada para medir la influencia, se denotará como \textbf{frecuencia de uso} $F$ y es la porción que representan las frecuencias de los préstamos de A en B.  Como la influencia por cantidad se expresa como un porcentaje,  bastará multiplicar el cociente por cien para obtener el porcentaje.  
+	
+	\begin{equation}
+	\label{ec.fuso}
+	F = \frac{f_{p}}{f_{t}} * 100
+	\end{equation}
+	
+	
+	Entre más cercana a 100 $\%$ sea la frecuencia de uso, los préstamos del idioma A serán más relevantes en B.
+	
+	
+\end{enumerate}
+
+
+La frecuencia de uso está ya normalizada, siendo el parámetro de normalización la frecuencia total por año. Otra posible normalización sería al considerar la cantidad de libros que fueron registrados para obtener la lista de las palabras más usadas en cada año,  sin embargo se desconoce esta cifra.  
+
+
+\newpage
+\section{La influencia en 109 años (1900-2009)}
+
+Se ha comentado anteriormente la descripción de la base de datos extraída y la forma en la que se han clasificado los datos para ser adecuados en la medición de la influencia.  Al ser limitada la base de datos por no tener registros ( con suficiente información) para los cinco idiomas (inglés, francés, alemán, italiano y español) antes de 1740,  existe un periodo de tiempo durante los primeros treinta o cincuenta años, donde se encuentran una mayor cantidad de préstamos de un idioma a otro; este fenómeno se sigue presentando si el año del comienzo de las mediciones se recorre.  Este periodo con las mayores migraciones en los primeros años, presenta ruido a las mediciones de la influencia, mostrando una mayor influencia (en cantidad o en frecuencia)  en los años iniciales que en los finales.
+
+Para evitar tener ruido en las mediciones, se decidió partir la información en dos conjuntos, que ayuden al análisis, el primero será el conjunto base comprendido desde 1740 hasta 1900, y el segundo será el conjunto búsqueda englobado entre 1901 y 2009.  Con ello,  los préstamos y sus clasificaciones encontradas (para cualesquiera idiomas) en el conjunto base  se tomaron como verdaderas,  obteniendo un “background” de las palabras que migraron de un lado a otro  antes del comienzo de las mediciones en el conjunto búsqueda, evitando así el ruido.  Dada las particiones, la medición de la influencia solo se realizó en el conjunto búsqueda.
+
+Como se tienen dos maneras de medir influencia,  hay casos en los que conviene utilizar solo una forma o ambas.  Para los préstamos nuevos, se decidió emplear el método de influencia por cantidad, ya que mostrara los años de mayor intercambio de palabras que se asientan en el idioma receptor; el método de influencia por frecuencia no proporciona información relevante en estos préstamos ya que el impacto que representan las palabras nuevas en la frecuencia de uso del idioma receptor es muy pequeña, ya que generalmente las palabras nuevas entran a las listas en posiciones muy altas de rango.  
+
+La influencia por frecuencia brinda mayor información si se emplea en los préstamos por año, al evaluar la relevancia de todos los préstamos del idioma origen en el receptor. En este punto es importante el background que se obtuvo del conjunto base, ya que también se contó la influencia de los préstamos acumulados que surgieron en el background, debido a que para el primer año del conjunto búsqueda (1901) ya forman parte del idioma receptor, y tienen un impacto en él. 
+
+De manera resumida se hicieron por el momento dos análisis, el primero obteniendo la influencia por cantidad de los préstamos entre dos idiomas entre 1901 y 2009, y el segundo al contabilizar la influencia por frecuencia de los préstamos acumulados durante los mismos años.  Los resultados de cada prueba se presentarán en las siguientes secciones. 
+
+
