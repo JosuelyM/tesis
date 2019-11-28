@@ -1,4 +1,4 @@
-\chapter{La Base de datos}
+\chapter{La base de datos}
 
 \fxnote{En el titulo del capitulo, solo la primera palabra tiene mayusculas, 
 a menos que sea un nombre, etc. Ya la cambie, pero revisa en otross
@@ -7,7 +7,7 @@ capitulos, que la capitalizacion este bien.}
 \section{La base de datos y su interpretación} % {{{
 
 Para la elaboración del trabajo,  se dispuso de la base de datos de los los
-$n$-grams de Google Books\fxnote{Acá tienes que citar}. Esta base de datos
+$n$-grams de Google Books  \cite{ngramv} \fxnote{Acá tienes que citar}. Esta base de datos
 tiene hasta el momento alrededor del 4$\%$ de todas las publicaciones en
 diferentes idiomas,  y se caracteriza por en listar  por cada año y por cada
 idioma de publicación los ``$n$-gramas'' \fxnote{Mira como se ponen las
@@ -26,9 +26,8 @@ publicó.
 A partir de esta base, se extrajeron los datos de los 1-grama en cinco
 diferentes idiomas, inglés, francés, alemán, italiano y español,
 correspondientes a las publicaciones de 269 años (1740-2009).  De acuerdo a
-\cite{iplosone},  el kernel de un idioma lo componen entre 1500 a 3000 palabras
-más comunes del mismo,  cantidad que basta para conocer al idioma~\fxnote{Este no es
-el claim. Reformula}.  Para el
+\cite{languagesascool},  el kernel de un idioma lo componen entre 1500 a 3000 palabras
+más comunes del mismo,  cantidad que basta para conocer al idioma~\fxnote{Este no es  el claim. Reformula}.  Para el
 estudio del trabajo se tomaron por cada año y por cada idioma,  las cinco mil
 palabras más usadas (cantidad que abarca palabras dentro y fuera del kernel),
 teniendo conjuntos homogéneos en tamaño.
@@ -44,11 +43,12 @@ sucesivamente para todos los elementos.  Con ello se afirma que las palabras
 más usadas tienen una mayor frecuencia y un rango menor. 
 
 % }}}
-\section{Forma de búsqueda} % {{{
+\section{Palabras comunes entre idiomas}
+ % {{{
 \fxnote{Creo que el nombre de esta sección no es acertado. Tambien me gustaria
 que dijeras por que vas a ahcer lo qeu vas a hacer. }
 
-Se identifican palabras que sean iguales en escritura, carácter por carácter y
+Al tratar de identificar como es la presencia de un idioma en otro, una de las formas para lograrlo es reconocer aquellas palabras que son comunes entre dos o más idiomas,  estas representarán la base de toda la investigación al ser una herramienta para determinar como se han relacionado y alterado los idiomas por la presencia de nuevos vocablos.  Para ello se identifican palabras que sean iguales en escritura, carácter por carácter y
 que estén presentes en dos o más idiomas.  Si se define como
 \textbf{migración}, al movimiento de palabras de un idioma a otro, entonces las
 \textbf{palabras migrantes}  son aquellas que están presentes en al
@@ -94,9 +94,9 @@ rango en la lista de las más usadas en el idioma $\textit{A}$  es menor que el
 rango en la lista del idioma $\textit{B}$ , entonces $\textit{A}$  es el idioma
 origen, en caso contrario, el origen es $\textit{B}$ .
 \item Se descartan palabras que contengan un solo carácter, las que son
-compuestas por letras y números y aquellas que aparecen en el receptor sólo una
-vez. La intención es tener una  nueva base de datos con el mayor contenido
-limpio. 
+compuestas por letras y números y aquellas que aparecen en el receptor sólo en un año. La intención es tener una  nueva base de datos con el mayor contenido
+limpio con palabras que perduran al menos dos años en el receptor.
+
 \end{enumerate}
 \fxnote{Creo que convendría tener un par de ejemplos, como tablas o algo asi, 
 que incluyan palabras que migran razonablemente y otras que no, para uqe se entienda
@@ -122,46 +122,55 @@ $\textit{A}$  en $\textit{B}$  son el conjunto de palabras con origen
 $\textit{A}$  y con receptor $\textit{B}$.     
 
 
-\subsubsection*{Ventajas}
+
+
+
+%\subsubsection*{Ventajas}
 \fxnote{Esto no es una subsubseccion. Redacta mejor algo que introduzca la lista. 
 Tambien quité la linea, para que seas homogeneo cuando ahces una lista. Si quieres
 cambiar el simbolo del item en todas las listas, mejor si lo haces de manera global. 
 debe haber una forma de hacerlo.}
 
+Los criterios empleados para establecer orígenes ha mostrado mayormente resultados adecuados, sin embargo se presentaron donde el algoritmo no logra asentar el origen adecuado. Dentro de las ventajas ($\bullet$) y desventajas ($\ast$) del método se encuentran las siguientes:
 
 \begin{itemize}
-\item 
+\item [$\bullet$] 
 % [$-$] 
 Determina el idioma donde la palabra fue más popular al comienzo de
 la base de datos (1740), y hacia donde se esparció el vocablo, dando un
 carácter histórico de los idiomas mas populares en diferentes épocas. 
-\item Localiza las palabras que conservaron su escritura al pasar de un
+
+\item [$\bullet$] 
+Localiza las palabras que conservaron su escritura al pasar de un
 idioma a otro. 
-\item Valora a un idioma como importante e influyente si sus vocablos son
+
+\item [$\bullet$] 
+Valora a un idioma como importante e influyente si sus vocablos son
 transmitidos a los demás y perduran por un periodo de tiempo. También el mismo
 idioma es influyente si a través de él se han esparcido palabras a los demás, a
 pesar de que no sea el idioma origen. 
-\end{itemize}
 
-
-\subsubsection*{Desventajas}
-\begin{itemize}
-\item Al encontrar palabras con igual escritura, se obtienen casos donde
+\item [$\ast$] Al encontrar palabras con igual escritura, se obtienen casos donde
 el significado en cada idioma es diferente.  Por ejemplo, la palabra
-$\textit{MAYOR}$, que está presente en el inglés y en el español,  significa
+$\textit{mayor}$, que está presente en el inglés y en el español,  significa
 alcalde en inglés, mientras que en español es más grande que.
-\item No se localizan palabras que han sufrido transformaciones en la
+
+\item [$\ast$]
+No se localizan palabras que han sufrido transformaciones en la
 escritura al pasar de un idioma a otro, consecuente de que la palabra se adapta
 a la gramática de los diferentes receptores.  Por ejemplo, las palabras
 $\textit{imagine}$ e $\textit{imaginar}$, son similares en los primeros
 caracteres, teniendo el mismo significado en el inglés y en el español, no
 obstante la terminación de  sus últimas letras se modificó al estar en  la
 lengua inglesa y la española. 
-\item Puede definir un origen distinto al verdadero.  Muchos de estos casos se
+
+\item [$\ast$]
+ Puede definir un origen distinto al verdadero.  Muchos de estos casos se
 presentan al no tener una base de datos con más idiomas, y el verdadero origen
 puede estar en estas exclusiones. Por ejemplo la palabra natural, que proviene
 del latín y se encuentra en inglés y español con igual escritura,  el programa
 la identifica proveniente del inglés, más su verdadera procedencia es el latín. 
+
 \end{itemize}
 
 Se han revisado las palabras encontradas con el algoritmo descrito, en su
@@ -171,50 +180,26 @@ lingüística.  En los capítulos siguientes se proporcionara un vinculo para
 poder observar todas las palabras encontradas. \fxnote{Ok, veo que pones algunos ejemplos. 
 Discutamos si ponemos algo aca como una tabla o no.}
 
-Ya que  la base de datos es amplia y se busca tener palabras cuyo significado
-refleja la composición de los idiomas y no a la estructura escrita de los
-mismos\fxnote{Esta frase esta mal construida. ni se lo que quieres decir.}. Las
-palabras de acuerdo a\cite{contenidopal}, se clasifican en \fxnote{no entiendo 
+
+Las palabras que se encontraron se pueden agrupar en dos conjuntos de acuerdo a\cite{contenidopal}, las \textbf{palabras funcionales} son aquellas que auxilian a las demás a estructurar un mensaje de acuerdo a la gramática del idioma, y las \textbf{palabras de contenido} son las que llevan la información y el significado del mensaje. Ya  que se busca tener palabras cuyo significado refleje un concepto o situación donde estas son utilizadas, se decidio eliminar de las listas a los artículos, pronombres, preposiciones y conjunciones, correspondientes a las palabras funcionales, quedando solo palabras de contenido. Para eliminar las posibles palabras funcionales se emplearon diferentes paginas y diccionarios especializados en cada lengua \cite{englishdic, frenchdic, germandic, italiandic, spanishdic}. 
+
+\fxnote{no entiendo 
 que uso le das a las italicas y al bold face. Me puedes por favor aclarar eso?}
-\textbf{\textit{palabras funcionales,}} aquellas que auxilian a las demás a
-estructurar un mensaje de acuerdo a la gramática del idioma, y en
-\textbf{\textit{palabras de contenido}} que llevan la información y significado
-del mensaje. Para obtener la esencia de las palabras que fluyen entre los
-idiomas, se han eliminado de las listas a los artículos, pronombres,
-preposiciones y conjunciones, correspondientes a las palabras funcionales,
-quedando solo palabras de contenido. \fxnote{Aca estas cambiando totalmente de
-tema. Creo que este parrafo no va aca. El siguiente parrafo, tambien esta mal
-conectado. El otro que le sigue tambien. }
 
-Al tratarse de cinco diferentes idiomas, las posibles palabras funcionales se
-obtuvieron de diferentes diccionarios y páginas \cite{englishdic, frenchdic,
-germandic, italiandic, spanishdic}.
+\fxnote{yo hbaia puesto las italicas y en negritas para remarcar el concepto de palabras funcionales y de contenido. }
 
-En secciones posteriores, se realizará un estudio sobre el cómo afecta a los
-resultados la eliminación de palabras a partir de reglas arbitrarias.  Por el
-momento todo el trabajo se apoya en la eliminación de las palabras funcionales.
-% }}}
+
 \section{Partición de datos} % {{{
 
 \fxnote{No entiendo esta seccion }
 
-Al ser limitada la base de datos por no haber registros (suficiente
-información) para los cinco idiomas (inglés, francés, alemán, italiano y
-español) antes de 1740,  existe un periodo de tiempo durante los primeros
-treinta o cincuenta años, donde se encuentran una mayor cantidad de préstamos
-de un idioma a otro. Este periodo desfasa a  las migraciones ya que sin
-importar cual sea el año del comienzo y los idiomas utilizados,  la mayor
-cantidad de migraciones sigue ocurriendo años después del inicio.   
+-
+El tener una base de datos que comprende 269 años (1740-2009) no garantiza ser lo suficientemente completa para determinar el año preciso en que una palabra apareció en otro idioma, hay palabras cuyo primer empleo es más antiguo que el primer año en que se tienen registros. Este tipo de palabras tienen una característica común y es que migran en los primeros treinta años, sin importar el año en que comiencen las mediciones; a pesar de ser una característica importante el flujo de palabras siempre es mayor en este periodo, posterior a el las migraciones son menos frecuentes. Para estabilizar 
+el flujo de palabras, se decidió partir la información en dos conjuntos que cuyo contenido se emplee de forma diferente y se complemente uno a otro.  Se llamarán como:
 
-Para estabilizar el flujo de palabras entre idiomas, se decidió partir la
-información en dos conjuntos que ayuden al análisis.
 
-\textbf{Conjunto base.} (1740-1900) todos los movimientos encontrados en esta
-partición se tomarán como verdaderos,  obteniendo un \textit{background} de
-las palabras que migraron de un lado a otro.
+\textbf{Conjunto base.} (1740-1889) Todas las migraciones que ocurran dentro de estos años se tomarán como verdaderas, obteniendo un antecedente o historial de las palabras que migraron de un lado a otro y se han asentado en el idioma receptor. Con ello se establece una base de las palabras que ya forman parte de un receptor y que son relevantes al estar en las listas de sus palabras mas comunes. 
 
-\textbf{Conjunto de búsqueda.} (1901-2009) será donde se muestren los
-resultados de cada técnica elaborada y donde mayor discusión se realizará,
-apoyados de los resultados del conjunto base. 
+\textbf{Conjunto de búsqueda.} (1900-2009) Las migraciones en estos años se cuestionarán tratando de dar un significado al por que ha ocurrido el movimiento,  siendo en este periodo las migraciones más estables. Para las posteriores técnicas se utilizará siempre al conjunto de búsqueda.
 % }}}
 

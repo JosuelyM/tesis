@@ -44,7 +44,8 @@ Se denotan como $V_{i}$ y $v_{i}$ al uso en el año $i$ de los conjuntos origina
 R^{2} = 1 - \sum_{i} \frac{ \left( v_{i} - V_{i} \right)^{2}  }{ \left( v_{i} - \bar{v} \right)^{2} }
 \end{equation}
 
-Si cada $V_{i}$ y $v_{i}$ son valores similares, $R^{2}$ es próximo a 1, indicando que las omisiones no afectaron el uso, en caso contrario $R^{2}$ tomará valores cercanos a cero o negativos. 
+
+Se define el termino \textbf{Conservación del uso} para aquellos pares de idiomas donde el uso de uno en otro no cambie a pesar de las omisiones. Valores de $R^{2}$  próximos a 1 indicarán que el uso se mantiene, y las omisiones no afectaron a los conjuntos, en caso contrario $R^{2}$ tomará valores cercanos a cero.  
 
 Para la presentación de resultados, se graficó en color negro los valores de uso en el conjunto original, sin importar que combinación de idiomas se este tratando.  Para el conjunto reducido, el uso se marcó en color rojo.  En cada grafica se especifica que letras se usaron para las reducciones. 
 
@@ -56,7 +57,7 @@ Para la presentación de resultados, se graficó en color negro los valores de u
 	\centering
 	\includegraphics[width=14.5cm, height=6.8cm]{Cap_5/OM_EN.png}
 	\label{fig.OM_EN}
-	\caption{Omisiones del inglés en los demás.}
+	\caption{Omisiones del inglés.}
 \end{figure}
 
 
@@ -66,7 +67,7 @@ Para la presentación de resultados, se graficó en color negro los valores de u
 	\centering
 	\includegraphics[width=14.5cm, height=6.8cm]{Cap_5/OM_FR.png}
 	\label{fig.OM_FR}
-	\caption{Omisiones del francés en los demás.}
+	\caption{Omisiones del francés.}
 \end{figure}
 
 
@@ -77,7 +78,7 @@ Para la presentación de resultados, se graficó en color negro los valores de u
 	\centering
 	\includegraphics[width=14.5cm, height=6.8cm]{Cap_5/OM_GE.png}
 	\label{fig.OM_GE}
-	\caption{Omisiones del alemán en los demás.}
+	\caption{Omisiones del alemán.}
 \end{figure}
 
 
@@ -87,7 +88,7 @@ Para la presentación de resultados, se graficó en color negro los valores de u
 	\centering
 	\includegraphics[width=14.5cm, height=6.8cm]{Cap_5/OM_IT.png}
 	\label{fig.OM_IT}
-	\caption{Omisiones del italiano en los demás.}
+	\caption{Omisiones del italiano.}
 \end{figure}
 
 \newpage
@@ -97,11 +98,30 @@ Para la presentación de resultados, se graficó en color negro los valores de u
 	\centering
 	\includegraphics[width=14cm, height=6.8cm]{Cap_5/OM_SP.png}
 	\label{fig.OM_SP}
-	\caption{Omisiones del español en los demás.}
+	\caption{Omisiones del español.}
 \end{figure}
 
 
-\newpage
+Tras reducir el corpus de palabras con diferentes condiciones, se distinguieron las siguientes características en el comportamiento de un idioma sobre otro:
+
+
+\begin{itemize}
+	
+	\item Valores iguales. Punto a punto el conjunto reducido empalma al original, siendo las gráficas indistinguibles, indicando que el uso se conserva a pesar de las omisiones. 
+		
+	\item Diferencia de alturas. Ambas gráficas muestran el mismo comportamiento o variaciones en toda la escala de tiempo,  sólo que  en cada año existe una diferencia casi constante entre los valores de una y otra, siendo el uso de las palabras excluidas el valor de diferencia.  En este caso se dirá que el uso también se conserva ya que ambas graficas tienen los mismos valores sólo que están desfasados. 
+	
+	\item Diferencias por periodos. Una combinación de los puntos anteriores,  donde las graficas son idénticas salvo en algún periodo donde se presenta la diferencia de alturas, indicando la relevancia de los prestamos omitidos en el periodo. 
+	
+	\item Alteraciones prolongadas. Existen periodos donde el uso del conjunto reducido es completamente diferente al conjunto original. Al igual que en el punto anterior, los préstamos omitidos son los más relevantes en estas etapas ya que sin ellos el uso no se conserva.
+			
+\end{itemize}
+
+
+La elección de las letras que se utilizaron para las omisiones y que conllevaron a los resultados fueron completamente aleatorios;  el que una combinación presente alguna de las características mencionadas no significa que sea la misma para otras alternativas en las omisiones. Lo único que se puede confirmar es que sin importar los elementos excluidos, el uso en el conjunto reducido presentará alguna de estas propiedades. 
+
+Para tener resultados íntegros sobre la conservación del uso a partir del valor de $R^{2}$,  se calculó además la diferencia de alturas  promedio $\Delta h$ entre el uso de ambos conjuntos, el cálculo  de $R^{2}$ se realizó al aumentar la altura promedio a cada valor del uso en el conjunto reducido.
+
 
 \begin{table}[h!]
 	\centering
@@ -131,6 +151,18 @@ Para la presentación de resultados, se graficó en color negro los valores de u
 	\caption{Parámetros de las omisiones.}
 	\label{tab.Omision}
 \end{table}
+
+
+A partir de la tabla, se muestra que la mejor similitud entre los conjuntos se da en aquellos donde no hay alteraciones prolongadas; como se menciono anteriormente el que se tenga esta característica entre dos idiomas depende de la elección de palabras que restringen al conjunto, alguna otra combinación modificara las características entre  el conjunto original y el reducido, sin embargo se comprobó con diferentes muestreos que los casos donde hay alteraciones prolongadas son escasos.
+
+
+\section{Comentarios del Método}
+
+El realizar diferentes elecciones para restringir a las palabras que conforman los prestamos de un idioma en otro, mostró desde el punto de vista estadístico que no importan cuales elementos conforman el corpus, la propiedad del uso es la misma, ya que individualmente los valores de uso de una única palabra pueden variar en los años del análisis y ser distintos a los de otra palabra, sin embargo al tratar a todo el conjunto, el uso se comporta de la misma  manera, sin importar los valores individuales de los elementos que lo conforman. 
+
+
+
+
 
 
 
