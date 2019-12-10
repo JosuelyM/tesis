@@ -596,4 +596,4 @@
 %	\renewcommand{\thepage}{\roman{page}}
 %} % close romanpage env't
 
-{\newpage\renewcommand{\thepage}{\arabic{page}}\setcounter{page}{1}}
+%{\newpage\renewcommand{\thepage}{\arabic{page}}\setcounter{page}{1}}
