@@ -1,32 +1,17 @@
 % !TeX spellcheck = es_ES
 \chapter{Palabras nuevas}
 % Intro {{{
-\fxnote{sigiero que uses el fxwarning para responder, asi aparece de otro color}
-\fxwarning{como aca}
 En el capítulo anterior se mencionó que el algoritmo toma como  idioma
 influyente a aquel que transmite palabras hacia los demás y que estas perduren
 en los receptores al menos dos años.
 
-El objetivo ahora es identificar qué idioma es más influyente sobre los demás.
-Sin embargo establecer un método que proporcione este resultado no es sencillo,
-puede ser ambiguo decir que algo es más o menos influyente, no existe una serie
-de pasos a seguir cuyo resultado final sea una cantidad medible para
-cuantificar la influencia. Para poder llegar a esta conclusión habrá que
-especificar las condiciones y características que deben de tener los elementos
-en los cuales se quiere conocer la influencia,  por el momento se cuenta con la
-información de los orígenes, los receptores y las palabras que migran de un
-lado a otro, no obstante, el que un idioma transmita palabras a los demás no es
-un criterio suficiente para afirmar la influencia, para ello se requieren hacer
-más definiciones antes de llegar a esta respuesta.  \fxnote{Por favor separa 
-en frases. Esta muy largo y dificil de leer.}.
+El objetivo ahora es identificar qué idioma es más influyente sobre los demás. Sin embargo establecer un método que proporcione este resultado no es sencillo, puede ser ambiguo decir que algo es más o menos influyente, no existe una serie de pasos a seguir cuyo resultado final sea una cantidad medible para cuantificar la influencia.  Para poder llegar a esta conclusión habrá que
+especificar las condiciones y características que deben de tener los elementos en los cuales se quieren conocer estas cantidades.
+ 
+\fxnote{Por favor separa  en frases. Esta muy largo y dificil de leer.}
+\fxwarning{Ya la corte, quedo mejor}
 
-Al tener una base de datos  con los préstamos de un idioma a otro,  una primer
-manera de establecer la influencia es  identificar los tiempos donde ocurren
-las migraciones.  Para ello conviene hacer una clasificación dentro de los
-propios préstamos y a partir de ella  continuar con una cuantificación de la
-influencia.  Si se tiene una pareja de idioma origen \textit{A} e idioma
-receptor \textit{B} entonces se clasifican a los préstamos de \textit{A} en
-\textit{B} como:
+La base de datos proporciona información de los orígenes, los receptores y las palabras que migran de un lado a otro; comenzando con estos elementos una primer manera de establecer la influencia es  identificar los tiempos donde ocurren las migraciones.  Para ello conviene hacer una clasificación dentro de los propios préstamos y a partir de ella  continuar con una cuantificación de la influencia.  Si se tiene una pareja de idioma origen \textit{A} e idioma receptor \textit{B} entonces se clasifican a los préstamos de \textit{A} en \textit{B} como:
 
 \textbf{Préstamos Nuevos}: Son palabras que aparecen por primera vez en las más
 usadas del idioma \textit{B}.  Únicamente serán nuevos en el primer año de
@@ -36,54 +21,41 @@ aquellos que solo aparecieron una vez.
 
 Dentro de los años comprendidos en el conjunto de búsqueda
 (1901-2009), existen múltiples posibilidades con las cuáles trabajar a los
-cinco idiomas. La manera en que se tratará de llegar a un resultado que muestre
-la influencia puede ser de tres formas:
+cinco idiomas. La manera en que se tratará de llegar a un resultado que muestre la influencia puede ser de tres formas:
 \begin{enumerate}
-\item Contando por cada año los préstamos de origen \textit{A} que están presentes en los diferentes receptores.
-\item Tomar ahora a \textit{A} 
-como el idioma receptor, y contando cuántos préstamos nuevos de diferentes orígenes están presentes en cada año. \fxnote{El caso 1 y 2 no son equivalentes? Mas bien el primero mide la influencia, y el punto dos la suceptibilidad.}
-\item Tomando fijos un idioma \textit{A} y un idioma \textit{B},  contabilizar
-cuántos préstamos nuevos por año se encuentran si se toma a \textit{A} como
-origen y a \textit{B} como receptor,  una vez hecho esto  repetir el conteo
-intercambiando a \textit{B} como el origen y a \textit{A} como el receptor. 
+	
+\item Contando por cada año los préstamos de origen \textit{A} que están presentes en los diferentes receptores. 
+
+\item Tomar ahora a \textit{A}  como el idioma receptor, y contando cuántos préstamos nuevos de diferentes orígenes están presentes en cada año.  
+
+\fxnote{El caso 1 y 2 no son equivalentes Mas bien el primero mide la influencia, y el punto dos la suceptibilidad.}
+\fxwarning{Hablé de las diferencias entre los puntos al final de los item}
+
+\item Tomando fijos un idioma \textit{A} y un idioma \textit{B}, contabilizar cuántos préstamos nuevos por año se encuentran si se toma a \textit{A} como origen y a \textit{B} como receptor,  una vez hecho esto  repetir el conteo intercambiando a \textit{B} como el origen y a \textit{A} como el receptor. 
+
 \end{enumerate}
 
 
 En los tres casos la influencia estará ligada a la cantidad de préstamos
-nuevos.  Las tres formas son correctas y servirán para decir en cual idioma
-receptor  el origen \textit{A} ha sido más influyente por haber mayor cantidad
-de migraciones; también cuál ha sido el idioma  que más ha influido en
-\textit{A} y finalmente entre dos idiomas,  cuál ha influenciado más al otro. 
-\fxnote{Siento que las tres maneras miden cosas diferentes. Seria bueno poner una frase interpretando las medidas en cada explicacion. Esta padre! Sin embargo, luego en los
-gráficos que veo, solo usas una medida, no? Como esta la cosa?}
+nuevos.  Las tres formas dan resultados diferentes,  el primer punto reflejara en que idiomas \textit{A} ha sido influyente, mientras que el segundo punto mostrara la susceptibilidad  de \textit{A} ante los demás idiomas,  finalmente el tercero combina la influencia con la susceptibilidad ya que al tratar únicamente a dos idiomas se verá en que épocas alguno de ellos ha tenido más del punto uno o del dos. 
+
+\fxnote{Siento que las tres maneras miden cosas diferentes. Seria bueno poner una frase interpretando las medidas en cada explicacion. Esta padre! Sin embargo, luego en los gráficos que veo, solo usas una medida, no? Como esta la cosa?}
+
+\fxwarning{Ya lo comente en donde introduzco las graficas}
 % }}}
 \section{Eventos que ayudan a las migraciones} % {{{
 
-Una parte complementaria de interpretar la influencia es responder qué es lo
-que propicia el haber migraciones de un lado hacia otro.  El tener los
-préstamos nuevos clasificados por el año de la primera migración ayuda a
-identificar posibles causas de carácter histórico que propiciaron las
-migraciones en ese año o alrededor de él.  Por ejemplo, la globalización en los
-años recientes ha propiciado que una ola de palabras de su campo semántico
-hayan migrado entre orígenes y receptores,  \textit{internet},
-\textit{computadora}, \textit{web}, \textit{email},  \textit{software}, son
-ejemplos de palabras que surgieron tras el fenómeno de globalización. 
-\fxnote{Cuando ocurrio la globalizacion y como se define? Es curioso, porque
-todos los ejemplos son cosas tecnollógicas asociadas con internet\ldots}
+Una parte complementaria de interpretar la influencia es responder qué es lo que propicia el haber migraciones de un lado hacia otro.  El tener los préstamos nuevos clasificados por el año de la primera migración ayuda a identificar posibles causas de carácter histórico que propiciaron las migraciones en ese año o alrededor de él.  Por ejemplo, la globalización y el acceso de más población a la tecnología en los años recientes ha propiciado que una ola de palabras de su campo semántico hayan migrado entre orígenes y receptores,  \textit{internet}, \textit{computadora}, \textit{web}, \textit{email},  \textit{software}, son ejemplos de palabras que surgieron tras el fenómeno de globalización y desarrollo tecnológico. 
 
-Los eventos pueden ser de diferentes tipos y al tratar con idiomas, se espera
-que en tales eventos participen países, personajes o  comunidades que hablan
-las lenguas involucradas.  El asociar sucesos con palabras y a la vez con
-determinados grupos ayudará a mostrar el alcance que tuvo un lenguaje y la
-forma en la que surgió la influencia y esta se propagó. 
+\fxnote{Cuando ocurrio la globalizacion y como se define? Es curioso, porque todos los ejemplos son cosas tecnollógicas asociadas con internet\ldots}
 
-Como el conjunto de búsqueda abarca 109 años,  la propagación de las palabras
-no es inmediata, en diferentes épocas las migraciones ocurrieron de distintas
-formas,  por ejemplo, en 1900 la información no circulaba tan rápido como se
-hace actualmente, un evento de esta época puede tener repercusiones en cinco,
-diez o más años,  dependiendo de factores geográficos, económicos, tecnológicos
-y  la  propia relevancia del evento en las demás comunidades.
+\fxwarning{Todas las palabras que mencione surgieron a partir de 1990, y puse estas porque para una mayoria de personas estas palabras si las considera como nuevas (provenientes de otro origen)y si aceptan que se han mezclado con el español}
+
+Los eventos pueden ser de diferentes tipos y al tratar con idiomas, se espera que en tales eventos participen países, personajes o  comunidades que hablan las lenguas involucradas.  El asociar sucesos con palabras y a la vez con determinados grupos ayudará a mostrar el alcance que tuvo un lenguaje y la forma en la que surgió la influencia y esta se propagó.
+
+Al contar con datos que abarcan mas de cien años, se resalta que la propagación no es inmediata; si un evento propicia una migración de palabras, el tiempo que le lleva a un termino migrar a otro conjunto dependerá de la época en la que se origino el evento y de la propia relevancia del mismo, existiendo palabras que brotan en los diferentes receptores hasta diez o veinte años después de surgir en los orígenes.
 \fxnote{Frase hiperlarga. Corrige.}
+\fxwarning{Listo}
 
 Para cada caso estudiado, se hizo un análisis histórico de las palabras que
 conforman los préstamos nuevos entre idiomas.  En la mayor parte de los casos
@@ -92,54 +64,46 @@ importancia del año o años en que lo hicieron.
 
 
 % }}}
-\section{Búsqueda y lectura de palabras nuevas} % {{{
-Ya establecida la forma en que se buscarán  palabras nuevas en los diferentes
-idiomas,  los resultados encontrados se presentarán de la siguiente manera:
+\section{Palabras nuevas de un idioma en los demás}
+
+ % {{{
+ 
+
+Ya establecida la forma en que se buscarán  palabras nuevas en los diferentes idiomas,  los resultados encontrados se presentarán de la siguiente manera:
+
 \begin{itemize}
-\item Por cada idioma se determinó la influencia que esté ejerció en los demás,
-mencionada en el punto 1 al comienzo del capítulo \fxnote{Creo que hay forma de
-citar la pagina en cuestión. Debe ser un comando como ref o algo asi}. Ya que
-se el proceso fue
-para todos los idiomas,  al ver primero la influencia de \textit{A} sobre
-\textit{B}  (y los demás),  en el siguiente resultado se estará cubriendo la
-influencia  de \textit{B}  sobre \textit{A} , cubriendo así el punto 2. 
-\fxnote{Si realmente las estas usando quiza valga la pena ponerle nombres a 
-las cantidades, por ejemplo $F^{1954}_{\text{en} \to \text{fr}}$ ojala usando 
-letras que tengan un significado, por ejemplo $S$ para susceptibilidad o como 
-quieras llamarlo. } \fxnote{Como que no entiendo bien lo que quieres decir en 
-la segunda frase. }
-\item La cuantificación de la influencia por los préstamos nuevos se realizó en
-el periodo de 109 años (1900 - 2009) y por cada década comprendida en estos
-años, es decir por una parte se mostrarán la cantidad de palabras que
-aparecieron en los 109 años y por otra parte como se distribuye esta cantidad
-en las diferentes décadas.  La intención de este punto es observar en qué
-periodos un idioma aportó (recibió) más  hacia (de) los demás.
-\item Se proporcionará en \cite{prestamos_nuevos} las listas  de préstamos
-nuevos entre cada idioma, agrupados por el año de aparición en el receptor.  Se
-especificará en el Anexo 1  la forma de leer e interpretar estas listas.
-\item En cada resultado mostrado se agregará un resultado general para la
-influencia en los 109 años, y un contexto detallado entre las migraciones hacia
-un idioma receptor por década,  enfatizando los sucesos históricos de las
-palabras involucradas, así como los posibles detonantes que propiciaron los
-movimientos. 
-\item Cada análisis tendrá comentarios sobre el punto 3. Las gráficas
-correspondientes se anexaran en el apéndice 1.
+	
+\item Por cada idioma se determinó la influencia que esté ejerció en los demás, mencionada en el punto 1 al comienzo del capítulo. Se denotará con la letra $N_{p}$  a la cantidad de palabras nuevas.
+
+\fxnote{Creo que hay forma de citar la pagina en cuestión. Debe ser un comando como ref o algo asi}. 
+\fxwarning{No encontre la forma, sino al final de editarlo agrego " a mano" la pagina donde quedo el punto 1}
+
+\fxnote{Si realmente las estas usando quiza valga la pena ponerle nombres a las cantidades, por ejemplo $F^{1954}_{\text{en} \to \text{fr}}$ ojala usando letras que tengan un significado, por ejemplo $S$ para susceptibilidad o como quieras llamarlo. } 
+\fxwarning{listo}
+
+\item El conteo de palabras nuevas se realizó en un periodo de 109 años (1900 - 2009) y por cada década comprendida en este tiempo, es decir  se mostrarán la cantidad de palabras que aparecieron en los 109 años y a la vez como se distribuye esta cantidad en las diferentes décadas.  La intención de este punto es observar en qué periodos un idioma aportó o recibió más palabras. 
+
+\item Se proporcionará en \cite{prestamos_nuevos} las listas  de préstamos nuevos entre cada idioma, agrupados por el año de aparición en el receptor.  Se especificará en el Anexo 1  la forma de leer e interpretar estas listas.
+
+\item En cada resultado y por cada par de idiomas se agregará un contexto enfatizando los sucesos históricos de las palabras involucradas, así como los posibles detonantes que propiciaron los movimientos.  Esto permite omitir los resultados del punto 2 (ver  página [XXX] ), ya que al especificar los eventos y las palabras involucradas en el movimiento de  \textit{A} a \textit{B}, se esta cubriendo de manera implícita los términos  a los que \textit{B} fue susceptible.
+
+\item Los coemntarios realizados estarán sustentados por la influencia entre \textit{A} y \textit{B}, (punto 3), las graficás correspondientes se anexaran en el Apéndice 1.  
+
 \end{itemize}
+
+
 \fxnote{Respecto al numero en la bibliografia despues de la referencia, para que lo quieres? Creo que no es estandard y a mi me confunde. Te propongo quitarlo.}
 
+\fxwarning{ok, veo como quitarlo por el momento no lo se}
 
 % \subsection*{Lectura de las gráficas} 
-\fxnote{No creo que amerite una subsección. La quite. Si no estas de acuerdo, 
-respondeme y la vuleves a poner.}
+\fxnote{No creo que amerite una subsección. La quite. Si no estas de acuerdo,  respondeme y la vuleves a poner.}
+
+\fxwarning{de acuerdo, es más una adicion a la misma seccion}
 
 Para las gráficas del trabajo se utilizaron diferentes colores para
-caracterizar las influencias de un idioma, además en cada gráfica se especifica
-los idiomas que intervienen y para su mejor lectura se utilizaron
-% abreviaciones. Los colores y abreviaciones de cada idioma son:
-abreviaciones. Los colores y abreviaciones de cada idioma se presentan 
-en la tabla \ref{tab.idcolor}.
-\fxnote{Nota como hace uno referencia a una tabla. Se deja flotante. Cuando 
-entiendas esta nota, borrala.}
+caracterizar las influencias de un idioma, además en cada gráfica se especifica los idiomas que intervienen y para su mejor lectura se utilizaron abreviaciones. Los colores y abreviaciones de cada idioma se presentan  en la tabla \ref{tab.idcolor}.
+%\fxnote{Nota como hace uno referencia a una tabla. Se deja flotante. Cuando  entiendas esta nota, borrala.}
 
 \begin{table} % {{{
 	\centering
@@ -164,36 +128,30 @@ En todas las gráficas, el eje horizontal está representado por los años del
 conjunto de búsqueda 1900-2009,  mientras que en el eje vertical se presenta la
 cantidad de prestamos nuevos. 
 % }}}
-\section{Palabras nuevas de un idioma en los demás} % {{{
-\fxnote{Me parece que la anterior seccion y esta son una sola. Si quieres lo 
-discutimos. }
 
-\fxnote{Antes de avanzar, tenemos que discutir las graficas. Creo que admiten
-una mejoría. Ver notas en un caption mas adelante y poner en espacio sencillo}
-\subsection{Inglés} % {{{
 
-\begin{figure} % {{{
+%\section{Palabras nuevas de un idioma en los demás} % {{{
+\fxnote{Me parece que la anterior seccion y esta son una sola. Si quieres lo  discutimos}
+	
+\fxwarning{Cambie el nombre de la seccion por Palabras nuevas,  dentro de esta lo primero será especificar  como se presentan los resultados y las siguientes subsecciones los resultados mismos}
+
+\fxnote{Antes de avanzar, tenemos que discutir las graficas. Creo que admiten una mejoría. Ver notas en un caption mas adelante y poner en espacio sencillo}
+
+\fxwarning{listo}
+
+\clearpage
+
+\subsection{Inglés}
+
+\begin{figure}[h!]
 	\centering
 	\includegraphics[scale=.38]{Cap_3/NC_EN.png}
 	\label{fig.NC_EN}
-	\caption{Palabras nuevas del inglés hacia los demás.}
-	\smallskip
-	\small
-	El alemán se ha beneficado más del inglés, teniendo los mayores aportes en los primeros años del siglo XXI, caracterizado por palabras de tipo industrial y del desarrollo tecnológico.
-\end{figure} % }}}
+	\caption{Palabras nuevas del inglés hacia los demás. El alemán se ha beneficado más del inglés, teniendo los mayores aportes en los primeros años del siglo XXI, caracterizado por palabras de tipo industrial y del desarrollo tecnológico.}
+\end{figure} % 
 
-\begin{figure} % {{{
-	\centering
-	\includegraphics[scale=.38]{Cap_3/NC_EN.png}
-	\label{fig.NC_EN}
-	\caption{Palabras nuevas del inglés hacia los demás.
-	El alemán se ha beneficado más del inglés, teniendo los mayores aportes
-en los primeros años del siglo XXI, caracterizado por palabras de tipo
-industrial y del desarrollo tecnológico.
-\fxnote{Nota que meti todo el texto en el caption. Asi queda mejor ubicado. Faltan mejorar los ejes. Las graficas aun no son apropiadas. El eje x en ambos casos no está
-especificado. Si decidimos nombrar las cantidades en cuestion, facilitará nombrar
-el eje y. Como esta no funciona. }}
-\end{figure} % }}}
+
+
 De manera general, el idioma que más se ha beneficiado del inglés ha sido el
 alemán, con 300 préstamos en 100 años.  Inglés y alemán forman parte de la
 misma familia lingüística de las lenguas germánicas,  posible razón de los
@@ -259,16 +217,16 @@ influencia,  en cuantas áreas esta presente un idioma y que tanto se utiliza.
 
 % }}}
 % }}}
+
+\clearpage
+
 \subsection{Francés} % {{{
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=.38]{Cap_3/NC_FR.png}
 	\label{fig.NC_FR}
-	\caption{Palabras nuevas del francés hacia los demás.}
-	\smallskip
-	\small
-	Entre las demás lenguas romances, el aporte del francés ha sido minoritario, siendo las lenguas germánicas donde el francés asentó más elementos. Se destaca el mayor beneficio del alemán en las décadas durante la primera (1920) y segunda guerra mundial (1940).
+	\caption{Palabras nuevas del francés hacia los demás. Entre las demás lenguas romances, el aporte del francés ha sido minoritario, siendo las lenguas germánicas donde el francés asentó más elementos. Se destaca el mayor beneficio del alemán en las décadas durante la primera (1920) y segunda guerra mundial (1940).}
 	
 	
 \end{figure}
@@ -300,16 +258,16 @@ El hecho de no poder enlazar palabras a eventos, no significa que el francés no
 
 % }}}
 % }}}
+
+\clearpage
+
 \subsection{Alemán}% {{{
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=.38]{Cap_3/NC_GE.png}
 	\label{fig.NC_GE}
-	\caption{Palabras nuevas del alemán hacia los demás.}
-	\smallskip
-	\small
-	El francés destaca durante la primera mitad del siglo como el idioma donde tiene más presencia el alemán, logrando las mayores migraciones en los años entre las guerras mundiales (1930-1940). Se distingue al español como el idioma que menos préstamos obtuvo  existiendo décadas donde el aporte fue nulo.  Campos como el desarrollo científico, la filosofía  y la política donde los germanoparlantes tuvieron papeles destacados en el siglo pasado ha hecho posible que las demás lenguas se impregnan del alemán.
+	\caption{Palabras nuevas del alemán hacia los demás.El francés destaca durante la primera mitad del siglo como el idioma donde tiene más presencia el alemán, logrando las mayores migraciones en los años entre las guerras mundiales (1930-1940). Se distingue al español como el idioma que menos préstamos obtuvo  existiendo décadas donde el aporte fue nulo.  Campos como el desarrollo científico, la filosofía  y la política donde los germanoparlantes tuvieron papeles destacados en el siglo pasado ha hecho posible que las demás lenguas se impregnan del alemán.}
 \end{figure}
 
 
@@ -347,16 +305,15 @@ Las palabras que van en este sentido,  presentaron años (o una décadas)  con p
 
 % }}}
 % }}}
+
+\clearpage
 \subsection{Italiano}% {{{
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=.38]{Cap_3/NC_IT.png}
 	\label{fig.NC_IT}
-	\caption{Palabras nuevas del inglés hacia los demás.}
-	\smallskip
-	\small
-	Al provenir de la misma familia grecolatina y ser fonética y etimológicamente similares, el español ha adoptado la mayor cantidad de palabras provenientes del italiano,  seguido del francés otra lengua romance.  
+	\caption{Palabras nuevas del inglés hacia los demás.Al provenir de la misma familia grecolatina y ser fonética y etimológicamente similares, el español ha adoptado la mayor cantidad de palabras provenientes del italiano,  seguido del francés otra lengua romance.} 
 \end{figure}
 
 
@@ -391,17 +348,15 @@ En el español, las tendencias no fueron sólo hacia la guerra, también a idelo
 
 % }}}
 % }}}
+
+\clearpage
 \subsection{Español}% {{{
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=.38]{Cap_3/NC_SP.png}
 	\label{fig.NC_SP}
-	\caption{Palabras nuevas del español hacia los demás.}
-	\smallskip
-	\small
-	entre el español y el italiano, es la única reciproca, donde  el italiano es ahora el que más palabras recibió del español, descantando en la década de 1930; el francés la otra lengua romance es el segundo idioma con mayor presencia del español, seguido de las lenguas germánicas. El provenir de una misma familia es un factor para que existan migraciones,
-	
+	\caption{Palabras nuevas del español hacia los demás. El español y el italiano, es la única reciproca, donde  el italiano es ahora el que más palabras recibió del español, descantando en la década de 1930; el francés la otra lengua romance es el segundo idioma con mayor presencia del español, seguido de las lenguas germánicas. El provenir de una misma familia es un factor para que existan migraciones.}
 \end{figure}
 
 \subsubsection*{Español-Inglés}% {{{
@@ -430,7 +385,7 @@ Como en las migraciones hacia el ingles, son términos que vuelven a ser importa
 % }}}
 \subsubsection*{Español-Italiano}% {{{
 
-Los términos médicos han sido una constante en las migraciones del español,en el italiano se encontraron \textit{virus} (1922), \textit{colesterina} (1928),  \textit{sintomatología} (1931), \textit{anestesia} (1932), \textit{vitamina} (1935), \textit{anemia} (1936), \textit{metabolismo} (1936) y \textit{gástrica} (1936)  y \textit{endovenosa} (1937).  
+Los términos médicos han sido una constante en las migraciones del español, en el italiano se encontraron \textit{virus} (1922), \textit{colesterina} (1928),  \textit{sintomatología} (1931), \textit{anestesia} (1932), \textit{vitamina} (1935), \textit{anemia} (1936), \textit{metabolismo} (1936),  \textit{gástrica} (1936)  y \textit{endovenosa} (1937).  
 
 El aparecer estas palabras en el español (dentro de las cinco mil más usadas)antes que en los demás propone que la medicina era un campo importante para los países de habla española, donde posiblemente en los años del conjunto base (1740-1900) se publicaron más libros de medicina en lenguaje español. 
 
@@ -438,8 +393,6 @@ El aparecer estas palabras en el español (dentro de las cinco mil más usadas)a
 
 
 
-\hfill\break
-\hfill\break
 
 % }}}
 % }}}
