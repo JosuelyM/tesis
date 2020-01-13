@@ -1,2 +1,4 @@
-tesis.pdf :: tesis.tex Cap_2/base_datos.tex Cap_3/nuevas.tex
+tesis.pdf :: tesis.tex base_datos.tex nuevas.tex
 -include ~/makefile
+# Repositorio: 
+#	url = git@github.com:JosuelyM/tesis.git
