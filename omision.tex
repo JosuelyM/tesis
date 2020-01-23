@@ -1,51 +1,35 @@
 \chapter{Omisión de palabras}
 
-Anteriormente se especificó que la base de datos de los préstamos serían únicamente palabras de contenido, y a partir de ellas se realizaron los análisis anteriores.  Al trabajar con esta clasificación se están restringiendo a todas las palabras que pueden ser catalogadas como préstamos (algunos artículos o pronombres de un determinado idioma se encuentran en los demás), sin embargo los resultados obtenidos han reflejado contextos históricos en los cuáles explicar el flujo de un idioma a otro, por lo que las restricciones han ayudado a tener deducciones más limpias. 
 
-Por el momento ya no se tratara con la interpretación histórica de las migraciones, se centrará la siguiente parte en suponer a los préstamos como un conjunto donde la propiedad del uso entre idiomas es adecuada, y ver como es afectada la propiedad si se modifica el conjunto. 
+Los capítulos anteriores se han enfocado en tratar a las migraciones de palabras como fenómenos consecuentes de eventos las lenguas están involucradas. Un punto clave para llegar en el proceso fue clasificar a los $n$-grams en palabras funcionales y palabras de contenido, y a partir de dicha clasificación restringir de la base de datos a a las palabras funcionales, es decir artículos, preposiciones, conjunciones y pronombres. En principio  las palabras funcionales son las más utilizadas en los idiomas, independientemente del idioma que se este tratando \cite{iplosone}, no obstante  el significado que conllevan no ayuda a hacer relaciones con los eventos. 
 
-La manera de alterar a los prestamos se realizará al hacer restricciones en las palabras que conforman el conjunto, como antecedente se tiene el haber eliminado todas las palabras funcionales  y utilizar las de contenido.  Al tomar como verdaderos a los prestamos acumulados entre idiomas (obtenidos en el capitulo anterior), las restricciones consistirán en eliminar aquellas palabras que comiencen con ciertas letras,  y analizar que ocurre con el uso tras las exclusiones. 
+El realizar la omisión anterior permitió encontrar algunos resultados acordes a la relación evento-migración, pero ¿qué sucedería si en los idiomas se hicieran otras restricciones para excluir un grupo determinado de palabras? , ¿de qué manera afectaría esta limitación a las migraciones y al uso de un idioma en otro?
 
-\hfill\break
-
-El proceso es sencillo y consiste en lo siguiente.
- 
+Estas interrogantes han llevado a la construcción de un nuevo algoritmo que limite a las palabras, reduzca el conjunto de las migraciones y obtenga nuevos valores del uso entre idiomas. Escogidos una pareja de idioma origen \textit{A} e idioma receptor \textit{B}, el proceso es el siguiente. 
 
 
 \begin{enumerate}
 	
-	\item Se eligen una pareja de idioma origen $\textit{A}$ e idioma receptor $\textit{B}$ y la lista de préstamos acumulados de \textit{A} en \textit{B}.
+	\item Se toma la lista de los préstamos acumulados de \textit{A} en \textit{B},  este conjunto se denotará como \textbf{conjunto original}.
+		
+	\item Se escogen de forma aleatoria un conjunto de letras (desde una hasta cuatro), y se eliminaran de los préstamos acumulados a todas las palabras cuya primer letra sea alguna de las elegidas. Este nuevo grupo se puntualiza como \textbf{conjunto reducido}.
 	
-	\item Se escogen de forma aleatoria un conjunto de letras (desde una hasta cuatro), y se eliminan del conjunto de prestamos acumulados  a todas las palabras cuya primer letra sea alguna de las elegidas.  
+	\item Se establece un tercer cúmulo designado como \textbf{conjunto residuo} conformado por todas las palabras que se han eliminado del conjunto original.  Cabe decir que la unión del reducido y el residuo dan como resultado el original. 
 	
-	\newpage
-	
-	\item Hechas las eliminaciones se designan tres nuevos conjuntos. 
-	
-		\begin{itemize}
-			\item \textbf{Conjunto original} conformado por los prestamos acumulados  de $\textit{A}$  en $\textit{B}$.
-			\item \textbf{Conjunto reducido:} conformado por las palabras que no fueron eliminadas del conjunto original. 
-			\item \textbf{Conjunto residuo:} conformado por las palabras eliminadas . 
-		\end{itemize}
-	
-	\item En cada conjunto se empleo la ecuación \ref{ec.fuso} para obtener el uso de $\textit{A}$ en $\textit{B}$  con los elementos de cada grupo y en todos los años de búsqueda (1900-2009).
-	
+	\item En los tres conjuntos se empleó la ecuación \ref{ec.fuso}, para encontrar el uso de \textit{A} en \textit{B}. 	
 	 
-	
 \end{enumerate}
 
+Tras la descripción, las primeras dudas que surge es el por qué limitar las eliminaciones a aquellas palabras que empiecen con una determinada letra,  y por qué solo tomar cuatro letras de todas las posibles del abecedario.  La razón  de la primera cuestión  se basa en que es la manera más sencilla de eliminar un grupo de palabras; referente a la cantidad de letras se hicieron las exclusiones hasta para diez letras,  sin embargo para algunas combinaciones de idiomas y elecciones de mas de seis letras, el conjunto reducido no contenía elementos, siendo el residuo igual al original. La intención de estas alteraciones no es desaparecer el conjunto de las migraciones sino el reducirlas y estudiar en ellas que tanto cambia el uso. 
 
-Por la cantidad de elementos que contiene el conjunto residuo, los valores de uso para este conjunto son pequeños comparados con los obtenidos en el conjunto original o en el reducido, por lo que no se graficaron. Cabe decir que entre mas letras se escojan para reducir el conjunto, el residuo tendrá cada vez más elementos siendo en algún momento comparable al original.  Por ello se decidió que el máximo de restricciones fuese de cuatro letras. 
-
-Se denotan como $V_{i}$ y $v_{i}$ al uso en el año $i$ de los conjuntos original y reducido respectivamente; para saber que tan diferentes son los valores de uso, se calculó el valor promedio $\bar{v}$ de cada $v$  y  se empleó la siguiente ecuación:
-
+Una forma para comprender la variación del uso entre los conjuntos original y residuo es a través del coeficiente de determinación; en el próximo capítulo se abordara más en su formalismo. La primera pauta a seguir será al tomar el uso en el conjunto original como verdadero (ya que con el se establecieron los resultados del capítulo anterior) identificando sus valores a lo largo del tiempo $t$ con la variable $O(t)$, si los valores de uso en el conjunto reducido se denotan como  $v(t)$ y el promedio de ellos es $\bar{v}$, entonces   el coeficiente de determinación queda definido como :
+ 
 \begin{equation}
-\label{ec.dif_uso}
-R^{2} = 1 - \sum_{i} \frac{ \left( v_{i} - V_{i} \right)^{2}  }{ \left( v_{i} - \bar{v} \right)^{2} }
+ \label{ec.dif_uso}
+ R^{2} = 1 - \sum_{t} \frac{ \left( v(t)- O(t) \right)^{2}  }{ \left( v(t) - \bar{v} \right)^{2} }
 \end{equation}
 
-
-Se define el termino \textbf{Conservación del uso} para aquellos pares de idiomas donde el uso de uno en otro no cambie a pesar de las omisiones. Valores de $R^{2}$  próximos a 1 indicarán que el uso se mantiene, y las omisiones no afectaron a los conjuntos, en caso contrario $R^{2}$ tomará valores cercanos a cero.  
+Se define el concepto \textbf{conservación del uso} para aquellos pares de conjuntos donde el uso no cambie a pesar de las omisiones. Su aserto  recaerá en los valores de $R^{2}$ próximos a 1,  indicando que el uso se conserva, en consecuencia las omisiones no afectaron a los conjuntos, en caso contrario $R^{2}$ tomará valores cercanos a cero.
 
 Para la presentación de resultados, se graficó en color negro los valores de uso en el conjunto original, sin importar que combinación de idiomas se este tratando.  Para el conjunto reducido, el uso se marcó en color rojo.  En cada grafica se especifica que letras se usaron para las reducciones. 
 
@@ -102,26 +86,25 @@ Para la presentación de resultados, se graficó en color negro los valores de u
 \end{figure}
 
 
-Tras reducir el corpus de palabras con diferentes condiciones, se distinguieron las siguientes características en el comportamiento de un idioma sobre otro:
+Tras reducir el corpus de palabras con diferentes condiciones, se distinguieron las siguientes características en el comportamiento de un idioma en otro:
 
 
 \begin{itemize}
 	
-	\item Valores iguales. Punto a punto el conjunto reducido empalma al original, siendo las gráficas indistinguibles, indicando que el uso se conserva a pesar de las omisiones. 
+	\item Valores iguales. Punto a punto el conjunto reducido empalma al original, siendo las gráficas indistinguibles, indicando conservacion del uso. 
 		
-	\item Diferencia de alturas. Ambas gráficas muestran el mismo comportamiento o variaciones en toda la escala de tiempo,  sólo que  en cada año existe una diferencia casi constante entre los valores de una y otra, siendo el uso de las palabras excluidas el valor de diferencia.  En este caso se dirá que el uso también se conserva ya que ambas graficas tienen los mismos valores sólo que están desfasados. 
+	\item Diferencia de alturas. Ambas gráficas muestran el mismo comportamiento en la escala de tiempo, sin embargo existe  una diferencia constante entre el uso original y el reducido. En este caso se dirá que el uso también se conserva ya que ambas graficas tienen los mismos valores sólo que están desfasados. 
 	
-	\item Diferencias por periodos. Una combinación de los puntos anteriores,  donde las graficas son idénticas salvo en algún periodo donde se presenta la diferencia de alturas, indicando la relevancia de los prestamos omitidos en el periodo. 
+	\item Diferencias por periodos. Una combinación de los puntos anteriores,  donde las graficas son idénticas salvo en algún periodo donde se presenta la diferencia de alturas. La conservación se da por periodos de tiempo menos prolongados. 
 	
-	\item Alteraciones prolongadas. Existen periodos donde el uso del conjunto reducido es completamente diferente al conjunto original. Al igual que en el punto anterior, los préstamos omitidos son los más relevantes en estas etapas ya que sin ellos el uso no se conserva.
+	\item Alteraciones prolongadas. Se caracteriza por periodos donde ambos valores de uso son completamente diferentes.  El uso al no conservarse indicara que los préstamos omitidos son los más relevantes en estas etapas. 
 			
 \end{itemize}
 
 
-La elección de las letras que se utilizaron para las omisiones y que conllevaron a los resultados fueron completamente aleatorios;  el que una combinación presente alguna de las características mencionadas no significa que sea la misma para otras alternativas en las omisiones. Lo único que se puede confirmar es que sin importar los elementos excluidos, el uso en el conjunto reducido presentará alguna de estas propiedades. 
+La elección de las letras que se utilizaron para realizar las graficas fueron completamente aleatorias; el que una combinación presente alguna de las características mencionadas no significa que sea la misma para otras alternativas que puedan deformar más o menos e incluso desaparecer el conjunto reducido.  
 
-
-Para tener resultados íntegros sobre la conservación del uso a partir del valor de $R^{2}$,  se calculó además la diferencia de alturas  promedio $\Delta h$ entre el uso de ambos conjuntos, el cálculo  de $R^{2}$ se realizó al aumentar la altura promedio a cada valor del uso en el conjunto reducido.
+Para sostener la conservación del uso tratada en las características mencionadas,  se calculó en cada punto la diferencia de alturas entre ambos valores y con ello su valor promedio $\Delta h$; esta cifra se aumentó en todos los valores reducidos $v(t)$ con la intención de que coincidieran lo más posible con los originales $U(t)$, asi el valor de $R^{2}$ es más adecuado.
 
 \fxwarning{Pongo la tabla para notar los valores de R2 y ver por un valor la similitud,  a mi gusto seria bueno poner que tanto cambiaron los conjuntos al hacer las eliminaciones, aunque si la tabla parece relleno por todas las combinaciones hechas, mejor eliminarla}
 

@@ -60,13 +60,13 @@ correcta. Puedes porfa verificar en un manual de ortografía y gramática que lo
 
 \begin{enumerate}
 	
-	\item En un año determinado $y$ del idioma \textit{B}, se sumarán las
-	frecuencias $f(k)$ de las cinco mil palabras más usadas, donde $k$ determina el rango  de cada palabra. Esta nueva cantidad se llamará \textbf{frecuencia total}  $\underset{\text{\tiny B}}{F}(y)$ , siendo su expresión la siguiente
+	\item En un año determinado $t$ del idioma \textit{B}, se sumarán las
+	frecuencias $f(k)$ de las cinco mil palabras más usadas, donde $k$ determina el rango  de cada palabra. Esta nueva cantidad se llamará \textbf{frecuencia total}  $\underset{\text{\tiny B}}{F}(t)$ , siendo su expresión la siguiente
 
 	\begin{equation}
 	\label{ec.ftot}
 	%F^{y}_{\text{B}} = \sum_{k=1}^{5000} f(k)
-	\underset{\text{\tiny B}}{F}(y) = \sum_{k=1}^{5000} f(k)
+	\underset{\text{\tiny B}}{F}(t) = \sum_{k=1}^{5000} f(k)
 	\end{equation}
 	
 	\cpnote{el texto en una ecuaccion se pone de otra manera. Además, no
@@ -77,20 +77,20 @@ correcta. Puedes porfa verificar en un manual de ortografía y gramática que lo
 	\fxwarning{Listo, corregida y el texto lo puse dentro del punto y ya no en la ecuacion}
 
 
-	\item Si en la lista de las palabras más usadas de \textit{B} se distinguen los préstamos acumulados con origen \textit{A} que ocupan un rango $j$,  se procede a sumar la frecuencia asociada a estas palabras $f(j)$. Esta cantidad será la  \textbf{frecuencia de préstamo} $\underset{ \text{\tiny A} \to  \text{\tiny B} }{P}(y)$   de \textit{A} en \textit{B} para el año $y$.
+	\item Si en la lista de las palabras más usadas de \textit{B} se distinguen los préstamos acumulados con origen \textit{A} que ocupan un rango $j$,  se procede a sumar la frecuencia asociada a estas palabras $f(j)$. Esta cantidad será la  \textbf{frecuencia de préstamo} $\underset{ \text{\tiny A} \to  \text{\tiny B} }{P}(t)$   de \textit{A} en \textit{B} para el año $t$.
 	
 	\begin{equation}
 	\label{ec.fpres}
 	%P^{y}_{\text{A} \to \text{B}} = \sum_{j} f(j)
-	\underset{ \text{\tiny A} \to  \text{\tiny B} }{P}(y) = \sum_{j} f(j)
+	\underset{ \text{\tiny A} \to  \text{\tiny B} }{P}(t) = \sum_{j} f(j)
 	\end{equation}
 	
 	
-	\item   Se divide la frecuencia de préstamo entre la frecuencia total , obteniendo una cantidad que se detonará como  \textbf{uso} $\underset{ \text{\tiny A} \to  \text{\tiny B} }{U}(y)$  siendo la porción que representa \textit{A} en \textit{B} en términos de frecuencia.  Como en un año hay más palabras propias de B, esta cantidad es muy pequeña, para tener cifras manejables, se tomará un porcentaje al multiplicar el cociente por cien.  
+	\item   Se divide la frecuencia de préstamo entre la frecuencia total , obteniendo una cantidad que se detonará como  \textbf{uso} $\underset{ \text{\tiny A} \to  \text{\tiny B} }{U}(t)$  siendo la porción que representa \textit{A} en \textit{B} en términos de frecuencia.  Como en un año hay más palabras propias de B, esta cantidad es muy pequeña, para tener cifras manejables, se tomará un porcentaje al multiplicar el cociente por cien.  
 
 	\begin{equation}
 	\label{ec.fuso}
-	 \underset{ \text{\tiny A} \to  \text{\tiny B} }{U}(y) = \frac{	\underset{ \text{\tiny A} \to  \text{\tiny B} }{P}(y)}{\underset{\text{\tiny B}}{F}(y) } * 100
+	 \underset{ \text{\tiny A} \to  \text{\tiny B} }{U}(t) = \frac{	\underset{ \text{\tiny A} \to  \text{\tiny B} }{P}(t)}{\underset{\text{\tiny B}}{F}(t) } * 100
 	\end{equation}
 	
 	\fxwarning{deje los sub indices para saber que opinabas,  a mi gusto se ve saturado y  creo que se sobrentiende el tener el subindice sobre la U,  P y F tambien lo deberian de tener }
