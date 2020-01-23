@@ -1,11 +1,6 @@
 \chapter{La base de datos}
-
-\fxnote{En las subsecciones aun tienes mayúsculas. Por ejemplo, la 6.1. Se puede ver del índice. Corrige.}
-
-\fxwarning{listo}
-
+\fxnote{Listo este capitulo}
 \section{La base de datos y su interpretación} % {{{
-
 Para la elaboración del trabajo,  se dispuso de la base de datos de los los
 $n$-grams de Google Books  \cite{ngramv}. Esta base de datos
 tiene hasta el momento alrededor del $4\%$ de todas las publicaciones en
@@ -43,12 +38,14 @@ más usadas tienen una mayor frecuencia y un rango menor.
 % }}}
 \section{Palabras comunes entre idiomas} % {{{
 
-Al tratar de identificar la presencia de un idioma en otro, una forma
-de lograrlo es reconocer aquellas palabras que son comunes entre dos o más
-idiomas, y a partir de ellas se determinar como se alteran los idiomas por la presencia y el uso de vocablos cuyo origen proviene de un idioma externo. \fxnote{La redacción  de esta frase te quedo muy mal.}
-\fxwarning{listo, corregida!}
-
-Para ello se identifican palabras que sean iguales en escritura, carácter por carácter y que estén presentes en dos o más idiomas.  Si se define como \textbf{migración}, al movimiento de palabras de un idioma a otro, entonces las \textbf{palabras migrantes}  son aquellas que están presentes en al menos dos idiomas.  
+Al tratar de identificar la presencia de un idioma en otro, una forma de
+lograrlo es reconocer aquellas palabras que son comunes entre los dos idiomas,
+y a partir de ellas se determinar como se alteran los idiomas por la presencia
+y el uso de vocablos cuyo origen proviene de un idioma externo.  Para ello se
+identifican palabras que sean iguales en escritura, carácter por carácter y que
+estén presentes en dos o más idiomas.  Si se define como \textbf{migración}, al
+movimiento de palabras de un idioma a otro, entonces las \textbf{palabras
+migrantes}  son aquellas que están presentes en al menos dos idiomas.  
 
 Conviene en este punto realizar dos definiciones que serán útiles.
 \begin{itemize}
@@ -175,8 +172,7 @@ el las migraciones son menos frecuentes. Para estabilizar el flujo de palabras,
 se decidió partir la información en dos conjuntos que cuyo contenido se emplee
 de forma diferente y se complemente uno a otro.  Se llamarán como:
 
-\textbf{Conjunto base.} (1740-1899) Todas las migraciones que ocurran dentro de estos años se tomarán como verdaderas; por el momento en el presente trabajo no se indagará en el contenido que refieren a las migraciones dentro de este conjunto. \fxnote{Porque usas esos años? Y además, porque no hasta 1899?}
-\fxwarning{Me equivoque y si es hasta 1899,  lo de los años es para ver las migraciones en el siglo pasado y los años que abarco de este}
+\textbf{Conjunto base.} (1740-1899) Todas las migraciones que ocurran dentro de estos años se tomarán como verdaderas; por el momento en el presente trabajo no se indagará en el contenido que refieren a las migraciones dentro de este conjunto. 
 
 \textbf{Conjunto de búsqueda.} (1900-2009) Las migraciones en estos años se cuestionarán tratando de dar un significado al por que ha ocurrido el
 movimiento y las causas que lo provocaron. El contenido del escrito esta basado en este conjunto. 
