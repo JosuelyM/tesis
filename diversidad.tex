@@ -29,15 +29,15 @@ Antes de mostrar los resultados, se espera  que los valores de $d(k)$ sean cerca
 Tras graficar el rango contra la diversidad, se observó que en todas las combinaciones (a pesar de que algunas tuvieran más datos)  la tendencia de la diversidad  se asemeja a una función de distribución cumulativa logarítmica  normal, la cual depende del rango $k$, y la desviación estándar $\sigma$.
 
 \begin{equation}
-	\label{ec.cumulativa}
-	F(k) = \Phi \left ( \frac{ln(k)}{\sigma} \right )\,\,\,\,k\geq 0; \sigma \geq 0
+\label{ec.cumulativa}
+F(k) = \Phi \left ( \frac{ln(k)}{\sigma} \right )\,\,\,\,k\geq 0; \sigma \geq 0
 \end{equation}
 
 Donde $\Phi$ es la función cumulativa de la distribución normal, que ademas del rango y la desviación estándar, depende del promedio $\mu$.
 
 \begin{equation}
-	\label{ec.distribucionnormal}
-	\Phi(t) = \frac{1}{\sigma\sqrt{2\pi}} \int_{-\infty}^{t}  e^{ \frac{ - \left ( x-\mu \right )^{2}}{2\sigma^2}  } dx	
+\label{ec.distribucionnormal}
+\Phi(t) = \frac{1}{\sigma\sqrt{2\pi}} \int_{-\infty}^{t}  e^{ \frac{ - \left ( x-\mu \right )^{2}}{2\sigma^2}  } dx	
 \end{equation}
 
 
@@ -87,7 +87,7 @@ Se intentaron ajustar los puntos de la diversidad con esta distribución, sin em
 	\end{equation}
 	
 	
-	 
+	
 \end{enumerate}
 
 
@@ -96,8 +96,8 @@ Valores de $R^{2}$ próximos a 1 indicarán que existe una relación lineal ( en
 Para tener una única ecuación para la diversidad de rango de todas las posibles  combinaciones, se establecieron a $\alpha = 0.17\pm 0.04$ y $\beta = -0.18 \pm 0.08$, obtenidas a partir del promedio de cada $\alpha$ y $\beta$ de los ajustes individuales, quedando la diversidad de rango como:
 
 \begin{equation}
-	\label{ec.gen_ajs}
-	d(k) = 0.17\,ln(k) - 0.18
+\label{ec.gen_ajs}
+d(k) = 0.17\,ln(k) - 0.18
 \end{equation} 
 
 
@@ -111,7 +111,7 @@ Para tener una única ecuación para la diversidad de rango de todas las posible
 	\label{fig.DR_gen}
 	\caption{Diversidad de rango entre idiomas.}
 \end{figure}
- 
+
 
 La figura anterior muestra la diversidad de cada pareja de idiomas junto con la ecuación anterior; a pesar de que no todas las combinaciones tienen la misma cantidad de rangos en sus listas año a año, cada distribución de puntos asemeja siempre a una curva logarítmica cuya mayor diversidad se encuentra conforme el rango $k$ se acerca a sus valores más altos.
 
@@ -157,30 +157,28 @@ La fiabilidad del ajuste llevó buscar un vínculo entre la ecuación propuesta 
 Al utilizar la ley de Zipf para rangos bajos (ya que las listas de palabras no contienen más de trescientos elementos):
 
 \begin{equation}
-	\label{ec.Zipf_kbajos}
-	f(k) = \frac{1}{k^{a}} =  \frac{1}{k}  \,\,\,  \,\,\, \,\,\, con   \,\,\,a=1\ \,\,\,para\,\, k\,\, bajos
+\label{ec.Zipf_kbajos}
+f(k) = \frac{1}{k^{a}} =  \frac{1}{k}  \,\,\,  \,\,\, \,\,\, con   \,\,\,a=1\ \,\,\,para\,\, k\,\, bajos
 \end{equation} 
 
 Si esta ecuación se multiplica por una constante $\alpha$ y se hace una integral indefinida sobre la variable k  entonces:
 
 \begin{equation}
-	\label{ec.Zipf_int}
-	\int \frac{\alpha}{k}\,\,dk \, = \, \alpha \, ln \left(k\right) + C
+\label{ec.Zipf_int}
+\int \frac{\alpha}{k}\,\,dk \, = \, \alpha \, ln \left(k\right) + C
 \end{equation} 
 
 Si la constante de integración $C = \beta$, entonces se llega a la forma propuesta para la diversidad de rango $d(k)$.  
 
 \begin{subequations}
 	\begin{align}
-		\label{ec.Zipf_dk}
-		\int \alpha f\left(k\right) \,dk \,=\, d(k) \\
-		\int \frac{\alpha}{k}\,\,dk \, = \, \alpha \, ln \left(k\right) + \beta	
+	\label{ec.Zipf_dk}
+	\int \alpha f\left(k\right) \,dk \,=\, d(k) \\
+	\int \frac{\alpha}{k}\,\,dk \, = \, \alpha \, ln \left(k\right) + \beta	
 	\end{align}
 \end{subequations}
 
 
 La relación entre ambas propuestas se pudo haber logrado partiendo de la ecuación de diversidad y con una derivada sobre el rango llegar a la ley de Zipf, sin embargo la razón de hacer la integral sobre la ley de Zipf es que esta ley  ha sido probada con diferentes idiomas e incluso en datos donde los criterios para una clasificación son distintos, en cambio la ecuación logarítmica en la diversidad funciona para conjuntos con $k$ bajos, cuya mayor diversidad se alcanza conforme $k$ se aproxima a sus valores más altos.   El realizar la misma técnica para diferentes conjuntos que cumplan  las premisas anteriores puede afirmar o no la concordancia propuesta, incluso se pueden hacer modificaciones al tomar tomar diferentes versiones para la ley de Zipf o para el ajuste de datos basados en curvas logarítmicas.
-
-
 
 
