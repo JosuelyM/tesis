@@ -2,23 +2,13 @@
 \chapter{Palabras nuevas}
 % Intro {{{
 En el capítulo anterior se mencionó que el algoritmo toma como  idioma
-dominante a aquel que transmite palabras hacia los demás y que estas perduran
-en los receptores al menos dos años. En esta división \fxnote{division? No entendi\ldots}
-se indagará
-en el movimiento de las palabras, ya que de éste puede proporcionar
-información acerca de la influencia de un idioma sobre otro. 
+dominante a aquel que transmite palabras hacia los demás y que estas perduran en los receptores al menos dos años.  %En esta división 
+\fxnote{division? No entendi\ldots} \fxwarning{deje comentado el texto donde me dejaste la nota y lo cmabie por el siguiente} El empleo de estás características puede proporcionar información acerca de la influencia de un idioma sobre otro,  sin  embargo, establecer un método que brinde un resultado al cual ligar la expresión influencia  no es sencillo, no existe en la literatura un proceso que mida la influencia, además puede ser ambiguo decir que algo es más o menos influyente sin un valor que lo respalde.  
 
-Establecer un método que proporcione un resultado al cual ligar la expresión
-influencia  no es sencillo, ya que es ambiguo decir que algo es más o menos
-influyente. Al momento, en la literatura no existe una serie de pasos a seguir
-cuyo resultado final sea una cantidad que mida la influencia. Para llegar a
-esta resolución \fxnote{ah? Otra palabra que no cuadra para nada\ldots}, se
-requieren establecer nuevas condiciones en la base de
-datos, y a partir de ellas trazar posibles caminos que lleven a relaciones y
-resultados  con los cuales satisfacer una interpretación de la influencia \fxnote{No 
-entiendo la ultima frase. Ten cuidado con los cambios. Siento que lo intentas hacer
-un poco rococo y elegante, pero por tratar, pierdes precision. Creo qeu lo mas importante
-en textos cientificos es ser preciso, ordenado y conciso.}.
+% Al momento, en la literatura no existe una serie de pasos a seguir cuyo resultado final sea una cantidad que mida la influencia. Para llegar a esta resolución se requieren establecer nuevas condiciones en la base de datos, y a partir de ellas trazar posibles caminos que lleven a relaciones y resultados  con los cuales satisfacer una interpretación de la influencia
+\fxnote{ah? Otra palabra que no cuadra para nada\ldots}, se
+\fxnote{No  entiendo la ultima frase. Ten cuidado con los cambios. Siento que lo intentas hacer un poco rococo y elegante, pero por tratar, pierdes precision. Creo qeu lo mas importante  en textos cientificos es ser preciso, ordenado y conciso.}.
+\fxwarning{Ya trate de ser más conciso en lo que quiero decir, corregi todo el parrafo}
 
 
  \fxnote{Revisa redaccion} 
@@ -30,22 +20,18 @@ en textos cientificos es ser preciso, ordenado y conciso.}.
 \fxwarning{Listo, la corregi, comentare todas las frases o parrafos que vaya corrigiendo, para notar si hay un cmabiuo en la calidad}
  
 
-\fxnote{Ya no entiendo que quieres lograr con el siguietne parrafo. No se cual es el 
-mensaje principal. De nuevo ``teñir un panorama'' no me suena correcto. Hablemos de la
-estructura de un parrafo y creo que tocara iterar de neuvo!!! Argh.}
-Aludiendo al capítulo  anterior, el tratamiento de la base de datos brinda
-información de los orígenes, los receptores y las palabras que migran de un
-lado a otro; comenzando con estos elementos, un primer paso es identificar los
-tiempos donde ocurren las migraciones. Antes de comprometer completamente al
-tiempo, es conveniente hacer una clasificación dentro de los propios préstamos
-para teñir un panorama más claro con el cual trabajar. 
+\fxnote{Ya no entiendo que quieres lograr con el siguietne parrafo. No se cual es el mensaje principal. De nuevo ``teñir un panorama'' no me suena correcto. Hablemos de la estructura de un parrafo y creo que tocara iterar de neuvo!!! Argh.}
+\fxwarning{ya lo corregi,  dejo comentado el parrafo viejo}
 
-Si se tiene una pareja de idioma origen \textit{A} e idioma receptor \textit{B} entonces se definen  a los préstamos de \textit{A} en
-\textit{B} como \textbf{préstamos nuevos} a las  palabras que aparecen por primera vez en las más usadas del idioma \textit{B}.  
+%Aludiendo al capítulo  anterior, el tratamiento de la base de datos brinda información de los orígenes, los receptores y las palabras que migran de un lado a otro; comenzando con estos elementos, un primer paso es identificar los tiempos donde ocurren las migraciones. Antes de comprometer completamente al tiempo, es conveniente hacer una clasificación dentro de los propios préstamos para teñir un panorama más claro con el cual trabajar. 
 
-Esta definición conlleva a catalogar a los préstamos nuevos por el año en el cual aparecieron,  existiendo una cantidad variable de elementos en cada año. 
-Recurriendo a los años comprendidos en el conjunto de búsqueda (1900-2009), existen tres posibilidades con las cuáles trabajar a los
-cinco idiomas para llegar a un resultado que corresponda a la influencia; las distintas maneras son:
+Un primer paso para cuantificar a la influencia es al estudiar  los tiempos donde ocurren las migraciones entre el origen y el receptor. Es conveniente realizar una clasificación dentro los préstamos antes de involucrar completamente al tiempo.  
+
+Si se tiene una pareja de idioma origen \textit{A} e idioma receptor \textit{B},  dentro de los préstamos de \textit{A} en \textit{B} se definen como  \textbf{préstamos nuevos} a las  palabras que aparecen por primera vez en las más usadas del idioma \textit{B}. Esta definición permite ordenar a los préstamos nuevos por cada pareja de origen y receptor;  y dentro  de este ordenamiento, una segunda organización  por el año en el cual aparecieron. 
+
+
+
+Dada la nueva clasificación, se determinaron tres posibilidades con las cuales interpretar influencia de un idioma sobre otro,  estas son: 
 
 \begin{enumerate}
 	
@@ -61,7 +47,7 @@ cinco idiomas para llegar a un resultado que corresponda a la influencia; las di
 \end{enumerate}
 
 
-Las tres formas otorgan resultados diferentes,  el primer punto reflejará en que idiomas \textit{A} ha sido influyente, mientras que el segundo punto mostrará que tan susceptible es \textit{A} ante los demás idiomas,  finalmente el tercero combina la influencia con la susceptibilidad ya que al tratar únicamente a dos idiomas se verá en que épocas alguno de ellos ha tenido más del punto uno o del dos. 
+Las tres formas otorgan resultados diferentes,  el primer punto reflejará en que idiomas \textit{A} ha sido influyente, mientras que el segundo mostrará que tan susceptible es \textit{A} ante los demás idiomas,  finalmente el tercero combina la influencia con la susceptibilidad ya que al tratar únicamente a dos idiomas se verá en que épocas alguno de ellos ha tenido más del punto uno o del dos. 
 
 \fxnote{Siento que las tres maneras miden cosas diferentes. Seria bueno poner una frase interpretando las medidas en cada explicacion. Esta padre! Sin embargo, luego en los gráficos que veo, solo usas una medida, no? Como esta la cosa?}
 
@@ -69,17 +55,17 @@ Las tres formas otorgan resultados diferentes,  el primer punto reflejará en qu
 % }}}
 \section{Eventos que ayudan a las migraciones} % {{{
 
-Una parte complementaria de interpretar la influencia es identificar posibles causas de carácter histórico que favorecen a las migraciones, es decir en un año de migración el significado de las palabras puede guardar alguna relación con un evento ocurrido en el mismo año  (o en los años al rededor de él),  esto es identificable ya que las palabras migrantes pueden pertenecer a un mismo campo semántico relacionado al  evento. Por ejemplo, la globalización y el acceso a la tecnología  por parte de mayores sectores de la población ha propiciado la migración  de palabras como \textit{internet}, \textit{computadora}, \textit{web}, \textit{email} o \textit{software}, mostrando que tanto globalización como el desarrollo tecnológico son ámbitos que ocasionaron una ola de palabras que se mueven de un origen a los receptores. 
+Una parte complementaria de interpretar la influencia es reconocer posibles causas que favorecen a las migraciones,  identificables por el tiempo donde ocurren, es decir, en un año de migración el significado de las palabras puede guardar alguna relación con un evento ocurrido durante el mismo año  (o en los años al rededor de él),  ya que las palabras migrantes pueden pertenecer a un mismo campo semántico relacionado al  evento. Por ejemplo, la globalización y el acceso al desarrollo tecnológico a finales de la década de 1980 y principios de 1990 propició la migración  de términos como \textit{internet}, \textit{computadora}, \textit{web}, \textit{email} o \textit{software}, mostrando a ambos ámbitos como propagadores del movimiento entre un origen y los distintos receptores. Al tratar con idiomas, se espera que en los eventos estén comprometidos países, personajes o comunidades que hablen o utilicen las lenguas involucradas. 
 
 \fxnote{Cuando ocurrio la globalizacion y como se define? Es curioso, porque todos los ejemplos son cosas tecnollógicas asociadas con internet\ldots}
 
 \fxwarning{Todas las palabras que mencione surgieron a partir de 1990. Puse este ejemplo porque pineso que la mayoria de personas puede conocer estos terminos y esta sumergida en estos ambitos, ademas  aceptan que se han mezclado con el español}
 
-Al tratar con idiomas, se espera que en los eventos estén comprometidos países, personajes o comunidades que hablen o utilicen las lenguas involucradas.  El asociar las palabras con sucesos ayudará a mostrar el alcance que tuvo un lenguaje al llegar a diferentes receptores, así como  el origen de la influencia y la forma en la que se propagó.
-
-Al contar con datos que abarcan mas de cien años, se resalta que el brote de palabras en los receptores no es inmediato, el tiempo que le lleva a una palabra migrar a otro conjunto dependerá de la época en la que se origino el evento y de la propia relevancia del mismo.  \fxnote{Frase hiperlarga. Corrige.}
+Otra característica que otorga la relación entre palabras y eventos es la del tiempo que le lleva a la palabra migrar de un lado a otro mostrando la relevancia del mismo evento.  \fxnote{Frase hiperlarga. Corrige.}
 \fxwarning{Listo, puse un ejemplo para tratar de ser mas claro}
-Por ejemplo, las palabras que migraron tras la revolución francesa (1789-1799) aparecieron en los diferentes receptores hasta veinte años después del evento, en cambio los términos tras la globalización de 1980 migran en los años inmediatos (no más de cinco), esta diferencia de tiempo se asocia a que la información circula a diferentes velocidades en las diferentes épocas. 
+Por ejemplo, las palabras que migraron tras la revolución francesa (1789-1799) aparecieron en los diferentes receptores mientras ocurría el suceso y hasta veinte años después de él; así mismo,  los términos involucrados en la globalización  posterior a 1980 migraron en los años inmediatos a su invención. En ambos casos el movimiento de palabras es próximo al ambito,  a pesar de que existan dos cientos años de diferencia entre ellos. 
+
+
 
 
 
@@ -88,18 +74,28 @@ Por ejemplo, las palabras que migraron tras la revolución francesa (1789-1799) 
 \section{Palabras nuevas de un idioma en los demás} % {{{
  
 
-Ya establecida la forma en que se buscarán  palabras nuevas en los diferentes idiomas,  los resultados encontrados se presentarán de la siguiente manera:
+Ya establecida la forma en que se buscarán  palabras nuevas en los diferentes idiomas,  los resultados encontrados se presentarán de la siguiente manera.
 
 \begin{itemize}
-\item Por cada idioma se determinó la influencia que esté ejerció en los demás, mencionada en el punto 1 al comienzo del capítulo. Se denotará con la letra $N_{p}$  a la cantidad de palabras nuevas.
+
+\item Se buscaron los préstamos nuevos entre idiomas durante los 109 años que comprende el conjunto de busqueda (1900-2009).
+	
+\item Por cada idioma se determinó la influencia que esté ejerció en los demás, mencionada en el punto 1 al comienzo del capítulo. La nomenclatura para la cantidad de palabras nuevas será $N_{p}$.
+
 \fxnote{Creo que hay forma de citar la pagina en cuestión. Debe ser un comando como ref o algo asi}. 
 \fxwarning{No encontre la forma, sino al final de editarlo agrego " a mano" la pagina donde quedo el punto 1}
 \fxnote{Si realmente las estas usando quiza valga la pena ponerle nombres a las cantidades, por ejemplo $F^{1954}_{\text{en} \to \text{fr}}$ ojala usando letras que tengan un significado, por ejemplo $S$ para susceptibilidad o como quieras llamarlo. } 
 \fxwarning{listo}
-\item El conteo de palabras nuevas se realizó en un periodo de 109 años (1900 - 2009) y por cada década comprendida en este tiempo, es decir  se mostrarán la cantidad de palabras que aparecieron en los 109 años y a la vez como se distribuye esta cantidad en las diferentes décadas. 
-\item Se proporcionará en \cite{prestamos_nuevos} las listas  de préstamos nuevos entre cada idioma, agrupados por el año de aparición en el receptor.  Se especificará en el Anexo 1  la forma de leer estas listas.
-\item En cada resultado y por cada par de idiomas se agregará un contexto enfatizado en los sucesos históricos que detonan e invlucran las migraciones. Esto permite omitir los resultados del punto 2 (ver  página [XXX] ), ya que al especificar los eventos y las palabras involucradas en el movimiento de  \textit{A} a \textit{B}, se esta cubriendo de manera implícita los términos a los que \textit{B} fue susceptible.
+
+
+\item En las graficas se mostrarán la cantidad de palabras que aparecieron en los 109 años y a la vez como se distribuye esta cantidad en las diferentes décadas. 
+
+\item Se proporcionará en \cite{prestamos_nuevos} las listas  de préstamos nuevos entre cada pareja de origen y receptor, agrupados por el año de aparición .  Se especificará en el Anexo 1  la forma de leerlas.
+
+\item En cada resultado y por cada par de idiomas se agregará un contexto enfatizado en los sucesos  que involucran a las migraciones. Esto permite omitir los resultados del punto 2 (ver  página [XXX] ), ya que muestra los campos donde \textit{A} influencio a  \textit{B}, y  de manera implícita los campos donde \textit{B} fue susceptible.
+
 \item Los comentarios realizados estarán sustentados por la influencia entre \textit{A} y \textit{B}, (punto 3), las graficás correspondientes se anexaran en el Apéndice A.
+
 \end{itemize}
 
 \fxnote{Respecto al numero en la bibliografia despues de la referencia, para que lo quieres? Creo que no es estandard y a mi me confunde. Te propongo quitarlo.}
