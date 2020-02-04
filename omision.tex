@@ -1,145 +1,95 @@
-\chapter{Omisión de palabras}
+\chapter{Eliminación de palabras}
 
 
-Los capítulos anteriores se han enfocado en tratar a las migraciones de palabras como fenómenos consecuentes de eventos las lenguas están involucradas. Un punto clave para llegar en el proceso fue clasificar a los $n$-grams en palabras funcionales y palabras de contenido, y a partir de dicha clasificación restringir de la base de datos a a las palabras funcionales, es decir artículos, preposiciones, conjunciones y pronombres. En principio  las palabras funcionales son las más utilizadas en los idiomas, independientemente del idioma que se este tratando \cite{iplosone}, no obstante  el significado que conllevan no ayuda a hacer relaciones con los eventos. 
+Los capítulos anteriores se han enfocado en tratar a las migraciones de palabras como consecuencias de eventos donde  las lenguas están involucradas. La clasificación de los $n$-grams en palabras funcionales y palabras de contenido, y la posterior eliminación de las palabras funcionales, facilitó encontrar las relaciones con los eventos y establecer una cuantificación para la influencia entre idiomas (llamada uso), pero ¿qué sucedería con esta cantidad si se realizaran otras reglas para eliminar ciertas palabras?
 
-El realizar la omisión anterior permitió encontrar algunos resultados acordes a la relación evento-migración, pero ¿qué sucedería si en los idiomas se hicieran otras restricciones para excluir un grupo determinado de palabras? , ¿de qué manera afectaría esta limitación a las migraciones y al uso de un idioma en otro?
-
-Estas interrogantes han llevado a la construcción de un nuevo algoritmo que limite a las palabras, reduzca el conjunto de las migraciones y obtenga nuevos valores del uso entre idiomas. Escogidos una pareja de idioma origen \textit{A} e idioma receptor \textit{B}, el proceso es el siguiente. 
+Esta interrogante ha llevado a la construcción de un nuevo algoritmo que limite a las palabras,  reduciendo el conjunto de las migraciones y obteniendo nuevos valores del uso entre idiomas.  Elegidos una pareja de idioma origen \textit{A} e idioma receptor \textit{B}, el proceso es el siguiente. 
 
 
 \begin{enumerate}
 	
 	\item Se toma la lista de los préstamos acumulados de \textit{A} en \textit{B},  este conjunto se denotará como \textbf{conjunto original}.
 		
-	\item Se escogen de forma aleatoria un conjunto de letras (desde una hasta cuatro), y se eliminaran de los préstamos acumulados a todas las palabras cuya primer letra sea alguna de las elegidas. Este nuevo grupo se puntualiza como \textbf{conjunto reducido}.
+	\item Se escogen de forma aleatoria un conjunto de letras (desde una hasta diez), y se descartan de los préstamos acumulados a todas las palabras cuya primer letra sea alguna de las elegidas; siendo este nuevo grupo el \textbf{conjunto reducido}.
 	
-	\item Se establece un tercer cúmulo designado como \textbf{conjunto residuo} conformado por todas las palabras que se han eliminado del conjunto original.  Cabe decir que la unión del reducido y el residuo dan como resultado el original. 
+	\item Se establece un tercer grupo designado como \textbf{conjunto residuo}, conformado por todas las palabras eliminadas del conjunto original.  La unión del reducido y el residuo es el original. 
 	
-	\item En los tres conjuntos se empleó la ecuación \ref{ec.fuso}, para encontrar el uso de \textit{A} en \textit{B}. 	
+	\item En los tres conjuntos se emplea la ecuación \ref{ec.fuso}, para encontrar el uso de \textit{A} en \textit{B}. 	
 	 
 \end{enumerate}
 
-Tras la descripción, las primeras dudas que surge es el por qué limitar las eliminaciones a aquellas palabras que empiecen con una determinada letra,  y por qué solo tomar cuatro letras de todas las posibles del abecedario.  La razón  de la primera cuestión  se basa en que es la manera más sencilla de eliminar un grupo de palabras; referente a la cantidad de letras se hicieron las exclusiones hasta para diez letras,  sin embargo para algunas combinaciones de idiomas y elecciones de mas de seis letras, el conjunto reducido no contenía elementos, siendo el residuo igual al original. La intención de estas alteraciones no es desaparecer el conjunto de las migraciones sino el reducirlas y estudiar en ellas que tanto cambia el uso. 
+La intención de estas alteraciones no es desaparecer el conjunto de las migraciones sino el reducirlas  y comparar el uso entre el conjunto original y el reducido.  Para poder decir que tanto ha cambiado el uso entre idiomas en los dos conjuntos, se utilizará el coeficiente de determinación $R^{2}$. 
 
-Una forma para comprender la variación del uso entre los conjuntos original y residuo es a través del coeficiente de determinación; en el próximo capítulo se abordara más en su formalismo. La primera pauta a seguir será al tomar el uso en el conjunto original como verdadero (ya que con el se establecieron los resultados del capítulo anterior) identificando sus valores a lo largo del tiempo $t$ con la variable $O(t)$, si los valores de uso en el conjunto reducido se denotan como  $v(t)$ y el promedio de ellos es $\bar{v}$, entonces   el coeficiente de determinación queda definido como :
+El primer criterio importante sera tomar el uso en el conjunto original como verdadero(ya que con el se establecieron los resultados del capítulo anterior) identificando sus valores a lo largo del tiempo $t$ como $O_{t}$, si los valores de uso en el conjunto reducido se denotan como  $v_{t}$ y el promedio de ellos es $\bar{v}$, entonces   el coeficiente de determinación queda definido como:
  
 \begin{equation}
  \label{ec.dif_uso}
- R^{2} = 1 - \sum_{t} \frac{ \left( v(t)- O(t) \right)^{2}  }{ \left( v(t) - \bar{v} \right)^{2} }
+ R^{2} = 1 - \sum_{t} \frac{ \left( v_{t}- O_{t} \right)^{2}  }{ \left( v_{t} - \bar{v} \right)^{2} }
 \end{equation}
 
-Se define el concepto \textbf{conservación del uso} para aquellos pares de conjuntos donde el uso no cambie a pesar de las omisiones. Su aserto  recaerá en los valores de $R^{2}$ próximos a 1,  indicando que el uso se conserva, en consecuencia las omisiones no afectaron a los conjuntos, en caso contrario $R^{2}$ tomará valores cercanos a cero.
+Se define el concepto \textbf{conservación del uso} para aquellos pares de conjuntos donde el uso no cambie a pesar de las omisiones; la conservación es favorable si $R^{2}$ es próximo a 1.  Si la conservación no es favorable, es indicio de que para el idioma las palabras que fueron eliminadas son las más relevantes. 
 
-Para la presentación de resultados, se graficó en color negro los valores de uso en el conjunto original, sin importar que combinación de idiomas se este tratando.  Para el conjunto reducido, el uso se marcó en color rojo.  En cada grafica se especifica que letras se usaron para las reducciones. 
+\section{Características de las eliminaciones}
 
-\newpage
-
-\subsubsection*{Inglés}
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=14.5cm, height=6.8cm]{OM_EN.png}
-	\label{fig.OM_EN}
-	\caption{Omisiones del inglés.}
-\end{figure}
-
-
-\subsubsection*{Francés}
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=14.5cm, height=6.8cm]{OM_FR.png}
-	\label{fig.OM_FR}
-	\caption{Omisiones del francés.}
-\end{figure}
-
-
-\newpage
-\subsubsection*{Alemán}
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=14.5cm, height=6.8cm]{OM_GE.png}
-	\label{fig.OM_GE}
-	\caption{Omisiones del alemán.}
-\end{figure}
-
-
-\subsubsection*{Italiano}
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=14.5cm, height=6.8cm]{OM_IT.png}
-	\label{fig.OM_IT}
-	\caption{Omisiones del italiano.}
-\end{figure}
-
-\newpage
-\subsubsection*{Español}
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=14cm, height=6.8cm]{OM_SP.png}
-	\label{fig.OM_SP}
-	\caption{Omisiones del español.}
-\end{figure}
-
-
-Tras reducir el corpus de palabras con diferentes condiciones, se distinguieron las siguientes características en el comportamiento de un idioma en otro:
+El proceso anterior se realizó cuatrocientas veces por cada pareja de idiomas, obteniendo en cada uno un valor de $R^{2}$. Tras los múltiples descartes, se distinguieron las siguientes características al graficar el uso del conjunto original y del reducido. 
 
 
 \begin{itemize}
 	
-	\item Valores iguales. Punto a punto el conjunto reducido empalma al original, siendo las gráficas indistinguibles, indicando conservacion del uso. 
-		
-	\item Diferencia de alturas. Ambas gráficas muestran el mismo comportamiento en la escala de tiempo, sin embargo existe  una diferencia constante entre el uso original y el reducido. En este caso se dirá que el uso también se conserva ya que ambas graficas tienen los mismos valores sólo que están desfasados. 
+	\item Valores iguales. Punto a punto el conjunto reducido empalma al original, siendo las gráficas indistinguibles. La conservación del uso se da en todo el intervalo de tiempo. 
 	
-	\item Diferencias por periodos. Una combinación de los puntos anteriores,  donde las graficas son idénticas salvo en algún periodo donde se presenta la diferencia de alturas. La conservación se da por periodos de tiempo menos prolongados. 
+	\item Diferencia de alturas. Ambas gráficas muestran el mismo comportamiento, sin embargo existe una diferencia casi constante entre el uso original y el reducido. En este caso se dirá que el uso también se conserva ya que ambas graficas tienen los mismos valores sólo que están desfasados. 
 	
-	\item Alteraciones prolongadas. Se caracteriza por periodos donde ambos valores de uso son completamente diferentes.  El uso al no conservarse indicara que los préstamos omitidos son los más relevantes en estas etapas. 
-			
+	\item Alteraciones por periodos.  Presenta periodos donde el uso de ambos conjuntos son completamente diferentes. La conservación se da por periodos de tiempo e incluso puede ser inexistente.
+
+	
 \end{itemize}
 
+Para ilustrar las caracterizaras antes mencionadas, se exponen algunas graficas obtenidas, representado el uso del conjunto original con un trazo continuo, mientras que el uso en el conjunto reducido  es una serie de puntos. En cada grafica se especifica que idiomas se están tratando así como el conjunto de letras con las cuales se hicieron las eliminaciones. 
 
-La elección de las letras que se utilizaron para realizar las graficas fueron completamente aleatorias; el que una combinación presente alguna de las características mencionadas no significa que sea la misma para otras alternativas que puedan deformar más o menos e incluso desaparecer el conjunto reducido.  
 
-Para sostener la conservación del uso tratada en las características mencionadas,  se calculó en cada punto la diferencia de alturas entre ambos valores y con ello su valor promedio $\Delta h$; esta cifra se aumentó en todos los valores reducidos $v(t)$ con la intención de que coincidieran lo más posible con los originales $U(t)$, asi el valor de $R^{2}$ es más adecuado.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=.38]{OM1.png}
+	\label{fig.OM1}
+	\caption{En ambas parejas de idiomas hay conservación del uso durante todo el siglo XX, al presentar valores iguales en el inglés-francés y  diferencia de alturas en el francés-inglés.}
+\end{figure}
 
-\fxwarning{Pongo la tabla para notar los valores de R2 y ver por un valor la similitud,  a mi gusto seria bueno poner que tanto cambiaron los conjuntos al hacer las eliminaciones, aunque si la tabla parece relleno por todas las combinaciones hechas, mejor eliminarla}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=.38]{OM2.png}
+	\label{fig.OM2}
+	\caption{La conservación para el español-alemán no existió durante los años de 1960 a 1990,  correspondiendo a una alteración por periodos. Para el italiano-español el uso se conservo  en la mayor parte del siglo al existir una diferencia de alturas, en los últimos años se caracteriza por una alteración.}
+\end{figure}
+
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=.38]{OM3.png}
+	\label{fig.OM3}
+	\caption{ En el italiano-francés la diferencia de alturas comienza a reducirse tras avanzar en los años, por lo que hay conservación. El alemán-francés  presenta las tres características,  valores iguales  en 1918, alrededor de 1980 y antes del 2000,  alteraciones entre 1920 y 1940, y deferencia de alturas  en los años restantes; en promedio durante todo el siglo XX el uso fue conservado, aunque en este caso la conservación dependerá del periodo tratado.}
+\end{figure}
+
+
+La característica del uso no siempre será la misma tras una nueva elección de letras, sin embargo  es posible decir de manera general si un idioma se conserva.  Para todas las repeticiones, se promedio el valor de $R^{2}$ por cada pareja de idiomas, y a la vez por cada idioma origen.  Los resultados de la tabla \ref{tab.conservacion} muestran de manera general si el idioma origen se conserva, así como con cuales receptores existieron más y menos cambios. 
+
 
 
 \begin{table}[h!]
 	\centering
-	\begin{tabular}{ccc}
-		\textbf{}  & \textbf{$\Delta h$}  & \textbf{$R^{2}$}      \\
-		\textbf{inglés-francés}    & 0.001           & 0.99       \\
-		\textbf{inglés-alemán}     & 0.003           & 0.91       \\
-		\textbf{ingles-italiano}   & 0.004           & 0.63       \\
-		\textbf{ingles-español}    & 0.002           & 0.93       \\
-		\textbf{francés-inglés}    & 0.001           & 0.98       \\    
-		\textbf{francés-alemán}    & 0.003           & 0.84       \\ 
-		\textbf{francés-italiano}  & 0.002           & 0.81       \\ 
-		\textbf{francés-español}   & 0.003           & 0.81       \\ 
-		\textbf{alemán-inglés}     & 0.002           & 0.98       \\
-		\textbf{alemán-francés}    & 0.002           & 0.88       \\
-		\textbf{alemán-italiano}   & 0.001           & 0.99       \\
-		\textbf{alemán-español}    & 0.003           & 0.96       \\
-		\textbf{italiano-inglés}   & 0.002           & 0.78       \\
-		\textbf{italiano-francés}  & 0.003           & 0.79       \\
-		\textbf{italiano-alemán}   & 0.001           & 0.97       \\
-		\textbf{italiano-español}  & 0.002           & 0.89       \\
-		\textbf{español-inglés}    & 0.004           & 0.85       \\
-		\textbf{español-francés}   & 0.001           & 0.99       \\
-		\textbf{español-alemán}    & 0.003           & 0.67       \\
-		\textbf{español-italiano}  & 0.004           & 0.74       
+	\begin{tabular}{cccc}
+		\textbf{}         & \textbf{$R^{2}$} & \textbf{\begin{tabular}[c]{@{}c@{}}más \\ cambios\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}menos \\ cambios\end{tabular}} \\
+		\textbf{inglés}   & 0           & 0                                                               & 0                                                                 \\
+		\textbf{francés}  & 0           & 0                                                               & 0                                                                 \\
+		\textbf{alemán}   & 0           & 0                                                               & 0                                                                 \\
+		\textbf{italiano} & 0           & 0                                                               & 0                                                                 \\
+		\textbf{español}  & 0           & 0                                                               & 0                                                                
 	\end{tabular}
-	\caption{Parámetros de las omisiones.}
-	\label{tab.Omision}
+	\caption{xxxx}
+	\label{tab.conservacion}
 \end{table}
 
-
-A partir de la tabla, se muestra que la mejor similitud entre los conjuntos se da en aquellos donde no hay alteraciones prolongadas; como se menciono anteriormente el que se tenga esta característica entre dos idiomas depende de la elección de palabras que restringen al conjunto, alguna otra combinación modificara las características entre  el conjunto original y el reducido, sin embargo se comprobó con diferentes muestreos que los casos donde hay alteraciones prolongadas son escasos.
 
 
 \section{Comentarios del método}
