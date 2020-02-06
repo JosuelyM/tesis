@@ -1,27 +1,36 @@
 % !TeX spellcheck = es_ES
 \chapter{Palabras nuevas}
 % Intro {{{
-En el capítulo anterior se mencionó que el algoritmo toma como  idioma
-dominante a aquel que transmite palabras hacia los demás y que estas perduran en los receptores al menos dos años.  %En esta división 
-\fxnote{division? No entendi\ldots} \fxwarning{deje comentado el texto donde me dejaste la nota y lo cmabie por el siguiente} El empleo de estás características puede proporcionar información acerca de la influencia de un idioma sobre otro,  sin  embargo, establecer un método que brinde un resultado al cual ligar la expresión influencia  no es sencillo, no existe en la literatura un proceso que mida la influencia, además puede ser ambiguo decir que algo es más o menos influyente sin un valor que lo respalde.  
 
-% Al momento, en la literatura no existe una serie de pasos a seguir cuyo resultado final sea una cantidad que mida la influencia. Para llegar a esta resolución se requieren establecer nuevas condiciones en la base de datos, y a partir de ellas trazar posibles caminos que lleven a relaciones y resultados  con los cuales satisfacer una interpretación de la influencia
-\fxnote{ah? Otra palabra que no cuadra para nada\ldots}, se
-\fxnote{No  entiendo la ultima frase. Ten cuidado con los cambios. Siento que lo intentas hacer un poco rococo y elegante, pero por tratar, pierdes precision. Creo qeu lo mas importante  en textos cientificos es ser preciso, ordenado y conciso.}.
+En el capítulo anterior se mencionó que el algoritmo toma como  idioma
+dominante a aquel que transmite palabras hacia los demás y que estas perduran en los receptores al menos dos años. El empleo de estás características puede proporcionar información acerca de la influencia que ejercen los idiomas,  sin  embargo, establecer un método que brinde un resultado al cual ligar la expresión influencia  no es sencillo, no existe en la literatura tal proceso, además puede ser ambiguo decir que algo es más o menos influyente sin un valor que lo respalde.  
+
+%Al momento, en la literatura no existe una serie de pasos a seguir cuyo resultado final sea una cantidad que mida la influencia. Para llegar a esta resolución se requieren establecer nuevas condiciones en la base de datos, y a partir de ellas trazar posibles caminos que lleven a relaciones y resultados  con los cuales satisfacer una interpretación de la influencia
+
+%\fxnote{ah? Otra palabra que no cuadra para nada\ldots}, 
+%\fxnote{No  entiendo la ultima frase. Ten cuidado con los cambios. Siento que lo intentas hacer un poco rococo y elegante, pero por tratar, pierdes precision. Creo qeu lo mas importante  en textos cientificos es ser preciso, ordenado y conciso.}.
+
+
+\fxnote{division? No entendi\ldots}
+\fxwarning{deje comentado el texto donde me dejaste la nota y lo cmabie por el siguiente} 
+
 \fxwarning{Ya trate de ser más conciso en lo que quiero decir, corregi todo el parrafo}
 
 
- \fxnote{Revisa redaccion} 
- \fxwarning{listo} 
+
+
+%\fxnote{Revisa redaccion} 
+%\fxwarning{listo}
+ 
 
 %El llegar a esta conclusión requiere el establecer condiciones y características en los elementos para poder llegar a un resultado que satisfaga una interpretación de la influencia. 
 
-\fxnote{Frase hueva. Que paso??? Se te bajo mucho el nivel de escritura}.
-\fxwarning{Listo, la corregi, comentare todas las frases o parrafos que vaya corrigiendo, para notar si hay un cmabiuo en la calidad}
+%\fxnote{Frase hueva. Que paso??? Se te bajo mucho el nivel de escritura}.
+%\fxwarning{Listo, la corregi, comentare todas las frases o parrafos que vaya corrigiendo, para notar si hay un cmabiuo en la calidad}
  
 
 \fxnote{Ya no entiendo que quieres lograr con el siguietne parrafo. No se cual es el mensaje principal. De nuevo ``teñir un panorama'' no me suena correcto. Hablemos de la estructura de un parrafo y creo que tocara iterar de neuvo!!! Argh.}
-\fxwarning{ya lo corregi,  dejo comentado el parrafo viejo}
+\fxwarning{ya Corregí todo el ,  dejo comentado el parrafo viejo}
 
 %Aludiendo al capítulo  anterior, el tratamiento de la base de datos brinda información de los orígenes, los receptores y las palabras que migran de un lado a otro; comenzando con estos elementos, un primer paso es identificar los tiempos donde ocurren las migraciones. Antes de comprometer completamente al tiempo, es conveniente hacer una clasificación dentro de los propios préstamos para teñir un panorama más claro con el cual trabajar. 
 
@@ -34,6 +43,7 @@ Si se tiene una pareja de idioma origen \textit{A} e idioma receptor \textit{B},
 Dada la nueva clasificación, se determinaron tres posibilidades con las cuales interpretar influencia de un idioma sobre otro,  estas son: 
 
 \begin{enumerate}
+	\label{proceso.nuevos}
 	
 \item Contando por cada año los préstamos de origen \textit{A} que están presentes en los diferentes receptores. 
 
@@ -79,12 +89,12 @@ Ya establecida la forma en que se buscarán  palabras nuevas en los diferentes i
 
 \begin{itemize}
 
-\item Se buscaron los préstamos nuevos entre idiomas durante los 109 años que comprende el conjunto de busqueda (1900-2009).
+\item Se buscaron los préstamos nuevos entre idiomas durante los 109 años que comprende el conjunto de búsqueda (1900-2009).
 	
-\item Por cada idioma se determinó la influencia que esté ejerció en los demás, mencionada en el punto 1 al comienzo del capítulo. La nomenclatura para la cantidad de palabras nuevas será $N_{p}$.
+\item Por cada idioma se determinó la influencia que esté ejerció en los demás, mencionada en el punto 1 (ver pagina \pageref{proceso.nuevos}). La nomenclatura para la cantidad de palabras nuevas será $N_{p}$.
 
 \fxnote{Creo que hay forma de citar la pagina en cuestión. Debe ser un comando como ref o algo asi}. 
-\fxwarning{No encontre la forma, sino al final de editarlo agrego " a mano" la pagina donde quedo el punto 1}
+\fxwarning{Ya lo corregí}
 \fxnote{Si realmente las estas usando quiza valga la pena ponerle nombres a las cantidades, por ejemplo $F^{1954}_{\text{en} \to \text{fr}}$ ojala usando letras que tengan un significado, por ejemplo $S$ para susceptibilidad o como quieras llamarlo. } 
 \fxwarning{listo}
 
@@ -93,15 +103,15 @@ Ya establecida la forma en que se buscarán  palabras nuevas en los diferentes i
 
 \item Se proporcionará en \cite{prestamos_nuevos} las listas  de préstamos nuevos entre cada pareja de origen y receptor, agrupados por el año de aparición .  Se especificará en el Anexo 1  la forma de leerlas.
 
-\item En cada resultado y por cada par de idiomas se agregará un contexto enfatizado en los sucesos  que involucran a las migraciones. Esto permite omitir los resultados del punto 2 (ver  página [XXX] ), ya que muestra los campos donde \textit{A} influencio a  \textit{B}, y  de manera implícita los campos donde \textit{B} fue susceptible.
+\item En cada resultado y por cada par de idiomas se agregará un contexto enfatizado en los sucesos  que involucran a las migraciones. Esto permite omitir los resultados del punto 2 (ver  página \pageref{proceso.nuevos}), ya que muestra los campos donde \textit{A} influencio a  \textit{B}, y  de manera implícita los campos donde \textit{B} fue susceptible.
 
 \item Los comentarios realizados estarán sustentados por la influencia entre \textit{A} y \textit{B}, (punto 3), las graficás correspondientes se anexaran en el Apéndice A.
 
 \end{itemize}
 
-\fxnote{Respecto al numero en la bibliografia despues de la referencia, para que lo quieres? Creo que no es estandard y a mi me confunde. Te propongo quitarlo.}
+%\fxnote{Respecto al numero en la bibliografia despues de la referencia, para que lo quieres? Creo que no es estandard y a mi me confunde. Te propongo quitarlo.}
 
-\fxwarning{ok, veo como quitarlo por el momento no lo se}
+%\fxwarning{ok, veo como quitarlo por el momento no lo se}
 
 \fxnote{No creo que amerite una subsección. La quite. Si no estas de acuerdo,  respondeme y la vuleves a poner.}
 
