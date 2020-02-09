@@ -18,35 +18,36 @@ Esta interrogante ha llevado a la construcción de un nuevo algoritmo que limite
 	 
 \end{enumerate}
 
-La intención de estas alteraciones no es desaparecer el conjunto de las migraciones sino el reducirlas  y comparar el uso entre el conjunto original y el reducido.  Para poder decir que tanto ha cambiado el uso entre idiomas en los dos conjuntos, se utilizará el coeficiente de determinación $R^{2}$. 
+La intención de estas alteraciones no es desaparecer el conjunto de las migraciones sino el reducirlas,   comparando el uso entre el conjunto original y el reducido.  Para poder decir que tanto ha cambiado el uso en los dos conjuntos, se utilizará el coeficiente de determinación $R^{2}$. 
 
-El primer criterio importante sera tomar el uso en el conjunto original como verdadero(ya que con el se establecieron los resultados del capítulo anterior) identificando sus valores a lo largo del tiempo $t$ como $O_{t}$, si los valores de uso en el conjunto reducido se denotan como  $v_{t}$ y el promedio de ellos es $\bar{v}$, entonces   el coeficiente de determinación queda definido como:
+El primer criterio importante sera al tomar el uso en el conjunto original como verdadero (ya que con el se establecieron los resultados del capítulo anterior) identificando sus valores a lo largo del tiempo $t$ como $O_{t}$, si los valores de uso en el conjunto reducido se denotan como  $v_{t}$ y el promedio de ellos es $\bar{v}$, entonces   el coeficiente de determinación queda definido como:
  
 \begin{equation}
  \label{ec.dif_uso}
  R^{2} = 1 - \sum_{t} \frac{ \left( v_{t}- O_{t} \right)^{2}  }{ \left( v_{t} - \bar{v} \right)^{2} }
 \end{equation}
 
-Se define el concepto \textbf{conservación del uso} para aquellos pares de conjuntos donde el uso no cambie a pesar de las omisiones; la conservación es favorable si $R^{2}$ es próximo a 1.  Si la conservación no es favorable, es indicio de que para el idioma las palabras que fueron eliminadas son las más relevantes. 
+Se define el concepto \textbf{conservación del uso} para aquellos pares de conjuntos donde el uso no cambie a pesar de las omisiones; la conservación es favorable si $R^{2}$ es próximo a 1.  Si la conservación no es favorable, es indicio de que para el idioma las palabras eliminadas son las más relevantes. 
 
 \section{Características de las eliminaciones}
 
-El proceso anterior se realizó cuatrocientas veces por cada pareja de idiomas, obteniendo en cada uno un valor de $R^{2}$. Tras los múltiples descartes, se distinguieron las siguientes características al graficar el uso del conjunto original y del reducido. 
+El procedimiento de eliminar palabras, obteniendo el uso en los dos conjuntos y el coeficiente de determinación, se realizó dos mil veces por cada pareja de idiomas.  Tras las repeticiones, se distinguieron las siguientes características al graficar el uso del conjunto original y del reducido. 
 
 
 \begin{itemize}
 	
 	\item Valores iguales. Punto a punto el conjunto reducido empalma al original, siendo las gráficas indistinguibles. La conservación del uso se da en todo el intervalo de tiempo. 
 	
-	\item Diferencia de alturas. Ambas gráficas muestran el mismo comportamiento, sin embargo existe una diferencia casi constante entre el uso original y el reducido. En este caso se dirá que el uso también se conserva ya que ambas graficas tienen los mismos valores sólo que están desfasados. 
+	\item Diferencia de alturas. Ambas gráficas muestran el mismo comportamiento, sin embargo existe una diferencia casi constante entre el uso original y el reducido. En este caso se dirá que el uso también se conserva ya que ambas graficas son las mismas, sólo que sus valores están desfasados. 
 	
 	\item Alteraciones por periodos.  Presenta periodos donde el uso de ambos conjuntos son completamente diferentes. La conservación se da por periodos de tiempo e incluso puede ser inexistente.
 
 	
 \end{itemize}
 
-Para ilustrar las caracterizaras antes mencionadas, se exponen algunas graficas obtenidas, representado el uso del conjunto original con un trazo continuo, mientras que el uso en el conjunto reducido  es una serie de puntos. En cada grafica se especifica que idiomas se están tratando así como el conjunto de letras con las cuales se hicieron las eliminaciones. 
+Para ilustrar las caracterizaras mencionadas, se exponen algunas graficas obtenidas, representado con un trazo continuo al uso del conjunto original, mientras que el uso en el conjunto reducido  es una serie de puntos. En cada grafica se especifica que idiomas se están tratando así como el conjunto de letras con las cuales se hicieron las eliminaciones. 
 
+\clearpage
 
 \begin{figure}[h!]
 	\centering
@@ -63,7 +64,7 @@ Para ilustrar las caracterizaras antes mencionadas, se exponen algunas graficas 
 	\caption{La conservación para el español-alemán no existió durante los años de 1960 a 1990,  correspondiendo a una alteración por periodos. Para el italiano-español el uso se conservo  en la mayor parte del siglo al existir una diferencia de alturas, en los últimos años se caracteriza por una alteración.}
 \end{figure}
 
-
+\clearpage
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=.38]{OM3.png}
@@ -72,19 +73,23 @@ Para ilustrar las caracterizaras antes mencionadas, se exponen algunas graficas 
 \end{figure}
 
 
-La característica del uso no siempre será la misma tras una nueva elección de letras, sin embargo  es posible decir de manera general si un idioma se conserva.  Para todas las repeticiones, se promedio el valor de $R^{2}$ por cada pareja de idiomas, y a la vez por cada idioma origen.  Los resultados de la tabla \ref{tab.conservacion} muestran de manera general si el idioma origen se conserva, así como con cuales receptores existieron más y menos cambios. 
+
+
+La característica del uso no siempre será la misma tras una nueva elección de letras, sin embargo es posible decir de menara general si un idioma se conserva, para ello son útiles los resultados tras las repeticiones. Si por cada idioma origen, se agrupan y promedian los valores del coeficiente de determinación, obteniendo un valor promedio $\left \langle R^{2}  \right \rangle$ con el cual decir si el origen se conserva.  Los resultados de la tabla \ref{tab.conservacion} muestran el valor de  $\left \langle R^{2} \right \rangle$ en cada origen,  así como  en cuales receptores la conservación fue mayor $R^{2}_{max}$ y  menor $R^{2}_{min}$.
+
+
 
 
 
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{cccc}
-		\textbf{}         & \textbf{$R^{2}$} & \textbf{\begin{tabular}[c]{@{}c@{}}más \\ cambios\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}menos \\ cambios\end{tabular}} \\
-		\textbf{inglés}   & 0           & 0                                                               & 0                                                                 \\
-		\textbf{francés}  & 0           & 0                                                               & 0                                                                 \\
-		\textbf{alemán}   & 0           & 0                                                               & 0                                                                 \\
-		\textbf{italiano} & 0           & 0                                                               & 0                                                                 \\
-		\textbf{español}  & 0           & 0                                                               & 0                                                                
+		\textbf{} & \textbf{$\left \langle R^{2} \right \rangle$} & \textbf{$R^{2}_{max}$} & \textbf{$R^{2}_{min}$} \\
+		\textbf{inglés}   & 0.856 $\pm$ 0.147   &  IT 0.976 $\pm$ 0.001  & GE 0.778 $\pm$ 0.032  \\
+		\textbf{francés}  & 0.839 $\pm$ 0.120   &  EN 0.951 $\pm$ 0.002  & GE 0.660 $\pm$ 0.020  \\
+		\textbf{alemán}   & 0.753 $\pm$ 0.069   &  EN 0.805 $\pm$ 0.061  & SP 0.514 $\pm$ 0.332  \\
+		\textbf{italiano} & 0.878 $\pm$ 0.147   &  FR 0.932 $\pm$ 0.008  & EN 0.687 $\pm$ 0.030  \\
+		\textbf{español}  & 0.883 $\pm$ 0.053   &  IT 0.949 $\pm$ 0.006  & GE 0.818 $\pm$ 0.016                                                                
 	\end{tabular}
 	\caption{xxxx}
 	\label{tab.conservacion}
