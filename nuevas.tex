@@ -5,7 +5,7 @@
 % Intro {{{
 
 En el capítulo anterior se mencionó que el algoritmo toma como  idioma
-dominante a aquel que transmite palabras hacia los demás y que estas perduran en los receptores al menos dos años. El empleo de estás características puede proporcionar información acerca de la influencia que ejercen los idiomas,  sin  embargo, establecer un método que brinde un resultado al cual ligar la expresión influencia  no es sencillo, no existe en la literatura tal proceso, además puede ser ambiguo decir que algo es más o menos influyente sin un valor que lo respalde.  
+dominante a aquel que transmite palabras hacia los demás y que estas perduran en los receptores al menos dos años. El empleo de estás características puede proporcionar información acerca de la influencia que ejercen los idiomas,  sin  embargo, establecer un método que brinde un resultado al cual ligar la expresión influencia  no es sencillo, no existe en la literatura tal proceso, además puede ser ambiguo decir que algo es más o menos influyente sin un valor que lo respalde\cpnote{Esta frase esta muy muy confusa. Simplifica por favor.}.
 
 %Al momento, en la literatura no existe una serie de pasos a seguir cuyo resultado final sea una cantidad que mida la influencia. Para llegar a esta resolución se requieren establecer nuevas condiciones en la base de datos, y a partir de ellas trazar posibles caminos que lleven a relaciones y resultados  con los cuales satisfacer una interpretación de la influencia
 
@@ -13,11 +13,11 @@ dominante a aquel que transmite palabras hacia los demás y que estas perduran e
 %\fxnote{No  entiendo la ultima frase. Ten cuidado con los cambios. Siento que lo intentas hacer un poco rococo y elegante, pero por tratar, pierdes precision. Creo qeu lo mas importante  en textos cientificos es ser preciso, ordenado y conciso.}.
 
 
-\fxnote{division? No entendi\ldots}
-\fxwarning{deje comentado el texto donde me dejaste la nota y lo cmabie por el siguiente} 
-
-\fxwarning{Ya trate de ser más conciso en lo que quiero decir, corregi todo el parrafo}
-
+% \fxnote{division? No entendi\ldots}
+% \fxwarning{deje comentado el texto donde me dejaste la nota y lo cmabie por el siguiente} 
+% 
+% \fxwarning{Ya trate de ser más conciso en lo que quiero decir, corregi todo el parrafo}
+% 
 
 
 
@@ -31,18 +31,28 @@ dominante a aquel que transmite palabras hacia los demás y que estas perduran e
 %\fxwarning{Listo, la corregi, comentare todas las frases o parrafos que vaya corrigiendo, para notar si hay un cmabiuo en la calidad}
  
 
-\fxnote{Ya no entiendo que quieres lograr con el siguietne parrafo. No se cual es el mensaje principal. De nuevo ``teñir un panorama'' no me suena correcto. Hablemos de la estructura de un parrafo y creo que tocara iterar de neuvo!!! Argh.}
-\fxwarning{ya Corregí todo el ,  dejo comentado el parrafo viejo}
+% \fxnote{Ya no entiendo que quieres lograr con el siguietne parrafo. No se cual es el mensaje principal. De nuevo ``teñir un panorama'' no me suena correcto. Hablemos de la estructura de un parrafo y creo que tocara iterar de neuvo!!! Argh.}
+% \fxwarning{ya Corregí todo el ,  dejo comentado el parrafo viejo}
 
 %Aludiendo al capítulo  anterior, el tratamiento de la base de datos brinda información de los orígenes, los receptores y las palabras que migran de un lado a otro; comenzando con estos elementos, un primer paso es identificar los tiempos donde ocurren las migraciones. Antes de comprometer completamente al tiempo, es conveniente hacer una clasificación dentro de los propios préstamos para teñir un panorama más claro con el cual trabajar. 
 
-Un primer paso para llegar a una cuantificación de la influencia es estudiando los tiempos donde ocurren las migraciones, encontrando relaciones entre dichos tiempos y las palabras involucradas en el movimiento;  antes de profundizar en esta idea, es conveniente realizar una clasificación dentro los préstamos para trabajar sobre ella y llegar a la cuantificación. 
+Un primer paso para llegar a una cuantificación de la influencia es estudiando
+los tiempos donde ocurren las migraciones, encontrando relaciones entre dichos
+tiempos y las palabras involucradas en el movimiento. Antes de profundizar en
+esta idea, es conveniente realizar una clasificación dentro los préstamos para
+trabajar sobre ella y llegar a la cuantificación. 
 
-Si se tiene una pareja de idioma origen \textit{A} e idioma receptor \textit{B},  dentro de los préstamos de \textit{A} en \textit{B} se definen como  \textbf{préstamos nuevos} a las  palabras que aparecen por primera vez en las más usadas del idioma \textit{B}. Esta definición permite ordenar a los préstamos nuevos por cada pareja de origen y receptor;  y dentro  de este ordenamiento, una segunda organización  por el año en el cual aparecieron. 
+Si se tiene una pareja de idioma origen \textit{A} e idioma receptor
+\textit{B},  dentro de los préstamos de \textit{A} en \textit{B} se definen
+como  \textbf{préstamos nuevos} a las  palabras que aparecen por primera vez en
+las más usadas del idioma \textit{B}. Esta definición permite ordenar a los
+préstamos nuevos por cada pareja de origen y receptor, y dentro  de este
+ordenamiento, una segunda organización  por el año en el cual aparecieron. 
 
 
 
-Dada la nueva clasificación, se determinaron tres posibilidades con las cuales interpretar influencia de un idioma sobre otro,  estas son: 
+Dada la nueva clasificación, se determinaron tres posibilidades con las cuales
+interpretar influencia de un idioma sobre otro,  estas son: 
 
 \begin{enumerate}
 	\label{proceso.nuevos}
@@ -59,15 +69,33 @@ Dada la nueva clasificación, se determinaron tres posibilidades con las cuales 
 \end{enumerate}
 
 
-Las tres formas otorgan resultados diferentes,  el primer punto reflejará en que idiomas \textit{A} ha sido influyente, mientras que el segundo mostrará que tan susceptible es \textit{A} ante los demás idiomas,  finalmente el tercero combina la influencia con la susceptibilidad ya que al tratar únicamente a dos idiomas se verá en que épocas alguno de ellos ha tenido más del punto uno o del dos. 
+Las tres formas otorgan resultados diferentes,  el primer punto reflejará en
+que idiomas \textit{A} ha sido influyente, mientras que el segundo mostrará que
+tan susceptible es \textit{A} ante los demás idiomas,  finalmente el tercero
+combina la influencia con la susceptibilidad ya que al tratar únicamente a dos
+idiomas se verá en que épocas alguno de ellos ha tenido más del punto uno o del
+dos. \cpnote{Porfa revisa los parrafos. Por qué un parrafo tan largo?
 
-\fxnote{Siento que las tres maneras miden cosas diferentes. Seria bueno poner una frase interpretando las medidas en cada explicacion. Esta padre! Sin embargo, luego en los gráficos que veo, solo usas una medida, no? Como esta la cosa?}
-
-\fxwarning{Ya lo comente en donde introduzco las graficas}
 % }}}
 \section{Eventos que ayudan a las migraciones} % {{{
 
-Una parte complementaria de interpretar la influencia es reconocer posibles causas que favorecen a las migraciones,  identificables por el tiempo donde ocurren, es decir, en un año de migración el significado de las palabras puede guardar alguna relación con un evento ocurrido durante el mismo año  (o en los años al rededor de él),  ya que las palabras migrantes pueden pertenecer a un mismo campo semántico relacionado al  evento. Por ejemplo, la globalización y el acceso al desarrollo tecnológico a finales de la década de 1980 y principios de 1990 propició la migración  de términos como \textit{internet}, \textit{computadora}, \textit{web}, \textit{email} o \textit{software}, mostrando a ambos ámbitos como propagadores del movimiento entre un origen y los distintos receptores. Al tratar con idiomas, se espera que en los eventos estén comprometidos países, personajes o comunidades que hablen o utilicen las lenguas involucradas. 
+\cpnote{Otra vez veo frases innecesariamente largas. Porfa revisa todo el capitulo, y me
+avisas cuando hayas simplificado. Luego le sigues con el resto de la tesis. Una frase
+por idea, o por ahi dos, pero solo si tiene sentido. La siguiente frase hablas de dos
+cosas medio relacionadas, pero que seria mejor separar. }
+Una parte complementaria de interpretar la influencia es reconocer posibles
+causas que favorecen a las migraciones,  identificables por el tiempo donde
+ocurren, es decir, en un año de migración el significado de las palabras puede
+guardar alguna relación con un evento ocurrido durante el mismo año  (o en los
+años al rededor de él),  ya que las palabras migrantes pueden pertenecer a un
+mismo campo semántico relacionado al  evento. Por ejemplo, la globalización y
+el acceso al desarrollo tecnológico a finales de la década de 1980 y principios
+de 1990 propició la migración  de términos como \textit{internet},
+\textit{computadora}, \textit{web}, \textit{email} o \textit{software},
+mostrando a ambos ámbitos como propagadores del movimiento entre un origen y
+los distintos receptores. Al tratar con idiomas, se espera que en los eventos
+estén comprometidos países, personajes o comunidades que hablen o utilicen las
+lenguas involucradas. 
 
 \fxnote{Cuando ocurrio la globalizacion y como se define? Es curioso, porque todos los ejemplos son cosas tecnollógicas asociadas con internet\ldots}
 
