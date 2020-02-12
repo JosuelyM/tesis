@@ -4,7 +4,7 @@
 Para la elaboración del trabajo,  se dispuso de la base de datos de los los
 $n$-grams de Google Books  \cite{ngramv}. Esta base de datos
 tiene hasta el momento alrededor del $4\%$ de todas las publicaciones en
-diferentes idiomas,  y se caracteriza por en listar  por cada año y por cada
+diferentes idiomas,  y se caracteriza por enlistar  por cada año y por cada
 idioma de publicación los ``$n$-gramas'' más utilizados.   Los $n$-gramas son
 las palabras o conjunto de palabras que forman el texto de un libro, donde el
 número $n$ indicará la cantidad de palabras que forman el grama.  Es decir, los
@@ -78,16 +78,16 @@ rango en la lista de las más usadas en el idioma $\textit{A}$  es menor que el
 rango en la lista del idioma $\textit{B}$ , entonces $\textit{A}$  es el idioma
 origen, en caso contrario, el origen es $\textit{B}$ .
 \item Se descartan palabras que contengan un solo carácter, las que son
-compuestas por letras y números y aquellas que aparecen en el receptor sólo en un año. La intención es tener una  nueva base de datos con el mayor contenido
-limpio con palabras que perduran al menos dos años en el receptor.
+compuestas por letras y números y aquellas que aparecen en el receptor sólo en un año. La intención es tener una  nueva base de datos que contenga el mayor contenido
+limpio y con palabras que perduran al menos dos años en el receptor.
 
 \end{enumerate}
-Los argumentos anteriores, se pueden ampliar si la palabra está presente en tres o más.
+Las condiciones anteriores, se pueden ampliar si la palabra está presente en tres o más idiomas.
 
 La manera de clasificar el idioma origen de las palabras puede carecer de otras
 pautas para ser más preciso, sin embargo, a lo largo de toda la investigación
 se optó por utilizar lo más posible los datos de los $n$-gramas y  con ellos
-crear reglas para obtener resultados.  Una forma más precisa sería tomando otro
+crear reglas para obtener mejores resultados.  Una forma más precisa sería tomando otro
 tipo de base de datos, con información etimológica de las palabras y las
 diferentes escrituras que tomó la palabra hasta que prevaleció una estructura.  
 
@@ -110,7 +110,7 @@ desventajas ($\ast$) del método se encuentran las siguientes.
 % [$-$] 
 Determina el idioma donde la palabra fue más popular al comienzo de
 la base de datos (1740), y hacia donde se esparció el vocablo, dando un
-carácter histórico de los idiomas mas populares en diferentes épocas. 
+carácter histórico de los idiomas más populares en diferentes épocas. 
 \item [$\bullet$] 
 Localiza las palabras que conservaron su escritura al pasar de un
 idioma a otro. 
@@ -147,7 +147,7 @@ poder observar todas las palabras encontradas.
 
 
 Las palabras que se encontraron se pueden agrupar en dos conjuntos de acuerdo
-a~\cite{contenidopal}. Las \textbf{palabras funcionales} son aquellas que
+a~ Beare \cite{contenidopal}. Las \textbf{palabras funcionales} son aquellas que
 auxilian a las demás a estructurar un mensaje de acuerdo a la gramática del
 idioma y las \textbf{palabras de contenido} son las que llevan la información
 y el significado del mensaje. Ya  que se busca tener palabras cuyo significado
@@ -170,7 +170,7 @@ el año en que comiencen las mediciones; a pesar de ser una característica
 importante el flujo de palabras siempre es mayor en este periodo, posterior a
 el las migraciones son menos frecuentes. Para estabilizar el flujo de palabras,
 se decidió partir la información en dos conjuntos que cuyo contenido se emplee
-de forma diferente y se complemente uno a otro.  Se llamarán como:
+de forma diferente y se complemente uno a otro.  Estos se designaron como:
 
 \textbf{Conjunto base.} (1740-1899) Todas las migraciones que ocurran dentro de estos años se tomarán como verdaderas; por el momento en el presente trabajo no se indagará en el contenido que refieren a las migraciones dentro de este conjunto. 
 

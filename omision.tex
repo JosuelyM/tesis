@@ -1,9 +1,9 @@
 \chapter{Eliminación de palabras}
 
 
-Los capítulos anteriores se han enfocado en tratar a las migraciones de palabras como consecuencias de eventos donde  las lenguas están involucradas. La clasificación de los $n$-grams en palabras funcionales y palabras de contenido, y la posterior eliminación de las palabras funcionales, facilitó encontrar las relaciones con los eventos y establecer una cuantificación para la influencia entre idiomas (llamada uso), pero ¿qué sucedería con esta cantidad si se realizaran otras reglas para eliminar ciertas palabras?
+Los capítulos anteriores se han enfocado en tratar a las migraciones de palabras como consecuencias de eventos donde  las lenguas están involucradas. La clasificación de los $n$-gramas en palabras funcionales y palabras de contenido, y la posterior eliminación de las palabras funcionales, facilitó encontrar las relaciones con los eventos y establecer una cuantificación para la influencia entre idiomas (llamada uso), pero ¿qué sucedería con esta cantidad si se realizaran otras reglas para eliminar ciertas palabras?
 
-Esta interrogante ha llevado a la construcción de un nuevo algoritmo que limite a las palabras,  reduciendo el conjunto de las migraciones y obteniendo nuevos valores del uso entre idiomas.  Elegidos una pareja de idioma origen \textit{A} e idioma receptor \textit{B}, el proceso es el siguiente. 
+Esta pregunta ha llevado a la construcción de un nuevo algoritmo que limite a las palabras,  reduciendo el conjunto de las migraciones y obteniendo nuevos valores para el uso entre idiomas.  Elegidos una pareja de idioma origen \textit{A} e idioma receptor \textit{B}, el proceso es el siguiente. 
 
 
 \begin{enumerate}
@@ -18,7 +18,7 @@ Esta interrogante ha llevado a la construcción de un nuevo algoritmo que limite
 	
 \end{enumerate}
 
-La intención de estas alteraciones no es desaparecer el conjunto de las migraciones sino el reducirlas,   comparando el uso entre el conjunto original y el reducido.  Para poder decir que tanto ha cambiado el uso en los dos conjuntos, se utilizará el coeficiente de determinación $R^{2}$. 
+La intención de estas alteraciones no es desaparecer el conjunto de las migraciones, sino el reducirlas,   comparando el uso entre el conjunto original y el reducido.  Para poder decir que tanto ha cambiado el uso en los dos conjuntos, se utilizará el coeficiente de determinación $R^{2}$. 
 
 El primer criterio importante sera al tomar el uso en el conjunto original como verdadero (ya que con el se establecieron los resultados del capítulo anterior) identificando sus valores a lo largo del tiempo $t$ como $O_{t}$, si los valores de uso en el conjunto reducido se denotan como  $v_{t}$ y el promedio de ellos es $\bar{v}$, entonces   el coeficiente de determinación queda definido como:
 
