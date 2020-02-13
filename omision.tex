@@ -20,7 +20,7 @@ Esta pregunta ha llevado a la construcción de un nuevo algoritmo que limite a l
 
 La intención de estas alteraciones no es desaparecer el conjunto de las migraciones, sino el reducirlas,   comparando el uso entre el conjunto original y el reducido.  Para poder decir que tanto ha cambiado el uso en los dos conjuntos, se utilizará el coeficiente de determinación $R^{2}$. 
 
-El primer criterio importante sera al tomar el uso en el conjunto original como verdadero (ya que con el se establecieron los resultados del capítulo anterior) identificando sus valores a lo largo del tiempo $t$ como $O_{t}$, si los valores de uso en el conjunto reducido se denotan como  $v_{t}$ y el promedio de ellos es $\bar{v}$, entonces   el coeficiente de determinación queda definido como:
+El primer criterio importante sera al tomar el uso en el conjunto original como verdadero (ya que con el se establecieron los resultados del capítulo anterior) identificando sus valores para un tiempo $t$ como $O_{t}$, si el uso en el conjunto reducido para el mismo tiempo se denotan como  $v_{t}$ y el promedio de ellos es $\bar{v}$, entonces   el coeficiente de determinación queda definido como:
 
 \begin{equation}
 \label{ec.dif_uso}
@@ -42,10 +42,11 @@ El procedimiento de eliminar palabras, obteniendo el uso en los dos conjuntos y 
 	
 	\item Alteraciones por periodos.  Presenta periodos donde el uso de ambos conjuntos son completamente diferentes. La conservación se da por periodos de tiempo e incluso puede ser inexistente.
 	
-	
 \end{itemize}
 
-Para ilustrar las caracterizaras mencionadas, se exponen algunas graficas obtenidas, representado con un trazo continuo al uso del conjunto original, mientras que el uso en el conjunto reducido  es una serie de puntos. En cada grafica se especifica que idiomas se están tratando así como el conjunto de letras con las cuales se hicieron las eliminaciones. 
+Para ilustrar las caracterizaras mencionadas, se exponen algunas graficas obtenidas, representado con un trazo continuo al uso del conjunto original, mientras que el uso en el conjunto reducido  es una serie de puntos.   Ya que los valores en el conjunto residuo son muy pequeños, se opto por no graficarlos, para no saturar la información. 
+
+En cada grafica se especifica que idiomas se están tratando así como el conjunto de letras con las cuales se hicieron las eliminaciones. 
 
 \clearpage
 
@@ -53,7 +54,7 @@ Para ilustrar las caracterizaras mencionadas, se exponen algunas graficas obteni
 	\centering
 	\includegraphics[scale=.38]{OM1.png}
 	\label{fig.OM1}
-	\caption{En ambas parejas de idiomas hay conservación del uso durante todo el siglo XX, al presentar valores iguales en el inglés-francés y  diferencia de alturas en el francés-inglés.}
+	\caption{En ambas parejas de idiomas hay conservación del uso durante todo el siglo XX, al presentar valores iguales y  diferencia de alturas.}
 \end{figure}
 
 
@@ -61,7 +62,7 @@ Para ilustrar las caracterizaras mencionadas, se exponen algunas graficas obteni
 	\centering
 	\includegraphics[scale=.38]{OM2.png}
 	\label{fig.OM2}
-	\caption{La conservación para el español-alemán no existió durante los años de 1960 a 1990,  correspondiendo a una alteración por periodos. Para el italiano-español el uso se conservo  en la mayor parte del siglo al existir una diferencia de alturas, en los últimos años se caracteriza por una alteración.}
+	\caption{Sin conservación para el español-alemán entre 1960 y 1990,  debido a una alteración por periodos. Para el italiano-español el uso se conservo hasta mitad de siglo al existir una diferencia de alturas, en los últimos años se caracteriza por una alteración.}
 \end{figure}
 
 \clearpage
@@ -69,7 +70,7 @@ Para ilustrar las caracterizaras mencionadas, se exponen algunas graficas obteni
 	\centering
 	\includegraphics[scale=.38]{OM3.png}
 	\label{fig.OM3}
-	\caption{ En el italiano-francés la diferencia de alturas comienza a reducirse tras avanzar en los años, por lo que hay conservación. El alemán-francés  presenta las tres características,  valores iguales  en 1918, alrededor de 1980 y antes del 2000,  alteraciones entre 1920 y 1940, y deferencia de alturas  en los años restantes; en promedio durante todo el siglo XX el uso fue conservado, aunque en este caso la conservación dependerá del periodo tratado.}
+	\caption{ En el italiano-francés se presenta conservación al  reducirse la diferencia de alturas conforme avanza el tiempo. El alemán-francés  presenta las tres características,  valores iguales  , alrededor de 1980  alteraciones entre 1920 y 1940, y deferencia de alturas  en los años restantes; la conservación dependerá del periodo  que se estudie.}
 \end{figure}
 
 
@@ -91,7 +92,7 @@ La característica del uso y la conservación no siempre será la misma tras una
 		\textbf{italiano} & 0.878 $\pm$ 0.147   &  FR 0.932 $\pm$ 0.008  & EN 0.687 $\pm$ 0.030  \\
 		\textbf{español}  & 0.883 $\pm$ 0.053   &  IT 0.949 $\pm$ 0.006  & GE 0.818 $\pm$ 0.016                                                                
 	\end{tabular}
-	\caption{Los préstamos menos afectados por las eliminaciones son los de origen español, conservando su uso en valores favorables en todos los receptores. El receptor }
+	\caption{Los préstamos menos afectados por las eliminaciones son de origen español, siendo su conservación favorable en los receptores. El alemán es el que menos se conserva, afectado por ser el que menor cantidad de prestamos aporta a los demás idiomas.}
 	\label{tab.conservacion}
 \end{table}
 
@@ -99,7 +100,9 @@ La característica del uso y la conservación no siempre será la misma tras una
 
 \section{Comentarios del método}
 
-El realizar diferentes elecciones para restringir a las palabras que conforman los prestamos de un idioma en otro, mostró desde el punto de vista estadístico que no importan cuales elementos conforman el corpus, la propiedad del uso es la misma, ya que individualmente los valores de uso de una única palabra pueden variar en los años del análisis y ser distintos a los de otra palabra, sin embargo al tratar a todo el conjunto, el uso se comporta de la misma  manera, sin importar los valores individuales de los elementos que lo conforman. 
+El realizar diferentes elecciones para restringir a los préstamos, mostró que no importan cuales elementos conforman el corpus, la propiedad del uso es la misma. 
+
+Individualmente los valores de uso de una única palabra pueden variar en los años de estudio y ser distintos a los de otra palabra, sin embargo al tratar a todo el conjunto, el uso se comporta de la misma  manera, sin importar los valores individuales de los elementos que lo conforman. 
 
 
 
