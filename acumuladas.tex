@@ -27,7 +27,7 @@ palabras que son nuevas en los distintos receptores, encontrando relaciones hist
 
 
 
-Para trabajar con la información en el conjunto base, se propone nuevamente un origen \textit{A} y un receptor \textit{B},  continuando la búsqueda de los  préstamos nuevos de \textit{A} en \textit{B} que surgieron en los años de este conjunto (1740-1899).  En este punto conviene definir como \textbf{préstamos acumulados} a aquellas palabras  con origen \textit{A} que ya habían aparecido  en  \textit{B} y  para un determinado año lo vuelven a hacer. 
+Para trabajar con la información del conjunto base, se propone nuevamente un origen \textit{A} y un receptor \textit{B},  continuando la búsqueda de los  préstamos nuevos de \textit{A} en \textit{B} que surgieron en los años de este conjunto (1740-1899).  En este punto conviene definir como \textbf{préstamos acumulados} a aquellas palabras  con origen \textit{A} que ya habían aparecido  en  \textit{B} y  para un determinado año lo vuelven a hacer. 
 
 La diferencia entre los nuevos y los acumulados es que un préstamo será nuevo sólo en el año de aparición, posteriormente se convertirá en acumulado. La principal ventaja, es que en cada año, hay más palabras acumuladas que palabras nuevas.  
 
@@ -42,7 +42,7 @@ La diferencia entre los nuevos y los acumulados es que un préstamo será nuevo 
 
 
 
-Además de la cantidad, la frecuencia de los préstamos acumulados toma un papel relevante para llegar a una cantidad medible de la influencia. Para obtener tal cantidad, se realizaron los siguientes pasos.
+Además de la cantidad, la frecuencia de los préstamos acumulados es relevante para poder llegar a una cantidad medible de la influencia. Para lograr tal cantidad, se realizaron los siguientes pasos.
 
 \cpnote{Que quieres decir con esa ultima frase? Que comportamiento? No se que podemos decir con los datos que tenemos}.  
 \jmnote{Para aclarar la frase que esta comentada,  es mejor definir antes las cantidades que quiero medir y aclarar que puedo interpretsar de ellas.}
@@ -55,6 +55,7 @@ Además de la cantidad, la frecuencia de los préstamos acumulados toma un papel
 
 
 \begin{enumerate}
+	\label{proceso_uso}
 	
 	\item  Dada la lista de las cinco mil palabras mas usadas de \textit{B} en el año $t$, se obtiene la \textbf{frecuencia total} $\underset{\text{\tiny B}}{F}(t)$ al sumar las frecuencias $f(k)$ de todas las palabras en la lista, donde $k$ determina el rango  de cada palabra.
 	
@@ -81,7 +82,7 @@ Además de la cantidad, la frecuencia de los préstamos acumulados toma un papel
 	\end{equation}
 	
 	
-	\item  Se divide la frecuencia de préstamo entre la frecuencia total , obteniendo así el \textbf{uso} $\underset{ \text{\tiny A} \to  \text{\tiny B} }{U}(t)$  de \textit{A} en \textit{B}.  Al ser esta cantidad pequeña, se tomará como un porcentaje al multiplicar el cociente por cien, obteniendo una cantidad manejable. 
+	\item  Se divide la frecuencia de préstamo entre la frecuencia total , obteniendo así el \textbf{uso} $\underset{ \text{\tiny A} \to  \text{\tiny B} }{U}(t)$  de \textit{A} en \textit{B}.  Este  nuevo valor será el que cuantifique la influencia, sin embargo al ser una cantidad pequeña, se tomará como un porcentaje al multiplicar el cociente por cien, obteniendo cifras manejables. 
 	
 	\begin{equation}
 	\label{ec.fuso}
@@ -91,26 +92,30 @@ Además de la cantidad, la frecuencia de los préstamos acumulados toma un papel
 	\jmnote{deje los subindices para saber que opinabas,  a mi gusto se ve saturado y  creo que se sobrentiende que al tener el subindice bajo  la U que  P y F tambien lo  tienen. }
 	
 	
-	\item Se empleó la ecuación \ref{ec.fuso} en todos los años del conjunto de búsqueda, obteniendo 109 valores.
+	%\item Se empleó la ecuación \ref{ec.fuso} en todos los años del conjunto de búsqueda, obteniendo 109 valores.
 	
-	\item El proceso se repitió para todas las combinaciones de orígenes y receptores.
+	%\item El proceso se repitió para todas las combinaciones de orígenes y receptores.
 	
 \end{enumerate}
 
-Al igual que en los préstamos nuevos,  se agruparon los préstamos acumulados por cada pareja de origen y receptor,  y dentro de ella un segundo listado por cada año de búsqueda.  Estas listas serán útiles en los capítulos siguientes,  asimismo se proporciona en \cite{prestamos_acumulados} las agrupaciones realizadas, mientras que en \ref{palabras.acumuladas.apendice}  se especifica la forma de leerlas. 
-
 El objetivo  de trabajar con los acumulados es ver el comportamiento de las palabras que ya han migrado a un receptor, observando si hay periodos donde su empleó (a través del uso) se vea alterado. Para aclarar esta idea, dada una lista del receptor \textit{B}, se encuentran en ella préstamos acumulados con diferentes orígenes \textit{A}, \textit{C} o \textit{D},  existiendo un valor de uso por cada origen. Ya que esta cantidad depende del tiempo,  se podrá observar en cuales épocas algún origen tiene un mayor uso dentro de \textit{B},  en consecuencia una mayor influencia. 
+
+Al igual que en los préstamos nuevos,  se agruparon los préstamos acumulados por cada pareja de origen y receptor,  y dentro de ella un segundo listado por cada año de búsqueda.  Asimismo se proporciona en \cite{prestamos_acumulados} las agrupaciones realizadas, mientras que en \ref{palabras.acumuladas.apendice}  se especifica la forma de leerlas e interpretarlas. 
+
+
 
 \section {El uso entre idiomas} 
 
-Por cada idioma se presentarán dos graficas, la primera tomando un origen fijo,  observando el uso que tiene en los demás, la segunda mostrará el caso contrario al tomarlo ahora como receptor y graficando el uso de los demás en él.  Como la influencia esta ligada al significado de las palabras, se provee información de cuales palabras son relevantes para
+Para medir la influencia entre los diferentes idiomas, se obtuvo el uso de un idioma en otro en todos los años de estudio (1740-2009), sin embargo, sólo se discutirán los resultados obtenidos en los años del conjunto de búsqueda (1900-2009), con la intención de ser acordes a los años donde se buscaron los préstamos nuevos del capitulo anterior. 
+
+Por cada idioma se presentarán dos graficas, la primera tomando un origen fijo, observando el uso que tiene en los demás; la segunda mostrará el caso contrario al tomarlo ahora como receptor y graficando el uso de los demás en él.  Como la influencia esta ligada al significado de las palabras, se provee información de cuales palabras son relevantes para
 que el uso se vea alterado. 
 
 
 Una tercera grafica es posible, al fijar una pareja de origen y receptor, manifestando el uso de uno sobre otro,  estas graficas se agregaran a la sección \ref{palabras.acumuladas.apendice} del Apéndice A, sirviendo como un complemento a este capítulo. 
 
 
-Adicionalmente, la tabla \ref{tab.cantidad_acumulados} muestra la cantidad promedio de préstamos acumulados encontrados en cada año del conjunto de búsqueda. La idea de la tabla y del uso, es observar que el idioma que más palabras aporta a un receptor no es siempre el más utilizado,  el uso es mayor si los préstamos tienen rangos mas bajos(frecuencias altas), sin importar la cantidad que se esten tratando. 
+Adicionalmente, la tabla \ref{tab.cantidad_acumulados} muestra la cantidad promedio de préstamos acumulados encontrados en cada año del conjunto de búsqueda. La idea de la tabla y del uso, es observar que el idioma que más palabras aporta a un receptor no es siempre el de mayor uso.   El uso es mayor si los préstamos tienen rangos mas bajos(frecuencias altas), sin importar la cantidad que se esten tratando. 
 
 
 \begin{table}
@@ -130,40 +135,46 @@ Adicionalmente, la tabla \ref{tab.cantidad_acumulados} muestra la cantidad prome
 
 
 
-
 \subsection{Inglés} % {{{
 
+\jmnote{Personalmente, me agrada la presentación de una grafica y su descripción,no me agrada en la presentación de resultados como acomoda latex la figura y el texto, supongo que estos detalles se arreglaran al final.}
 
-\begin{figure}[h!]
+\begin{figure}%[h!]
 	\centering
 	\includegraphics[scale=.36]{PF1_S2_EN.png}
 	\label{fig.ST_a_EN}
-	\caption{El inglés en los demás. El francés es el idioma donde más se ha empleado inglés, sin embargo en el español ha sido el de mayor crecimiento comparado en su uso en principios y en final de siglo.}
+	\caption{El inglés en los demás idiomas. Todos los idiomas han empleado más al inglés en la segunda mitad del siglo XX, destacando el mayor uso por parte del francés.}
 \end{figure} 
 
+El uso del ingles en francés, italiano y español ha crecido constantemente a partir de 1945 año donde termina la segunda guerra mundial; en el alemán el crecimiento se da posterior a 1990, año donde culmina la guerra fría  y el socialismo en Europa con la re-unificación de Alemania. El significado común de los préstamos acumulados  en los cuatro conjuntos  son términos económicos y referentes a la industria como  \textit{capital}, \textit{dollar}, \textit{invesment}, \textit{relations}, \textit{market}, \textit{company}, \textit{development}, \textit{financial},  \textit{institutions}, \textit{internet} y \textit{software}. 
+
+Otra característica relevante es la aparición  de los apellidos de los presidentes de los Estados Unidos (posteriores a la guerra) durante el periodo en el cual gobernaron. 
 
 
-\begin{figure}[h!]
+\begin{figure}%[h!]
 	\centering
 	\includegraphics[scale=.36]{PF2_S2_EN.png}
 	\label{fig.ST_b_EN}
-	\caption{Los demás en el inglés. En los últimos 50 años, el español ha sido el idioma que es más utilizado en el ingles, seguido del francés, debido a las relaciones comerciales entre países de ambas lenguas.  Tras la segunda guerra mundial, alemán e italiano decayeron consistente en ser lengua de los países vencidos. }
+	\caption{Los demás idiomas en el inglés. En los últimos 50 años, el español y el francés han sido los idiomas más utilizados. Tras la segunda guerra mundial, alemán e italiano decayeron consistente en ser lenguas de los países vencidos.}
 \end{figure} 
 
 
+En los últimos cincuenta años, los idiomas mas utilizados  en el ingles han sido el español y el francés,  nombres de países latinoamericanos como \textit{México}, \textit{Cuba}, \textit{Chile}, \textit{Nicaragua} y \textit{Argentina}, pertenencen  al  español, mientras que del  francés en son palabras comunes en  inglés, entre ellas \textit{royals}, \textit{religion}, \textit{saint}, \textit{passage} o \textit{court}.
 
-El uso del ingles en los demás ha visto un continuo incremento posterior a 1945 en francés, en italiano y en español, mientras que en  alemán se da posterior a 1990, año donde culmina la guerra fría y se da la finalización del socialismo en Europa con la re-unificación de Alemania. El significado común de los   préstamos acumulados que aparecen en los cuatro conjuntos y que con los años descienden en rango son términos económicos y referentes a la industria como  \textit{capital}, \textit{dollar}, \textit{invesment}, \textit{relations}, \textit{market}, \textit{company}, \textit{development}, \textit{financial},  \textit{institutions}, \textit{internet} y \textit{software}. Otra característica relevante es la aparición continua de los apellidos de los presidentes de los Estados Unidos (posteriores a la guerra) durante el periodo en el cual gobernaron.  Apoyado de la información de los préstamos nuevos, se puede confirmar que el inglés se ha beneficiado del crecimiento de los Estados Unidos para ser exportado a las demás lenguas y ser el idioma común para transmitir información.   
+Por parte del alemán e italiano, el uso de estos idiomas decayó a partir de 1960.  Los palabras de estos idiomas son referentes a la guerra y apellidos de personajes, palabras que ya se han tratado en los préstamos nuevos. 
 
+ 
+%Apoyado de la información de los préstamos nuevos, se puede confirmar que el inglés se ha beneficiado del crecimiento de los Estados Unidos para ser exportado a las demás lenguas y ser el idioma común para transmitir información.   
 
-En los últimos cincuenta años, los idiomas mas comunes en el ingles han sido el español y el francés,  nombres de países latinoamericanos como \textit{México}, \textit{Cuba}, \textit{Chile}, \textit{Nicaragua} y \textit{Argentina}, caracterizan a los acumulados del español, mientras que en el francés en su mayoría son palabras que bien podrian catalogarse de origen inglés, entre ellas \textit{royals}, \textit{religion}, \textit{saint}, \textit{passage} o \textit{court}. Tras brevemente ver ambos conjuntos se infiere que el español ha logrado instaurarse en el inglés por la relevancia de estos países en las relaciones o conflictos que tuvieron en el siglo pasado y donde intervinieron países de habla inglesa, contrario  al francés que prevalece por las relaciones culturales y etimológicas que existen entre ambas lenguas.
-
-Por parte de las palabras con origen alemán e italiano no se logró relacionarlas a un campo semántico común. 
+%Tras brevemente ver ambos conjuntos se infiere que el español ha logrado instaurarse en el inglés por la relevancia de estos países en las relaciones o conflictos que tuvieron en el siglo pasado y donde intervinieron países de habla inglesa, contrario  al francés que prevalece por las relaciones culturales y etimológicas que existen entre ambas lenguas.
 
 
 % }}}
+
+
 \subsection{Francés} % {{{
 
-\begin{figure}[h!]
+\begin{figure}%[h!]
 	\centering
 	\includegraphics[scale=.36]{PF1_S2_FR.png}
 	\label{fig.ST_a_FR}
@@ -171,113 +182,118 @@ Por parte de las palabras con origen alemán e italiano no se logró relacionarl
 \end{figure}
 
 
-\begin{figure}[h!]
+El italiano es el idioma que más utiliza al francés,  la industria vitivinícola, surge como un conector entre ambas lenguas al ser una actividad común en Francia e Italiaestar, estando presente términos como  \textit{raisins}, \textit{vin}, \textit{vignoble} y \textit{recolte}.
+
+Los préstamos hacia los demás idiomas son de carácter religioso o político, a pesar de que la búsqueda se centre en el siglo XX, las mayores migraciones del francés surgen a partir de 1800, posteriores a la revolución francesa; entre las palabras que se han mantenido desde este acontecimiento están  \textit{saint}, \textit{eglise}, \textit{dime}, \textit{reine}, \textit{guerre}, \textit{imperiale}, \textit{royals} o \textit{bourgeois}.  
+
+
+\begin{figure}%[h!]
 	\centering
 	\includegraphics[scale=.36]{PF2_S2_FR.png}
 	\label{fig.ST_b_FR}
-	\caption{Los demás en el francés. El español ha resultado el de mayor presencia en el francés, en su mayoria son palabras con etimologías grecolatinas, comunes para ambas lenguas al provenir de la misma familia lingüística.}
+	\caption{Los demás idiomas en el francés. El español ha resultado el de mayor presencia en el francés, en su mayoria son palabras con etimologías grecolatinas, comunes para ambas lenguas al provenir de la misma familia lingüística.}
 \end{figure}
 		
+Para los prestamos usados en el francés el español y el inglés se muestran como los idiomas con mayor presencia, la característica común de los vocablos de ambos idiomas  son palabras con etimología grecolatina,  \textit{depression}, \textit{canal}, \textit{proceso}, \textit{services}, \textit{justice} entre otras,  siendo razonable la aparición de estas palabras por tener las tres lenguas una composición grecolatina. 
 
 
-A pesar de que el idioma que más préstamos toma del francés es el inglés,  el idioma que más utiliza el francés ha sido el italiano,  aspecto que se mantuvo durante todo el siglo del análisis,  la industria vitivinícola, surgen como un conectores entre ambas lenguas al estar presente términos como  \textit{raisins}, \textit{vin}, \textit{vignoble} y \textit{recolte},  siendo una actividad común entre Francia e Italia.  Los préstamos hacia los demás idiomas son de carácter religioso o politico, destacando que tuvo el francés en estos ámbitos, a pesar de que la búsqueda se centre en el siglo XX, las mayores migraciones del francés surgen a partir de 1800, posteriores a la revolución francesa; entre las palabras que se han mantenido desde este acontecimiento están  \textit{saint}, \textit{eglise}, \textit{dime}, \textit{reine}, \textit{guerre}, \textit{imperiale}, \textit{royals} o \textit{bourgeois}.  
 
-
-Para los prestamos usados en el francés el español y el inglés se muestran como los idiomas con mayor presencia, la característica común de los vocablos de ambos idiomas es que son palabras con etimología grecolatina, 
-\textit{depression}, \textit{canal}, \textit{proceso}, \textit{services}, \textit{justice} entre otras,  siendo razonable la aparición de estas palabras por tener las tres lenguas una composición grecolatina. 
-
-
-% }}}
 \subsection{Alemán} % {{{
 
-\begin{figure}[h!]
+\begin{figure}%[h!]
 	\centering
 	\includegraphics[scale=.36]{PF1_S2_GE.png}
 	\label{fig.ST_a_GE}
-	\caption{El alemán en los demás. La familiaridad por provenir de la misma rama lingüística hace posible que el inglés sea el idioma  donde los préstamos del alemán sean continuamente utilizados, siendo evidente la diferencia con las lenguas romances.}
+	\caption{El alemán en los demás idiomas. La familiaridad de las lenguas germánicas hace posible que el inglés sea el idioma  donde los préstamos del alemán sean continuamente utilizados, siendo evidente la diferencia con las lenguas romances.}
 
 \end{figure}
 
+La característica principal de los términos en alemán  en los demás idiomas  so personajes germano-parlantes que sobresalieron en algún ámbito; siendo además los encontrados en los préstamos nuevos, \textit{Hitler}, \textit{Marx}, \textit{Einstein}, \textit{Freud}, \textit{Engels}, \textit{Heidegger}, \textit{Mozart}, \textit{Hegel} y  \textit{Nietzsche}; todos ellos fueron préstamos nuevos en el slglo XX. 
 
-\begin{figure}[h!]
+
+\begin{figure}%[h!]
 	\centering
 	\includegraphics[scale=.36]{PF2_S2_GE.png}
 	\label{fig.ST_b_GE}
-	\caption{Los demás en el alemán. Cada lengua ha tenido un periodo de  crecimiento posterior a 1950, mostrando al alemán como un idioma susceptible (al menos en la literatura) donde los demás idiomas han impactado y perdurado.}
+	\caption{Los demás idiomas en el alemán. Cada lengua ha tenido un periodo de  crecimiento posterior a 1950 tras finalizar la segunda guerra mundial, mostrando al alemán como un idioma cambiante tras este hecho, donde los demás idiomas han impactado uy perdurado.}
 \end{figure}
 
+Como idioma receptor, el alemán adoptó palabras de diferentes campos, tecnológicos y de desarrollo por parte del inglés,  religiosos  por el francés, históricos en el italiano y médicos por el español, en su mayoría son los prestamos nuevos del siglo XX que llegaron al alemán.  Cada idioma presentó un periodo de crecimiento posterior a 1950; desde el contexto histórico, al ser vencida Alemania en la segunda guerra mundial, el idioma tuvo que adaptarse a las tendencias donde los demás destacaban. 
 
 
-
-La característica principal de los términos en alemán  en los demás idiomas  son principalmente personajes germano-parlantes que sobresalieron en algún ámbito; siendo además los encontrados en los préstamos nuevos, \textit{Hitler}, \textit{Marx}, \textit{Einstein}, \textit{Freud}, \textit{Engels}, \textit{Heidegger}, \textit{Mozart}, \textit{Hegel} y  \textit{Nietzsche}. 
-
-Como idioma receptor, el alemán adoptó palabras de diferentes campos, tecnológicos y de desarrollo por parte del inglés,  religiosos  por el francés, históricos en el italiano y médicos por el español.  Cada idioma presentó un periodo de crecimiento posterior a 1950  o a la segunda guerra mundial, donde al ser vencido alemania, el idioma tuvo que adaptarse a las tendencias donde los demás destacaban. 
 
 % }}}
+
+
 \subsection{Italiano} % {{{
 
-\begin{figure}
+\begin{figure}%[h!]
 	\centering
 	\includegraphics[scale=.36]{PF1_S2_IT.png}
 	\label{fig.ST_a_IT}
-	\caption{El italiano en los demás. A pesar de ser fonéticamente similares y de provenir de la familia de las lenguas romances,  el español persiste en ser el idioma con menor uso de italiano. La migración italiana a los Estados Unidos posterior a la primera guerra mundial coincide con el aumento en el inglés. }
+	\caption{El italiano en los demás idiomas. A pesar de ser fonéticamente similares y ser tambien una lengua romance,  el español persiste en ser el idioma con menor uso de italiano.}
 \end{figure}
 		
-\begin{figure}[h!]
+		
+El uso del italiano se vio por la constante aparición y ascenso en rango de \textit{mussolini}, siendo el personaje más relevante en el siglo pasado cuya lengua materna es el italiano.  Salvo por Mussolini, los demás prestamos italianos no se lograron asociar a un único campo, sin embargo esto muestra la diversidad de temas en los cuales el italiano fue relevante, como la política \textit{sociale}, \textit{liberale}, religiosos \textit{santo}, \textit{suora}, \textit{cattedrale} y la guerra \textit{battaglia}, \textit{regime}.
+
+
+\begin{figure}%[h!]
 	\centering
 	\includegraphics[scale=.36]{PF2_S2_IT.png}
 	\label{fig.ST_b_IT}
-	\caption{Los demás en el italiano. La proximidad geográfica  entre italia con países cuya lengua es el francés y el alemán ayudó a incrementar el uso de estos en el italiano. A pesar de que el inglés se difundió como un idioma universal para la comunicación, su uso en el italiano no ha mostrado un incremento considerable en todo el siglo XX. }
+	\caption{Los demás idiomas en el italiano. La proximidad geográfica  entre italia con países cuya lengua es el francés y el alemán ayudó a incrementar el uso de estos en el italiano. A pesar de que el inglés se difundió como un idioma universal para la comunicación, su uso en el italiano no ha mostrado un incremento en todo el siglo XX. }
 \end{figure}
 
-
-
-El uso del italiano se vio caracterizado en la segunda mitad del siglo por la constante aparición y ascenso en rango de \textit{Mussolini}, siendo el personaje más relevante en el siglo pasado cuya lengua materna es el italiano.  Salvo por Mussolini, los demás prestamos italianos presentes en las otras lenguas no se lograron asociar a un único campo, sin embargo esto muestra la diversidad de temas en los cuales el italiano fue relevante, como términos políticos \textit{sociale}, \textit{liberale}, religiosos \textit{santo}, \textit{suora}, \textit{cattedrale} o  bélicos \textit{battaglia}, \textit{regime}.
-
-El sentido inverso al considerar el tipo de palabras que utiliza el italiano de los demás idiomas, es igualmente variado por parte del ingles son conceptos ligados a la tecnología, por el francés a la industria vitivinícola, con el alemán a personajes relevantes de esta lengua,  términos que ya se han mencionado. Finalmente entre la variedad de palabras que toma del español se encuentran nombres de países o ciudades hispanohablantes \textit{México}, \textit{Chile}, \textit{Argentina}, \textit{Montevideo} o \textit{Peru}. 
+El contenido de las palabras que usa el italiano de los demás idiomas, es igualmente variado, por parte del ingles son conceptos de la tecnología, por el francés a la industria vitivinícola, con el alemán a personajes relevantes de esta lengua, y del español a nombres de países o ciudades hispanohablantes \textit{México}, \textit{Chile}, \textit{Argentina}, \textit{Montevideo} o \textit{Peru}. 
 
 % }}}
+
+
 \subsection{Español} % {{{
 
 \begin{figure}[h!] % {{{
 	\centering
 	\includegraphics[scale=.36]{PF1_S2_SP.png}
 	\label{fig.ST_a_SP}
-	\caption{El español en los demás. Los idiomas que más emplean español son aquellos con los que comparte una relación etimológica, francés e italiano por ser lenguas romances y con el ingles al tener este idioma una base de palabras grecolatinas.     }
+	\caption{El español en los demás idiomas. Los idiomas que más emplean español son aquellos con los que comparte una relación etimológica, francés e italiano por ser lenguas romances y con el ingles al tener este idioma una base de palabras grecolatinas.  Los préstamos destacan al ser términos médicos y nombres de países y ciudades hispanohablantes.   }
 \end{figure}
 
+Entre los gráficos de la sección \ref{palabras.acumuladas.apendice},   referentes al uso entre el español y un determinado idioma, se observo que el uso de los del español en los demás idiomas es mayor que el uso de los otros en él.  Ya se han comentado las características principales de las palabras interfieren en el uso, destacando el ámbito de la medicina, \textit{terapia}, \textit{lepra}, \textit{tumor}, \textit{syphilis}, \textit{virus} o \textit{renal}. 
 
 		
 \begin{figure}[h!] % {{{
 	\centering
 	\includegraphics[scale=.36]{PF2_S2_SP.png}
 	\label{fig.ST_b_SP}
-	\caption{Los demás en el español.  Durante el último siglo, el contenido francés e inglés ha aumentado en el español siendo su uso equiparable, el surgimiento del inglés como el idioma universal y la relación etimológica con el francés  hacen posible los incrementos.}
+	\caption{Los demás idiomas en el español.  Tanto inglés como francés han aumentado su uso  en el español, llegando a ser equiparable. El alemán ha sido el que menos ha impactado, siendo su uso casi nulo en  algunos periodos.}
 \end{figure}
 
+En las discusiones anteriores, se ha mencionado el tipo de palabras que los idiomas aportan,  en el caso de las contribuciones al español,   estas siguen la misma tendencia; del ingles los préstamos son de carácter tecnológico y del desarrollo industrial, del alemán son apellidos de personajes destacados en un campo especifico, mientras que del francés y el italiano son de condición religiosa e histórica. 
 
 
-Entre los gráficos del apéndice 1, referentes al uso entre el español y un determinado idioma, se observo que el uso de los del español en los demás idiomas es mayor que el uso de los otros en él.  Ya se han comentado las características principales de las palabras interfieren en el uso, destacando el ámbito de la medicina, \textit{terapia}, \textit{lepra}, \textit{tumor}, \textit{syphilis}, \textit{virus} o \textit{renal}. Con ellos se infiere la productividad y la importancia de la medicina en países de lengua española antes de 1900; incluso en lenguas como el alemán se encontraron este tipo de préstamos. 
 
 
-En las discusiones anteriores, se ha mencionado el tipo de palabras que los idiomas aportan,  en el caso de las contribuciones al español,   estas siguen la misma tendencia; del ingles los préstamos son de carácter tecnológico y del desarrollo industrial, del alemán son apellidos de personajes destacados en un campo especifico, mientras que del francés y el italiano son de condición religiosa. 
+
 
 % }}}
 % }}}
 \section{Comentarios y complementos del método} % {{{
 
 
-El determinar la influencia entre idiomas a través del uso de los préstamos, ha mostrado primeramente que el idioma que mas cantidad de palabras tiene en otro no siempre es el más utilizado,  radicando el mayor uso en aquel idioma cuyas préstamos tengan menores rangos en la lista de un receptor. 
+El determinar la influencia entre idiomas a través del uso, ha mostrado que el idioma que más cantidad de palabras tiene en otro no siempre es el más utilizado, radicando el mayor uso en aquel cuyos préstamos tengan menores rangos. 
 
-En todo el siglo XX y la primer década del XXI, el inglés y el alemán han sido los idiomas más cambiantes en los papeles de origen y receptor respectivamente.
-El inglés al ser el que más creció en tres idiomas (francés, alemán y español), complementando los resultados del capitulo anterior, al ser el idioma que más palabras nuevas exportó.  El alemán como el receptor donde los diferentes orígenes aumentaron su usó tras la segunda guerra mundial; el uso ha sido semejante a los préstamos nuevos, ha sido el receptor que más recibió. 
+Por el momento sólo es posible describir que originó las variaciones en el uso o en la cantidad de nuevas palabras, no es posible predecir como se comportaran los idiomas en el futuro. Se destaca a los eventos como una característica que  hace fluir a las palabras, alterando el uso de un idioma a tras el suceso. 
 
-Ambos análisis se complementan,  el idioma más influyente ha aportado más palabras nuevas y aquellas que se van acumulando resultan las de mayor incremento en el uso. El idioma más influenciado recibió la mayor cantidad de palabras nuevas y el uso que han tenido los demás ha sido también el del mayor incremento. 
+Una mejor información de como los eventos alteran a los idiomas se podría extraer si se comparará el uso con con  datos de los países de alguna habla como lo pueden ser  el crecimiento economizo, el producto interno bruto, la alfabetización, la mortalidad, las migraciones de personas, entre otros. 
 
-Por el momento sólo es posible describir que originó las variaciones en el uso o en la cantidad de nuevas palabras, no es posible predecir como se comportaran los idiomas en el futuro, ya que la principal característica que  hace fluir a las palabras entre idiomas han sido los eventos, reflejado en que las palabras de su campo semántico  se muevan a diferentes idiomas y continúen apareciendo o desapareciendo tras el suceso. 
+%Una mejor información de como los eventos alteran a los idiomas se podría extraer si se compararán las características de los prestamos con  datos de los países de alguna habla como lo pueden ser  el crecimiento economizo, el producto interno bruto, la alfabetización, la mortalidad, las migraciones de personas, entre otros.
 
-Una mejor información de como los eventos alteran a los idiomas se podría extraer si se compararán las características de los prestamos con  datos de los países de alguna habla como lo pueden ser  el crecimiento economizo, el producto interno bruto, la alfabetización, la mortalidad, las migraciones de personas, entre otros.
+%En todo el siglo XX y la primer década del XXI, el inglés y el alemán han sido los idiomas más cambiantes en los papeles de origen y receptor. En cualquier combinación con otro idioma el uso ha sido alterado en alguna época. 
+%El inglés al ser el que más creció en tres idiomas (francés, alemán y español), complementando los resultados del capitulo anterior, al ser el idioma que más palabras nuevas exportó.  El alemán como el receptor donde los diferentes orígenes aumentaron su usó tras la segunda guerra mundial; el uso ha sido semejante a los préstamos nuevos, ha sido el receptor que más recibió. 
+%Ambos análisis se complementan,  el idioma más influyente ha aportado más palabras nuevas y aquellas que se van acumulando resultan las de mayor incremento en el uso. El idioma más influenciado recibió la mayor cantidad de palabras nuevas y el uso que han tenido los demás ha sido también el del mayor incremento. 
 
+ 
 
 
 
