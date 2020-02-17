@@ -4,7 +4,7 @@
 
 % Intro {{{
 
-En el capítulo anterior se mencionó que el algoritmo toma como  idioma
+En el capítulo anterior, se mencionó que el algoritmo toma como  idioma
 dominante a aquel que transmite palabras hacia los demás y que estas perduran en los receptores al menos dos años.  El movimiento de palabras, es una característica que puede proporcionar información sobre la influencia entre los idiomas, sin embargo  puede resultar ambiguo decir que algo es más o menos influyente, además  no existe en la literatura un método que mida la influencia.
 
 %El empleo de estás características puede proporcionar información acerca de la influencia que ejercen los idiomas,  sin  embargo, establecer un método que brinde un resultado al cual ligar la expresión influencia  no es sencillo, no existe en la literatura tal proceso, además puede ser ambiguo decir que algo es más o menos influyente sin un valor que lo respalde
@@ -60,26 +60,22 @@ interpretar influencia de un idioma sobre otro. Estas son:
 \begin{enumerate}
 	\label{proceso.nuevos}
 	
-\item Contando por cada año los préstamos de origen \textit{A} que están
-presentes en los diferentes receptores. Esto muestra en cuales idiomas \textit{A}
-ha sido influyente. 
+\item Contando por cada año los préstamos nuevos de origen \textit{A} que están presentes en los diferentes receptores. Esto muestra en cuales idiomas \textit{A} ha sido influyente. 
 
-\item Tomar ahora a \textit{A}  como el idioma receptor, y contando cuántos
-préstamos nuevos de diferentes orígenes están presentes cada año; obteniendo
-los idiomas que han influenciado a \textit{A}.  \cpnote{Josue, por favor revisa el 
-uso de comas y punto y coma. Creo que no lo estas usando bien. También trata de ser
-consistente con los tiempos de los verbos. Nota que en el punto paso usas ``Contando'',
-luego ahora usas ``Tomar'' y luego ``Contando''. No es consistente. Porfa corrige 
-este error y propaga. Dale una iterada a este capitulo.}
+\item Contando cuántos préstamos nuevos de diferentes orígenes están presentes en cada año, si se toma a \textit{A} como receptor. Con ello se obtienen los idiomas que han influenciado a \textit{A}
 
-\item Tomando fijos un idioma \textit{A} y un idioma \textit{B}, contabilizando
-cuántos préstamos nuevos por año se encuentran al tomar a  \textit{A} como
-origen y a \textit{B} como receptor,  una vez hecho esto,  repetir el conteo
-intercambiando a \textit{B} como el origen y a \textit{A} como el receptor.
-Obteniendo las épocas donde alguno de ellos tuvo más del punto uno o del dos. 
+%Intercambiando a \textit{A}  como el idioma receptor, y contando cuántos préstamos nuevos de diferentes orígenes están presentes en cada año, obteniendo los idiomas que han influenciado a \textit{A}.  
+
+\cpnote{Josue, por favor revisa el 
+uso de comas y punto y coma. Creo que no lo estas usando bien. También trata de ser consistente con los tiempos de los verbos. Nota que en el punto paso usas ``Contando'', luego ahora usas ``Tomar'' y luego ``Contando''. No es consistente. Porfa corrige  este error y propaga. Dale una iterada a este capitulo.}
+\jmnote{listo}
+
+\item Tomando fijos un idioma \textit{A} y un idioma \textit{B}, contando cuántos préstamos nuevos de \textit{A} están en \textit{B} y cuantos de \textit{B} lo están en \textit{A}.  Así se obtiene cómo ha sido la influencia entre \textit{A} y \textit{B}.
+
+%contabilizando cuántos préstamos nuevos por año se encuentran al tomar a  \textit{A} como origen y a \textit{B} como receptor,  una vez hecho esto,  repetir el conteo intercambiando a \textit{B} como el origen y a \textit{A} como el receptor. Obteniendo las épocas donde alguno de ellos tuvo más del punto uno o del dos. 
 \cpnote{Tambien mejora la redaccion de esto. Usa puntos para separar las
-ideas. Perdon estar molestando tanto, pero de verdad esta dificil de leer y la tesis
-no debe quedar asi.}
+ideas. Perdon estar molestando tanto, pero de verdad esta dificil de leer y la tesis no debe quedar asi.}
+\jmnote{listo, ya corregi la redaccion, quedo mejor}
 
 \end{enumerate}
 
@@ -88,21 +84,15 @@ no debe quedar asi.}
 \section{Eventos que ayudan a las migraciones} % {{{
 
 Una parte complementaria de interpretar a la influencia es reconociendo causas
-que originan las migraciones. Por ejemplo, la globalización y el acceso al
-desarrollo tecnológico a finales de 1980 y principios de 1990, propició la
-migración  de términos como \textit{internet}, \textit{computadora},
-\textit{web}, \textit{email} o \textit{software}, mostrando a ambos ámbitos
-\cpnote{cuales ámbitos?}
-como propagadores del movimiento de un grupo afín de palabras.
-\cpnote{Como se propaga un movimiento? Creo que intetas adornar de mas las frases y no 
-qeuda bien.}
+que originan las migraciones. Por ejemplo, sucesos como la globalización y el acceso al desarrollo tecnológico a finales de 1980 y principios de 1990, propició la migración  de términos como \textit{internet}, \textit{computadora}, \textit{web}, \textit{email} o \textit{software}, siendo el movimiento de este grupo de palabras, una consecuencia del desarrollo de ambos sucesos. 
+ 
+\cpnote{cuales ámbitos?} \jmnote{cambie la palabra ambito por suceso}
 
-Las relaciones entre las causas y las migraciones serán identificables a partir
-del significado de los préstamos involucrados en un año de migración,  ya que
-para un evento ocurrido en el mismo año (o en los años al rededor de él), las
-palabras migrantes pueden pertenecer a un mismo campo semántico relacionado al
-suceso.
-\cpnote{Que es un campo semántico?}
+\cpnote{Como se propaga un movimiento? Creo que intetas adornar de mas las frases y no  qeuda bien.}
+\jmnote{ok, queria dar a entender que el movimiento era una consecuencia de que se desarrollaran tales ambitos}
+
+Las causas que originan las migraciones serán identificables a partir del significado de los préstamos involucrados en un año de migración. Si un \textbf{campo semántico} lo forman un conjunto de palabras que están relacionadas por su significado, entonces para un evento ocurrido en el mismo año (o en los años al rededor de él), las palabras migrantes pueden pertenecer a un mismo campo semántico relacionado al evento.
+\cpnote{Que es un campo semántico?} 
 
 \cpnote{Porfa no separes las correcciones que hago del parrafo o la frase en la
 que la hago pues luego ya no se a que se refiere}
@@ -130,13 +120,13 @@ que la hago pues luego ya no se a que se refiere}
 \section{Palabras nuevas de un idioma en los demás} % {{{
  
 
-Ya establecida la forma en que se buscarán  palabras nuevas en los diferentes idiomas,  los resultados encontrados se presentarán de la siguiente manera.
+Ya establecida la forma en que se buscarán los préstamos nuevos,  el procedimiento para la presentación de resultados es el siguiente. 
 
 \begin{itemize}
 
-\item Se buscaron los préstamos nuevos entre idiomas durante los 109 años comprendidos en el conjunto de búsqueda (1900-2009).
+\item Se buscaron los préstamos nuevos entre idiomas,  durante los 109 años comprendidos en el conjunto de búsqueda (1900-2009).
 	
-\item Por cada idioma se determinó la influencia que esté ejerció en los demás, mencionada en el punto 1 (ver pagina \pageref{proceso.nuevos}). La nomenclatura para la cantidad de palabras nuevas será $N_{p}$.
+\item Por cada idioma, se determinó la influencia que esté ejerció en los demás, mencionada en el punto 1 (ver página \pageref{proceso.nuevos}). La nomenclatura para la cantidad de palabras nuevas será $N_{p}$.
 
 %\fxnote{Creo que hay forma de citar la pagina en cuestión. Debe ser un comando como ref o algo asi}. 
 %\fxwarning{Ya lo corregí}
@@ -146,9 +136,9 @@ Ya establecida la forma en que se buscarán  palabras nuevas en los diferentes i
 
 \item En las graficas se mostrarán la cantidad de palabras que aparecieron en los 109 años y a la vez como se distribuye esta cantidad en las diferentes décadas. 
 
-\item Se proporcionará en \cite{prestamos_nuevos} las listas  de préstamos nuevos entre cada pareja de origen y receptor, agrupados por el año de aparición .  Se especificará en \ref{lectura.listas}  la forma de leerlas.
+\item Se proporcionará en \cite{prestamos_nuevos} las listas  de préstamos nuevos entre cada pareja de idioma origen e idioma receptor, agrupados por el año de aparición.  Se especificará en \ref{lectura.listas}  la forma de leer las listas.
 
-\item En cada resultado y por cada par de idiomas se agregará un contexto  de los sucesos  que involucran a las migraciones. Esto permite omitir los resultados del punto 2 (ver  página \pageref{proceso.nuevos}), ya que muestra los campos donde \textit{A} influenció a  \textit{B}, y  de manera implícita los campos donde \textit{B} influenció a \textit{A}.
+\item Por cada resultado y por cada par de idiomas, se agregará un contexto de los sucesos relacionados a las migraciones. Esto permite omitir los resultados del punto 2 (ver  página \pageref{proceso.nuevos}), ya que muestra los campos donde \textit{A} influenció a  \textit{B}, y  de manera implícita los campos donde \textit{B} influenció a \textit{A}.
 
 \item Los comentarios realizados estarán sustentados por la influencia entre \textit{A} y \textit{B}, (punto 3), las graficás correspondientes se anexaran en \ref{palabras.nuevas.apendice}. 
 
@@ -162,8 +152,9 @@ Ya establecida la forma en que se buscarán  palabras nuevas en los diferentes i
 
 \fxwarning{de acuerdo, es más una adicion a la misma seccion}
 
-Para las gráficas se utilizaron diferentes colores  y un sistema de abreviaciones para distinguir a los idiomas que intervienen, correspondiendo la primera abreviación al origen y la segunda al receptor. Los colores y abreviaciones de cada idioma se presentan  en la tabla \ref{tab.idcolor}. En todas las gráficas, el eje horizontal está representado por los años del conjunto de búsqueda 1900-2009,  mientras que en el eje vertical se presenta la
-cantidad de prestamos nuevos $N_{p}$. 
+Para las gráficas se utilizaron diferentes colores  y un sistema de abreviaciones para distinguir a los idiomas que intervienen, correspondiendo la primera abreviación al origen y la segunda al receptor. Los colores y abreviaciones de cada idioma se especifican  en la tabla \ref{tab.idcolor}. 
+
+En todas las gráficas, el eje horizontal corresponde a los años del conjunto de búsqueda (1900-2009),  mientras que en el eje vertical representa la cantidad de prestamos nuevos $N_{p}$. 
 
 %\fxnote{Nota como hace uno referencia a una tabla. Se deja flotante. Cuando  entiendas esta nota, borrala.}
 
@@ -434,8 +425,6 @@ Cada idioma se muestra como un portador de palabras de ciertos campos,  el ingl�
  
 Una manera diferente de estudiar a los préstamos nuevos, sería midiendo el tiempo que le toma a las palabras moverse de un idioma a otro, dando una idea de la velocidad con la que migran. Aunque estos resultados pueden ser complementarios, por el momento no se han tratado. 
 
-
-aunque por el momento este estudio no se ha tratado. 
 
 %El inglés se presenta en las últimas dos décadas como el idioma común para transmitir información, exportando términos comunes en ámbitos como  la globalización y el desarrollo  de la tecnología.  Destaca el rol de los Estados Unidos como un país involucrado en los principales acontecimientos que originaron las migraciones, siendo usuales los apellidos de todos sus presidentes (posteriores a la segunda guerra mundial) en los demás idiomas. 
 
