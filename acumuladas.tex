@@ -2,7 +2,7 @@
 % Intro {{{
 
 La búsqueda para cuantificar la influencia, ha llevado a contabilizar las
-palabras que son nuevas en los distintos receptores, encontrando relaciones históricas que sustenten la aparición de palabras.  El tratamiento anterior sólo se ha hecho en los años del conjunto de búsqueda, pero  el conjunto base  también tiene información sobre las migraciones, además  abarca más años (159 comprendidos entre 1740 y 1899), por lo que su contenido es más amplio. 
+palabras que son nuevas en los distintos receptores, encontrando relaciones históricas que sustenten la aparición de un grupo de palabras.  El tratamiento anterior sólo se ha hecho en los años del conjunto de búsqueda, pero  el conjunto base  también tiene información sobre las migraciones, además  abarca más años (159 comprendidos entre 1740 y 1899), por lo que su contenido es más amplio. 
 
 \jmnote{el siguiente parrafo lo rescribi, las 3 siguientes notas que me dejaste eran referentes al pparafo antes de rescribirlo.}
 
@@ -27,9 +27,9 @@ palabras que son nuevas en los distintos receptores, encontrando relaciones hist
 
 
 
-Para trabajar con la información del conjunto base, se propone nuevamente un origen \textit{A} y un receptor \textit{B},  continuando la búsqueda de los  préstamos nuevos de \textit{A} en \textit{B} que surgieron en los años de este conjunto (1740-1899).  En este punto conviene definir como \textbf{préstamos acumulados} a aquellas palabras  con origen \textit{A} que ya habían aparecido  en  \textit{B} y  para un determinado año lo vuelven a hacer. 
+Para trabajar con la información del conjunto base, se proponen nuevamente un origen \textit{A} y un receptor \textit{B}, continuando la búsqueda de los  préstamos nuevos de \textit{A} en \textit{B}, durante los años de este conjunto (1740-1899).  En este punto conviene definir como \textbf{préstamos acumulados} a aquellas palabras  con origen \textit{A} que ya habían aparecido  en  \textit{B}, y  para un determinado año lo vuelven a hacer. 
 
-La diferencia entre los nuevos y los acumulados es que un préstamo será nuevo sólo en el año de aparición, posteriormente se convertirá en acumulado. La principal ventaja, es que en cada año, hay más palabras acumuladas que palabras nuevas.  
+La diferencia entre los nuevos y los acumulados, es que un préstamo será nuevo sólo en el año de aparición, posteriormente se convertirá en acumulado.  Ya que en cada año hay más palabras acumuladas que palabras nuevas, al trabajar con acumulados se esta evitando tener años sin palabras migrantes, aspecto común en los préstamos nuevos. 
 
 
 \cpnote{A que te refieres con orígenes?}
@@ -42,7 +42,7 @@ La diferencia entre los nuevos y los acumulados es que un préstamo será nuevo 
 
 
 
-Además de la cantidad, la frecuencia de los préstamos acumulados es relevante para poder llegar a una cantidad medible de la influencia. Para lograr tal cantidad, se realizaron los siguientes pasos.
+Además de la cantidad, la frecuencia de los préstamos acumulados es relevante para obtener una cantidad medible de la influencia. Para lograr tal cantidad, se realizaron los siguientes pasos.
 
 \cpnote{Que quieres decir con esa ultima frase? Que comportamiento? No se que podemos decir con los datos que tenemos}.  
 \jmnote{Para aclarar la frase que esta comentada,  es mejor definir antes las cantidades que quiero medir y aclarar que puedo interpretsar de ellas.}
@@ -73,7 +73,7 @@ Además de la cantidad, la frecuencia de los préstamos acumulados es relevante 
 	\jmnote{Listo, corregida y el texto lo puse dentro del punto y ya no en la ecuacion}
 	
 	
-	\item Si se distinguen los préstamos acumulados con origen \textit{A}  que ocupan un rango $j$,  se procede a sumar la frecuencia asociada a estas palabras $f(j)$. Esta cantidad será la  \textbf{frecuencia de préstamo} $\underset{ \text{\tiny A} \to  \text{\tiny B} }{P}(t)$   de \textit{A} en \textit{B} para el año $t$.
+	\item Si se distinguen los préstamos acumulados con origen \textit{A}  que tienen rango $j$,  se procede a sumar la frecuencia $f(j)$ de estas palabras.  Esta cantidad será la  \textbf{frecuencia de préstamo} $\underset{ \text{\tiny A} \to  \text{\tiny B} }{P}(t)$   de \textit{A} en \textit{B} para el año $t$.
 	
 	\begin{equation}
 	\label{ec.fpres}
@@ -82,15 +82,16 @@ Además de la cantidad, la frecuencia de los préstamos acumulados es relevante 
 	\end{equation}
 	
 	
-	\item  Se divide la frecuencia de préstamo entre la frecuencia total , obteniendo así el \textbf{uso} $\underset{ \text{\tiny A} \to  \text{\tiny B} }{U}(t)$  de \textit{A} en \textit{B}.  Este  nuevo valor será el que cuantifique la influencia, sin embargo al ser una cantidad pequeña, se tomará como un porcentaje al multiplicar el cociente por cien, obteniendo cifras manejables. 
+	\item  Al dividir la frecuencia de préstamo entre la frecuencia total, se obtiene el uso \textbf{uso} $\underset{ \text{\tiny A} \to  \text{\tiny B} }{U}(t)$  de \textit{A} en \textit{B}.  
 	
 	\begin{equation}
 	\label{ec.fuso}
 	\underset{ \text{\tiny A} \to  \text{\tiny B} }{U}(t) = \frac{	\underset{ \text{\tiny A} \to  \text{\tiny B} }{P}(t)}{\underset{\text{\tiny B}}{F}(t) } * 100
 	\end{equation}
 	
-	\jmnote{deje los subindices para saber que opinabas,  a mi gusto se ve saturado y  creo que se sobrentiende que al tener el subindice bajo  la U que  P y F tambien lo  tienen. }
+	\jmnote{deje los subindices para saber que opinabas,  a mi gusto se ve saturado y  creo que se sobrentiende que al tener el subindice bajo  la U, que  P y F también lo  tienen. }
 	
+	Este  nuevo valor será el que cuantifique la influencia, sin embargo al ser una cantidad pequeña, se tomará como un porcentaje al multiplicar el cociente por cien, obteniendo cifras manejables. 
 	
 	%\item Se empleó la ecuación \ref{ec.fuso} en todos los años del conjunto de búsqueda, obteniendo 109 valores.
 	
@@ -98,22 +99,21 @@ Además de la cantidad, la frecuencia de los préstamos acumulados es relevante 
 	
 \end{enumerate}
 
-El objetivo  de trabajar con los acumulados es ver el comportamiento de las palabras que ya han migrado a un receptor, observando si hay periodos donde su empleó (a través del uso) se vea alterado. Para aclarar esta idea, dada una lista del receptor \textit{B}, se encuentran en ella préstamos acumulados con diferentes orígenes \textit{A}, \textit{C} o \textit{D},  existiendo un valor de uso por cada origen. Ya que esta cantidad depende del tiempo,  se podrá observar en cuales épocas algún origen tiene un mayor uso dentro de \textit{B},  en consecuencia una mayor influencia. 
+El objetivo de trabajar con los acumulados, es ver el comportamiento de las palabras que ya han migrado a un receptor, observando si hay periodos donde su empleó (a través del uso) se vea alterado. 
 
-Al igual que en los préstamos nuevos,  se agruparon los préstamos acumulados por cada pareja de origen y receptor,  y dentro de ella un segundo listado por cada año de búsqueda.  Asimismo se proporciona en \cite{prestamos_acumulados} las agrupaciones realizadas, mientras que en \ref{palabras.acumuladas.apendice}  se especifica la forma de leerlas e interpretarlas. 
+Para aclarar la última idea, en una lista del receptor \textit{B}, se encuentran  préstamos acumulados con diferentes orígenes \textit{A}, \textit{C} o \textit{D}, encontrando un valor de uso por cada origen.  Como el uso depende del tiempo, se obtienen diferentes valores en los diferentes años, y a partir de ellos, se pueden estimar las épocas donde algún origen tiene un mayor uso dentro de \textit{B},  en consecuencia una mayor influencia. 
+
+Al igual que en los préstamos nuevos,  se agruparon los préstamos acumulados por cada pareja de origen y receptor,  y dentro de ella, un segundo listado por cada año de búsqueda.  Se proporciona en \cite{prestamos_acumulados} las agrupaciones realizadas, mientras que en \ref{palabras.acumuladas.apendice} se especifica la forma de leerlas e interpretarlas. 
 
 
 
 \section {El uso entre idiomas} 
 
-Para medir la influencia entre los diferentes idiomas, se obtuvo el uso de un idioma en otro en todos los años de estudio (1740-2009), sin embargo, sólo se discutirán los resultados obtenidos en los años del conjunto de búsqueda (1900-2009), con la intención de ser acordes a los años donde se buscaron los préstamos nuevos del capitulo anterior. 
+Para medir la influencia entre idiomas, se obtuvo el uso de un idioma en otro en todos los años de estudio (1740-2009), sin embargo, sólo se discutirán los resultados obtenidos en los años del conjunto de búsqueda (1900-2009), con la intención de ser acordes a los años donde se buscaron los préstamos nuevos del capitulo anterior. 
 
-Por cada idioma se presentarán dos graficas, la primera tomando un origen fijo, observando el uso que tiene en los demás; la segunda mostrará el caso contrario al tomarlo ahora como receptor y graficando el uso de los demás en él.  Como la influencia esta ligada al significado de las palabras, se provee información de cuales palabras son relevantes para
-que el uso se vea alterado. 
+Por cada idioma se presentan dos graficas, la primera tomando un origen fijo, observando el uso que tiene en los demás; la segunda mostrando el caso contrario, al tomarlo como receptor, graficando el uso de los demás en él.  Una tercera grafica es posible, al fijar una pareja de origen y receptor, manifestando el uso de uno sobre otro,  estas graficas se agregaran a la sección \ref{palabras.acumuladas.apendice} del Apéndice A.
 
-
-Una tercera grafica es posible, al fijar una pareja de origen y receptor, manifestando el uso de uno sobre otro,  estas graficas se agregaran a la sección \ref{palabras.acumuladas.apendice} del Apéndice A, sirviendo como un complemento a este capítulo. 
-
+Complementando los resultados del capitulo anterior, se expondrán las palabras que intervienen en las diferentes épocas donde el uso se vea alterado. 
 
 Adicionalmente, la tabla \ref{tab.cantidad_acumulados} muestra la cantidad promedio de préstamos acumulados encontrados en cada año del conjunto de búsqueda. La idea de la tabla y del uso, es observar que el idioma que más palabras aporta a un receptor no es siempre el de mayor uso.   El uso es mayor si los préstamos tienen rangos mas bajos(frecuencias altas), sin importar la cantidad que se esten tratando. 
 
