@@ -25,7 +25,11 @@
 \usepackage{listings}                    % PERMITE AGREGAR CÓDIGO DE LENGUAJES  DE PROGRAMACIÓN (DOCUMENTACIÓN EN GOOGLE)
 \usepackage{emptypage}                   % QUITA LOS ENCABEZADOS Y PIES DE PÁGINA EN LAS HOJAS VACÍAS PRODUCIDAS POR LA IMPRESIÓN A DOS CARAS
 \usepackage{wrapfig}                    % to include figure with text wrapping around it
-\usepackage[margin=10pt,font=small,labelfont=bf]{caption} % for improved layout of figure captions with extra margin, smaller font than text
+\usepackage[margin=10pt,font=singlespacing, labelfont=bf, skip=8pt]{caption} 
+\usepackage[onehalfspacing]{setspace}
+
+% for improved layout of figure captions with extra margin, smaller font than text
+
 \usepackage[bf,SL,BF]{subfigure}         % Permite crear figuras múltiples
 \usepackage{makeidx}                     % Contiene los macros para indexar en un glosario
 %\usepackage[style=list,toc,number=none]{glossary}
