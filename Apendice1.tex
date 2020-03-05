@@ -5,85 +5,29 @@
 
 \section{Lectura de listas}
 \label{lectura.listas}
+ 
+Las listas hechas para los préstamos nuevos \cite{prestamos_nuevos} o acumulados \cite{prestamos_acumulados} de un idioma origen \textit{A} en un receptor \textit{B},  se encuentran ordenadas por cada año de estudio (1740-2009), y a la vez, las palabras listadas se ordenaron de forma descendente en la frecuencia $f$ y ascendente en rango $k$,  es decir en la lista del año $t$, la palabra con rango $k=1$ es la más frecuente,  la correspondiente a $k=2$ es la segunda más frecuente, para $k=3$ es la tercera más frecuente y así sucesivamente para todas las palabras en ese año. 
 
 
-\newpage
+Si para el año $t$  se encontraron $n$ cantidad de palabras, cuyas frecuencias cumplen que $f_{1} > f_{2} > f_{3} >  \dots > f_{n-1} > f_{n}$,  entonces el ordenamiento es el siguiente. 
 
-\section{Gráficas de palabras nuevas entre dos idiomas}
-\label{palabras.nuevas.apendice}
-
-\begin{figure}[h!]
+\begin{table}[h!]
 	\centering
-	\includegraphics[scale=.38]{NC_1_S2_EN.png}
-	\label{fig.NC_EF}
-	\caption{Palabras nuevas entre el inglés y el francés}
-\end{figure}
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=.38]{NC_2_S2_EN.png}
-	\label{fig.NC_EG}
-	\caption{Palabras nuevas entre el inglés y el alemán}
-\end{figure}
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=.38]{NC_3_S2_EN.png}
-	\label{fig.NC_EI}
-	\caption{Palabras nuevas entre el inglés y el italiano}
-\end{figure}
+	\begin{tabular}{ccc}
+		\multicolumn{3}{c}{\textbf{Año $t$}}        \\
+		Rango $k$     & Palabra    & Frecuencia $f$    \\
+		1             & pal 1      & $f_{1}$            \\
+		2             & pal 2      & $f_{2}$             \\
+		3             & pal 3      & $f_{3}$              \\
+		$\vdots$      & $\vdots$   & $\vdots$         \\
+		$\vdots$      & $\vdots$   & $\vdots$         \\
+		$n-1$         & pal $n-1$  & $f_{n-1}$             \\
+		$n$           & pal $n$    & $f_{n}$          
+	\end{tabular}
+\end{table}
 
 
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=.38]{NC_4_S2_EN.png}
-	\label{fig.NC_ES}
-	\caption{Palabras nuevas entre el inglés y el español}
-\end{figure}
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=.38]{NC_2_S2_FR.png}
-	\label{fig.NC_FG}
-	\caption{Palabras nuevas entre el francés y el alemán}
-\end{figure}
-
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[scale=.38]{NC_3_S2_FR.png}
-	\label{fig.NC_FI}
-	\caption{Palabras nuevas entre el francés y el italiano}
-\end{figure}
-
-\begin{figure}%[h!]
-	\centering
-	\includegraphics[scale=.38]{NC_4_S2_FR.png}
-	\label{fig.NC_FS}
-	\caption{Palabras nuevas entre el francés y el español}
-\end{figure}
-
-\begin{figure}%[h!]
-	\centering
-	\includegraphics[scale=.38]{NC_3_S2_GE.png}
-	\label{fig.NC_GI}
-	\caption{Palabras nuevas entre el alemán y el italiano}
-\end{figure}
-
-\begin{figure}%[h!]
-	\centering
-	\includegraphics[scale=.38]{NC_4_S2_GE.png}
-	\label{fig.NC_GS}
-	\caption{Palabras nuevas entre el alemán y el español}
-\end{figure}
-
-\begin{figure}%[h!]
-	\centering
-	\includegraphics[scale=.38]{NC_4_S2_IT.png}
-	\label{fig.NC_IS}
-	\caption{Palabras nuevas entre el italiano y el español}
-\end{figure}
-
+Para su mejor lectura y evitar confusiones con los números,  se omitieron las frecuencias en los listados. 
 
 
 

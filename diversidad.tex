@@ -1,6 +1,6 @@
 \chapter{Diversidad de rango}
 
-Continuando con el estudio de las migraciones, los resultados del capitulo anterior han llevado a pesar en las migraciones como un conjunto con propiedades comunes, entre ellas que el uso de un idioma no se ve alterado por las palabras que conforman el corpus.   Otra propiedad se puede obtener al cuantificar qué tanto cambian las palabras que componen los préstamos de un idioma en otro, conforme avanza el tiempo. 
+Tras los resultados del capitulo anterior, se ha propuesto el pesar en las migraciones como un conjunto con propiedades comunes, entre ellas el uso de un idioma en otro,  ya que este valor no se ve alterado por las palabras que conforman el corpus. Otra propiedad se puede obtener al cuantificar qué tanto cambian las palabras que componen los préstamos de un idioma en otro, conforme avanza el tiempo. 
   
 Como los préstamos entre idiomas están organizados por año, y a la vez en cada año se ordenan las palabras de forma ascendente por rango, (donde el rango más bajo corresponde a la palabra más utilizada en ese año y la de rango más alto a la menos utilizada), un mismo rango puede ser ocupado por diferentes palabras a lo largo del tiempo. 
 
@@ -17,7 +17,7 @@ Se define como \textbf{diversidad de rango} a la cantidad de elementos  diferent
 	
 	\item Ya que las listas de préstamos de un idioma en otro no son homogéneas en cantidad, el procedimiento anterior se repetirá hasta el rango mínimo que poseen todas las listas,  así se asegura tener una homogeneidad en el tamaño.
 	
-	\item Se normalizan  los valores dividiendo cada resultado entre el número de años comprendidos del intervalo $\Delta\,t$, obteniendo  la diversidad de rango $d(k)$.
+	\item Se normalizan los valores al dividir cada resultado entre el número de años comprendidos del intervalo $\Delta\,t$, obteniendo  la diversidad de rango $d(k)$.
 	
 \end{enumerate}
 
@@ -44,9 +44,9 @@ La diversidad ha sido utilizada en corpus donde se clasifican las palabras más 
 
 Al graficar la diversidad de rango en las diferentes combinaciones de origen y receptor, la distribución de los valores asemejan a una curva logarítmica, sin embargo no son similares a las curvas sigmoides obtenidas  por \textit{Cocho et al} y  por \textit{Morales et al}, a pesar de seguir el mismo algoritmo.   
 
-La principal diferencia con  los trabajos previos son los rangos donde se buscan la diversidad, estos llegan a ser del orden de $10^{4}$, mientras que en los préstamos acumulados  los rangos varían entre 8 y 290; siendo la escasez de rangos el factor que en este caso determina el obtener una curva logarítmica. 
+La principal diferencia con  los trabajos previos son los rangos donde se buscan la diversidad, estos llegan a ser del orden de $10^{4}$, mientras que en los préstamos acumulados los rangos varían entre 8 y 290. Se asocia a la escasez de rangos, el factor que en este caso determina obtener una curva logarítmica. 
 
-Tomando en cuenta los puntos obtenidos para la diversidad $d(k)$, se propone que para los rangos $k$ la curva que mejor ajusta es de la forma
+A partir de los puntos obtenidos para la diversidad $d(k)$, se propone que para los rangos $k$ la curva que mejor ajusta es de la forma
 
 \begin{equation}
 \label{ec.ajuste}
@@ -73,7 +73,7 @@ Al realizar la diversidad de rango de todas las combinaciones de idioma origen e
 h(k) = 0.17\,ln(k) - 0.18
 \end{equation} 
 
-Se graficó la ecuación anterior junto a los valores de diversidad de rango de todas las combinaciones de idioma origen e idioma receptor, siendo mayor la diversidad conforme el rango $k$ se acerca a sus valores más altos.
+Se graficó la ecuación anterior junto a los valores de diversidad de rango de todas las combinaciones de idioma origen e idioma receptor, la diversidad aumentó conforme el rango $k$ se acercó a sus valores más altos.
 
 
 
@@ -85,7 +85,7 @@ Se graficó la ecuación anterior junto a los valores de diversidad de rango de 
 \end{figure}
 
 
-A pesar de haber pocos rangos en algunas combinaciones, el ajuste fue optimo, ya que el coeficiente de determinación $R^{2}$ entre la diversidad y la nueva expresión del ajuste, tomó valores entre 0.79 y 0.95, correspondiendo las cifras mas bajas a las migraciones con escasez de rangos, principalmente en las combinaciones  del alemán con alguna lengua romance.  
+A pesar de haber pocos rangos en algunas combinaciones, el ajuste fue optimo, ya que el coeficiente de determinación $R^{2}$ entre la diversidad y la nueva expresión del ajuste, tomó valores entre 0.79 y 0.95, donde  las cifras mas bajas corresponden a las migraciones con escasez de rangos, principalmente en las combinaciones del alemán con alguna lengua romance.  
 
 %% dejo comentada la siguiente tabla por si se llega a necesitar algun dato
 
@@ -121,13 +121,13 @@ A pesar de haber pocos rangos en algunas combinaciones, el ajuste fue optimo, ya
 
 \section{La relación entre diversidad de rango y la ley de Zipf}
 
-El proponer una curva logarítmica mostró una similitud con los puntos de la diversidad de rango, obteniendo valores de $R^{2}$ aceptables. 
+El proponer una curva logarítmica mostró una similitud con los puntos de la diversidad de rango, sostenido por valores de $R^{2}$ aceptables. 
  
 La fiabilidad del ajuste llevó buscar un vínculo entre la ecuación propuesta y  la ley de Zipf [XXX]. Por un lado la ley de Zipf relaciona el rango de las palabras $k$ con su frecuencia de aparición $f(k)$,  mientras que la diversidad de rango $d(k) $cuantifica las distintas palabras que ocupan un mismo rango dentro de una escala temporal.  
 
 El término clave en los dos procedimientos es el rango, esta cantidad es el medio por el cual establecer la relación a través de una integral.
 
-Utilizando la ley de Zipf para rangos bajos (ya que los préstamos acumulados entre idiomas no contienen más de trescientos elementos)
+Si se utiliza la ley de Zipf para rangos bajos (ya que los préstamos acumulados entre idiomas no contienen más de trescientos elementos)
 
 \begin{equation}
 \label{ec.Zipf_kbajos}
@@ -153,7 +153,7 @@ Si la constante de integración $C = \beta$, entonces se llega a la forma propue
 \end{subequations}
 
 
-La relación entre ambas propuestas se pudo haber logrado partiendo de la ecuación de diversidad y con una derivada sobre el rango llegar a la ley de Zipf, sin embargo la razón de hacer la integral sobre la ley de Zipf es que esta ley  ha sido probada con diferentes datos, en cambio la ecuación logarítmica en la diversidad funcionó en conjuntos con $k$ bajos, cuya mayor diversidad se alcanza conforme $k$ se aproxima a sus valores más altos.  
+La relación entre ambas propuestas se pudo haber logrado si se partiera de la ecuación de diversidad y con una derivada sobre el rango llegar a la ley de Zipf, sin embargo la razón de hacer la integral sobre la ley de Zipf es que esta ley  ha sido probada con diferentes datos, en cambio la ecuación logarítmica en la diversidad funcionó en conjuntos con $k$ bajos, cuya mayor diversidad se alcanza conforme $k$ se aproxima a sus valores más altos.  
 
 En caso de tener distintos tipos de datos (que cumplan la ley de Zipf), con poca cantidad de rangos y cuya diversidad se ajuste a una ecuación logarítmica, daría veracidad a la relación anterior. Además podría mostrar a la diversidad de rango en un análogo con un potencial escalar, donde se concentre la información del sistema, y se obtengan otras magnitudes o propiedades a través  de operaciones o transformadas. 
 
