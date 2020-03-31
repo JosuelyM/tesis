@@ -13,30 +13,30 @@ Los préstamos acumulados serán útiles para obtener una cantidad medible con l
 \begin{enumerate}
 	\label{proceso_uso}
 	
-	\item  Dada la lista de las cinco mil palabras mas usadas de \textit{B} en el año $t$, se obtiene la \textbf{frecuencia total} $\underset{\text{\tiny B}}{F}(t)$ al sumar las frecuencias $f(k)$ de todas las palabras en la lista.
+	\item  Dada la lista de las cinco mil palabras mas usadas de \textit{B} en el año $t$, se obtiene la \textbf{frecuencia total} $\underset{\text{\tiny B}}{F}(t)$ al sumar las frecuencias $f(k)$ de todas las palabras en la lista:
 	\begin{equation}
 	\label{ec.ftot}
 	%F^{y}_{\text{B}} = \sum_{k=1}^{5000} f(k)
-	\underset{\text{\tiny B}}{F}(t) = \sum_{k=1}^{5000} f(k)
+	\underset{\text{\tiny B}}{F}(t) = \sum_{k=1}^{5000} f(k).
 	\end{equation}
 	 
 	 Donde $k$ es el rango  de cada palabra.
 	
-	\item Si se distinguen los préstamos acumulados con origen \textit{A}  que tienen rango $j$,  se procede a sumar la frecuencia $f(j)$ de estas palabras.
+	\item Si se distinguen los préstamos acumulados con origen \textit{A}  que tienen rango $j$,  se procede a sumar la frecuencia $f(j)$ de estas palabras:
 	
 	\begin{equation}
 	\label{ec.fpres}
 	%P^{y}_{\text{A} \to \text{B}} = \sum_{j} f(j)
-	\underset{ \text{\tiny A} \to  \text{\tiny B} }{P}(t) = \sum_{j} f(j)
+	\underset{ \text{\tiny A} \to  \text{\tiny B} }{P}(t) = \sum_{j} f(j).
 	\end{equation}
 	
 	 Esta cantidad será la  \textbf{frecuencia de préstamo} $\underset{ \text{\tiny A} \to  \text{\tiny B} }{P}(t)$   de \textit{A} en \textit{B} para el año $t$.
 	
-	\item Si se normaliza la frecuencia de préstamo al dividirla entre la frecuencia total, se obtiene el \textbf{uso} $\underset{ \text{\tiny A} \to  \text{\tiny B} }{U}(t)$  de \textit{A} en \textit{B}:. 
+	\item Si se normaliza la frecuencia de préstamo al dividirla entre la frecuencia total, se obtiene el \textbf{uso} $\underset{ \text{\tiny A} \to  \text{\tiny B} }{U}(t)$  de \textit{A} en \textit{B}: 
 	
 	\begin{equation}
 	\label{ec.fuso}
-	\underset{ \text{\tiny A} \to  \text{\tiny B} }{U}(t) = \frac{	\underset{ \text{\tiny A} \to  \text{\tiny B} }{P}(t)}{\underset{\text{\tiny B}}{F}(t) }
+	\underset{ \text{\tiny A} \to  \text{\tiny B} }{U}(t) = \frac{	\underset{ \text{\tiny A} \to  \text{\tiny B} }{P}(t)}{\underset{\text{\tiny B}}{F}(t) }.
 	\end{equation}
 	
 	Esta será la cantidad  que cuantifique la influencia de \textit{A} en \textit{B}.
