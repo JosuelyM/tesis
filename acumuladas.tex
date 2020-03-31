@@ -6,7 +6,7 @@ palabras que son nuevas en los distintos receptores, para después asociarlas co
 
 Antes de seguir con el desarrollo de este capítulo, conviene definir como \textbf{préstamos acumulados} a aquellas palabras con origen \textit{A} que ya habían aparecido en \textit{B}, y para un determinado año lo vuelven a hacer.  La diferencia entre los préstamos nuevos y los préstamos acumulados, es que solo serán nuevos en el año de aparición, posteriormente se convertirán en acumulados.
 
-Los préstamos acumulados serán útiles para obtener una cantidad medible con la cual interpreta la influencia y con ella saber que sucede con las palabras migrantes después del primer año de aparición.  Para lograr tal cantidad, se realizaron los siguientes pasos.
+Los préstamos acumulados serán útiles para obtener una cantidad medible con la cual interpreta la influencia, y a partir de ella saber que sucede con las palabras migrantes después del primer año de aparición.  Para lograr tal cantidad, se realizaron los siguientes pasos.
 
 
 
@@ -46,7 +46,7 @@ Los préstamos acumulados serán útiles para obtener una cantidad medible con l
 
 Si en una lista de las palabras más usadas del idioma \textit{B}, se encuentran préstamos acumulados con diferentes orígenes \textit{A}, \textit{C} o \textit{D}. Cada origen tendrá un valor correspondiente de uso. Si se obtienen diferentes valores del uso a lo largo del tiempo,  con ellos se puede estimar cual origen es más utilizado en \textit{B},  en consecuencia cual de ellos tiene una mayor influencia en \textit{B}.
 
-Como en el uso intervienen los préstamos acumulados, se podrá decir cuales son las palabras migrantes que modifican el uso de un idioma en otro. Por ejemplo, si el uso aumenta en un periodo de tiempo $\Delta t$,  las palabras que más descendieron en rango $k$ durante el mismo periodo,  son las causantes del aumento. 
+Además, si en un intervalo de tiempo el uso de un idioma en otro aumenta, las palabras que tienen una mayor influencia son aquellas que descienden en rango (aumentan su frecuencia) durante el mismo periodo $\Delta t$. En algunos casos, las palabras con mayor influencia serán parte de un mismo campo semántico. 
 
 
 \section {El uso entre idiomas} 
@@ -149,6 +149,9 @@ Los préstamos del francés que son comunes en todos los idiomas son   \textit{s
 	\label{fig.UR_FR}
 \end{figure}
 		
+		
+
+		
 Para los prestamos usados en el francés, el español y el inglés se mostraron como los idiomas con mayor presencia, donde el español fue el más utilizado durante todo el siglo, mientras que el inglés resultó el de mayor crecimiento después de 1950. La característica común de los vocablos de ambos idiomas, son palabras con etimología grecolatina,  \textit{depression}, \textit{canal}, \textit{proceso}, \textit{services}, \textit{justice} entre otras. 
 
 
@@ -158,7 +161,7 @@ Para los prestamos usados en el francés, el español y el inglés se mostraron 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=.36]{UO_GE.png}
-	\caption{El alemán en los demás idiomas. La familiaridad de las lenguas germánicas hace posible que el inglés sea el idioma  donde los préstamos del alemán sean continuamente utilizados. Entre las lenguas romances sólo en el francés su uso ha sido constante, mientras que en italiano y español existen periodos donde el empleo del alemán es casi nulo.}
+	\caption{El uso del alemán en los demás idiomas. En la segunda mitad de siglo, el uso del alemán ha disminuido en todos los idiomas. En el inglés el decaimiento ha sido mayor, a razón de  -0.0013 por cada año.}
 	\label{fig.UO_GE}
 
 \end{figure}
@@ -169,7 +172,7 @@ La característica principal de los términos en alemán son personajes germano-
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=.36]{UR_GE.png}
-	\caption{Los demás idiomas en el alemán. Cada lengua ha tenido un periodo de crecimiento posterior a 1950 tras finalizar la segunda guerra mundial, acontecimiento que influyó para que los demás idiomas impactaran y perduraran en el alemán.}
+	\caption{El uso de los demás idiomas en el alemán. Todos los idiomas aumentaron su uso en el alemán en algún periodo dentro de la segunda mitad de siglo. Entre 1950 y 1995, el uso del francés y el uso del italiano en el alemán, aumentaron casi a la misma razón por cada año, 0.0020 y 0.0019 respectivamente.}
 	\label{fig.UR_GE}
 \end{figure}
 
@@ -187,7 +190,7 @@ Cada idioma presentó un periodo de crecimiento posterior a 1950; desde el conte
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=.36]{UO_IT.png}
-	\caption{El italiano en los demás idiomas. A pesar de ser fonéticamente similares y ser tambien una lengua romance,  el español persiste en ser el idioma con menor uso de italiano.}
+	\caption{El uso del italiano en los demás idiomas. El alemán en la segunda mitad de siglo  es el idioma que más usa al italiano, donde el mayor incremento a razón de 0.0015 se dio entre 1980 y 1995. El español es le idioma que menos usa al italiano, a pesar de ser ambos de la misma familia lingüística.}
 	\label{fig.UO_IT}
 \end{figure}
 		
@@ -200,7 +203,7 @@ Salvo por Mussolini, los demás prestamos italianos no se lograron asociar a un 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=.36]{UR_IT.png}
-	\caption{Los demás idiomas en el italiano. La proximidad geográfica  entre italia con países cuya lengua es el francés y el alemán ayudó a incrementar el uso de estos en el italiano. A pesar de que el inglés se difundió como un idioma universal para la comunicación, su uso en el italiano no ha mostrado un incremento en todo el siglo XX. }
+	\caption{El uso de los demás idiomas en el italiano. El francés es el idioma cuyo uso es mayor en el italiano,  su mayor aumento se dio  entre 1950 y 1980 a razón de 0.004 por cada año. El uso de los demás idiomas en el italiano ha sido casi constante, en el español de 0.303$\pm$0.03, en el inglés de 0.18$\pm$0.21 y en el alemán de 0.13$\pm$0.02.}
 	\label{fig.UR_IT}
 \end{figure}
 
@@ -214,7 +217,8 @@ El contenido de las palabras que tomó el italiano, es igualmente variado, por p
 \begin{figure}[h!] % {{{
 	\centering
 	\includegraphics[scale=.36]{UO_SP.png}
-	\caption{El español en los demás idiomas. Los idiomas que más emplean español son aquellos con los que comparte una relación etimológica, francés e italiano por ser lenguas romances y con el ingles al tener este idioma una base de palabras grecolatinas.  Los préstamos destacan al ser términos médicos y nombres de países y ciudades hispanohablantes.}
+	\caption{El uso del español en los demás idiomas. El inglés y el francés son los idiomas  donde más rápido aumento el uso del español,
+	en el inglés a razon de 0.38 entre 1950 y 1970 mientras  en el francés a razon de 0.13 por cada año entre 1930 y 1960.}
 	\label{fig.UO_SP}
 	
 \end{figure}
@@ -229,7 +233,7 @@ Nuevamente,  el ámbito medico caracterizó a las palabras más empleadas con or
 \begin{figure}[h!] % {{{
 	\centering
 	\includegraphics[scale=.36]{UR_SP.png}
-	\caption{Los demás idiomas en el español. Inglés y francés son los idiomas que mayor uso han tenido en el español, llegando a ser equiparables en los últimos cuarenta años. El alemán ha sido el que menos ha impactado, siendo su mayor crecimiento  alrededor de 1940.}
+	\caption{El uso de los demás idiomas en el español. Los idiomas que el español más usa son el inglés y el francés, ambos crecieron (casi) a la misma razón de 0.011 por cada año entre 1950 y el 2000.}
 	\label{fig.UR_SP}
 \end{figure}
 
