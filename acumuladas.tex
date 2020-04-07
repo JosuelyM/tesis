@@ -1,24 +1,36 @@
 \chapter{Palabras acumuladas}
 % Intro {{{
 
-La búsqueda para cuantificar la influencia, ha llevado a contar las
-palabras que son nuevas en los distintos receptores, para después asociarlas con  campos semánticos y sucesos históricos que respalden su aparición. Sin embargo, el proceso anterior, sólo brinda información del año en que migraron las palabras, pero no se sabe lo que pasa con ellas en los años posteriores a su migración. 
+La búsqueda para cuantificar la influencia, ha llevado a contar las palabras
+que son nuevas en los distintos receptores, para después asociarlas con  campos
+semánticos y sucesos históricos que respalden su aparición. Sin embargo, el
+proceso anterior, sólo brinda información del año en que migraron las palabras,
+pero no se sabe lo que pasa con ellas en los años posteriores a su migración. 
 
-Antes de seguir con el desarrollo de este capítulo, conviene definir como \textbf{préstamos acumulados} a aquellas palabras con origen \textit{A} que ya habían aparecido en \textit{B}, y para un determinado año lo vuelven a hacer.  La diferencia entre los préstamos nuevos y los préstamos acumulados, es que solo serán nuevos en el año de aparición, posteriormente se convertirán en acumulados.
+Antes de seguir con el desarrollo de este capítulo, conviene definir como
+\textbf{préstamos acumulados} a aquellas palabras con origen \textit{A} que ya
+habían aparecido en \textit{B}, y para un determinado año lo vuelven a hacer.
+La diferencia entre los préstamos nuevos y los préstamos acumulados, es que
+solo serán nuevos en el año de aparición, posteriormente se convertirán en
+acumulados.
 
-Los préstamos acumulados serán útiles para obtener una cantidad medible con la cual interpreta la influencia, y a partir de ella saber que sucede con las palabras migrantes después del primer año de aparición.  Para lograr tal cantidad, se realizaron los siguientes pasos.
+Los préstamos acumulados serán útiles para obtener una cantidad medible con la
+cual interpreta la influencia, y a partir de ella saber que sucede con las
+palabras migrantes después del primer año de aparición.  Para lograr tal
+cantidad, se realizaron los siguientes pasos.
 
 
 
 \begin{enumerate}
 	\label{proceso_uso}
-	
-	\item  Dada la lista de las cinco mil palabras mas usadas de \textit{B} en el año $t$, si se suman las frecuencias $f(k)$ de 
-	todas las palabras en la lista, donde $k$ es el rango  de cada palabra, se obtiene la \textbf{frecuencia total} $\underset{\text{\tiny B}}{F}(t)$:
-	%se obtiene la \textbf{frecuencia total} $\underset{\text{\tiny B}}{F}(t)$ al sumar las frecuencias $f(k)$ de 
-	%las palabras con rango $k$ en la lista:
+	\item  Dada la lista de las cinco mil palabras mas usadas de \textit{B}
+	en el año $t$, si se suman las frecuencias $f(k)$ de todas las palabras
+	en la lista, donde $k$ es el rango  de cada palabra, se obtiene la
+        \textbf{frecuencia total} $\underset{\text{\tiny B}}{F}(t)$:
+	%se obtiene la \textbf{frecuencia total} $\underset{\text{\tiny
+	%B}}{F}(t)$ al sumar las frecuencias $f(k)$ de las palabras con rango
+	%$k$ en la lista:
 	%todas las palabras en la lista, donde $k$ es el rango  de cada palabra
-	
 	\begin{equation}
 	\label{ec.ftot}
 	%F^{y}_{\text{B}} = \sum_{k=1}^{5000} f(k)
@@ -26,41 +38,49 @@ Los préstamos acumulados serán útiles para obtener una cantidad medible con l
 	\end{equation}
 	 
 	
-	\item Si en la lista se distinguen los préstamos acumulados con origen \textit{A}  que tienen rango $j$,  se procede a sumar la frecuencia $f(j)$ de estas palabras:
-	
+	\item Si en la lista se distinguen los préstamos acumulados con origen
+	\textit{A}  que tienen rango $j$,  se procede a sumar la frecuencia
+        $f(j)$ de estas palabras:
 	\begin{equation}
 	\label{ec.fpres}
 	%P^{y}_{\text{A} \to \text{B}} = \sum_{j} f(j)
 	\underset{ \text{\tiny A} \to  \text{\tiny B} }{P}(t) = \sum_{j} f(j).
 	\end{equation}
+	Está cantidad será la  \textbf{frecuencia de préstamo} $\underset{
+	\text{\tiny A} \to  \text{\tiny B} }{P}(t)$   de \textit{A} en
+        \textit{B} para el año $t$.
 	
-	Está cantidad será la  \textbf{frecuencia de préstamo} $\underset{ \text{\tiny A} \to  \text{\tiny B} }{P}(t)$   de \textit{A} en \textit{B} para el año $t$.
-	
-	\item Se normaliza la frecuencia de préstamo al dividirla entre la frecuencia total:
-	
-	%se obtiene el \textbf{uso} $\underset{ \text{\tiny A} \to  \text{\tiny B} }{U}(t)$  de \textit{A} en \textit{B}: 
-	
+	\item Se normaliza la frecuencia de préstamo al dividirla entre la
+        frecuencia total:
 	\begin{equation}
 	\label{ec.fuso}
-	\underset{ \text{\tiny A} \to  \text{\tiny B} }{U}(t) = \frac{	\underset{ \text{\tiny A} \to  \text{\tiny B} }{P}(t)}{\underset{\text{\tiny B}}{F}(t) }.
+	\underset{ \text{\tiny A} \to  \text{\tiny B} }{U}(t) = \frac{
+         \underset{ \text{\tiny A} \to  \text{\tiny B} }{P}(t)}{\underset{\text{\tiny
+         B}}{F}(t) }.
 	\end{equation}	
-	
-	Este nuevo valor será el \textbf{uso} $\underset{ \text{\tiny A} \to  \text{\tiny B} }{U}(t)$  de \textit{A} en \textit{B}, y es el que cuantificará la influencia de \textit{A} en \textit{B}. 
-	%\item Se empleó la ecuación \ref{ec.fuso} en todos los años del conjunto de búsqueda, obteniendo 109 valores.
-	
-	%\item El proceso se repitió para todas las combinaciones de orígenes y receptores.
-	
+	Este nuevo valor será el \textbf{uso} $\underset{ \text{\tiny A} \to
+	\text{\tiny B} }{U}(t)$  de \textit{A} en \textit{B}, y es el que
+        cuantificará la influencia de \textit{A} en \textit{B}. 
 \end{enumerate}
 
-Puesto que en las listas de las palabras más usadas del idioma \textit{B}, se encuentran préstamos acumulados con diferentes origenes \textit{A}, \textit{C} o \textit{D}, el origen más utilizado (o el de mayor influencia) en \textit{B}, será aquel cuyo uso sea mayor en un intervalo de tiempo $\Delta t = t_{f} - t_{o}$.
+Puesto que en las listas de las palabras más usadas del idioma \textit{B}, se
+encuentran préstamos acumulados con diferentes orígenes \textit{A}, \textit{C}
+o \textit{D}, el origen más utilizado (o el de mayor influencia) en \textit{B},
+será aquel cuyo uso sea mayor en un intervalo de tiempo $\Delta t = t_{f} -
+t_{o}$.
 
-Como en el uso de un idioma en otro intervienen los préstamos acumulados, se dirá que un préstamo aumentó su influencia, si disminuyó su rango (aumentó su frecuencia) dentro de un intervalo de tiempo $\Delta t$ donde el uso aumentó.  En algunos casos, los préstamos  que aumentan su influencia serán parte de un campo semántico.
+Como en el uso de un idioma en otro intervienen los préstamos acumulados, se
+dirá que un préstamo aumentó su influencia, si disminuyó su rango (aumentó su
+frecuencia) dentro de un intervalo de tiempo $\Delta t$ donde el uso aumentó.
+En algunos casos, los préstamos  que aumentan su influencia serán parte de un
+campo semántico.
 
 
-%Debido a que en el uso de un idioma en otro intervienen los préstamos acumulados, los préstamos que aumenten su influencia, serán aquellos que desciendan en rango (aumenten su frecuencia) dentro de un intervalo  $\Delta t$ donde el uso también aumentó. En algunos casos, los préstamos  que aumentan su influencia serán parte de un campo semántico. 
-
-Además, si en el intervalo de tiempo $\Delta t$, el uso de un idioma en otro toma los valores $U_{f}$ y $U_{o}$ en los extremos del intervalo, la \textbf{razón} $r$  cuantificará que tanto cambia el uso por cada valor de tiempo, expresándose está cantidad como la diferencia de los valores de uso $\Delta U = U_{f}-U_{o}$ dividido entre $\Delta t$:
-
+Además, si en el intervalo de tiempo $\Delta t$, el uso de un idioma en otro
+toma los valores $U_{f}$ y $U_{o}$ en los extremos del intervalo, la
+\textbf{razón} $r$  cuantificará que tanto cambia el uso por cada valor de
+tiempo, expresándose está cantidad como la diferencia de los valores de uso
+$\Delta U = U_{f}-U_{o}$ dividido entre $\Delta t$:
 \begin{equation}
 r = \frac{\Delta U}{\Delta t}.
 \label{ec.razon}
@@ -68,9 +88,9 @@ r = \frac{\Delta U}{\Delta t}.
 
 
 
-
-\section {El uso entre idiomas} 
-
+% }}}
+\section {El uso entre idiomas}  % {{{
+% Intro de la seccion {{{
 La obtención y presentación de resultados del uso de un idioma en otro, se realizó de la siguiente manera.
 
 
@@ -141,6 +161,7 @@ No obstante, el que un idioma tenga más préstamos acumulados en otro, no signi
 
 
 
+% }}}
 \subsection{Inglés} % {{{
 
 \begin{figure}[h!]
@@ -185,8 +206,6 @@ Con el español, las palabras que más influyeron en el aumento entre 1950 y 197
 
 
 % }}}
-
-
 \subsection{Francés} % {{{
 
 \begin{figure}[h!]
@@ -221,6 +240,7 @@ La característica común de los prestamos acumulados del español en el francé
 
 
 
+% }}}
 \subsection{Alemán} % {{{
 
 \begin{figure}[h!]
@@ -252,8 +272,6 @@ Los préstamos del inglés (página~\pageref{EN-D}) y del francés (página~\pag
 \label{D-GE}
 
 % }}}
-
-
 \subsection{Italiano} % {{{
 
 \begin{figure}[h!]
@@ -288,17 +306,14 @@ Los préstamos del francés ((página~\pageref{FR-D})), del inglés (página~\pa
 
 
 % }}}
-
-
 \subsection{Español} % {{{
-
 \begin{figure}[h!] % {{{
 	\centering
 	\includegraphics[scale=.33]{UO1_SP.png}
 	\caption{El uso del español en los demás idiomas. El mayor aumento en el uso del español se dio en el francés, a razón de 0.0026 entre 1930 y 1955, después en el inglés con 0.016 entre 1920 y 1970,  y en el alemán con 0.0014 entre 1950 y 1980. El uso del español en el italiano, disminuyó a razón de -0.0017 por cada año entre 1905 y 1970.}
 	\label{fig.UO_SP}
 	
-\end{figure}
+\end{figure} % }}}
 
 Los préstamos del español que aumentaron más su influencia en el inglés,
 reflejan la relación cultural de países de Latinoamérica con los Estados Unidos, ya que se encontraron nombres de países y ciudades en Latinoamérica, como \textit{mexico}, \textit{panama}, \textit{chile}, \textit{cuba}, \textit{peru}, \textit{colombia}, \textit{argentina},  \textit{buenos} y \text{aires}; y nombres de estados de Los Estados Unidos con gran población hispanohablante como \textit{california} y \textit{florida}. 
@@ -323,6 +338,7 @@ En las discusiones anteriores se han mencionado los préstamos que aumentan o di
 
 
 
+% }}}
 % }}}
 % }}}
 \section{Resultados generales} % {{{
