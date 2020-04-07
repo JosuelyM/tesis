@@ -13,7 +13,7 @@ Los préstamos acumulados serán útiles para obtener una cantidad medible con l
 \begin{enumerate}
 	\label{proceso_uso}
 	
-	\item  Dada la lista de las cinco mil palabras mas usadas de \textit{B} en el año $t$, al sumar las frecuencias $f(k)$ de 
+	\item  Dada la lista de las cinco mil palabras mas usadas de \textit{B} en el año $t$, si se suman las frecuencias $f(k)$ de 
 	todas las palabras en la lista, donde $k$ es el rango  de cada palabra, se obtiene la \textbf{frecuencia total} $\underset{\text{\tiny B}}{F}(t)$:
 	%se obtiene la \textbf{frecuencia total} $\underset{\text{\tiny B}}{F}(t)$ al sumar las frecuencias $f(k)$ de 
 	%las palabras con rango $k$ en la lista:
@@ -54,7 +54,10 @@ Los préstamos acumulados serán útiles para obtener una cantidad medible con l
 
 Puesto que en las listas de las palabras más usadas del idioma \textit{B}, se encuentran préstamos acumulados con diferentes origenes \textit{A}, \textit{C} o \textit{D}, el origen más utilizado (o el de mayor influencia) en \textit{B}, será aquel cuyo uso sea mayor en un intervalo de tiempo $\Delta t = t_{f} - t_{o}$.
 
-Debido a que en el uso de un idioma en otro intervienen los préstamos acumulados, los préstamos que aumenten su influencia, serán aquellos que desciendan en rango (aumenten su frecuencia) dentro de un intervalo $\Delta t$ donde el uso también aumentó. En algunos casos, los préstamos  que aumentan su influencia serán parte de un campo semántico. 
+Como en el uso de un idioma en otro intervienen los préstamos acumulados, se dirá que un préstamo aumentó su influencia, si disminuyó su rango (aumentó su frecuencia) dentro de un intervalo de tiempo $\Delta t$ donde el uso aumentó.  En algunos casos, los préstamos  que aumentan su influencia serán parte de un campo semántico.
+
+
+%Debido a que en el uso de un idioma en otro intervienen los préstamos acumulados, los préstamos que aumenten su influencia, serán aquellos que desciendan en rango (aumenten su frecuencia) dentro de un intervalo  $\Delta t$ donde el uso también aumentó. En algunos casos, los préstamos  que aumentan su influencia serán parte de un campo semántico. 
 
 Además, si en el intervalo de tiempo $\Delta t$, el uso de un idioma en otro toma los valores $U_{f}$ y $U_{o}$ en los extremos del intervalo, la \textbf{razón} $r$  cuantificará que tanto cambia el uso por cada valor de tiempo, expresándose está cantidad como la diferencia de los valores de uso $\Delta U = U_{f}-U_{o}$ dividido entre $\Delta t$:
 
@@ -91,14 +94,16 @@ La obtención y presentación de resultados del uso de un idioma en otro, se rea
 	
 	\item Se obtuvieron los préstamos nuevos de \textit{A} en \textit{B} durante los años del conjunto base (1740-1899). Estas palabras son las primeras candidatas a ser préstamos acumulados.
 	
-	\item Los préstamos nuevos encontrados en el capítulo anterior, también son candidatos a ser prestamos acumulados conforme migren a los diferentes receptores.
+	\item Los préstamos nuevos encontrados en el capítulo anterior, también serán candidatos a ser prestamos acumulados, conforme migren a los diferentes receptores.
 	
-	\item Encontrados los prestamos acumulados de \textit{A} en \textit{B} en los años del conjunto de búsqueda (1900-2009),  se empleó la ecuación~\ref{ec.fuso} para obtener el uso de \textit{A} en \textit{B}.
+	\item Se encontraron los prestamos acumulados de \textit{A} en \textit{B} en los años del conjunto de búsqueda (1900-2009), y  se empleó la ecuación~\ref{ec.fuso} para obtener el uso de \textit{A} en \textit{B}.
 	
-	\item Se proporciona en \cite{prestamos_acumulados} las listas de los préstamos acumulados por cada pareja de idioma origen e idioma receptor, agrupados por cada año de búsqueda. Se especifica en \ref{lectura.listas} la forma de leerlas e interpretarlas. 
+	\item Se proporciona en \cite{prestamos_acumulados} las listas de los préstamos acumulados por cada pareja de idioma origen e idioma receptor, agrupadas por año de búsqueda. Se especifica en \ref{lectura.listas} la forma de leerlas e interpretarlas. 
 	
-	\item Se presentan dos tipos de graficas, la primera muestra el uso de un idioma origen fijo en los demás receptores a lo largo del tiempo, mientras que la segunda exhibe el uso que los demás idiomas tienen sobre un receptor fijo en los mismos valores de tiempo.  Será importante notar que las graficas no tienen la misma escala en el uso.
-	 
+	\item Se hicieron dos tipos de graficas, la primera, muestra el uso de un idioma origen fijo en los demás receptores a lo largo del tiempo; la segunda grafica, exhibe el uso que los demás idiomas tienen sobre un receptor fijo, en los mismos valores de tiempo. 
+	
+	\item Para  no perder información sobre el uso, en algunas graficas, la escala de valores es distinta.
+	
 	\item Por cada grafica se mencionaran las palabras que aumentan su influencia  dentro de los intervalos de tiempo donde el uso también aumenta. 
 	
 	\item Una tercera grafica es posible al graficar el uso entre dos idiomas. Estas graficas se anexarán en la sección~\ref{palabras.acumuladas.apendice} del Apéndice A.
