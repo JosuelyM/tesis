@@ -1,33 +1,33 @@
 \chapter{Eliminación de palabras}
 
+En los capítulos anteriores, el relacionar las palabras migrantes con campos semánticos y eventos históricos que justifiquen su aparición, permitió establecer un forma para cuantificar la influencia entre idiomas llamado uso. Todo este método se facilitó por la eliminación de las palabras funcionales, dejando sólo palabras de contenido, pero ¿cómo se modificaría el uso entre idiomas,  si se eliminaran otro tipo de palabras, sin importar si estás son de contenido?
 
-Los capítulos anteriores se han enfocado en tratar a las migraciones de palabras como consecuencias de eventos donde  las lenguas están involucradas. La clasificación de los $n$-gramas en palabras funcionales y palabras de contenido, y la posterior eliminación de las palabras funcionales, facilitó encontrar las relaciones con los eventos y establecer una cuantificación para la influencia entre idiomas (llamada uso), pero ¿cómo se modificaría el uso, si se realizaran otras reglas para eliminar palabras sin importar que sean palabras de contenido?
-
-Esta pregunta ha llevado a la construcción de un nuevo algoritmo que limite a las palabras,  para reducir el conjunto de las migraciones y obtener nuevos valores para el uso entre idiomas.  Elegidos una pareja de idioma origen \textit{A} e idioma receptor \textit{B}, el proceso es el siguiente. 
+Esta pregunta ha llevado a la construcción de un nuevo algoritmo para reducir el conjunto de las palabras migrantes y obtener nuevos valores del uso entre idiomas.  Elegidos una pareja de idioma origen \textit{A} e idioma receptor \textit{B}, el proceso es el siguiente. 
 
 
 \begin{enumerate}
 	
-	\item Se toma la lista de los préstamos acumulados de \textit{A} en \textit{B},  este conjunto se denotará como \textbf{conjunto original}.
+	\item Se toma la lista de los préstamos acumulados de \textit{A} en \textit{B},  este corpus se denotará como \textbf{conjunto original}.
 	
-	\item Se escogen de forma aleatoria un conjunto de letras (desde una hasta diez), y se descartan de las lista a aquellas  palabras cuya primer letra sea alguna de las elegidas. El nuevo grupo se denotará como \textbf{conjunto reducido}.
+	\item Se escogen de forma aleatoria un grupo de letras (desde una hasta diez), y se descartan del conjunto original a aquellas  palabras cuya primer letra sea alguna de las elegidas. El nuevo corpus se denotará como \textbf{conjunto reducido}.
 	
-	\item Se establece un tercer grupo designado como \textbf{conjunto residuo}, conformado por todas las palabras eliminadas del conjunto original.  La unión del reducido y el residuo es el original. 
+	\item Se establece un corpus  designado como \textbf{conjunto residuo}, conformado por todas las palabras eliminadas del conjunto original.  La unión del reducido y el residuo es el original. 
 	
 	\item En los tres conjuntos se emplea la ecuación \ref{ec.fuso}, para encontrar el uso de \textit{A} en \textit{B}. 	
 	
 \end{enumerate}
 
-La intención de estas alteraciones no es desaparecer el conjunto de las migraciones, sino el reducirlas para  comparar el uso entre el conjunto original y el reducido.  Para determinar que tanto ha cambiado el uso en los dos conjuntos, se utilizará el coeficiente de determinación $R^{2}$. 
+La intención de estas eliminación  no es desaparecer el conjunto de las migraciones, sino el reducirlas para  comparar el uso entre el conjunto original y el reducido.  Para determinar que tanto ha cambiado el uso en los dos conjuntos, se utilizará el coeficiente de determinación $R^{2}$. 
 
-El primer criterio importante sera tomar el uso en el conjunto original como verdadero (ya que con el se establecieron los resultados del capítulo anterior), sus valores para un tiempo $t$ se expresan como $O_{t}$; si el uso en el conjunto reducido para el mismo tiempo se denotan como  $v_{t}$ y el promedio de ellos es $\bar{v}$, entonces   el coeficiente de determinación queda definido como:
+El primer criterio importante sera al tomar el uso en el conjunto original como verdadero (ya que con el se establecieron los resultados del capítulo anterior),  donde sus valores para un tiempo $t$ se expresan como $O_{t}$. Si el uso en el conjunto reducido para el mismo $t$ se denotan como  $v_{t}$ y el promedio de ellos es $\bar{v}$, entonces  el coeficiente de determinación queda definido como:
 
 \begin{equation}
 \label{ec.dif_uso}
-R^{2} = 1 - \sum_{t} \frac{ \left( v_{t}- O_{t} \right)^{2}  }{ \left( v_{t} - \bar{v} \right)^{2} }
+R^{2} = 1 - \sum_{t} \frac{ \left( v_{t}- O_{t} \right)^{2}  }{ \left( v_{t} - \bar{v} \right)^{2} }.
 \end{equation}
 
-Se define el concepto \textbf{conservación del uso} para aquellos idiomas cuyo uso no cambie a pesar de las omisiones, la conservación es favorable si $R^{2}$ es próximo a 1.  Si la conservación no es favorable, es indicio las palabras eliminadas son las más relevantes en las migraciones de \textit{A} en \textit{B}.
+Se empleará el concepto \textbf{conservación del uso} para aquellos idiomas cuyo uso no cambie a pesar de las omisiones. La conservación es favorable si $R^{2}$ es próximo a 1. 
+%Si la conservación no es favorable, las palabras eliminadas son las más relevantes para las migraciones de \textit{A} en \textit{B}.
 
 \section{Características de las eliminaciones}
 
@@ -53,7 +53,7 @@ En cada grafica se especifican los idiomas que intervienen, así como el conjunt
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[scale=.38]{OM1.png}
+	\includegraphics[scale=.375]{OM1.png}
 	\label{fig.OM1}
 	\caption{En ambas parejas de idiomas hay conservación del uso durante todo el siglo XX, al presentar valores iguales y  diferencia de alturas.}
 \end{figure}
@@ -61,7 +61,7 @@ En cada grafica se especifican los idiomas que intervienen, así como el conjunt
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[scale=.38]{OM2.png}
+	\includegraphics[scale=.375]{OM2.png}
 	\label{fig.OM2}
 	\caption{Sin conservación para el español-alemán entre 1960 y 1990,  debido a una alteración por periodos. Para el italiano-español el uso se conservo hasta mitad de siglo al existir una diferencia de alturas, en los últimos años se caracteriza por una alteración.}
 \end{figure}
@@ -69,7 +69,7 @@ En cada grafica se especifican los idiomas que intervienen, así como el conjunt
 \clearpage
 \begin{figure}[h!]
 	\centering
-	\includegraphics[scale=.38]{OM3.png}
+	\includegraphics[scale=.375]{OM3.png}
 	\label{fig.OM3}
 	\caption{ En el italiano-francés se presenta conservación al  reducirse la diferencia de alturas conforme avanza el tiempo. El alemán-francés  presenta las tres características,  valores iguales  , alrededor de 1980  alteraciones entre 1920 y 1940, y deferencia de alturas  en los años restantes; la conservación dependerá del periodo  que se estudie.}
 \end{figure}
