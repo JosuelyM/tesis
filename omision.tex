@@ -4,7 +4,9 @@
 %Para responder esta pregunta, se ha elaborado un nuevo algoritmo que reduce el conjunto de las palabras migrantes, y  obtiene nuevos valores para el uso entre idiomas.  Elegidos una pareja de idioma origen \textit{A} e idioma receptor \textit{B}, el proceso es el siguiente. 
 
 En los métodos para cuantificar la influencia de un idioma en otro, ya sea a partir de las palabras nuevas o del uso que estas tienen en los diferentes receptores, se ha tratado de justificar los resultados con las palabras que intervienen en cada proceso. Sin embargo, dentro de las palabras migrantes, se encontraron errores al designar su idioma origen, errores que por el momento, no se sabe ni como eliminarlos ni como afectan a los resultados. 
+\jmnote{explicar por que no es prectico revisar a mano quienes son los errores}
 
+\jmnote{pensar si quitar la siguiente idea, o tratar de justificarla}
 El primer criterio que se hizo para minimizar errores y obtener mejores resultados, fue al eliminar las palabras funcionales, dejando sólo las palabras de contenido. Este criterio disminuyó la cantidad de palabras migrantes, por lo que es comprensible pensar que tras una limpieza en los resultados, la cantidad de ellos se reducirá. 
 
 Con la idea anterior, al no tener otro tipo de criterios para limpiar los datos, se pueden simular reglas que reduzcan la cantidad de palabras migrantes. Una vez hecha la reducción, se puede obtener el uso de un idioma en otro para compararlo con los resultados previos. Se decidió comparar con el uso y no con las palabras nuevas, ya que en cada año hay más prestamos acumulados que préstamos nuevos (en algunos años no hay palabras nuevas), además la intención de las posibles reglas, es reducir el tamaño de los conjuntos no desaparecerlos.
@@ -28,10 +30,11 @@ El proceso para simular reglas y hacer las eliminación es el siguiente.
 
 %El primer criterio será al tomar el uso en el conjunto original como verdadero (ya que con el se establecieron los resultados del capítulo anterior), donde sus valores para un tiempo $t$ se expresan como $O_{t}$. Si en el conjunto reducido   es el uso para el mismo $t$, mientras que  $\bar{v}$ es el promedio de todos los valores de uso, entonces  el coeficiente de determinación queda definido como:
 
+\jmnote{corregir "verdadero" en el parrafo}
 Si el uso en el conjunto original se toma como verdadero (ya que con el se obtuvieron los resultados del capítulo anterior), una forma de determinar que tanto cambió el uso en el conjunto reducido, es a partir del coeficiente de determinación $R^{2}$. 
 
 %Si para un año $t$ dentro de un intervalo de tiempo $\Delta t$,  se detonan como $O_{t}$ al uso en el conjunto original y $v_{t}$ al uso en el al uso en el conjunto reducido,  mientras que $\bar{v}$ es el promedio de todos los $v_{t}$ en el intervalo, entonces el coeficiente de determinación se expresa como: 
-Para un año $t$ dentro de un intervalo de tiempo $\Delta t$,  el uso en el  conjunto original y el uso en el conjunto reducido se detonan como $O_{t}$ y $v_{t}$ respectivamente,  mientras que $\bar{v}$ es el promedio de todos los $v_{t}$ en el intervalo, entonces el coeficiente de determinación queda definido como: 
+Para un año $t$ dentro de un intervalo de tiempo,  el uso en el conjunto original y el uso en el conjunto reducido se detonan como $O_{t}$ y $v_{t}$ respectivamente,  mientras que $\bar{v}$ es el promedio de todos los $v_{t}$ en el intervalo, entonces el coeficiente de determinación queda definido como: 
 \begin{equation}
 \label{ec.dif_uso}
 R^{2} = 1 - \sum_{t} \frac{ \left( v_{t}- O_{t} \right)^{2}  }{ \left( v_{t} - \bar{v} \right)^{2} }.
