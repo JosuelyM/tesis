@@ -10,6 +10,7 @@ opción para detectar errores, seria al revisar cada una de las palabras por un
 experto en la lingüística de cada idioma, lo cual no es practico dado el tamaño
 de la base de datos.
 
+Se piensa que una posible limpieza en los datos, reducira el tamaño del corpus, 
 Al no contar con un criterio lingüístico para una limpieza de los datos, se
 piensa que la posible limpieza reducirá la cantidad de palabras, por lo que se
 simularemos reglas  que reduzcan la cantidad de palabras.  Una vez hecha la
@@ -26,7 +27,7 @@ El proceso para simular reglas es el siguiente.
 
 \begin{enumerate}
 	
-	\item Se toma la lista de los préstamos acumulados de \textit{A} en \textit{B}, este corpus se denotará como \textbf{conjunto original}.
+	\item Se toma la lista de los préstamos acumulados de \textit{A} en \textit{B}; este corpus se denotará como \textbf{conjunto original}.
 	
 	\item Se escogen de forma aleatoria un grupo de letras (desde una hasta diez), y se descartan del conjunto original a aquellas  palabras cuya primer letra sea alguna de las elegidas. El nuevo corpus se denotará como \textbf{conjunto reducido}, mientras que el \textbf{porcentaje de reducción} $R_{p}$, es el porcentaje de palabras que se eliminaron del conjunto original. 
 	
@@ -45,12 +46,10 @@ Como en cada año el uso reducido es una porción del uso original, se define co
 Un factor de conversión cercano a cero, puede significar que ambos usos tengan una escala diferente a pesar de que sus respectivas graficas sean iguales, en consecuencia el área de ellas también pueden tener una escala diferente.  Para eliminar esta situación, se normalizaron ambos conjuntos por el valor promedio del uso de cada uno,  así los valores tanto del uso original como del uso reducido estarían alrededor de 1.  
 
 Una vez hecha la normalización, se procedió a calcular el área compartida  $A_{c}$ de ambas graficas; esta cantidad se dividió por 109 que es el área máxima que puede haber (al ser 109 años), obteniendo así el \textbf{área de traslape}:
-
 \begin{equation}
 A_{T} = \frac{A_{c}}{109}.
 \label{ec.atraslape}
 \end{equation}
-
 Esta cantidad normalizada entre 0 y 1, indicará una mayor similitud si es próxima a uno.
 
 \section{Características de las eliminaciones}
