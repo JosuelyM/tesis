@@ -31,7 +31,7 @@ Se esperan obtener resultados similares en los préstamos acumulados, ya que est
 Tras aplicar el algoritmo de la diversidad en cada pareja de idioma origen e idioma receptor, los valores asemejan a una curva logarítmica.  A partir de esta distinción, se propone que la curva que mejor ajusta a la diversidad de rango $d(k)$, es de la forma:
 \begin{equation}
 \label{ec.ajuste} 
-d(k) =  \alpha \, ln(k) + \beta.
+d(k) =  \alpha \ln(k) + \beta. 
 \end{equation}
 Donde los parámetros $\alpha$ y $\beta$  se  obtienen a través de una regresión lineal, entre los puntos obtenidos y la ecuación propuesta. 
 
@@ -68,7 +68,7 @@ La tabla~\ref{tab.diversidad_ajuste} muestra el valor de $R^{2}$ de cada pareja 
 \end{figure}
 
 
-La figura~\ref{fig.DR_gen} muestra la diversidad de rango de cada pareja de idiomas, así como la grafica de la ecuación $d(k) = 0.17\,ln(k) - 0.18$, obtenida tras promediar los correspondientes  $\alpha$ y $\beta$ de cada pareja y sustituirlos en la ecuación \ref{ec.ajuste}. De está figura, se observa que la diversidad aumenta conforme el rango también lo hace, sin importar si está se busca en parejas donde los rangos son pocos (14 en el alemán-español) o son muchos (290 en el español-italiano). Entonces,  los préstamos acumulados en los rangos intermedios y bajos, son los que a lo largo del tiempo, tienden a cambiar más su posición dentro de un ordenamiento (rango).
+La figura~\ref{fig.DR_gen} muestra la diversidad de rango de cada pareja de idiomas, así como la grafica de la ecuación $d(k) = 0.17\ln(k) - 0.18$, obtenida tras promediar los correspondientes  $\alpha$ y $\beta$ de cada pareja y sustituirlos en la ecuación \ref{ec.ajuste}. De está figura, se observa que la diversidad aumenta conforme el rango también lo hace, sin importar si está se busca en parejas donde los rangos son pocos (14 en el alemán-español) o son muchos (290 en el español-italiano). Entonces,  los préstamos acumulados en los rangos intermedios y bajos, son los que a lo largo del tiempo, tienden a cambiar más su posición dentro de un ordenamiento (rango).
 
 %A pesar de que se trata de la misma conclusión de los trabajos previos, en ellos las graficas de diversidad son diferentes, obteniendo curvas de tipo sigmoide.  Una de las diferencias con los trabajos previos, 
 
