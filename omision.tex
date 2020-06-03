@@ -3,14 +3,9 @@
 En los métodos para cuantificar la influencia de un idioma en otro, ya sea a
 partir de las palabras nuevas o del uso que estas tienen en los diferentes
 receptores, se ha tratado de justificar los resultados con las palabras que
-intervienen en cada proceso. Sin embargo, dentro de las palabras migrantes, se
-encontraron errores al designar su idioma origen, errores que por el momento no
-se sabe ni como detectarlos ni como afectan a los resultados previos.  Una
-opción para detectar errores, seria al revisar cada una de las palabras por un
-experto en la lingüística de cada idioma, lo cual no es practico dado el tamaño
-de la base de datos.
+intervienen en cada proceso. Sin embargo, dentro de las palabras migrantes, se encontraron errores al designar su idioma origen, errores que por el momento no se sabe ni como detectarlos ni como afectan a los resultados previos.  Una opción para detectar errores, seria al revisar cada una de las palabras por un experto en la lingüística de cada idioma, lo cual no es practico dado el tamaño de la base de datos.
 
-Se piensa que una posible limpieza en los datos, reduciría el tamaño del corpus. Como no se cuenta con un criterio lingüístico para tal limpieza, se pueden simular reglas que reduzcan la cantidad de palabras, y una vez hecha la reducción se obtiene el uso de un idioma en otro, para compararlo con los resultados previos. Se decidió comparar con el uso y no con las palabras nuevas, ya que en cada año hay más prestamos acumulados que préstamos nuevos (en algunos años no hay préstamos nuevos).
+Se piensa que una posible limpieza en los datos, reduciría el tamaño del corpus. Como no se cuenta con un criterio lingüístico para tal limpieza, se pueden simular reglas a partir de reducir una cantidad de palabras, y una vez hecha la reducción se obtiene el uso de un idioma en otro, para compararlo con los resultados previos. Se decidió comparar con el uso y no con las palabras nuevas, ya que en cada año hay más prestamos acumulados que préstamos nuevos (en algunos años no hay préstamos nuevos).
 
 %Al no contar con un criterio lingüístico para una limpieza de los datos, sepiensa que la posible limpieza reducirá la cantidad de palabras, por lo que sesimularemos reglas  que reduzcan la cantidad de palabras.  Una vez hecha la reducción, 
  
@@ -18,13 +13,15 @@ Se piensa que una posible limpieza en los datos, reduciría el tamaño del corpu
 
 %Ya que no se cuenta con un criterio lingüístico para limpiar los datos, se puede utilizar la idea anterior, al simular  reglas que reduzcan la cantidad de palabras migrantes. Una vez hecha la reducción, se puede obtener el uso de un idioma en otro para compararlo con los resultados previos. Se decidió comparar con el uso y no con las palabras nuevas, ya que en cada año hay más prestamos acumulados que préstamos nuevos (en algunos años no hay palabras nuevas), además la intención de las posibles reglas, es reducir el tamaño de los conjuntos no desaparecerlos.
 
-El proceso para simular reglas es el siguiente. 
+El proceso para reducir el corpus es el siguiente. 
 
 \begin{enumerate}
 	
 	\item Se toma la lista de los préstamos acumulados de \textit{A} en \textit{B}; este corpus se denotará como \textbf{conjunto original}.
 	
-	\item Se escogen de forma aleatoria un grupo de letras (desde una hasta diez), y se descartan del conjunto original a aquellas  palabras cuya primer letra sea alguna de las elegidas. El nuevo corpus se denotará como \textbf{conjunto reducido}, mientras que el \textbf{porcentaje de reducción} $R_{p}$, es el porcentaje de palabras que se eliminaron del conjunto original. 
+	\item Se escogen y descartan de forma aleatoria, a un grupo de palabras del conjunto original; este corpus  se denotará como \textbf{conjunto reducido}, mientras que el \textbf{porcentaje de reducción} $R_{p}$, es el porcentaje de palabras que se eliminaron.
+	
+	%de letras (desde una hasta diez), y se descartan del conjunto original a aquellas  palabras cuya primer letra sea alguna de las elegidas. El nuevo corpus se denotará como \textbf{conjunto reducido}, mientras que el \textbf{porcentaje de reducción} $R_{p}$, es el porcentaje de palabras que se eliminaron del conjunto original. 
 	
 	%\item Se designa un tercer corpus como \textbf{conjunto residuo}, conformado por todas las palabras eliminadas del conjunto original.  La unión del reducido con el residuo es el original. 
 	
@@ -34,66 +31,140 @@ El proceso para simular reglas es el siguiente.
 
 \section{Cuantificación de la similitud}
 
-Una vez obtenidos el uso del conjunto original y el uso del conjunto reducido, lo siguiente es determinar que tan similares son los resultados. Una forma para cuantificar la similitud de ambos conjuntos, es a partir del área que comparten sus respectivas graficas; está idea se desarrollará más adelante.  
+Una vez obtenidos el uso del conjunto original y el uso del conjunto reducido, lo siguiente es determinar que tan similares son los resultados.
 
 Como en cada año el uso reducido es una porción del uso original, se define como el \textbf{factor de conversión} $F_{c}$, al promedio de dividir cada valor del uso reducido entre su correspondiente del uso original, por lo que está cantidad normalizada entre 0 y 1, es la porción entre ambos usos. 
 
-Un factor de conversión cercano a cero, puede significar que ambos usos tengan una escala diferente a pesar de que sus respectivas graficas sean iguales, en consecuencia el área de ellas también pueden tener una escala diferente.  Para eliminar esta situación, se normalizaron ambos conjuntos por el valor promedio del uso de cada uno,  así los valores tanto del uso original como del uso reducido estarían alrededor de 1.  
+Un factor de conversión cercano a cero, puede significar que ambos usos tengan una escala diferente a pesar de que sus respectivas graficas sean iguales. Para eliminar esta situación, se normalizaron ambos conjuntos por el valor promedio del uso de cada uno,  así los valores tanto del uso original como del uso reducido estarían alrededor de 1.  
 
-Una vez hecha la normalización, se procedió a calcular el área compartida  $A_{c}$ de ambas graficas; esta cantidad se dividió por 109 que es el área máxima que puede haber (al ser 109 años), obteniendo así el \textbf{área de traslape}:
+Tras la normalización, para el año $t$ se detonan como $u_{t}$ y $r_{t}$ a los nuevos valores del uso original y del uso reducido. Se obtiene la \textbf{distancia promedio} $\left\langle D \right\rangle $, al promediar las distancias que hay entre cada valor del uso original y su correspondiente en el uso reducido: 
 \begin{equation}
-A_{T} = \frac{A_{c}}{109}.
-\label{ec.atraslape}
+\left\langle D \right\rangle  = \frac{1}{N}\sum_{t=1}^{N} \left| u_{t} - r_{t} \right|  .
+\label{ec.Distancia_prom}
 \end{equation}
-Esta cantidad normalizada entre 0 y 1, indicará una mayor similitud si es próxima a uno.
+Está cantidad sera la que cuantifique que tan similares son los resultados, indicando una mayor similitud si es próxima a cero. 
+%Una vez obtenidos el uso del conjunto original y el uso del conjunto reducido, lo siguiente es determinar que tan similares son los resultados. Una forma para cuantificar la similitud de ambos conjuntos, es a partir del área que comparten sus respectivas graficas; está idea se desarrollará más adelante.  
+
+%Como en cada año el uso reducido es una porción del uso original, se define como el \textbf{factor de conversión} $F_{c}$, al promedio de dividir cada valor del uso reducido entre su correspondiente del uso original, por lo que está cantidad normalizada entre 0 y 1, es la porción entre ambos usos. 
+
+%Un factor de conversión cercano a cero, puede significar que ambos usos tengan una escala diferente a pesar de que sus respectivas graficas sean iguales, en consecuencia el área de ellas también pueden tener una escala diferente.  Para eliminar esta situación, se normalizaron ambos conjuntos por el valor promedio del uso de cada uno,  así los valores tanto del uso original como del uso reducido estarían alrededor de 1.  
+
+%Una vez hecha la normalización, se procedió a calcular el área compartida  $A_{c}$ de ambas graficas; esta cantidad se dividió por 109 que es el área máxima que puede haber (al ser 109 años), obteniendo así el \textbf{área de traslape}:
+%\begin{equation}
+%A_{T} = \frac{A_{c}}{109}.
+%\label{ec.atraslape}
+%\end{equation}
+%Esta cantidad normalizada entre 0 y 1, indicará una mayor similitud si es próxima a uno.
 
 \section{Características de las eliminaciones}
+%$\left[0\%, 10\% \right]$, $\left( 10\%, 20\% \right]$, $\left( 20\%, 30\% \right]$, $\left( 30\%, 40\% \right]$, $\left( 40\%, 50\% \right]$, $\left( 50\%, 60\% \right]$, $\left( 20\%, 30\% \right]$, $\left( 20\%, 30\% \right]$, $\left( 20\%, 30\% \right]$,  y $\left( 40\%, 100\% \right]$. 
 
-A pesar de contar con una forma de cuantificar la similitud, aun no es posible decir como se ven afectados los resultados, ya que diferentes combinaciones de letras con las cuales hacer las eliminaciones, pueden producir diferentes medidas de similitud.  No obstante, el porcentaje de reducción $R_{p}$ es útil para obtener una respuesta.
+%Por cada intervalo se realizaron mil eliminaciones diferentes, agrupando y promediando los valores del factor de conversión y de la distancia promedio.  Ya con los promedios, será posible decir cual es el porcentaje de palabras que se puede eliminar sin que se afecten a los resultados. 
 
-Para ello, en cada pareja de idioma origen e idioma receptor, se hicieron cinco intervalos de $R_{p}$, $\left[0\%, 10\% \right]$, $\left( 10\%, 20\% \right]$, $\left( 20\%, 30\% \right]$, $\left( 30\%, 40\% \right]$ y $\left( 40\%, 100\% \right]$. Por cada intervalo se realizaron mil eliminaciones diferentes, agrupando y promediando los valores del factor de conversión y del área de traslape.  Ya con los promedios, será posible decir cual es el porcentaje de palabras que se puede eliminar sin que se afecten a los resultados. 
 
-La tabla~\ref{tab.eliminaciones} muestra por cada pareja de idioma origen e idioma receptor, el intervalo de $R_{p}$ donde el área de traslape es más próxima a 0.9 (90$\%$ de similitud), cantidad considerada (en este trabajo) como la mínima para afirmar que los resultados no se ven afectados.  Se anexa en la sección~\ref{eliminacion.completa.apendice} del Apéndice A, una segunda tabla con los valores del factor de conversión y el área de traslape de cada pareja de idiomas en cada intervalo de $R_{p}$.
+A pesar de contar con una forma de cuantificar la similitud, aun no es posible decir como se ven afectados los resultados, ya que diferentes combinaciones de palabras con las cuales hacer las eliminaciones, pueden producir distintas medidas de similitud.  No obstante, el porcentaje de reducción $R_{p}$ es útil para obtener una respuesta.
 
-Se destaca que en 19 de las 20 parejas, se pueden eliminar alrededor del $40\%$ de las palabras y
-no verse afectado el uso, además en 18 parejas, con el mismo porcentaje de eliminación, la similitud es mayor al 95$\%$. 
+Para ello, en cada pareja de idioma origen e idioma receptor, se hicieron diez intervalos de $R_{p}$ entre el 0 y el 100, donde el primero de ellos es $\left[0\%, 10\% \right]$, el segundo $\left( 10\%, 20\% \right]$, y así sucesivamente. Por cada intervalo,  se realizaron mil eliminaciones, agrupando y promediando los valores del factor de conversión y de la distancia promedio. Las graficas de estos resultados se muestran el las figuras~\ref{fig.FC_eliminacion} y~\ref{fig.DP_eliminacion}.
 
-Por otra parte, la pareja alemán-español es la más afectada, a pesar de eliminar menos del 10$\%$ de las palabras. Una posible limpieza en esta pareja modificaría más los resultados, en consecuencia se requiere de una mayor atención al revisar a las palabras del alemán en el español. 
+
+\begin{figure}[h!] 
+	\centering
+	\begin{tabular}{cc}
+		\includegraphics[width=6cm,height=6cm]{FC_EN.png} &
+		\includegraphics[width=6cm,height=6cm]{FC_FR.png} \\
+		$\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \textbf{(a)}$      & 
+		$\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \textbf{(b)}$     \\
+	\end{tabular}
+	
+	\begin{tabular}{cc}
+		\includegraphics[width=6cm,height=6cm]{FC_GE.png} &
+		\includegraphics[width=6cm,height=6cm]{FC_IT.png} \\
+		$\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \textbf{(c)}$      & $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \textbf{(d)}$     \\
+	\end{tabular}
+	\begin{tabular}{c}
+		\includegraphics[width=6cm,height=6cm]{FC_SP.png} \\
+		$\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \textbf{(e)}$     \\
+	\end{tabular}
+	\caption{Factor de conversión para distintos tamaños de reducción, en las diferentes combinaciones del inglés \textbf{(a)}, del francés \textbf{(b)}, del alemán \textbf{(c)}, del italiano \textbf{(d)} y del español \textbf{(e)}.}
+	\label{fig.FC_eliminacion}
+\end{figure} 
+
+
+\begin{figure}[t]
+	\centering
+	\begin{tabular}{cc}
+		\includegraphics[width=6cm,height=6cm]{DP_EN.png} &
+		\includegraphics[width=6cm,height=6cm]{DP_FR.png} \\
+		$\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \textbf{(a)}$    & 
+		$\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \textbf{(b)}$ \\
+	\end{tabular}
+	
+	\begin{tabular}{cc}
+		\includegraphics[width=6cm,height=6cm]{DP_GE.png} &
+		\includegraphics[width=6cm,height=6cm]{DP_IT.png} \\
+		$\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \textbf{(c)}$    & 
+		$\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \textbf{(d)}$    \\
+	\end{tabular}
+	\begin{tabular}{c}
+		\includegraphics[width=6cm,height=6cm]{DP_SP.png} \\
+		$\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \textbf{(e)}$  \\
+	\end{tabular}
+	\caption{Distancia promedio para distintos tamaños de reducción, en las diferentes combinaciones del inglés \textbf{(a)}, del francés \textbf{(b)}, del alemán \textbf{(c)}, del italiano \textbf{(d)} y del español \textbf{(e)}.}
+	\label{fig.DP_eliminacion}
+\end{figure} 
+
+
+En este trabajo se considero una distancia promedio $\left\langle D \right\rangle=0.1 $, como la mínima para afirmar que los resultados no se ven afectados tras una eliminación de palabras. La tabla~\ref{tab.eliminaciones} muestra  por cada pareja de idioma origen e idioma receptor, el intervalo de $R_{p}$  y el factor de conversión $F_{c}$ donde la distancia promedio es más próxima a 0.1.
+
+De está tabla se destaca que en 18 de las 20 parejas, se pueden eliminar más de un $40\%$ de las palabras sin verse afectados los resultados, siendo las excepciones las parejas de alemán-italiano y alemán-español.  También se puede ver una correlación entre el valor mínimo de similitud  $\left\langle D \right\rangle=0.1 $ y el factor de conversión, donde este es alrededor de $F_{c}= 0.702 \pm 0.096$.
+
+\jmnote{aqui}
+
+
+%La tabla~\ref{tab.eliminaciones} muestra por cada pareja de idioma origen e idioma receptor, el intervalo de $R_{p}$ donde el área de traslape es más próxima a 0.9 (90$\%$ de similitud), cantidad considerada (en este trabajo) como la mínima para afirmar que los resultados no se ven afectados.  Se anexa en la sección~\ref{eliminacion.completa.apendice} del Apéndice A, una segunda tabla con los valores del factor de conversión y el área de traslape de cada pareja de idiomas en cada intervalo de $R_{p}$.
+
+%Se destaca que en 19 de las 20 parejas, se pueden eliminar alrededor del $40\%$ de las palabras yno verse afectado el uso, además en 18 parejas, con el mismo porcentaje de eliminación, la similitud es mayor al 95$\%$. 
+
+%Por otra parte, la pareja alemán-español es la más afectada, a pesar de eliminar menos del 10$\%$ de las palabras. Una posible limpieza en esta pareja modificaría más los resultados, en consecuencia se requiere de una mayor atención al revisar a las palabras del alemán en el español. 
 
 \begin{table}[t]
 	\centering
 	\begin{tabular}{cccc}
-	          & \textbf{$R_{p}$} & \textbf{$F_{c}$} & \textbf{$A_{T}$} \\[2pt]
-		\textbf{EN-FR} & $>$40$\%$  & 0.841 $\pm$ 0.130 &  0.970 $\pm$ 0.025 \\
-		\textbf{EN-GE} & $>$40$\%$  & 0.808 $\pm$ 0.074 &  0.955 $\pm$ 0.026 \\
-		\textbf{EN-IT} & $>$40$\%$  & 0.828 $\pm$ 0.081 &  0.962 $\pm$ 0.018 \\ 
-		\textbf{EN-SP} & $>$40$\%$  & 0.777 $\pm$ 0.151 &  0.955 $\pm$ 0.025 \\[5pt]
+	          & \textbf{$R_{p}$} & \textbf{$F_{c}$} & \textbf{$\left\langle D \right\rangle$} \\[2pt]
+		\textbf{EN-FR} & $\left( 60\%, 0\% \right]$  & 0.704 $\pm$ 0.158 &  0.093 $\pm$ 0.050 \\
+		\textbf{EN-GE} & $\left( 40\%, 50\% \right]$ & 0.805 $\pm$ 0.083 &  0.094 $\pm$ 0.054 \\
+		\textbf{EN-IT} & $\left( 60\%, 70\% \right]$ & 0.723 $\pm$ 0.098 &  0.107 $\pm$ 0.052 \\ 
+		\textbf{EN-SP} & $\left( 40\%, 50\% \right]$ & 0.762 $\pm$ 0.142 &  0.106 $\pm$ 0.068 \\[4pt]
 		
-		\textbf{FR-EN} & $>$40$\%$  & 0.823 $\pm$ 0.112 &  0.967 $\pm$ 0.022 \\
-		\rowcolor{bueno}\textbf{FR-GE} & $>$40$\%$  & 0.857 $\pm$ 0.099 &  0.976 $\pm$ 0.014 \\
-		\textbf{FR-IT} & $>$40$\%$  & 0.672 $\pm$ 0.198 &  0.960 $\pm$ 0.024 \\ 
-		\textbf{FR-SP} & $>$40$\%$  & 0.805 $\pm$ 0.124 &  0.972 $\pm$ 0.018 \\[5pt]
+		\textbf{FR-EN} & $\left( 80\%, 90\% \right]$ & 0.565 $\pm$ 0.169 &  0.097 $\pm$ 0.055 \\
+	    \textbf{FR-GE} & $\left( 70\%, 80\% \right]$ & 0.675 $\pm$ 0.015 &  0.086 $\pm$ 0.035 \\
+		\textbf{FR-IT} & $\left( 60\%, 70\% \right]$ & 0.677 $\pm$ 0.170 &  0.102 $\pm$ 0.061 \\ 
+		\textbf{FR-SP} & $\left( 70\%, 80\% \right]$ & 0.637 $\pm$ 0.184 &  0.093 $\pm$ 0.055 \\[4pt]
 		
-		\textbf{GE-EN} & $>$40$\%$  & 0.797 $\pm$ 0.106 &  0.968 $\pm$ 0.022 \\
-		\textbf{GE-FR} & $>$40$\%$  & 0.728 $\pm$ 0.190 &  0.975 $\pm$ 0.016 \\
-		\textbf{GE-IT} & $\left( 30\%, 40\% \right]$  & 0.608 $\pm$ 0.162 &  0.900 $\pm$ 0.057 \\
-		\rowcolor{malo}\textbf{GE-SP} & $<$10$\%$  & 0.684 $\pm$ 0.244 &  0.871 $\pm$ 0.109 \\
-		[5pt]
+		\textbf{GE-EN} & $\left( 80\%, 90\% \right]$ & 0.490 $\pm$ 0.208 &  0.103 $\pm$ 0.067 \\
+		\textbf{GE-FR} & $\left( 60\%, 70\% \right]$ & 0.748 $\pm$ 0.131 &  0.091 $\pm$ 0.058 \\
+		\textbf{GE-IT} & $\left( 10\%, 20\% \right]$ & 0.761 $\pm$ 0.099 &  0.099 $\pm$ 0.063 \\
+		\rowcolor{malo}\textbf{GE-SP} & $\left( 0\%, 10\% \right]$ & 0.781 $\pm$ 0.222 &  0.179 $\pm$ 0.210 \\
+		[4pt]
 		
-		\textbf{IT-EN} & $>$40$\%$  & 0.742 $\pm$ 0.171 &  0.962 $\pm$ 0.026 \\
-		\textbf{IT-FR} & $>$40$\%$  & 0.797 $\pm$ 0.136 &  0.956 $\pm$ 0.044 \\
-		\textbf{IT-GE} & $>$40$\%$  & 0.778 $\pm$ 0.119 &  0.965 $\pm$ 0.021 \\
-		\textbf{IT-SP} & $>$40$\%$  & 0.854 $\pm$ 0.072 &  0.961 $\pm$ 0.021 \\[5pt]
+		\textbf{IT-EN} & $\left( 60\%, 70\% \right]$ & 0.658 $\pm$ 0.160 &  0.094 $\pm$ 0.050 \\
+		\textbf{IT-FR} & $\left( 50\%, 60\% \right]$ & 0.773 $\pm$ 0.131 &  0.107 $\pm$ 0.095 \\
+		\textbf{IT-GE} & $\left( 50\%, 60\% \right]$ & 0.761 $\pm$ 0.114 &  0.090 $\pm$ 0.053  \\
+		\rowcolor{bueno}\textbf{IT-SP} & $\left( 70\%, 80\% \right]$ & 0.773 $\pm$ 0.071 &  0.100 $\pm$ 0.040 \\[4pt]
 		
-		\textbf{SP-EN} & $>$40$\%$  & 0.808 $\pm$ 0.108 &  0.969 $\pm$ 0.017 \\
-		\textbf{SP-FR} & $>$40$\%$  & 0.770 $\pm$ 0.162 &  0.975 $\pm$ 0.020 \\
-		\textbf{SP-GE} & $>$40$\%$  & 0.848 $\pm$ 0.066 &  0.962 $\pm$ 0.025 \\
-		\textbf{SP-IT} & $>$40$\%$  & 0.801 $\pm$ 0.140 &  0.962 $\pm$ 0.030 \\
+		\textbf{SP-EN} & $\left( 70\%, 80\% \right]$ & 0.648 $\pm$ 0.164 &  0.101 $\pm$ 0.056 \\
+		\textbf{SP-FR} & $\left( 50\%, 60\% \right]$ & 0.750 $\pm$ 0.157 &  0.101 $\pm$ 0.085 \\
+		\textbf{SP-GE} & $\left( 50\%, 60\% \right]$ & 0.793 $\pm$ 0.092 &  0.106 $\pm$ 0.065 \\
+		\textbf{SP-IT} & $\left( 50\%, 60\% \right]$ & 0.739 $\pm$ 0.148 &  0.110 $\pm$ 0.080 \\
 		
 	\end{tabular}
-	\caption{Eliminaciones de cada pareja de idiomas cercanas al 90$\%$ de similitud. Entre las posibles parejas, el francés-alemán \textcolor{bueno}{\rule{0.25cm}{0.25cm}} es la que mayor similitud presenta, a pesar de eliminar más del 40$\%$  de las palabras. El alemán-español \textcolor{malo}{\rule{0.25cm}{0.25cm}} es la menor similitud pese a que en esta pareja se eliminó la menor cantidad de palabras.}
+	\caption{Eliminaciones de cada pareja de idiomas con la mayor similitud. Entre las posibles parejas, el italiano-español \textcolor{bueno}{\rule{0.25cm}{0.25cm}} es la que mayor similitud presenta, a pesar de eliminar entre el 60$\%$ y 60$\%$  de las palabras. El alemán-español \textcolor{malo}{\rule{0.25cm}{0.25cm}} es la menor similitud pese a que en esta pareja se eliminó la menor cantidad de palabras.}
 	\label{tab.eliminaciones}
 \end{table}
+
+
+
+
 
 Una conclusión que puede surgir es que la cantidad de palabras que se eliminen, influirá tanto en el factor de conversiuon como en el área de traslape. Para mostrar que esto es erróneo, se analizaran y graficaran algunos casos de eliminación, representado con un  trazo continuo al uso original, mientras que el uso reducido es una serie de puntos, también se añaden las letras con las cuales se hizo la eliminación. %así como los valores correspondientes de $R_{p}$, $F_{c}$ y $A_{T}$. 
 
