@@ -33,8 +33,10 @@ El proceso para reducir el corpus es el siguiente.
 
 Una vez obtenidos el uso del conjunto original y el uso del conjunto reducido, lo siguiente es determinar que tan similares son los resultados.
 
+\jmnote{pensar si es el promedio de UO/UR, ver fig6}
 Como en cada año el uso reducido es una porción del uso original, se define como el \textbf{factor de conversión} $F_{c}$, al promedio de dividir cada valor del uso reducido entre su correspondiente del uso original, por lo que está cantidad normalizada entre 0 y 1, es la porción entre ambos usos. 
 
+\jmnote{pegar sig parrafo}
 Un factor de conversión cercano a cero, puede significar que ambos usos tengan una escala diferente a pesar de que sus respectivas graficas sean iguales. Para eliminar esta situación, se normalizaron ambos conjuntos por el valor promedio del uso de cada uno,  así los valores tanto del uso original como del uso reducido estarían alrededor de 1.  
 
 Tras la normalización, para el año $t$ se detonan como $u_{t}$ y $r_{t}$ a los nuevos valores del uso original y del uso reducido. Se obtiene la \textbf{distancia promedio} $\left\langle D \right\rangle $, al promediar las distancias que hay entre cada valor del uso original y su correspondiente en el uso reducido: 
