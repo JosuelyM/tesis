@@ -61,10 +61,9 @@ Está cantidad sera la que cuantifique que tan similares son los resultados, ind
 
 %Por cada intervalo se realizaron mil eliminaciones diferentes, agrupando y promediando los valores del factor de conversión y de la distancia promedio.  Ya con los promedios, será posible decir cual es el porcentaje de palabras que se puede eliminar sin que se afecten a los resultados. 
 
+Pese a contar con una forma de cuantificar la similitud, aun no es posible decir como se ven afectados los resultados, ya que diferentes combinaciones de palabras con las cuales hacer las eliminaciones, pueden producir distintas medidas de similitud.  No obstante, el porcentaje de reducción $R_{p}$ es útil para obtener una respuesta.
 
-A pesar de contar con una forma de cuantificar la similitud, aun no es posible decir como se ven afectados los resultados, ya que diferentes combinaciones de palabras con las cuales hacer las eliminaciones, pueden producir distintas medidas de similitud.  No obstante, el porcentaje de reducción $R_{p}$ es útil para obtener una respuesta.
-
-Para ello, en cada pareja de idioma origen e idioma receptor, se hicieron diez intervalos de $R_{p}$ entre el 0 y el 100, donde el primero de ellos es $\left[0\%, 10\% \right]$, el segundo $\left( 10\%, 20\% \right]$, y así sucesivamente. Por cada intervalo,  se realizaron mil eliminaciones, agrupando y promediando los valores del factor de conversión y de la distancia promedio. Las graficas de estos resultados se muestran el las figuras~\ref{fig.FC_eliminacion} y~\ref{fig.DP_eliminacion}.
+Para ello, en cada pareja de idioma origen e idioma receptor, se hicieron diez intervalos de $R_{p}$ entre el 0 y el 100, donde el primero de ellos es $\left(0\%, 10\% \right]$, el segundo $\left(10\%, 20\% \right]$, y así sucesivamente. Por cada intervalo,  se realizaron mil eliminaciones, agrupando y promediando los valores del factor de conversión y de la distancia promedio. Las graficas de estos resultados se muestran el las figuras~\ref{fig.FC_eliminacion} y~\ref{fig.DP_eliminacion}.
 
 
 \begin{figure}[h!] 
@@ -114,11 +113,10 @@ Para ello, en cada pareja de idioma origen e idioma receptor, se hicieron diez i
 \end{figure} 
 
 
-En este trabajo se considero una distancia promedio $\left\langle D \right\rangle=0.1 $, como la mínima para afirmar que los resultados no se ven afectados tras una eliminación de palabras. La tabla~\ref{tab.eliminaciones} muestra  por cada pareja de idioma origen e idioma receptor, el intervalo de $R_{p}$  y el factor de conversión $F_{c}$ donde la distancia promedio es más próxima a 0.1.
+En este trabajo se considero una distancia promedio $\left\langle D \right\rangle=0.1 $, como la mínima para afirmar una similitud de los resultados tras una eliminación de palabras. La tabla~\ref{tab.eliminaciones} muestra  por cada pareja de idioma origen e idioma receptor, el intervalo de $R_{p}$  y el factor de conversión $F_{c}$ donde la distancia promedio es más próxima a 0.1.
 
-De está tabla se destaca que en 18 de las 20 parejas, se pueden eliminar más de un $40\%$ de las palabras sin verse afectados los resultados, siendo las excepciones las parejas de alemán-italiano y alemán-español.  También se puede ver una correlación entre el valor mínimo de similitud  $\left\langle D \right\rangle=0.1 $ y el factor de conversión, donde este es alrededor de $F_{c}= 0.702 \pm 0.096$.
+De está tabla se destaca que en 18 de las 20 parejas, se pueden eliminar más de un $40\%$ de las palabras sin verse afectados los resultados, donde las excepciones se dieron en las parejas de alemán-italiano y alemán-español.  También se puede ver una relación entre el valor mínimo de similitud  $\left\langle D \right\rangle=0.1 $ y el factor de conversión, donde este es alrededor de $F_{c}= 0.702 \pm 0.096$.
 
-\jmnote{aqui}
 
 
 %La tabla~\ref{tab.eliminaciones} muestra por cada pareja de idioma origen e idioma receptor, el intervalo de $R_{p}$ donde el área de traslape es más próxima a 0.9 (90$\%$ de similitud), cantidad considerada (en este trabajo) como la mínima para afirmar que los resultados no se ven afectados.  Se anexa en la sección~\ref{eliminacion.completa.apendice} del Apéndice A, una segunda tabla con los valores del factor de conversión y el área de traslape de cada pareja de idiomas en cada intervalo de $R_{p}$.
@@ -131,7 +129,7 @@ De está tabla se destaca que en 18 de las 20 parejas, se pueden eliminar más d
 	\centering
 	\begin{tabular}{cccc}
 	          & \textbf{$R_{p}$} & \textbf{$F_{c}$} & \textbf{$\left\langle D \right\rangle$} \\[2pt]
-		\textbf{EN-FR} & $\left( 60\%, 0\% \right]$  & 0.704 $\pm$ 0.158 &  0.093 $\pm$ 0.050 \\
+		\textbf{EN-FR} & $\left( 60\%, 70\% \right]$  & 0.704 $\pm$ 0.158 &  0.093 $\pm$ 0.050 \\
 		\textbf{EN-GE} & $\left( 40\%, 50\% \right]$ & 0.805 $\pm$ 0.083 &  0.094 $\pm$ 0.054 \\
 		\textbf{EN-IT} & $\left( 60\%, 70\% \right]$ & 0.723 $\pm$ 0.098 &  0.107 $\pm$ 0.052 \\ 
 		\textbf{EN-SP} & $\left( 40\%, 50\% \right]$ & 0.762 $\pm$ 0.142 &  0.106 $\pm$ 0.068 \\[4pt]
@@ -158,50 +156,49 @@ De está tabla se destaca que en 18 de las 20 parejas, se pueden eliminar más d
 		\textbf{SP-IT} & $\left( 50\%, 60\% \right]$ & 0.739 $\pm$ 0.148 &  0.110 $\pm$ 0.080 \\
 		
 	\end{tabular}
-	\caption{Eliminaciones de cada pareja de idiomas con la mayor similitud. Entre las posibles parejas, el italiano-español \textcolor{bueno}{\rule{0.25cm}{0.25cm}} es la que mayor similitud presenta, a pesar de eliminar entre el 60$\%$ y 60$\%$  de las palabras. El alemán-español \textcolor{malo}{\rule{0.25cm}{0.25cm}} es la menor similitud pese a que en esta pareja se eliminó la menor cantidad de palabras.}
+	\caption{Eliminaciones de cada pareja de idiomas, con  una similitud mínima de $\left\langle D \right\rangle=0.1 $ . Entre las posibles parejas, el italiano-español \textcolor{bueno}{\rule{0.25cm}{0.25cm}} es la que mayor similitud presenta, a pesar de eliminar entre el 60$\%$ y 60$\%$  de las palabras. El alemán-español \textcolor{malo}{\rule{0.25cm}{0.25cm}} es la menor similitud pese a que en esta pareja se eliminó la menor cantidad de palabras.}
 	\label{tab.eliminaciones}
 \end{table}
 
 
 
+Una conclusión que puede surgir, es que al eliminar una menor cantidad de palabras, se obtienen mejores medidas de similitud. Para mostrar que esto es erróneo, se analizarán y graficarán algunos casos de eliminación, representado con un  trazo continuo al uso original, mientras que el uso reducido es una serie de puntos; también se anexaran las graficas tras la normalización. 
+
+%Una conclusión que puede surgir es que la cantidad de palabras que se eliminen, influirá tanto en el factor de conversión como en la distancia promedio. Para mostrar que esto es erróneo, se analizaran y graficaran algunos casos de eliminación, representado con un  trazo continuo al uso original, mientras que el uso reducido es una serie de puntos, también se añaden las letras con las cuales se hizo la eliminación. %así como los valores correspondientes de $R_{p}$, $F_{c}$ y $A_{T}$. 
 
 
-Una conclusión que puede surgir es que la cantidad de palabras que se eliminen, influirá tanto en el factor de conversiuon como en el área de traslape. Para mostrar que esto es erróneo, se analizaran y graficaran algunos casos de eliminación, representado con un  trazo continuo al uso original, mientras que el uso reducido es una serie de puntos, también se añaden las letras con las cuales se hizo la eliminación. %así como los valores correspondientes de $R_{p}$, $F_{c}$ y $A_{T}$. 
-
-
-\begin{figure}[]
+\begin{figure}[h!]
 	\centering
-	\includegraphics[scale=.375]{OM_1.png}
-	\caption{Eliminación de palabras del francés en el inglés. A pesar de eliminar el 40$\%$ de las palabras del francés en el inglés, año con año el uso reducido es próximo al original y en algunos años iguales, resultando en una mayor similitud  entre ambos conjuntos al ser el área de traslape de 0.996.}
+	\includegraphics[scale=.37]{OM_1.png}
+	\caption{Eliminación de palabras del francés en el inglés. A pesar de eliminar el 40$\%$ de las palabras, año con año el uso reducido es próximo al original y en algunos años iguales, resultando en una mayor similitud al ser la distancia promedio de 0.007.}
 	\label{fig.OM1}
 \end{figure}
 
 
-\begin{figure}[]
+\begin{figure}[h!]
 	\centering
-	\includegraphics[scale=.375]{OM_2.png}
-	\caption{Eliminación de palabras del francés en el italiano. Tras eliminar casi el 50$\%$ de las palabras del francés en el italiano, el uso en ambos conjuntos obtuvo una buena similitud de 0.946, a pesar de que cada valor del uso reducido sea en promedio la mitad de su correspondiente en el uso original.}
+	\includegraphics[scale=.37]{OM_2.png}
+	\caption{Eliminación de palabras del francés en el alemán. La eliminación del 40$\%$ de las palabras, afectó a la similitud entre el uso original y el uso reducido, al obtener una distancia promedio de 0.118.}
 	\label{fig.OM2}
 \end{figure}
 
-\begin{figure}[]
+\begin{figure}[h!]
 	\centering
-	\includegraphics[scale=.375]{OM_3.png}
-	\caption{Eliminación de palabras del alemán en el español. Tras eliminar el 40$\%$ de las palabras del alemán en el español, y  tener en algunos años el uso reducido y el uso original valores próximos entre si, no hay una similitud en ambos conjuntos al ser el area de traslape de 0.772}
+	\includegraphics[scale=.37]{OM_3.png}
+	\caption{Eliminación de palabras del alemán en el español. Tras eliminar el 40$\%$ de las palabras, y  tener en algunos años el uso reducido y el uso original valores próximos entre si, no hay una similitud entre ambos conjuntos al ser la distancia promedio de  0.464.}
 	\label{fig.OM3}
 \end{figure}
 
 
-De las figuras~\ref{fig.OM1} y~\ref{fig.OM2}, se puede ver que a pesar de tener valores similares del porcentaje de reducción y del área de traslape, el factor de conversión es diferente en cada caso. Con la figura~\ref{fig.OM3}, a pesar de eliminar una cantidad menor de palabras, el área de traslape es la peor entre las tres graficas, no obstante el factor de conversión es similar al de la figura~\ref{fig.OM2}.
+De las figuras~\ref{fig.OM1} y~\ref{fig.OM2}, se puede ver que a pesar de tener valores similares del porcentaje de reducción, el factor de conversión y la distancia promedio son diferentes en cada caso, además en la segunda figura,  se cumple que para una distancia promedio de 0.1, el factor de conversión es próximo a 0.7.Con la figura~\ref{fig.OM3}, pese a eliminar una menor cantidad de palabras, los valores del factor de conversión y de la distancia promedio son los peores entre las tres graficas. 
 
-En conclusión, el factor de conversión es independiente de la cantidad de palabras que se eliminen (porcentaje de reducción), y ambos valores no influyen en el área de traslape.
-
+De lo anterior, se puede concluir que el eliminar una menor cantidad de palabras no garantiza tener mejores medidas de similitud. Además, se puede decir si hay similitud entre los datos sin calcular la distancia promedio, ya que si el factor de conversión es mayor o igual a 0.7, la distancia promedio será menor o igual a 0.1. 
 
 \section{Resultados generales}
 
 El realizar diferentes elecciones para reducir la cantidad de palabras migrantes, mostró que los posibles errores en la clasificación de los datos, no modifican (en la mayoría de los casos) los resultados obtenidos sobre el uso de un idioma en otro. Sin embargo en el caso de los préstamos nuevos, al tener mayor relevancia el significado de las palabras, una posible limpieza podría eliminar palabras de determinados campos semánticos, lo cual llevaría a perder información y a obtener resultados distintos. 
 
-También se destaca al uso de un idioma en otro, como una propiedad común para cada pareja de idiomas, donde no tiene tanta relevancia la cantidad de palabras que conformen los préstamos acumulados,  en conjunto, todas ellas se comportarán de la misma manera. 
+También se destaca al uso de un idioma en otro, como una propiedad común para cada pareja de idiomas, donde no tiene tanta relevancia la cantidad de palabras que conformen los préstamos acumulados,   al tomarse y actuar  en conjunto,  se comportarán de la misma manera. 
 
 %El proceso de relacionar las palabras migrantes con campos semánticos y eventos históricos que justifiquen su aparición, permitió establecer un forma para cuantificar la influencia entre idiomas llamada uso. Todo este método se facilitó por la eliminación de las palabras funcionales, dejando sólo palabras de contenido, pero ¿cómo se modificaría el uso entre idiomas si se eliminaran otro tipo de palabras, sin importar si estás son de contenido?
 

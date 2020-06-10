@@ -28,7 +28,7 @@ Se esperan obtener resultados similares en los préstamos acumulados, ya que est
 
 \section{Diversidad de rango de los préstamos acumulados}
 
-Tras aplicar el algoritmo de la diversidad en cada pareja de idioma origen e idioma receptor, los valores asemejan a una curva logarítmica.  A partir de esta distinción, se propone que la curva que mejor ajusta a la diversidad de rango $d(k)$, es de la forma:
+Tras aplicar el algoritmo de la diversidad en cada pareja de idioma origen e idioma receptor, los valores se asemejan a una curva logarítmica.  A partir de esta distinción, se propone que la curva que mejor ajusta a la diversidad de rango $d(k)$, es de la forma:
 \begin{equation}
 \label{ec.ajuste} 
 d(k) =  \alpha \ln(k) + \beta. 
@@ -49,11 +49,11 @@ La tabla~\ref{tab.diversidad_ajuste} muestra el valor de $R^{2}$ de cada pareja 
 	\begin{tabular}{lcccccc}
 		\multicolumn{7}{c}{R E C E P T O R}                                                                                                                                             \\
 		\multirow{6}{*}{\begin{tabular}[c]{@{}l@{}}O\\ R\\ \,I\\ G\\ E\\ N\end{tabular}} &             & \textbf{inglés} & \textbf{francés} & \textbf{alemán} & \textbf{italiano} & \textbf{español}    \\
-		& \textbf{inglés}   & -     & 0.94  & 0.92  & 0.91  & 0.88  \\
-		& \textbf{francés}  & 0.93  & -     & 0.87  & 0.84  & 0.86  \\
-		& \textbf{alemán}   & 0.88  & 0.89  & -     & 0.91  & 0.89  \\
-		& \textbf{italiano} & 0.86  & 0.91  & 0.91  & -     & 0.92  \\
-		& \textbf{español}  & 0.87  & 0.89  & 0.86  & 0.95  & -          
+		& \textbf{inglés}   & -     & 0.94  & 0.92  & 0.92  & 0.89  \\
+		& \textbf{francés}  & 0.93  & -     & 0.87  & 0.83  & 0.86  \\
+		& \textbf{alemán}   & 0.85  & 0.90  & -     & 0.92  & 0.95  \\
+		& \textbf{italiano} & 0.86  & 0.84  & 0.91  & -     & 0.91  \\
+		& \textbf{español}  & 0.88  & 0.79  & 0.80  & 0.95  & -          
 	\end{tabular}
 	\caption{Fiabilidad del ajuste de la diversidad de rango, a partir del coeficiente de determinación $R^{2}$.}
 	\label{tab.diversidad_ajuste}
@@ -63,12 +63,49 @@ La tabla~\ref{tab.diversidad_ajuste} muestra el valor de $R^{2}$ de cada pareja 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=.38]{DR_gen.png}
-	\caption{Diversidad de rango de los préstamos acumulados entre idiomas. Todas las parejas de idiomas muestran un comportamiento logarítmico, sin importar la cantidad de rangos donde se buscó la diversidad. En promedio, la fiabilidad  del ajuste de las 20 combinaciones a una ecuación logarítmica es de $R^{2}= 0.89 \pm 0.02$.}
+	\caption{Diversidad de rango de los préstamos acumulados entre idiomas. Todas las parejas de idiomas muestran un comportamiento logarítmico, sin importar la cantidad de rangos donde se buscó la diversidad. En promedio, la fiabilidad  del ajuste de las 20 combinaciones a una ecuación logarítmica es de $R^{2}= 0.88 \pm 0.04$.}
 	\label{fig.DR_gen} 
 \end{figure}
 
 
-La figura~\ref{fig.DR_gen} muestra la diversidad de rango de cada pareja de idiomas, así como la grafica de la ecuación $d(k) = 0.17\ln(k) - 0.18$, obtenida tras promediar los correspondientes  $\alpha$ y $\beta$ de cada pareja y sustituirlos en la ecuación \ref{ec.ajuste}. De está figura, se observa que la diversidad aumenta conforme el rango también lo hace, sin importar si está se busca en parejas donde los rangos son pocos (14 en el alemán-español) o son muchos (290 en el español-italiano). Entonces,  los préstamos acumulados en los rangos intermedios y bajos, son los que a lo largo del tiempo, tienden a cambiar más su posición dentro de un ordenamiento (rango).
+La figura~\ref{fig.DR_gen} muestra la diversidad de rango de cada pareja de idiomas, así como la grafica de la ecuación $d(k) = 0.16\ln(k) - 0.17$, obtenida tras promediar los correspondientes  $\alpha$ y $\beta$ de cada pareja y sustituirlos en la ecuación \ref{ec.ajuste}. De está figura, se observa que la diversidad aumenta conforme el rango también lo hace, sin importar si está se busca en parejas donde los rangos son pocos (14 en el alemán-español) o son muchos (290 en el español-italiano). Entonces,  los préstamos acumulados en los rangos intermedios y bajos, son los que a lo largo del tiempo, tienden a cambiar más su posición dentro de un ordenamiento (rango).
+
+
+Por ultimo, la figura~\ref{fig.DR_log} representa en escala logarítmica la diversidad obtenida, mientras que en la figura~\ref{fig.DR_sergio} (obtenida de \cite{tesis.sergio}) se muestra la diversidad de rango de las diez mil palabras más usadas en los idiomas inglés, francés, alemán, italiano, español y ruso,  entre los años de 1800 y 2008. En ambas figuras se observa que conforme aumenta el rango, también lo hacen la cantidad de palabras que lo pueden ocupar, sin embargo la curva de diversidad es distinta en cada caso (una recta para los préstamos acumulados y una sigmoide para los idiomas).  
+
+Además para un mismo valor de diversidad,  los prestamos acumulados lo logran en rangos más bajos que los idiomas, por lo que la diversidad aumenta más rápido en los préstamos acumulados. Por ejemplo, se obtiene una diversidad de 0.4 en $k=30$ para los préstamos acumulados, mientras que en los idiomas se logra hasta $k=100$;  y una diversidad de 0.8, se consigue en $k=150$ para los préstamos acumulados, y en $k=1000$ para los idiomas. 
+
+
+
+%\begin{figure*}[htb]
+%	\begin{minipage}[]{1\linewidth}
+%		\centering
+%		\includegraphics[scale=.45]{DR_log.png}
+%		\caption{Diversidad de rango de los préstamos acumulados entre idiomas (escala logarítmica).}
+%		\label{fig.DR_log} 
+%	\end{minipage}
+%\vspace{1pt}
+%	\begin{minipage}[]{1\linewidth}
+%		\centering
+%		\includegraphics[width=.9\textwidth]{DR_sergio.png}
+%		\caption{Diversidad de rango para distintos idiomas. }
+%		\label{fig.DR_sergio}
+%	\end{minipage}%
+%\end{figure*}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=.38]{DR_log.png}
+	\caption{Diversidad de rango de los préstamos acumulados entre idiomas (escala logarítmica).}
+	\label{fig.DR_log} 
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.8\textwidth]{DR_sergio.png}
+	\caption{Diversidad de rango para las palabras mas usadas de distintos idiomas. }
+	\label{fig.DR_sergio} 
+\end{figure}
 
 %A pesar de que se trata de la misma conclusión de los trabajos previos, en ellos las graficas de diversidad son diferentes, obteniendo curvas de tipo sigmoide.  Una de las diferencias con los trabajos previos, 
 
