@@ -33,11 +33,14 @@ El proceso para reducir el corpus es el siguiente.
 
 Una vez obtenidos el uso del conjunto original y el uso del conjunto reducido, lo siguiente es determinar que tan similares son los resultados.
 
+Para evitar tener diferentes escalas en el uso original y en el uso reducido, se normalizaron ambos conjuntos al dividirlos entre el valor promedio de cada uno.  Se define como el \textbf{factor de conversión} $F_{c}$,  al resultado de dividir el promedio del uso reducido  entre el promedio del uso original.  Basta multiplicar el uso original por el factor de conversión, para obtener el uso reducido.
+
+
 \jmnote{pensar si es el promedio de UO/UR, ver fig6}
-Como en cada año el uso reducido es una porción del uso original, se define como el \textbf{factor de conversión} $F_{c}$, al promedio de dividir cada valor del uso reducido entre su correspondiente del uso original, por lo que está cantidad normalizada entre 0 y 1, es la porción entre ambos usos. 
+%Como en cada año el uso reducido es una porción del uso original, se define como el \textbf{factor de conversión} $F_{c}$, al promedio de dividir cada valor del uso reducido entre su correspondiente del uso original, por lo que está cantidad normalizada entre 0 y 1, es la porción entre ambos usos. 
 
 \jmnote{pegar sig parrafo}
-Un factor de conversión cercano a cero, puede significar que ambos usos tengan una escala diferente a pesar de que sus respectivas graficas sean iguales. Para eliminar esta situación, se normalizaron ambos conjuntos por el valor promedio del uso de cada uno,  así los valores tanto del uso original como del uso reducido estarían alrededor de 1.  
+%Un factor de conversión cercano a cero, puede significar que ambos usos tengan una escala diferente a pesar de que sus respectivas graficas sean iguales. Para eliminar esta situación, se normalizaron ambos conjuntos por el valor promedio del uso de cada uno,  así los valores tanto del uso original como del uso reducido estarían alrededor de 1.  
 
 Tras la normalización, para el año $t$ se detonan como $u_{t}$ y $r_{t}$ a los nuevos valores del uso original y del uso reducido. Se obtiene la \textbf{distancia promedio} $\left\langle D \right\rangle $, al promediar las distancias que hay entre cada valor del uso original y su correspondiente en el uso reducido: 
 \begin{equation}
@@ -158,7 +161,7 @@ De está tabla se destaca que en 18 de las 20 parejas, se pueden eliminar más d
 		\textbf{SP-IT} & $\left( 50\%, 60\% \right]$ & 0.739 $\pm$ 0.148 &  0.110 $\pm$ 0.080 \\
 		
 	\end{tabular}
-	\caption{Eliminaciones de cada pareja de idiomas, con  una similitud mínima de $\left\langle D \right\rangle=0.1 $ . Entre las posibles parejas, el italiano-español \textcolor{bueno}{\rule{0.25cm}{0.25cm}} es la que mayor similitud presenta, a pesar de eliminar entre el 60$\%$ y 60$\%$  de las palabras. El alemán-español \textcolor{malo}{\rule{0.25cm}{0.25cm}} es la menor similitud pese a que en esta pareja se eliminó la menor cantidad de palabras.}
+	\caption{Eliminaciones de cada pareja de idiomas, con  una similitud mínima de $\left\langle D \right\rangle=0.1 $ . Entre las posibles parejas, el italiano-español \textcolor{bueno}{\rule{0.25cm}{0.25cm}} es la que mayor similitud presenta, a pesar de eliminar entre el 70$\%$ y 80$\%$  de las palabras. El alemán-español \textcolor{malo}{\rule{0.25cm}{0.25cm}} es la menor similitud pese a que en esta pareja se eliminó la menor cantidad de palabras.}
 	\label{tab.eliminaciones}
 \end{table}
 
@@ -192,7 +195,7 @@ Una conclusión que puede surgir, es que al eliminar una menor cantidad de palab
 \end{figure}
 
 
-De las figuras~\ref{fig.OM1} y~\ref{fig.OM2}, se puede ver que a pesar de tener valores similares del porcentaje de reducción, el factor de conversión y la distancia promedio son diferentes en cada caso, además en la segunda figura,  se cumple que para una distancia promedio de 0.1, el factor de conversión es próximo a 0.7.Con la figura~\ref{fig.OM3}, pese a eliminar una menor cantidad de palabras, los valores del factor de conversión y de la distancia promedio son los peores entre las tres graficas. 
+De las figuras~\ref{fig.OM1} y~\ref{fig.OM2}, se puede ver que a pesar de tener valores similares del porcentaje de reducción, el factor de conversión y la distancia promedio son diferentes en cada caso, además en la segunda figura,  se cumple que para una distancia promedio de 0.1, el factor de conversión es próximo a 0.7. Con la figura~\ref{fig.OM3}, pese a eliminar una menor cantidad de palabras, los valores del factor de conversión y de la distancia promedio son los peores entre las tres graficas. 
 
 De lo anterior, se puede concluir que el eliminar una menor cantidad de palabras no garantiza tener mejores medidas de similitud. Además, se puede decir si hay similitud entre los datos sin calcular la distancia promedio, ya que si el factor de conversión es mayor o igual a 0.7, la distancia promedio será menor o igual a 0.1. 
 

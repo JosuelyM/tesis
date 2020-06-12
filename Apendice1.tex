@@ -6,15 +6,14 @@
 \section{Lectura de listas}
 \label{lectura.listas}
  
-Las listas hechas para los préstamos nuevos \cite{prestamos_nuevos} o acumulados \cite{prestamos_acumulados} de un idioma origen \textit{A} en un receptor \textit{B},  se encuentran ordenadas por cada año de estudio (1740-2009), y a la vez, las palabras listadas se ordenaron de forma descendente en la frecuencia $f$ y ascendente en rango $k$,  es decir en la lista del año $t$, la palabra con rango $k=1$ es la más frecuente,  la correspondiente a $k=2$ es la segunda más frecuente, para $k=3$ es la tercera más frecuente y así sucesivamente para todas las palabras en ese año. 
+Las listas hechas para los préstamos nuevos \cite{prestamos_nuevos} y los préstamos acumulados \cite{prestamos_acumulados} de un idioma origen \textit{A} en un receptor \textit{B},  se encuentran ordenadas por cada año de la base de datos (1740-2009), y a la vez en cada año, las palabras listadas se ordenaron de forma descendente en frecuencia $f$ y ascendente en rango $k$; entonces en el año $t$, la palabra más frecuente tiene rango $k=1$, la segunda más frecuente  tiene rango $k=2$, y así sucesivamente para todas las palabras en ese año. 
 
 
 Si para el año $t$  se encontraron $n$ cantidad de palabras, cuyas frecuencias cumplen que $f_{1} > f_{2} > f_{3} >  \dots > f_{n-1} > f_{n}$,  entonces el ordenamiento es el siguiente. 
-
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{ccc}
-		\multicolumn{3}{c}{\textbf{Año $t$}}        \\
+		\multicolumn{3}{c}{\textbf{Año $t$}}          \\
 		Rango $k$     & Palabra    & Frecuencia $f$    \\
 		1             & pal 1      & $f_{1}$            \\
 		2             & pal 2      & $f_{2}$             \\
@@ -25,8 +24,6 @@ Si para el año $t$  se encontraron $n$ cantidad de palabras, cuyas frecuencias 
 		$n$           & pal $n$    & $f_{n}$          
 	\end{tabular}
 \end{table}
-
-
 Para su mejor lectura y evitar confusiones con los números,  se omitieron las frecuencias en los listados. 
 
 
