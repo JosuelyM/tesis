@@ -36,10 +36,8 @@ Una vez obtenidos el uso del conjunto original y el uso del conjunto reducido, l
 Para evitar tener diferentes escalas en el uso original y en el uso reducido, se normalizaron ambos conjuntos al dividirlos entre el valor promedio de cada uno.  Se define como el \textbf{factor de conversión} $F_{c}$,  al resultado de dividir el promedio del uso reducido  entre el promedio del uso original.  Basta multiplicar el uso original por el factor de conversión, para obtener el uso reducido.
 
 
-\jmnote{pensar si es el promedio de UO/UR, ver fig6}
 %Como en cada año el uso reducido es una porción del uso original, se define como el \textbf{factor de conversión} $F_{c}$, al promedio de dividir cada valor del uso reducido entre su correspondiente del uso original, por lo que está cantidad normalizada entre 0 y 1, es la porción entre ambos usos. 
 
-\jmnote{pegar sig parrafo}
 %Un factor de conversión cercano a cero, puede significar que ambos usos tengan una escala diferente a pesar de que sus respectivas graficas sean iguales. Para eliminar esta situación, se normalizaron ambos conjuntos por el valor promedio del uso de cada uno,  así los valores tanto del uso original como del uso reducido estarían alrededor de 1.  
 
 Tras la normalización, para el año $t$ se detonan como $u_{t}$ y $r_{t}$ a los nuevos valores del uso original y del uso reducido. Se obtiene la \textbf{distancia promedio} $\left\langle D \right\rangle $, al promediar las distancias que hay entre cada valor del uso original y su correspondiente en el uso reducido: 
@@ -174,7 +172,7 @@ Una conclusión que puede surgir, es que al eliminar una menor cantidad de palab
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[scale=.37]{OM_1.png}
+	\includegraphics[scale=.37]{OM1.png}
 	\caption{Eliminación de palabras del francés en el inglés. A pesar de eliminar el 40$\%$ de las palabras, año con año el uso reducido es próximo al original y en algunos años iguales, resultando en una mayor similitud al ser la distancia promedio de 0.007.}
 	\label{fig.OM1}
 \end{figure}
@@ -182,14 +180,14 @@ Una conclusión que puede surgir, es que al eliminar una menor cantidad de palab
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[scale=.37]{OM_2.png}
+	\includegraphics[scale=.37]{OM2.png}
 	\caption{Eliminación de palabras del francés en el alemán. La eliminación del 40$\%$ de las palabras, afectó a la similitud entre el uso original y el uso reducido, al obtener una distancia promedio de 0.118.}
 	\label{fig.OM2}
 \end{figure}
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[scale=.37]{OM_3.png}
+	\includegraphics[scale=.37]{OM3.png}
 	\caption{Eliminación de palabras del alemán en el español. Tras eliminar el 40$\%$ de las palabras, y  tener en algunos años el uso reducido y el uso original valores próximos entre si, no hay una similitud entre ambos conjuntos al ser la distancia promedio de  0.464.}
 	\label{fig.OM3}
 \end{figure}

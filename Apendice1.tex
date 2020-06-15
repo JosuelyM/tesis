@@ -8,9 +8,11 @@
  
 Las listas hechas para los préstamos nuevos \cite{prestamos_nuevos} y los préstamos acumulados \cite{prestamos_acumulados} de un idioma origen \textit{A} en un receptor \textit{B},  se encuentran ordenadas por cada año de la base de datos (1740-2009), y a la vez en cada año, las palabras listadas se ordenaron de forma descendente en frecuencia $f$ y ascendente en rango $k$; entonces en el año $t$, la palabra más frecuente tiene rango $k=1$, la segunda más frecuente  tiene rango $k=2$, y así sucesivamente para todas las palabras en ese año. 
 
+\jmnote{Cambiar desigualdades y ver que la tabla no corte el texto.}
 
-Si para el año $t$  se encontraron $n$ cantidad de palabras, cuyas frecuencias cumplen que $f_{1} > f_{2} > f_{3} >  \dots > f_{n-1} > f_{n}$,  entonces el ordenamiento es el siguiente. 
-\begin{table}[h!]
+Si para el año $t$  se encontraron $n$ cantidad de palabras, cuyas frecuencias cumplen que $f_{1} \geq f_{2} \geq  f_{3} \geq   \dots \geq  f_{n-1} \geq  f_{n}$,  entonces el ordenamiento es el siguiente. 
+
+\begin{table*}[htb]
 	\centering
 	\begin{tabular}{ccc}
 		\multicolumn{3}{c}{\textbf{Año $t$}}          \\
@@ -23,7 +25,9 @@ Si para el año $t$  se encontraron $n$ cantidad de palabras, cuyas frecuencias 
 		$n-1$         & pal $n-1$  & $f_{n-1}$             \\
 		$n$           & pal $n$    & $f_{n}$          
 	\end{tabular}
-\end{table}
+\end{table*}
+
+
 Para su mejor lectura y evitar confusiones con los números,  se omitieron las frecuencias en los listados. 
 
 
@@ -33,14 +37,14 @@ Para su mejor lectura y evitar confusiones con los números,  se omitieron las f
 
 
 
-\section{Gráficas de palabras acumuladas entre dos idiomas}
+\section{Gráficas del uso entre dos idiomas}
 \label{palabras.acumuladas.apendice}
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=.38]{UOR_1EN.png}
 	\label{fig.U_EF}
-	\caption{Palabras acumuladas entre el inglés y el francés}
+	\caption{Uso entre el inglés y el francés}
 \end{figure}
 
 
@@ -48,7 +52,7 @@ Para su mejor lectura y evitar confusiones con los números,  se omitieron las f
 	\centering
 	\includegraphics[scale=.38]{UOR_2EN.png}
 	\label{fig.U_EG}
-	\caption{Palabras acumuladas entre el inglés y el alemán}
+	\caption{Uso entre el inglés y el alemán}
 \end{figure}
 
 
@@ -56,35 +60,35 @@ Para su mejor lectura y evitar confusiones con los números,  se omitieron las f
 	\centering
 	\includegraphics[scale=.38]{UOR_3EN.png}
 	\label{fig.U_EI}
-	\caption{Palabras acumuladas entre el inglés y el italiano}
+	\caption{Uso entre el inglés y el italiano}
 \end{figure}
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=.38]{UOR_4EN.png}
 	\label{fig.U_ES}
-	\caption{Palabras acumuladas entre el inglés y el español}
+	\caption{Uso entre el inglés y el español}
 \end{figure}
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=.38]{UOR_1FR.png}
 	\label{fig.U_FG}
-	\caption{Palabras acumuladas entre el francés y el alemán}
+	\caption{Uso entre el francés y el alemán}
 \end{figure}
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=.38]{UOR_2FR.png}
 	\label{fig.U_FI}
-	\caption{Palabras acumuladas entre el francés y el italiano}
+	\caption{Uso entre el francés y el italiano}
 \end{figure}
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=.38]{UOR_3FR.png}
 	\label{fig.U_FS}
-	\caption{Palabras acumuladas entre el francés y el español}
+	\caption{Uso entre el francés y el español}
 \end{figure}
 
 
@@ -93,7 +97,7 @@ Para su mejor lectura y evitar confusiones con los números,  se omitieron las f
 	\centering
 	\includegraphics[scale=.38]{UOR_1GE.png}
 	\label{fig.U_GI}
-	\caption{Palabras acumuladas entre el alemán y el italiano}
+	\caption{Uso entre el alemán y el italiano}
 \end{figure}
 
 
@@ -101,7 +105,7 @@ Para su mejor lectura y evitar confusiones con los números,  se omitieron las f
 	\centering
 	\includegraphics[scale=.38]{UOR_2GE.png}
 	\label{fig.U_GS}
-	\caption{Palabras acumuladas entre el alemán y el español}
+	\caption{Uso entre el alemán y el español}
 \end{figure}
 
 
@@ -109,7 +113,7 @@ Para su mejor lectura y evitar confusiones con los números,  se omitieron las f
 	\centering
 	\includegraphics[scale=.38]{UOR_1IT.png}
 	\label{fig.U_IS}
-	\caption{Palabras acumuladas entre el italiano y el español}
+	\caption{Uso entre el italiano y el español}
 \end{figure}
 
 %\section{Eliminación de palabras}
