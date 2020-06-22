@@ -510,13 +510,22 @@
 % themselves appear in a quote environment, i.e. tabbed in at both sides, and
 % on its own page.
 
-\newenvironment{acknowledgements}
+\newenvironment{acknowledgementspersonal}
 {\pagestyle{empty}
 \begin{alwayssingle}
 \vspace*{1.5cm}
-{\chapter*{Reconocimientos}}
-\vspace{0.5cm}}
+{\chapter*{Dedicatoria}}
+\vspace{0.3cm}}
 {\end{alwayssingle}}
+
+
+\newenvironment{acknowledgementsacademic}
+{\pagestyle{empty}
+	\begin{alwayssingle}
+		\vspace*{1.5cm}
+		{\chapter*{Agradecimientos}}
+		\vspace{0.5cm}}
+	{\end{alwayssingle}}
 
 % The acknowledgementslong environment puts a large, bold, centered
 % "Acknowledgements" label at the top of the page. The acknowledgement itself
