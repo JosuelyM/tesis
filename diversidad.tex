@@ -5,16 +5,16 @@ Los resultados del capitulo anterior, fueron complementados tras mencionar a los
 
 Ya que los préstamos acumulados están organizados por año, y a la vez en cada año se ordenan las palabras de forma ascendente en rango, entonces a lo largo del tiempo, un mismo rango puede ser ocupado por diferentes palabras. 
 
-La \textbf{diversidad de rango}, es un método para cuantificar la cantidad de elementos diferentes, que tienen un mismo rango dentro de un mismo corpus. El algoritmo para llegar a la diversidad, se describe en \cite{tesis.sergio} de la siguiente manera.
+La \textbf{diversidad de rango}, es un método para cuantificar la cantidad de elementos diferentes, que tienen un mismo rango dentro de un mismo corpus. El algoritmo para llegar a la diversidad, lo describe Sánchez \cite{tesis.sergio} de la siguiente manera.
 
 
 \begin{enumerate}
 		
 	\item Se fija el año inicial y el número de años $\Delta t$, a evaluar.
 	
-	\item Se toma el primer rango de todos los años a evaluar, y se cuenta el número de palabras distintas que aparecen en ese rango.  
+	\item Se toma el primer rango $k=1$ de todos los años a evaluar, y se cuentan cuantas palabras diferentes tienen ese mismo rango. 
 	
-	\item Se sigue con el segundo rango, y se vuelven a contar cuantas palabras distintas aparecen en él durante el periodo de tiempo. 
+	\item Se sigue con el segundo rango $k=2$, y se vuelven a contar cuantas palabras diferentes tienen el mismo rango durante el periodo de tiempo. 
 	
 	\item El procedimiento anterior se repite para el número de rangos $k$ que se deseen o los que permita la base de datos. 
 	

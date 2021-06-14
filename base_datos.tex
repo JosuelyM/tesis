@@ -2,23 +2,18 @@
 %\fxnote{Listo este capitulo}
 \section{La base de datos y su interpretación} % {{{
 Para la elaboración del trabajo,  se dispuso de la base de datos de los los
-$n$-grams de Google Books  \cite{ngramv}. Esta base de datos
-tiene hasta el momento alrededor del $4\%$ de todas las publicaciones en
-diferentes idiomas,  y se caracteriza por enlistar  por cada año y por cada
-idioma de publicación los ``$n$-gramas'' más utilizados.   Los $n$-gramas son
-las palabras o conjunto de palabras que forman el texto de un libro, donde el
-número $n$ indicará la cantidad de palabras que forman el grama.  Es decir, los
+$n$-grams de Google Books  \cite{ngramv}. Esta base de datos tiene hasta el momento alrededor del $4\%$ de todas las publicaciones en diferentes idiomas, y se caracteriza por enlistar  por cada año y por cada
+idioma de publicación los ``$n$-gramas'' más utilizados.   Los $n$-gramas son las palabras o conjunto de palabras que forman el texto de un libro, donde el número $n$ indicará la cantidad de palabras que forman el grama.  Es decir, los
 1-grama son palabras individuales (una sola palabra o un signo), los 2-gramas
 son frases compuestas por dos 1-gramas, los 3-gramas el conjunto de tres 1-gramas
 y así sucesivamente.   Con la herramienta del \textit{n-gram
-viewer}~\cite{ngramv}, los usuarios pueden acceder a una forma visual el
+viewer}~\cite{ngramv}, los usuarios pueden acceder a una forma visual del
 comportamiento a lo largo del tiempo de un $n$-grama en los diferentes idiomas
 en que se publicó.  
 
 A partir de esta base, se extrajeron los datos de los 1-grama en cinco
 diferentes idiomas, inglés, francés, alemán, italiano y español,
-correspondientes a las publicaciones de 269 años (1740-2009).  De acuerdo a
-\cite{languagesascool},  el kernel de un idioma lo componen entre 1500 a 3000
+correspondientes a las publicaciones de 269 años (1740-2009).  De acuerdo a  Havlin et al. (2015) \cite{languagesascool},  el kernel de un idioma lo componen entre 1500 a 3000
 palabras más comunes del mismo,  cantidad que basta para conocer lo esencial
 del idioma. Para el
 estudio del trabajo se tomaron por cada año y por cada idioma,  las cinco mil
@@ -40,8 +35,8 @@ más usadas tienen una mayor frecuencia y un rango menor.
 
 Al tratar de identificar la presencia de un idioma en otro, una forma de
 lograrlo es reconocer aquellas palabras que son comunes entre los dos idiomas,
-y a partir de ellas se determinar como se alteran los idiomas por la presencia
-y el uso de vocablos cuyo origen proviene de un idioma externo.  Para ello se
+y a partir de ellas determinar como se alteran los idiomas por la presencia
+y el uso de vocablos cuyo origen proviene de otro idioma.  Para ello se
 identifican palabras que sean iguales en escritura, carácter por carácter y que
 estén presentes en dos o más idiomas.  Si se define como \textbf{migración}, al
 movimiento de palabras de un idioma a otro, entonces las \textbf{palabras
@@ -63,7 +58,7 @@ receptor. Si una palabra está presente en más de dos idiomas, alguno es el
 origen y los demás son los receptores. 
 
 Una vez que se tiene certeza de cuáles palabras son migrantes, y en cuáles
-idiomas está presente se procede a determinar el idioma origen y los idiomas
+idiomas están presentes se procede a determinar el idioma origen y los idiomas
 receptores.   Si se suponen dos idiomas $\textit{A}$ y $\textit{B}$  donde la
 palabra se encuentra, y se sabe con seguridad el año de aparición en cada
 idioma y el rango que ocupó para ese año,  el criterio para determinar el
@@ -79,7 +74,7 @@ rango en la lista del idioma $\textit{B}$ , entonces $\textit{A}$  es el idioma
 origen, en caso contrario, el origen es $\textit{B}$ .
 \item Se descartan palabras que contengan un solo carácter, las que son
 compuestas por letras y números y aquellas que aparecen en el receptor sólo en un año. La intención es tener una  nueva base de datos que contenga el mayor contenido
-limpio y con palabras que perduran al menos dos años en el receptor.
+limpio y con palabras que perduren al menos dos años en el receptor.
 
 \end{enumerate}
 Las condiciones anteriores, se pueden ampliar si la palabra está presente en tres o más idiomas.
@@ -101,11 +96,10 @@ $\textit{A}$  y con receptor $\textit{B}$.
 
 
 
-Los criterios empleados para establecer orígenes ha mostrado mayormente
-resultados adecuados, sin embargo se presentaron situaciones donde el algoritmo
-no logra asentar el origen adecuado. Dentro de las ventajas ($\bullet$) y
-desventajas ($\ast$) del método se encuentran las siguientes. 
+Los criterios empleados para establecer orígenes han mostrado en general
+resultados adecuados, sin embargo se presentaron situaciones donde el algoritmo no logra asentar el origen correcto. Algunas de las ventajas y desventajas del método son las siguientes. %Dentro de las ventajas ($\bullet$) y desventajas ($\ast$) del método se encuentran las siguientes. 
 \begin{itemize}
+\subsubsection*{Ventajas}
 \item [$\bullet$] 
 % [$-$] 
 Determina el idioma donde la palabra fue más popular al comienzo de
@@ -118,7 +112,8 @@ idioma a otro.
 Valora a un idioma como importante e influyente si sus vocablos son
 transmitidos a los demás y perduran por un periodo de tiempo. También el mismo
 idioma es influyente si a través de él se han esparcido palabras a los demás, a
-pesar de que no sea el idioma origen. 
+pesar de que no sea el idioma origen.
+\subsubsection*{Desventajas}
 \item [$\ast$] Al encontrar palabras con igual escritura, se obtienen casos donde
 el significado en cada idioma es diferente.  Por ejemplo, la palabra
 $\textit{mayor}$, que está presente en el inglés y en el español,  significa
@@ -147,7 +142,7 @@ poder observar todas las palabras encontradas.
 
 
 Las palabras que se encontraron se pueden agrupar en dos conjuntos de acuerdo
-a~ Beare \cite{contenidopal}. Las \textbf{palabras funcionales} son aquellas que
+a~Beare (2018) \cite{contenidopal}. Las \textbf{palabras funcionales} son aquellas que
 auxilian a las demás a estructurar un mensaje de acuerdo a la gramática del
 idioma y las \textbf{palabras de contenido} son las que llevan la información
 y el significado del mensaje. Ya  que se busca tener palabras cuyo significado
@@ -169,7 +164,7 @@ característica común y es que migran en los primeros treinta años, sin import
 el año en que comiencen las mediciones; a pesar de ser una característica
 importante el flujo de palabras siempre es mayor en este periodo, posterior a
 el las migraciones son menos frecuentes. Para estabilizar el flujo de palabras,
-se decidió partir la información en dos conjuntos que cuyo contenido se emplee
+se decidió partir la información en dos conjuntos cuyo contenido se emplee
 de forma diferente y se complemente uno a otro.  Estos se designaron como:
 
 \textbf{Conjunto base.} (1740-1899) Todas las migraciones que ocurran dentro de estos años se tomarán como verdaderas; por el momento en el presente trabajo no se indagará en el contenido que refieren a las migraciones dentro de este conjunto. 
