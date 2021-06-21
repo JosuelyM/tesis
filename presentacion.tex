@@ -1,15 +1,17 @@
-\documentclass[10pt]{beamer}
+\documentclass[10pt,xcolor={usenames,dvipsnames}]{beamer}
 
 \usetheme[progressbar=frametitle]{metropolis}
 
 \usepackage{booktabs}
 \usepackage[scale=2]{ccicons}
-
+\usepackage[geometry]{ifsym}
 \usepackage{pgfplots}
+\usepackage{multirow}
 \usepgfplotslibrary{dateplot}
 
 \usepackage{xspace}
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+\graphicspath{{images/},{figures/}}
 
 \title{Analisis estadistico del flujo de 1-gramas entre lenguajes indoeuropeos}
 %\subtitle{And all that jazz}
@@ -17,13 +19,16 @@
 \author{Josué Ely Molina Becerra}
 \institute{Universidad Nacional Autónoma de México
 \\ \textbf{Asesor de tesis: Dr. Carlos Francisco Pineda Zorrilla}}
-%\titlegraphic{\hfill\includegraphics[height=1.5cm]{SU_logo.png}}
+\titlegraphic{\hfill\includegraphics[height=1.5cm]{unam-escudo.png}}
 
+\logo{\includegraphics[height=0.8cm]{unam-escudo.png}\hspace{12pt}\vspace{-6pt}}
+%\hspace{11cm}\vspace{-25pt}}  
+      
 \begin{document}
 
 \maketitle
 
-\begin{frame}{Table of contents}
+\begin{frame}{Contenido}
   \setbeamertemplate{section in toc}[sections numbered]
   \tableofcontents[hideallsubsections]
 \end{frame}
@@ -38,88 +43,334 @@
 	\end{enumerate}
 \end{frame}
 
-\begin{frame}[fragile]{Sistemas Complejos y Base de Datos}
-	contenidos...
+
+\begin{frame}[fragile]{Base de datos}
+	
+	\begin{itemize}
+		\only<1-2>{\item[$\blacksquare$]Las publicaciones en los idiomas inglés, francés, alemán, italiano y español, en 269 años (1740-2009) obtenidas de Google Books \cite{Google}.}
+		\vspace{1cm}
+		\only<2>{\item[$\blacksquare$]Por cada año y por cada idioma se tomaron las 5 mil palabras mas usadas.}
+		%\item<3>[$\blacksquare$]Cada palabra esta asociada a una frecuencia y un rango.	
+	\end{itemize}
+	
+	\only<3>{	
+		\begin{columns}
+			\column[t]{4cm}    %new code
+			\begin{itemize}
+				\vspace{1cm}
+				\item[$\blacksquare$]Cada palabra esta asociada a una frecuencia $f$ y un rango $k$.	
+			\end{itemize}
+			
+			\column[t]{.5\textwidth}    %new code
+			\begin{exampleblock}{Estructura de una lista}
+				\begin{tabular}{ccc}
+					\multicolumn{3}{c}{\textbf{Año $t$}}          \\
+					Rango $k$     & Palabra    & Frecuencia $f$    \\
+					1             & pal 1      & $f_{1}$            \\
+					2             & pal 2      & $f_{2}$             \\
+					3             & pal 3      & $f_{3}$              \\
+					$\vdots$      & $\vdots$   & $\vdots$         \\
+					$\vdots$      & $\vdots$   & $\vdots$         \\
+					$5000$        & pal $5000$ & $f_{5000}$          
+				\end{tabular}
+			\end{exampleblock}
+			
+		\end{columns}
+	}
 \end{frame}
 
-\begin{frame}[fragile]{Búsqueda y Limpieza de Datos}
-	contenidos...
+\begin{frame}[fragile]{Definiciones y forma de búsqueda}
+	\begin{itemize}
+		\item[$\blacksquare$]Las \textbf{palabras migrantes} son palabras que están presentes en al menos dos idiomas y con igual escritura, carácter por carácter.
+		\item[$\blacksquare$]El \textbf{idioma origen} es aquel donde proviene la palabra migrante, y donde tiene un menor rango.
+		\item[$\blacksquare$]El \textbf{idioma receptor} es aquel donde la palabra esta presente.		
+	\end{itemize}	
+\end{frame}
+
+\begin{frame}[fragile]{Limpieza de datos e inconvenientes.}
+	\begin{columns}
+		\column[t]{.5\textwidth} 
+		\only<1->{Se descartan:}
+		\begin{itemize}
+			\item<1->[$\blacksquare$] Palabras de contenido. Quedando sólo palabras funcionales.
+			\item<2->[$\blacksquare$] Palabras combinadas con carácteres numéricos.
+			\\
+			\centering\textcolor{Sepia}{\textit{pag177}}
+			\item<3->[$\blacksquare$] Palabras que aparecen sólo una vez en el idioma receptor.
+			
+		\end{itemize}
+		
+		\column[t]{.5\textwidth} 
+		\only<4->{Algunas desventajas:}
+		\begin{itemize}
+			\item<4-6>[$\blacksquare$] No se distinguen plurales y singulares, palabras con la misma raíz etimológica y conjugaciones verbales.
+			\\
+			\centering\textcolor{Sepia}{\textit{niño, niños, niña}}
+			\item<5-6>[$\blacksquare$]Se encuentras palabras con diferentes significados pero igual escritura.
+			\\
+			\centering\textcolor{Sepia}{\textit{mayor}}
+			\item<6>[$\blacksquare$]Define un origen distinto al verdadero.
+			\\
+			\centering\textcolor{Sepia}{\textit{natural}}
+			
+		\end{itemize}
+		
+	\end{columns}
 \end{frame}
 
 \section{Préstamos Nuevos}
 
-\begin{frame}[fragile]{Características y Ordenamiento}
-	contenidos...
+
+\begin{frame}[fragile]{Definición y campos semánticos.}
+	
+	Los \textbf{préstamos nuevos} son palabras que aparecen por primera vez en las cinco mil más usadas del idioma receptor.
+	
+	Un \textbf{campo semántico} es un conjunto de palabras asociadas que comparten parte de su significado. 
 \end{frame}
 
-\begin{frame}[fragile]{Graficas}
-	contenidos...
+\begin{frame}
+	\only<1>{
+		\begin{columns}
+			\column[t]{.5\textwidth}
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=\columnwidth]{BOR_EN.png}
+			\end{figure}
+			
+			\column[t]{.5\textwidth} 
+			\\
+			\textcolor{Sepia}{Segunda Guerra Mundial.}
+			\begin{itemize}
+				\item churchill, catastrophe (1940)  
+			\end{itemize} 
+			
+			\textcolor{Sepia}{Tecnología}
+			\begin{itemize}
+				\item internet, online, mail, software (1990 y 2000)
+			\end{itemize}
+			
+			\textcolor{Sepia}{Globalización}
+			\begin{itemize}
+				\item standars, market, value, customer (1930, 1900, 2000)
+			\end{itemize}
+			
+		\end{columns}
+	}
+	
+	\only<2>{
+		\begin{columns}
+			\column[t]{.5\textwidth}
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=\columnwidth]{BOR_SP.png}
+			\end{figure}
+			
+			\column[t]{.5\textwidth} 
+			\\
+			\textcolor{Sepia}{Paises y ciudades de Latinoamérica.}
+			\begin{itemize}
+				\item chile, argentina, panama, buenos, aires (1900, 1910.1940)  
+			\end{itemize} 
+			
+			\textcolor{Sepia}{Medicina}
+			\begin{itemize}
+				\item virus, anemia, lepra, endovenosa, anestesia (1990, 1920, 1930, 1940)
+			\end{itemize}
+			
+		\end{columns}
+	}		
+	
+	\only<3>{
+		\begin{columns}
+			\column[t]{.5\textwidth}
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=\columnwidth]{BOR_GE.png}
+			\end{figure}
+			
+			\column[t]{.5\textwidth} 
+			\\
+			\textcolor{Sepia}{Segunda Guerra Mundial.}
+			\begin{itemize}
+				\item lenin, hitler, reich, bestimmungen, kaiser (1930, 1940)  
+			\end{itemize} 
+			
+			\textcolor{Sepia}{Apellidos académicos.}
+			\begin{itemize}
+				\item beethoven, marx, freud, nietzsche,  engels, heidegger, hegel (1900-2000)
+			\end{itemize}
+			
+		\end{columns}
+	}	
+	
 \end{frame}
 
-\begin{frame}[fragile]{Campos Semánticos}
-	contenidos...
+\begin{frame}[fragile]{Resultados de los préstamos nuevos}
+	\begin{itemize}
+		\item [$\blacksquare$] Para ocurrir una migración de palabras, debe ocurrir un evento histórico o cultural.\\
+		
+		\item [$\blacksquare$] Se logra decir las áreas donde los idiomas son más influyentes.
+		\begin{itemize}
+			\item Inglés: guerra, política, tecnología y globalización.
+			\item Francés: guerra política y apellidos académicos.
+			\item Alemán: guerra y apellidos académicos.
+			\item Italiano: guerra e ideologías políticas.
+			\item Español: medicina y nombres de países Latinoamericanos. 
+		\end{itemize}
+	\end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Resultados generales}
-	contenidos...
-\end{frame}
 
 \section{Préstamos Acumulados}
 
-\begin{frame}[fragile]{Características y Ordenamiento}
-	contenidos...
+
+
+\begin{frame}[fragile]{Características}
+	
+	\visible<1->{Un \textbf{préstamo acumulado} es una palabra con origen $A$ que ya habia aparecido en $B$, y para un determinado año lo vuelve a hacer.}
+	
+	\visible<2->{Los prestamos nuevos se vuelven acumulados si aparecen posterior a su año de migración.}
+	
+	\visible<3>{
+		\centering
+		\begin{tabular}{lcccccc}
+			\multicolumn{7}{c}{R E C E P T O R}                                                                                                                                             \\
+			\multirow{6}{*}{\begin{tabular}[c]{@{}l@{}}O\\ R\\ \,I\\ G\\ E\\ N\end{tabular}} &             & \textbf{inglés} & \textbf{francés} & \textbf{alemán} & \textbf{italiano} & \textbf{español} \\
+			& \textbf{inglés}   & -           & 6.48$\%$  & 3.28$\%$      & 1.55$\%$   & 1.47$\%$    \\
+			& \textbf{francés}  & 5.94$\%$    & -         & 1.88$\%$      & 2.37$\%$   & 1.32$\%$    \\
+			& \textbf{alemán}   & 1.27$\%$    & 1.28$\%$  & -             & 0.69$\%$   & 0.30$\%$    \\
+			& \textbf{italiano} & 1.55$\%$    & 2.01$\%$  & 0.95$\%$      & -          & 4.38$\%$    \\
+			& \textbf{español} & 2.36$\%$     & 1.68$\%$  & 0.50$\%$      & 6.23$\%$    & -          
+		\end{tabular}
+	}
+	
 \end{frame}
 
-\begin{frame}[fragile]{El Uso entre idiomas}
-	contenidos...
+\begin{frame}[Fragile]{El uso entre idiomas.}
+	Dados un origen $A$ y un receptor $B$:
+	\begin{enumerate}
+		\item<1-> Sumamos las frecuencias de las 5 mil palabras de B.
+		$$\sum_{k=1}^{5000} f(k)$$
+		
+		\item<2-> Localizamos y sumamos las frecuencias de los prestamos acumulados de A.
+		$$\sum_{j} f(j) $$
+		
+		\item<3>Obtenemos el \textbf{uso} al dividir las dos cantidades
+		\begin{equation}
+		\label{ec.fuso1}
+		\underset{ \text{\tiny A} \to  \text{\tiny B} }{U}(t) = \frac{\sum_{j} f(j)}{\sum_{k=1}^{5000} f(k)}.
+		\end{equation}
+	\end{enumerate}
 \end{frame}
 
-\begin{frame}[fragile]{Graficas}
-	contenidos...
+\begin{frame}
+	\only<1->{
+		\begin{center}
+			\includegraphics[height=4.5cm]{FR_UOR.png}
+		\end{center}
+		
+		Mayor Uso: Italiano 0.0031 fpa (1950-1970) y español 0.0015 fpa (1970-1995).
+	}
+	\\
+	\only<2>{\textcolor{Sepia}{Revolución Francesa}
+		\begin{itemize}
+			\item bastille, bourgeois, napoleon, imperiale 
+		\end{itemize}
+	}
+	\only<3>{\textcolor{Sepia}{Religión}
+		\begin{itemize}
+			\item saint, eglise, dime
+		\end{itemize}
+	}
+	\only<4>{\textcolor{Sepia}{Industria vitivinícola}
+		\begin{itemize}
+			\item raisins, vin, vignoble, recolte.
+		\end{itemize}
+	}
+	
 \end{frame}
 
-\begin{frame}[fragile]{El Uso y los Campos Semanticos}
-	contenidos...
+\begin{frame}
+	\only<1->{
+		\begin{center}
+			\includegraphics[height=4.5cm]{GE_UOR.png}
+		\end{center}
+		
+		Mayor Uso: Español 0.0021 fpa (1935-1945),  inglés -0.00015 (1960-2009).
+	}
+	\\
+	\only<2>{\textcolor{Sepia}{Segunda Guerra Mundial.}
+		\begin{itemize}
+			\item berlin, hitler, reich, testen.
+		\end{itemize}
+	}
+	\only<3>{\textcolor{Sepia}{Apellidos académicos}
+		\begin{itemize}
+			\item marz, freud, heideggger, nietzsche, hegel, engels. 
+		\end{itemize}
+	}
+	
 \end{frame}
 
-\begin{frame}{Resultados generales}
-	contenidos...
+\begin{frame}
+	\only<1->{
+		\begin{center}
+			\includegraphics[height=4.5cm]{IT_UOR.png}
+		\end{center}
+		
+		Mayor Uso: Inglés 0.0035 fpa (1930-1940), español 0.0011 fpa (1930-1960).
+	}
+	\\
+	\only<2>{\textcolor{Sepia}{Segunda Guerra Mundial.}
+		\begin{itemize}
+			\item mussolini, fascismo, battlagia.
+		\end{itemize}
+	}
+	\only<3>{\textcolor{Sepia}{Religión}
+		\begin{itemize}
+			\item santo, suora, cattedrale. 
+		\end{itemize}
+	}
+	
+\end{frame}
+
+\begin{frame}{Resultados sobre los préstamos acumulados}
+	\begin{itemize}
+		\item [$\blacksquare$]  El idioma más utilizado, no es siempre el que tiene más préstamos acumulados.
+		\item [$\blacksquare$] Si el uso aumenta en los años alrededor de un suceso, las palabras de un campo semántico aumentarán su frecuencia.
+		\item [$\blacksquare$] Obtenemos una base del contenido que ha conformado a un idioma.
+	\end{itemize}
+\end{frame}
+
+\section{Robustez} 
+
+\begin{frame}[fragile]{Eliminación y similitud}
+	\only<1->{
+	Problemas :}
+	\begin{itemize}
+		\item <2->No sabemos detectar de forma práctica los errores.
+		\item <3->Tampoco conocemos como afecta una posible limpieza al uso entre idiomas.
+	\end{itemize}
+	
+	\only<4->{
+	Solución:}
+	\begin{itemize}
+		\item <4->Eliminar préstamos acumulados y ver la similitud entre el uso original y el reducido.
+		$$
+		\left\langle D \right\rangle  = \frac{1}{N}\sum_{t=1}^{N} \left| u_{t} - r_{t} \right|.
+		$$
+		\item <5>Controlar el tamaño de la eliminación. 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Graficas Servidor}
+
 \end{frame}
 
 
-\section{Robustez}
-
-\begin{frame}[fragile]{Método}
-	contenidos...
-\end{frame}
-
-\begin{frame}[fragile]{Graficas 1}
-	contenidos...
-\end{frame}
-
-\begin{frame}[fragile]{Conclusiones y Graf 2}
-	contenidos...
-\end{frame}
-
-\section{Diversidad de Rango}
-
-\begin{frame}[fragile]{Método}
-	contenidos...
-\end{frame}
-
-\begin{frame}{Graficas y otros modelos}
-	contenidos...
-\end{frame}
-
+\section{Diversidad de rango}
 
 \section{Conclusiones}
 
-\begin{frame}[fragile]{Sobre la Influencia}
-	contenidos...
-\end{frame}
-
-\begin{frame}[fragile]{Bibliografía}
-	contenidos...
-\end{frame}
 
 \end{document}
