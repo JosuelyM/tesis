@@ -35,11 +35,25 @@
 
 \section{Introducción}
 
+\begin{frame}{Sistemas complejos}
+
+	\begin{itemize}
+	\item<1->[$\blacksquare$]Los \textbf{sistemas complejos} conformados por una gran cantidad de componentes interactuando entre sí. 
+	\item<2->[$\blacksquare$]George Zipf~\cite{zipf} trató a los idiomas como sistemas complejos.
+	\only<2>{$$ f(k)\~\frac{1}{k} $$}
+	
+	\item<3->[$\blacksquare$]Actualmente es evidente la influencia y el empleo de palabras inglesas.
+	
+	\item<4>[$\blacksquare$]No hay suficiente informacion para entender como se mezclan los idiomas, ni la influencia entre ellos.
+	
+	\end{itemize}
+
+\end{frame}
+
 \begin{frame}[fragile]{Objetivos}
 	\begin{enumerate}
 		\item Determinar la influencia de una lengua en otra a través de las palabras publicadas en los libros.
 		\item Estimar las causas del movimiento de palabras entre idiomas a partir de sucesos históricos y culturales. 
-		\item Predecir ??
 	\end{enumerate}
 \end{frame}
 
@@ -47,7 +61,7 @@
 \begin{frame}[fragile]{Base de datos}
 	
 	\begin{itemize}
-		\only<1-2>{\item[$\blacksquare$]Las publicaciones en los idiomas inglés, francés, alemán, italiano y español, en 269 años (1740-2009) obtenidas de Google Books \cite{Google}.}
+		\only<1-2>{\item[$\blacksquare$]Las publicaciones en los idiomas inglés, francés, alemán, italiano y español, en 269 años (1740-2009) obtenidas de Google Books \cite{ngramv}.}
 		\vspace{1cm}
 		\only<2>{\item[$\blacksquare$]Por cada año y por cada idioma se tomaron las 5 mil palabras mas usadas.}
 		%\item<3>[$\blacksquare$]Cada palabra esta asociada a una frecuencia y un rango.	
@@ -363,14 +377,172 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Graficas Servidor}
+\begin{frame}{Resultados previos}
+	\begin{itemize}
+	\item<1-> [$\blacksquare$]  Eliminabamos palabras al azar sin importar su rango.
+	\end{itemize}
+	\visible<2->{
+	\begin{center}
+			\includegraphics[height=4.5cm]{OM2.png}
+		\end{center}
+		}
+	\begin{itemize}
+	\item<3-> [$\blacksquare$] Podiamos eliminar muchas palabras sin afectar la similitud.
+	\end{itemize}
+\end{frame}
 
+\begin{frame}{Nuevos Resultados}
+	\begin{itemize}
+		\item<1->[$\blacksquare$] Eliminando palabras en los rangos bajos.
+	\end{itemize}
+	\visible<2->{
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[height=3.2cm]{OM_FG1.png}
+	\end{figure}
+	}
+	
+    \hrule
+    
+	\begin{itemize}
+		\item<3->[$\blacksquare$] Eliminando palabras en los rangos altos.
+	\end{itemize}
+	\visible<4>{
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[height=3.2cm]{OM_FG2.png}
+	\end{figure}
+	}
 \end{frame}
 
 
+\begin{frame}{¿Qué tanto podemos eliminar?}
+
+\begin{columns}
+	\column[t]{.5\textwidth}
+	\visible<1->{
+	Rangos bajos 
+	\begin{figure}[t]
+		\centering
+		\includegraphics[width=5.2cm, height=4.2cm]{OM_bajos.png}
+	\end{figure}
+	}
+
+	\column[t]{.5\textwidth}
+	\visible<2->{
+	Rangos altos 
+	\begin{figure}[t]
+		\centering
+		\includegraphics[width=5.2cm, height=4.2cm]{OM_altos.png}
+	\end{figure}
+	}
+\end{columns}
+
+\visible<3->{
+	\begin{itemize}
+	\item<3-> [$\blacksquare$]El peso del uso entre idiomas lo llevan las palabras con los rangos bajos. 
+	\item<4-> [$\blacksquare$]Nuestro algoritmo es bueno si en las palabras más frecuentes hay pocos errores en la clasificación.
+	\end{itemize}
+	}
+
+\end{frame}
+
 \section{Diversidad de rango}
+
+\begin{frame}{Motivación}
+	\begin{itemize}
+	\item<1->[$\blacksquare$] ¿Cómo estan cambiando las palabras más frecuentes, si estas son las que llevan el peso del uso?
+	\item<2->[$\blacksquare$] ¿Que tanto modifican su rango los préstamos acumulados?
+	\end{itemize}
+	
+	\\
+	\vspace{5mm}
+	\only<3->{
+	La diversidad de rango $d(k)$ es el cociente entre la cantidad de palabras que ocupan un mismo rango $k$, en un mismo intervalo de tiempo $\Delta t$. 
+	}
+	
+\end{frame}
+
+\begin{frame}{Dos formas de ajustar los resultados}
+
+\only<1-3>{
+\begin{figure}[t]
+	\centering
+	\includegraphics[height=4.5cm]{DR_gen.png}
+\end{figure}
+
+\begin{equation}
+	\label{ec.dklog}
+	d(k) = 0.16\ln(k) - 0.17.
+\end{equation}
+
+\begin{itemize}
+\item<2->[$\blacksquare$] Facíl de calcular.
+\item<3>[$\blacksquare$] No es fiable para combinaciones con pocos rangos.            $R^{2} = \left [0.79, 0.95  \right ]$.
+\end{itemize}
+}
+
+\only<4->{
+\begin{figure}[t]
+	\centering
+	\includegraphics[height=4.5cm, width =4.5cm]{DR_sig.png}
+\end{figure}
+\only<4-6>{
+\begin{equation}
+	\label{ec.dksig}
+	d(k) = \frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty }^{\log_{10^{k}}} e^{-\frac{\left ( y-\mu \right )^{2}}{2\sigma^{2}}}dy.\,\,\,\,\,\,\,\, \mu = 1.83\,\,\sigma = 0.87
+\end{equation}
+}
+
+\only<5-6>{
+\begin{itemize}
+\item<5-6>[$\blacksquare$] Fiable sin importar la cantidad de rangos, en promedio $R^{2}=0.95$.
+\item<6>[$\blacksquare$] Concuerda con los resultados previos  de~\cite{iplosone}hechos támbien sobre idiomas, y sobre deportes y juegos~\cite{epj}.
+\end{itemize}
+}
+}
+
+\only<7->{
+Sobre la diversidad :
+\begin{itemize}
+\item<7->[$\blacksquare$] Las palabras más cambiantes son las que tienen rangos medios y altos. 
+\item<8> [$\blacksquare$] El comportamiento  es valido sin importar el tamaño del corpus.
+\end{itemize}
+}
+\end{frame}
 
 \section{Conclusiones}
 
+\begin{frame}
+\only<1-4>{
+	\begin{itemize}
+	\item<1-4>[$\blacksquare$] Las migraciones entre idiomas son provocadas por eventos historicos o culturales.
+	\item<2-4>[$\blacksquare$] El suceso tambien  hará que las palabras de su campo semantico aumenten su frecuencia.
+	\item<3-4>[$\blacksquare$] Los idiomas influyen más que otros en ciertas areas. 
+	\begin{itemize}
+	\item<4> Inglés: politica, tecnología y globalización.
+	\item<4> Francés: religión, industria vitivínicola  y apellidos académicos.
+	\item<4> Alemán: guerra y apellidos académicos.
+	\item<4> Italiano: guerra e ideologías políticas.
+	\item<4> Español: medicina y nombres de países Latinoamericanos. 
+	\end{itemize}
+	\end{itemize}
+	}
+	
+	\only<5->{
+	\begin{itemize}
+	\item<5->[$\blacksquare$] Las palabras con los rangos más bajos son las responsables de la forma en que cambia el uso entre idiomas.
+	\item<6->[$\blacksquare$] Los errores en las clasificaciones pueden ser  despreciables si estos estan en los rangos más altos. 
+	\item<7>[$\blacksquare$] A lo largo del tiempo, las palabras que modifican más su rango, están en los rangos medios y altos. 
+	\end{itemize}
+	}
+\end{frame}
+
+\begin{frame}{Bibliografía}
+
+\bibliographystyle{Latex/Classes/PhDbiblio-url}
+\bibliography{Bibliografia/referencias}
+
+\end{frame}
 
 \end{document}
