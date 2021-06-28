@@ -8,10 +8,15 @@
 \usepackage{pgfplots}
 \usepackage{multirow}
 \usepgfplotslibrary{dateplot}
+\usepackage[backend=biber,style=numeric-comp,sorting=none]{biblatex}
 
 \usepackage{xspace}
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
 \graphicspath{{images/},{figures/}}
+\addbibresource{Bibliografia/referencias.bib}
+
+
+
 
 \title{Analisis estadistico del flujo de 1-gramas entre lenguajes indoeuropeos}
 %\subtitle{And all that jazz}
@@ -40,11 +45,11 @@
 	\begin{itemize}
 	\item<1->[$\blacksquare$]Los \textbf{sistemas complejos} conformados por una gran cantidad de componentes interactuando entre sí. 
 	\item<2->[$\blacksquare$]George Zipf~\cite{zipf} trató a los idiomas como sistemas complejos.
-	\only<2>{$$ f(k)\~\frac{1}{k} $$}
+	\only<2>{$$ f(k)\sim \frac{1}{k} $$}
 	
 	\item<3->[$\blacksquare$]Actualmente es evidente la influencia y el empleo de palabras inglesas.
 	
-	\item<4>[$\blacksquare$]No hay suficiente informacion para entender como se mezclan los idiomas, ni la influencia entre ellos.
+	\item<4>[$\blacksquare$]Necesitamos una forma para entender cómo se mezclan los idiomas y cúal es la infuencia entre ellos.
 	
 	\end{itemize}
 
@@ -117,7 +122,7 @@
 		\column[t]{.5\textwidth} 
 		\only<4->{Algunas desventajas:}
 		\begin{itemize}
-			\item<4-6>[$\blacksquare$] No se distinguen plurales y singulares, palabras con la misma raíz etimológica y conjugaciones verbales.
+			\item<4-6>[$\blacksquare$] No se distinguen plurales de singulares  ni conjugaciones verbales.
 			\\
 			\centering\textcolor{Sepia}{\textit{niño, niños, niña}}
 			\item<5-6>[$\blacksquare$]Se encuentras palabras con diferentes significados pero igual escritura.
@@ -165,36 +170,14 @@
 			
 			\textcolor{Sepia}{Globalización}
 			\begin{itemize}
-				\item standars, market, value, customer (1930, 1900, 2000)
+				\item standars, market, value, customer (1980, 1900, 2000)
 			\end{itemize}
 			
 		\end{columns}
 	}
 	
-	\only<2>{
-		\begin{columns}
-			\column[t]{.5\textwidth}
-			\begin{figure}[h!]
-				\centering
-				\includegraphics[width=\columnwidth]{BOR_SP.png}
-			\end{figure}
-			
-			\column[t]{.5\textwidth} 
-			\\
-			\textcolor{Sepia}{Paises y ciudades de Latinoamérica.}
-			\begin{itemize}
-				\item chile, argentina, panama, buenos, aires (1900, 1910.1940)  
-			\end{itemize} 
-			
-			\textcolor{Sepia}{Medicina}
-			\begin{itemize}
-				\item virus, anemia, lepra, endovenosa, anestesia (1990, 1920, 1930, 1940)
-			\end{itemize}
-			
-		\end{columns}
-	}		
 	
-	\only<3>{
+	\only<2>{
 		\begin{columns}
 			\column[t]{.5\textwidth}
 			\begin{figure}[h!]
@@ -206,7 +189,7 @@
 			\\
 			\textcolor{Sepia}{Segunda Guerra Mundial.}
 			\begin{itemize}
-				\item lenin, hitler, reich, bestimmungen, kaiser (1930, 1940)  
+				\item lenin, hitler, reich, regierung, kaiser (1930, 1940)  
 			\end{itemize} 
 			
 			\textcolor{Sepia}{Apellidos académicos.}
@@ -217,11 +200,36 @@
 		\end{columns}
 	}	
 	
+	\only<3>{
+		\begin{columns}
+			\column[t]{.5\textwidth}
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=\columnwidth]{BOR_SP.png}
+			\end{figure}
+			
+			\column[t]{.5\textwidth} 
+			\\
+			\textcolor{Sepia}{Paises y ciudades de Latinoamérica.}
+			\begin{itemize}
+				\item chile, argentina, panama, buenos, aires (1900, 1910, 1940)  
+			\end{itemize} 
+			
+			\textcolor{Sepia}{Medicina}
+			\begin{itemize}
+				\item virus, anemia, lepra, endovenosa, anestesia (1990, 1920, 1930, 1940)
+			\end{itemize}
+			
+		\end{columns}
+	}		
+	
+
+	
 \end{frame}
 
 \begin{frame}[fragile]{Resultados de los préstamos nuevos}
 	\begin{itemize}
-		\item [$\blacksquare$] Para ocurrir una migración de palabras, debe ocurrir un evento histórico o cultural.\\
+		\item [$\blacksquare$] Para haber una migración de palabras, debe ocurrir un evento histórico o cultural.\\
 		
 		\item [$\blacksquare$] Se logra decir las áreas donde los idiomas son más influyentes.
 		\begin{itemize}
@@ -241,9 +249,9 @@
 
 \begin{frame}[fragile]{Características}
 	
-	\visible<1->{Un \textbf{préstamo acumulado} es una palabra con origen $A$ que ya habia aparecido en $B$, y para un determinado año lo vuelve a hacer.}
+	\visible<1->{$\blacksquare$ Un \textbf{préstamo acumulado} es una palabra con origen $A$ que ya habia aparecido en $B$, y para un determinado año lo vuelve a hacer.}
 	
-	\visible<2->{Los prestamos nuevos se vuelven acumulados si aparecen posterior a su año de migración.}
+	\visible<2->{$\blacksquare$ Los préstamos nuevos se vuelven acumulados si aparecen posterior a su año de migración.}
 	
 	\visible<3>{
 		\centering
@@ -269,12 +277,14 @@
 		\item<2-> Localizamos y sumamos las frecuencias de los prestamos acumulados de A.
 		$$\sum_{j} f(j) $$
 		
-		\item<3>Obtenemos el \textbf{uso} al dividir las dos cantidades
+		\item<3->Obtenemos el \textbf{uso} al dividir las dos cantidades
 		\begin{equation}
 		\label{ec.fuso1}
 		\underset{ \text{\tiny A} \to  \text{\tiny B} }{U}(t) = \frac{\sum_{j} f(j)}{\sum_{k=1}^{5000} f(k)}.
-		\end{equation}
+		\end{equation}	
 	\end{enumerate}
+	
+	
 \end{frame}
 
 \begin{frame}
@@ -282,49 +292,52 @@
 		\begin{center}
 			\includegraphics[height=4.5cm]{FR_UOR.png}
 		\end{center}
+		}
 		
-		Mayor Uso: Italiano 0.0031 fpa (1950-1970) y español 0.0015 fpa (1970-1995).
+		\only<1>{ $$fpa =\frac{\Delta U}{\Delta t}$$}
+		
+		\only<2->{Mayor Uso: Italiano 0.0031 fpa (1950-1970) y español 0.0015 fpa (1970-1995).
 	}
 	\\
-	\only<2>{\textcolor{Sepia}{Revolución Francesa}
+	\only<3>{\textcolor{Sepia}{Revolución Francesa}
 		\begin{itemize}
 			\item bastille, bourgeois, napoleon, imperiale 
 		\end{itemize}
 	}
-	\only<3>{\textcolor{Sepia}{Religión}
+	\only<4>{\textcolor{Sepia}{Religión}
 		\begin{itemize}
 			\item saint, eglise, dime
 		\end{itemize}
 	}
-	\only<4>{\textcolor{Sepia}{Industria vitivinícola}
+	\only<5>{\textcolor{Sepia}{Industria vitivinícola}
 		\begin{itemize}
 			\item raisins, vin, vignoble, recolte.
 		\end{itemize}
 	}
 	
 \end{frame}
-
-\begin{frame}
-	\only<1->{
-		\begin{center}
-			\includegraphics[height=4.5cm]{GE_UOR.png}
-		\end{center}
-		
-		Mayor Uso: Español 0.0021 fpa (1935-1945),  inglés -0.00015 (1960-2009).
-	}
-	\\
-	\only<2>{\textcolor{Sepia}{Segunda Guerra Mundial.}
-		\begin{itemize}
-			\item berlin, hitler, reich, testen.
-		\end{itemize}
-	}
-	\only<3>{\textcolor{Sepia}{Apellidos académicos}
-		\begin{itemize}
-			\item marz, freud, heideggger, nietzsche, hegel, engels. 
-		\end{itemize}
-	}
+%{
+%\begin{frame}
+%	\only<1->{
+%		\begin{center}
+%			\includegraphics[height=4.5cm]{GE_UOR.png}
+%		\end{center}
+%		
+%		Mayor Uso: Español 0.0021 fpa (1935-1945),  inglés -0.00015 (1960-2009).
+%	}
+%	\\
+%	\only<2>{\textcolor{Sepia}{Segunda Guerra Mundial.}
+%		\begin{itemize}
+%			\item berlin, hitler, reich, testen.
+%		\end{itemize}
+%	}
+%	\only<3>{\textcolor{Sepia}{Apellidos académicos}
+%		\begin{itemize}
+%			\item marz, freud, heideggger, nietzsche, hegel, engels. 
+%		\end{itemize}
+%	}
 	
-\end{frame}
+%\end{frame}
 
 \begin{frame}
 	\only<1->{
@@ -516,33 +529,33 @@ Sobre la diversidad :
 \begin{frame}
 \only<1-4>{
 	\begin{itemize}
-	\item<1-4>[$\blacksquare$] Las migraciones entre idiomas son provocadas por eventos historicos o culturales.
-	\item<2-4>[$\blacksquare$] El suceso tambien  hará que las palabras de su campo semantico aumenten su frecuencia.
-	\item<3-4>[$\blacksquare$] Los idiomas influyen más que otros en ciertas areas. 
-	\begin{itemize}
-	\item<4> Inglés: politica, tecnología y globalización.
-	\item<4> Francés: religión, industria vitivínicola  y apellidos académicos.
-	\item<4> Alemán: guerra y apellidos académicos.
-	\item<4> Italiano: guerra e ideologías políticas.
-	\item<4> Español: medicina y nombres de países Latinoamericanos. 
-	\end{itemize}
+	\item<1->[$\blacksquare$] Las migraciones y el aumento del uso  entre idiomas son provocadas por eventos historicos o culturales.
+	%\item<2-4>[$\blacksquare$] El suceso tambien  hará que las palabras de su campo semantico aumenten su frecuencia.
+	\item<2->[$\blacksquare$] Los idiomas influyen más que otros en ciertas areas.
+	\item<3->[$\blacksquare$] Los errores en las clasificaciones pueden ser  despreciables si estos estan en los rangos más altos. 
+	\item<4>[$\blacksquare$] A lo largo del tiempo, las palabras que modifican más su rango, están en los rangos medios y altos. 
 	\end{itemize}
 	}
-	
-	\only<5->{
+		
+	\only<5>{
 	\begin{itemize}
-	\item<5->[$\blacksquare$] Las palabras con los rangos más bajos son las responsables de la forma en que cambia el uso entre idiomas.
-	\item<6->[$\blacksquare$] Los errores en las clasificaciones pueden ser  despreciables si estos estan en los rangos más altos. 
-	\item<7>[$\blacksquare$] A lo largo del tiempo, las palabras que modifican más su rango, están en los rangos medios y altos. 
+	\item<5> Inglés: politica, tecnología y globalización.
+	\item<5> Francés: religión, industria vitivínicola  y apellidos académicos.
+	\item<5> Alemán: guerra y apellidos académicos.
+	\item<5> Italiano: guerra e ideologías políticas.
+	\item<5> Español: medicina y nombres de países Latinoamericanos. 
 	\end{itemize}
 	}
-\end{frame}
 
-\begin{frame}{Bibliografía}
-
-\bibliographystyle{Latex/Classes/PhDbiblio-url}
-\bibliography{Bibliografia/referencias}
 
 \end{frame}
+
+
+\begin{frame}[allowframebreaks]{Bibliografía}
+%        \bibliographystyle{amsalpha}
+\printbibliography
+%        \bibliography{bib2.bib}
+\end{frame}
+
 
 \end{document}
