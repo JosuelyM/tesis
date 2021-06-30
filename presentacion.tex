@@ -7,18 +7,23 @@
 \usepackage[geometry]{ifsym}
 \usepackage{pgfplots}
 \usepackage{multirow}
-\usepgfplotslibrary{dateplot}
-\usepackage[backend=biber,style=numeric-comp,sorting=none]{biblatex}
+\usepackage{biblatex}
+%\usepgfplotslibrary{dateplot}
+%\usepackage[natbib=true,style=authoryear,backend=bibtex,useprefix=true]{biblatex}
+%\addbibresource{refepresen.bib}
+%\usepackage[backend=biber,style=numeric-comp,sorting=none]{biblatex}
 
 \usepackage{xspace}
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
 \graphicspath{{images/},{figures/}}
-\addbibresource{Bibliografia/referencias.bib}
+
+ % <--- number references
 
 
 
 
-\title{Analisis estadistico del flujo de 1-gramas entre lenguajes indoeuropeos}
+
+\title{Análisis estadístico del flujo de 1-gramas entre lenguajes indoeuropeos}
 %\subtitle{And all that jazz}
 \date{\today}
 \author{Josué Ely Molina Becerra}
@@ -43,13 +48,13 @@
 \begin{frame}{Sistemas complejos}
 
 	\begin{itemize}
-	\item<1->[$\blacksquare$]Los \textbf{sistemas complejos} conformados por una gran cantidad de componentes interactuando entre sí. 
-	\item<2->[$\blacksquare$]George Zipf~\cite{zipf} trató a los idiomas como sistemas complejos.
+	\item<1->[$\blacksquare$]Los \textbf{sistemas complejos} están conformados por una gran cantidad de componentes interactuando mutuamente entre sí. 
+	\item<2->[$\blacksquare$]George Zipf \textcolor{BrickRed}{\hyperlink{bibliografia}{[1]}} trató a los idiomas como sistemas complejos.
 	\only<2>{$$ f(k)\sim \frac{1}{k} $$}
 	
-	\item<3->[$\blacksquare$]Actualmente es evidente la influencia y el empleo de palabras inglesas.
+	\item<3->[$\blacksquare$]Actualmente es evidente el empleo de palabras inglesas.
 	
-	\item<4>[$\blacksquare$]Necesitamos una forma para entender cómo se mezclan los idiomas y cúal es la infuencia entre ellos.
+	\item<4>[$\blacksquare$]Necesitamos una forma para entender la influencia entre idiomas.
 	
 	\end{itemize}
 
@@ -57,8 +62,7 @@
 
 \begin{frame}[fragile]{Objetivos}
 	\begin{enumerate}
-		\item Determinar la influencia de una lengua en otra a través de las palabras publicadas en los libros.
-		\item Estimar las causas del movimiento de palabras entre idiomas a partir de sucesos históricos y culturales. 
+		\item Determinar la influencia de una lengua en otra.
 	\end{enumerate}
 \end{frame}
 
@@ -68,7 +72,7 @@
 	\begin{itemize}
 		\only<1-2>{\item[$\blacksquare$]Las publicaciones en los idiomas inglés, francés, alemán, italiano y español, en 269 años (1740-2009) obtenidas de Google Books \cite{ngramv}.}
 		\vspace{1cm}
-		\only<2>{\item[$\blacksquare$]Por cada año y por cada idioma se tomaron las 5 mil palabras mas usadas.}
+		\only<2>{\item[$\blacksquare$]Por cada año y por cada idioma se tomaron las 5 mil palabras más usadas.}
 		%\item<3>[$\blacksquare$]Cada palabra esta asociada a una frecuencia y un rango.	
 	\end{itemize}
 	
@@ -101,61 +105,46 @@
 \begin{frame}[fragile]{Definiciones y forma de búsqueda}
 	\begin{itemize}
 		\item[$\blacksquare$]Las \textbf{palabras migrantes} son palabras que están presentes en al menos dos idiomas y con igual escritura, carácter por carácter.
-		\item[$\blacksquare$]El \textbf{idioma origen} es aquel donde proviene la palabra migrante, y donde tiene un menor rango.
-		\item[$\blacksquare$]El \textbf{idioma receptor} es aquel donde la palabra esta presente.		
+		\item[$\blacksquare$]El \textbf{idioma origen} es aquel donde proviene la palabra migrante.
+		\item[$\blacksquare$]El \textbf{idioma receptor} es aquel donde la palabra está presente.		
 	\end{itemize}	
 \end{frame}
 
-\begin{frame}[fragile]{Limpieza de datos e inconvenientes.}
-	\begin{columns}
-		\column[t]{.5\textwidth} 
-		\only<1->{Se descartan:}
-		\begin{itemize}
-			\item<1->[$\blacksquare$] Palabras de contenido. Quedando sólo palabras funcionales.
-			\item<2->[$\blacksquare$] Palabras combinadas con carácteres numéricos.
-			\\
-			\centering\textcolor{Sepia}{\textit{pag177}}
-			\item<3->[$\blacksquare$] Palabras que aparecen sólo una vez en el idioma receptor.
-			
-		\end{itemize}
-		
-		\column[t]{.5\textwidth} 
-		\only<4->{Algunas desventajas:}
-		\begin{itemize}
-			\item<4-6>[$\blacksquare$] No se distinguen plurales de singulares  ni conjugaciones verbales.
-			\\
-			\centering\textcolor{Sepia}{\textit{niño, niños, niña}}
-			\item<5-6>[$\blacksquare$]Se encuentras palabras con diferentes significados pero igual escritura.
-			\\
-			\centering\textcolor{Sepia}{\textit{mayor}}
-			\item<6>[$\blacksquare$]Define un origen distinto al verdadero.
-			\\
-			\centering\textcolor{Sepia}{\textit{natural}}
-			
-		\end{itemize}
-		
-	\end{columns}
+\begin{frame}[fragile]{Limpieza de datos}
+	No se consideraron 
+	\begin{itemize}
+		\item<2->[$\blacksquare$] Palabras de funcionales.
+		\\ 
+		\centering\textcolor{Sepia}{\textit{él, hacía, para.}}
+		\\
+		\item<3->[$\blacksquare$] Palabras combinadas con carácteres numéricos.
+		\\
+		\centering\textcolor{Sepia}{\textit{pag177}}
+		\\
+		\item<4->[$\blacksquare$] Palabras que aparecen sólo una vez en el idioma receptor.
+	\end{itemize}
+	
 \end{frame}
 
 \section{Préstamos Nuevos}
 
 
-\begin{frame}[fragile]{Definición y campos semánticos.}
+\begin{frame}[fragile]{Definición}
 	
 	Los \textbf{préstamos nuevos} son palabras que aparecen por primera vez en las cinco mil más usadas del idioma receptor.
 	
-	Un \textbf{campo semántico} es un conjunto de palabras asociadas que comparten parte de su significado. 
+	%Un \textbf{campo semántico} es un conjunto de palabras asociadas que comparten parte de su significado. 
 \end{frame}
 
-\begin{frame}
-	\only<1>{
+\begin{frame}{Préstamos nuevos del inglés }
 		\begin{columns}
 			\column[t]{.5\textwidth}
+			\only<1->{
 			\begin{figure}[h!]
 				\centering
 				\includegraphics[width=\columnwidth]{BOR_EN.png}
 			\end{figure}
-			
+			}
 			\column[t]{.5\textwidth} 
 			\\
 			\textcolor{Sepia}{Segunda Guerra Mundial.}
@@ -174,67 +163,33 @@
 			\end{itemize}
 			
 		\end{columns}
-	}
 	
-	
-	\only<2>{
-		\begin{columns}
-			\column[t]{.5\textwidth}
-			\begin{figure}[h!]
-				\centering
-				\includegraphics[width=\columnwidth]{BOR_GE.png}
-			\end{figure}
-			
-			\column[t]{.5\textwidth} 
-			\\
-			\textcolor{Sepia}{Segunda Guerra Mundial.}
-			\begin{itemize}
-				\item lenin, hitler, reich, regierung, kaiser (1930, 1940)  
-			\end{itemize} 
-			
-			\textcolor{Sepia}{Apellidos académicos.}
-			\begin{itemize}
-				\item beethoven, marx, freud, nietzsche,  engels, heidegger, hegel (1900-2000)
-			\end{itemize}
-			
-		\end{columns}
-	}	
-	
-	\only<3>{
-		\begin{columns}
-			\column[t]{.5\textwidth}
-			\begin{figure}[h!]
-				\centering
-				\includegraphics[width=\columnwidth]{BOR_SP.png}
-			\end{figure}
-			
-			\column[t]{.5\textwidth} 
-			\\
-			\textcolor{Sepia}{Paises y ciudades de Latinoamérica.}
-			\begin{itemize}
-				\item chile, argentina, panama, buenos, aires (1900, 1910, 1940)  
-			\end{itemize} 
-			
-			\textcolor{Sepia}{Medicina}
-			\begin{itemize}
-				\item virus, anemia, lepra, endovenosa, anestesia (1990, 1920, 1930, 1940)
-			\end{itemize}
-			
-		\end{columns}
-	}		
-	
+\end{frame}
 
-	
+
+\begin{frame}{Préstamos nuevos de los demás idiomas}
+\vspace{5mm}
+\makebox[\textwidth]{%
+	\begin{tabular}{c c}
+		\includegraphics[width=4.0cm,height=3.5cm]{BOR_FR.png} &
+		\includegraphics[width=4.0cm,height=3.5cm]{BOR_GE.png} \\
+		\vspace{5mm}
+		\includegraphics[width=4.0cm,height=3.5cm]{BOR_IT.png} &
+		\includegraphics[width=4.0cm,height=3.5cm]{BOR_SP.png} \\
+
+	\end{tabular}%
+}
 \end{frame}
 
 \begin{frame}[fragile]{Resultados de los préstamos nuevos}
 	\begin{itemize}
-		\item [$\blacksquare$] Para haber una migración de palabras, debe ocurrir un evento histórico o cultural.\\
+		\item<1->[$\blacksquare$]Las palabras migran de un idioma a otro tras ocurrir un evento histórico o cultural.\\
 		
-		\item [$\blacksquare$] Se logra decir las áreas donde los idiomas son más influyentes.
+		\item<2>[$\blacksquare$] Las palabras migrantes se pueden agrupar en campos semánticos. 
+		
 		\begin{itemize}
 			\item Inglés: guerra, política, tecnología y globalización.
-			\item Francés: guerra política y apellidos académicos.
+			\item Francés: guerra, política y apellidos académicos.
 			\item Alemán: guerra y apellidos académicos.
 			\item Italiano: guerra e ideologías políticas.
 			\item Español: medicina y nombres de países Latinoamericanos. 
@@ -246,10 +201,9 @@
 \section{Préstamos Acumulados}
 
 
-
 \begin{frame}[fragile]{Características}
 	
-	\visible<1->{$\blacksquare$ Un \textbf{préstamo acumulado} es una palabra con origen $A$ que ya habia aparecido en $B$, y para un determinado año lo vuelve a hacer.}
+	\visible<1->{$\blacksquare$ Un \textbf{préstamo acumulado} es una palabra con origen $A$ que ya había aparecido en $B$, y para un determinado año lo vuelve a hacer.}
 	
 	\visible<2->{$\blacksquare$ Los préstamos nuevos se vuelven acumulados si aparecen posterior a su año de migración.}
 	
@@ -268,53 +222,78 @@
 	
 \end{frame}
 
-\begin{frame}[Fragile]{El uso entre idiomas.}
-	Dados un origen $A$ y un receptor $B$:
-	\begin{enumerate}
-		\item<1-> Sumamos las frecuencias de las 5 mil palabras de B.
-		$$\sum_{k=1}^{5000} f(k)$$
-		
-		\item<2-> Localizamos y sumamos las frecuencias de los prestamos acumulados de A.
-		$$\sum_{j} f(j) $$
-		
-		\item<3->Obtenemos el \textbf{uso} al dividir las dos cantidades
-		\begin{equation}
-		\label{ec.fuso1}
-		\underset{ \text{\tiny A} \to  \text{\tiny B} }{U}(t) = \frac{\sum_{j} f(j)}{\sum_{k=1}^{5000} f(k)}.
-		\end{equation}	
-	\end{enumerate}
+\begin{frame}[fragile]{El uso entre idiomas}
 	
+	Para un año $t$, si $k$ es el rango de las cinco mil palabras, y $j$ el rango de los préstamos acumulados.
+	
+	\visible<2->{
+	$$ \underset{ \text{\tiny A} \to  \text{\tiny B} }{U}(t) = \frac{\sum_{j} f(j)}{\sum_{k=1}^{5000} f(k)}. $$
+	}
 	
 \end{frame}
 
-\begin{frame}
-	\only<1->{
+\begin{frame}{El uso del inglés en los demás idiomas}
+	\visible<1->{
 		\begin{center}
-			\includegraphics[height=4.5cm]{FR_UOR.png}
+			\includegraphics[width=\textwidth]{UO1_EN.png}
+		\end{center}
+	}
+	\visible<2->{Mayor influencia en el alemán (1990-2003).
+	}
+	
+	\vspace{3mm}
+	\visible<3->{
+		\begin{columns}
+			\column[b]{.4\textwidth}
+			\textcolor{Sepia}{Tecnología}
+			\begin{itemize}
+				\item internet, software, digital.
+			\end{itemize}
+			
+			\column[b]{.4\textwidth} 
+			\textcolor{Sepia}{Globalización}
+			\begin{itemize}
+				\item investment, marketing, company.
+			\end{itemize}
+		\end{columns}
+	}
+	%\only<5>{\textcolor{Sepia}{Industria vitivinícola}
+	%	\begin{itemize}
+	%		\item raisins, vin, vignoble, recolte.
+	%	\end{itemize}
+	%}
+\end{frame}
+
+\begin{frame}{El uso del francés en los demás idiomas}
+	\visible<1->{
+		\begin{center}
+			\includegraphics[width=\textwidth]{UO1_FR.png}
 		\end{center}
 		}
-		
-		\only<1>{ $$fpa =\frac{\Delta U}{\Delta t}$$}
-		
-		\only<2->{Mayor Uso: Italiano 0.0031 fpa (1950-1970) y español 0.0015 fpa (1970-1995).
+	\visible<2->{Mayor influencia en el italiano (1950-1970).
 	}
-	\\
-	\only<3>{\textcolor{Sepia}{Revolución Francesa}
+	
+	\vspace{3mm}
+	\visible<3->{
+	\begin{columns}
+		\column[b]{.4\textwidth}
+		\textcolor{Sepia}{Revolución Francesa}
 		\begin{itemize}
 			\item bastille, bourgeois, napoleon, imperiale 
 		\end{itemize}
-	}
-	\only<4>{\textcolor{Sepia}{Religión}
+	
+		\column[b]{.4\textwidth} 
+		\textcolor{Sepia}{Religión}
 		\begin{itemize}
 			\item saint, eglise, dime
 		\end{itemize}
+	\end{columns}
 	}
-	\only<5>{\textcolor{Sepia}{Industria vitivinícola}
-		\begin{itemize}
-			\item raisins, vin, vignoble, recolte.
-		\end{itemize}
-	}
-	
+	%\only<5>{\textcolor{Sepia}{Industria vitivinícola}
+	%	\begin{itemize}
+	%		\item raisins, vin, vignoble, recolte.
+	%	\end{itemize}
+	%}
 \end{frame}
 %{
 %\begin{frame}
@@ -339,223 +318,222 @@
 	
 %\end{frame}
 
-\begin{frame}
-	\only<1->{
-		\begin{center}
-			\includegraphics[height=4.5cm]{IT_UOR.png}
-		\end{center}
-		
-		Mayor Uso: Inglés 0.0035 fpa (1930-1940), español 0.0011 fpa (1930-1960).
-	}
-	\\
-	\only<2>{\textcolor{Sepia}{Segunda Guerra Mundial.}
-		\begin{itemize}
-			\item mussolini, fascismo, battlagia.
-		\end{itemize}
-	}
-	\only<3>{\textcolor{Sepia}{Religión}
-		\begin{itemize}
-			\item santo, suora, cattedrale. 
-		\end{itemize}
-	}
+%\begin{frame}
+%	\only<1->{
+%		\begin{center}
+%			\includegraphics[height=4.5cm]{IT_UOR.png}
+%		\end{center}
+%		
+%		Mayor Uso: Inglés 0.0035 fpa (1930-1940), español 0.0011 fpa (1930-1960).
+%	}
+%	\\
+%	\only<2>{\textcolor{Sepia}{Segunda Guerra Mundial.}
+%		\begin{itemize}
+%			\item mussolini, fascismo, battlagia.
+%		\end{itemize}
+%	}
+%	\only<3>{\textcolor{Sepia}{Religión}
+%		\begin{itemize}
+%			\item santo, suora, cattedrale. 
+%		\end{itemize}
+%	}
 	
-\end{frame}
+%\end{frame}
 
 \begin{frame}{Resultados sobre los préstamos acumulados}
 	\begin{itemize}
-		\item [$\blacksquare$]  El idioma más utilizado, no es siempre el que tiene más préstamos acumulados.
+		
+		\item [$\blacksquare$] El idioma que más influencia tiene en otro, no es el que tiene más préstamos acumulados.
+		
 		\item [$\blacksquare$] Si el uso aumenta en los años alrededor de un suceso, las palabras de un campo semántico aumentarán su frecuencia.
-		\item [$\blacksquare$] Obtenemos una base del contenido que ha conformado a un idioma.
+
 	\end{itemize}
 \end{frame}
 
+
 \section{Robustez} 
 
-\begin{frame}[fragile]{Eliminación y similitud}
+\begin{frame}[fragile]{Errores en las clasificaciones}
+	
 	\only<1->{
-	Problemas :}
+	Problemas:}
 	\begin{itemize}
-		\item <2->No sabemos detectar de forma práctica los errores.
-		\item <3->Tampoco conocemos como afecta una posible limpieza al uso entre idiomas.
+		\item <1->[$\blacksquare$] Hay errores en las palabras migrantes.
+		\begin{itemize}
+			\item Igual escritura y diferente significado: \textcolor{Sepia}{\textit{mayor}}
+		\end{itemize}
+	
+		\item <2->[$\blacksquare$]No sabemos detectarlos de forma practica.
+			
+		\item <3->[$\blacksquare$]Tampoco conocemos cómo afecta una limpieza al uso entre idiomas.
 	\end{itemize}
 	
 	\only<4->{
 	Solución:}
 	\begin{itemize}
-		\item <4->Eliminar préstamos acumulados y ver la similitud entre el uso original y el reducido.
+		\item <4-> [$\blacksquare$]Eliminar préstamos acumulados y calcular la similitud entre el uso original y el uso reducido.
+		\visible<5>{
 		$$
 		\left\langle D \right\rangle  = \frac{1}{N}\sum_{t=1}^{N} \left| u_{t} - r_{t} \right|.
 		$$
-		\item <5>Controlar el tamaño de la eliminación. 
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{Resultados previos}
-	\begin{itemize}
-	\item<1-> [$\blacksquare$]  Eliminabamos palabras al azar sin importar su rango.
-	\end{itemize}
-	\visible<2->{
-	\begin{center}
-			\includegraphics[height=4.5cm]{OM2.png}
-		\end{center}
 		}
-	\begin{itemize}
-	\item<3-> [$\blacksquare$] Podiamos eliminar muchas palabras sin afectar la similitud.
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Nuevos Resultados}
-	\begin{itemize}
-		\item<1->[$\blacksquare$] Eliminando palabras en los rangos bajos.
-	\end{itemize}
-	\visible<2->{
-	\begin{figure}[h!]
-		\centering
-		\includegraphics[height=3.2cm]{OM_FG1.png}
-	\end{figure}
-	}
+\begin{frame}{Eliminación por rangos}
 	
-    \hrule
-    
-	\begin{itemize}
-		\item<3->[$\blacksquare$] Eliminando palabras en los rangos altos.
-	\end{itemize}
-	\visible<4>{
-	\begin{figure}[h!]
-		\centering
-		\includegraphics[height=3.2cm]{OM_FG2.png}
-	\end{figure}
+	\visible<1->{
+	\begin{minipage}{2cm}
+		$\blacksquare$ Rangos\\
+		\vspace{1mm}$\,\,\,\,\,\,$ bajos.
+	\end{minipage}%
+	\begin{minipage}{11cm}
+		\includegraphics[height=3.5cm]{OM_FI1.png}
+	\end{minipage}
 	}
-\end{frame}
+	\hfill
+	\visible<2->{
+	\begin{minipage}{2cm}
+		$\blacksquare$ Rangos \\ 
+		\vspace{1mm} $\,\,\,\,\,$ altos.
+	\end{minipage}%
+	\begin{minipage}{11cm}
+		\includegraphics[height=3.5cm]{OM_FI2.png}
+	\end{minipage}
+	}
 
+\end{frame}
 
 \begin{frame}{¿Qué tanto podemos eliminar?}
-
-\begin{columns}
-	\column[t]{.5\textwidth}
-	\visible<1->{
-	Rangos bajos 
-	\begin{figure}[t]
-		\centering
-		\includegraphics[width=5.2cm, height=4.2cm]{OM_bajos.png}
-	\end{figure}
+	
+	\begin{columns}
+		\column[t]{.5\textwidth}
+		\visible<1->{
+			$\blacksquare$Rangos bajos 
+			\begin{figure}[t]
+				\centering
+				\includegraphics[width=5.25cm, height=4.25cm]{OM_bajos.png}
+			\end{figure}
+		}
+		
+		\column[t]{.5\textwidth}
+		\visible<2->{
+			$\blacksquare$Rangos altos 
+			\begin{figure}[t]
+				\centering
+				\includegraphics[width=5.25cm, height=4.25cm]{OM_altos.png}
+			\end{figure}
+		}
+	\end{columns}
+	
+	\visible<3->{
+		\begin{itemize}
+			\item<3-> [$\blacksquare$]El peso del uso entre idiomas, lo llevan las palabras con los rangos bajos. 
+			
+			\item<4-> [$\blacksquare$] método es bueno si en las palabras más frecuentes hay pocos errores de clasificación.
+		\end{itemize}
 	}
-
-	\column[t]{.5\textwidth}
-	\visible<2->{
-	Rangos altos 
-	\begin{figure}[t]
-		\centering
-		\includegraphics[width=5.2cm, height=4.2cm]{OM_altos.png}
-	\end{figure}
-	}
-\end{columns}
-
-\visible<3->{
-	\begin{itemize}
-	\item<3-> [$\blacksquare$]El peso del uso entre idiomas lo llevan las palabras con los rangos bajos. 
-	\item<4-> [$\blacksquare$]Nuestro algoritmo es bueno si en las palabras más frecuentes hay pocos errores en la clasificación.
-	\end{itemize}
-	}
-
+	
 \end{frame}
+
+
+
+
+
 
 \section{Diversidad de rango}
 
 \begin{frame}{Motivación}
 	\begin{itemize}
-	\item<1->[$\blacksquare$] ¿Cómo estan cambiando las palabras más frecuentes, si estas son las que llevan el peso del uso?
-	\item<2->[$\blacksquare$] ¿Que tanto modifican su rango los préstamos acumulados?
-	\end{itemize}
-	
-	\\
+	\item<1->[$\blacksquare$] ¿Cómo cambian las palabras su rango a lo largo del tiempo?
+	%\item<2->[$\blacksquare$] ¿Que tanto modifican su rango los préstamos acumulados?
 	\vspace{5mm}
-	\only<3->{
-	La diversidad de rango $d(k)$ es el cociente entre la cantidad de palabras que ocupan un mismo rango $k$, en un mismo intervalo de tiempo $\Delta t$. 
-	}
-	
+	\item<2->[$\blacksquare$]La diversidad de rango $d(k)$, cuantifica cuantas palabras ocupan un mismo rango $k$ dentro de un intervalo de tiempo $\Delta t$. 
+	\end{itemize}
 \end{frame}
 
-\begin{frame}{Dos formas de ajustar los resultados}
 
-\only<1-3>{
-\begin{figure}[t]
-	\centering
-	\includegraphics[height=4.5cm]{DR_gen.png}
-\end{figure}
+%\begin{frame}{Ajuste a una curva logarítmica}
+%	
+%	\begin{figure}[t]
+%		\centering
+%		\includegraphics[height=4.5cm]{DR_gen.png}
+%	\end{figure}
+%	\vspace{0.5mm}
+%	$$d(k) = 0.16\ln(k) - 0.17. $$
+%
+%	\begin{itemize}
+%	\item<2->[$\blacksquare$] Fácil de calcular.
+%	\item<3>[$\blacksquare$]  No es fiable en rangos bajos.  %          $R^{2} = \left [0.79, 0.95  \right ]$.
+%	\end{itemize}
 
-\begin{equation}
-	\label{ec.dklog}
-	d(k) = 0.16\ln(k) - 0.17.
-\end{equation}
+%\end{frame}
 
-\begin{itemize}
-\item<2->[$\blacksquare$] Facíl de calcular.
-\item<3>[$\blacksquare$] No es fiable para combinaciones con pocos rangos.            $R^{2} = \left [0.79, 0.95  \right ]$.
-\end{itemize}
-}
+\begin{frame}{Ajuste a una curva sigmoide}
+	\visible<1->{
+		\begin{columns}
+		\column[]{.6\textwidth}
+		\centering
+		\includegraphics[height=5.4cm, width =6.4cm]{DR_sig.png}
+		
+		\column[]{.5\textwidth} 
+		$$d(k) = \frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty }^{\log_{10^{k}}} e^{-\frac{\left ( y-\mu \right )^{2}}{2\sigma^{2}}}dy.$$ 	
+		\\
+		$$ \mu = 1.83\,\,\sigma = 0.87$$ 
+	\end{columns}
+	}
+	\visible<2->{
+	\begin{itemize}
+		\item<2->[$\blacksquare$] Fiable sin importar el rango, en promedio $R^{2}=0.95$.
+		\item<3>[$\blacksquare$] Concuerda con los resultados  hechos en idiomas~\cite{iplosone}, y en deportes y juegos~\cite{epj}.
+	\end{itemize}
+	}
+\end{frame}
 
-\only<4->{
-\begin{figure}[t]
-	\centering
-	\includegraphics[height=4.5cm, width =4.5cm]{DR_sig.png}
-\end{figure}
-\only<4-6>{
-\begin{equation}
-	\label{ec.dksig}
-	d(k) = \frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty }^{\log_{10^{k}}} e^{-\frac{\left ( y-\mu \right )^{2}}{2\sigma^{2}}}dy.\,\,\,\,\,\,\,\, \mu = 1.83\,\,\sigma = 0.87
-\end{equation}
-}
+\begin{frame}{Resultados de la diversidad}
+	\begin{itemize}
+		\item<1->[$\blacksquare$] Las palabras que cambian más su rango, se localizan en rangos medios y altos. 
+		\\
+		\item<2> [$\blacksquare$] Este comportamiento  es valido sin importar el tamaño del corpus.
+	\end{itemize}
 
-\only<5-6>{
-\begin{itemize}
-\item<5-6>[$\blacksquare$] Fiable sin importar la cantidad de rangos, en promedio $R^{2}=0.95$.
-\item<6>[$\blacksquare$] Concuerda con los resultados previos  de~\cite{iplosone}hechos támbien sobre idiomas, y sobre deportes y juegos~\cite{epj}.
-\end{itemize}
-}
-}
-
-\only<7->{
-Sobre la diversidad :
-\begin{itemize}
-\item<7->[$\blacksquare$] Las palabras más cambiantes son las que tienen rangos medios y altos. 
-\item<8> [$\blacksquare$] El comportamiento  es valido sin importar el tamaño del corpus.
-\end{itemize}
-}
 \end{frame}
 
 \section{Conclusiones}
 
-\begin{frame}
-\only<1-4>{
+\begin{frame}{Conclusiones}
+\only<1-3>{
 	\begin{itemize}
-	\item<1->[$\blacksquare$] Las migraciones y el aumento del uso  entre idiomas son provocadas por eventos historicos o culturales.
+	\item<1->[$\blacksquare$] Las migraciones de palabras y el aumento de la influencia entre idiomas, son provocadas por eventos históricos o culturales.
 	%\item<2-4>[$\blacksquare$] El suceso tambien  hará que las palabras de su campo semantico aumenten su frecuencia.
-	\item<2->[$\blacksquare$] Los idiomas influyen más que otros en ciertas areas.
-	\item<3->[$\blacksquare$] Los errores en las clasificaciones pueden ser  despreciables si estos estan en los rangos más altos. 
-	\item<4>[$\blacksquare$] A lo largo del tiempo, las palabras que modifican más su rango, están en los rangos medios y altos. 
+	%\item<2->[$\blacksquare$] Los idiomas influyen más que otros en ciertas areas.
+	\item<2->[$\blacksquare$] Los errores en las clasificaciones pueden ser  despreciables si estos están en los rangos más altos. 
+	\item<3>[$\blacksquare$] A lo largo del tiempo, las palabras que modifican más su rango, están en los rangos medios y altos. 
 	\end{itemize}
 	}
 		
-	\only<5>{
+	\only<4>{
 	\begin{itemize}
-	\item<5> Inglés: politica, tecnología y globalización.
-	\item<5> Francés: religión, industria vitivínicola  y apellidos académicos.
-	\item<5> Alemán: guerra y apellidos académicos.
-	\item<5> Italiano: guerra e ideologías políticas.
-	\item<5> Español: medicina y nombres de países Latinoamericanos. 
+	\item<4> Inglés: politica, tecnología y globalización.
+	\item<4> Francés: religión, industria vitivínicola  y apellidos académicos.
+	\item<4> Alemán: guerra y apellidos académicos.
+	\item<4> Italiano: guerra e ideologías políticas.
+	\item<4> Español: medicina y nombres de países Latinoamericanos. 
 	\end{itemize}
 	}
 
 
 \end{frame}
 
-
-\begin{frame}[allowframebreaks]{Bibliografía}
-%        \bibliographystyle{amsalpha}
-\printbibliography
-%        \bibliography{bib2.bib}
+\begin{frame}[noframenumbering]{Bibliografía}
+	\label{bibliografia}
+	\begin{thebibliography}{10}
+		\setbeamertemplate{bibliography item}[text]
+		\bibitem{1} Josue
+	\end{thebibliography}
 \end{frame}
-
+%\begin{frame}[noframenumbering]{Bibliografía}
+%	\printbibliography
+%\end{frame}
 
 \end{document}
